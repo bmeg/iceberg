@@ -63,5 +63,6 @@ Iceberg will organize projects or data submissions by source. (e.g. "bucket/my-l
 
 > A iceberg user should be able to move towards loading a given data base without referring to how the data was harvested and stored.
 
+> This repo should limit itself to central schemas.  Tooling, submission and manifest repos will refer to this to retrieve schemas definitions.
 
 
