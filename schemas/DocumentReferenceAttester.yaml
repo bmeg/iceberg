@@ -1,0 +1,89 @@
+additionalProperties: false
+description: 'Disclaimer: Any field name ends with ``__ext`` doesn''t part of
+
+  Resource StructureDefinition, instead used to enable Extensibility feature
+
+  for FHIR Primitive Data Types.
+
+  Attests to accuracy of the document.
+
+  A participant who has authenticated the accuracy of the document.'
+id: DocumentReferenceAttester
+properties:
+  _time:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``time``.
+  extension:
+    description: May be used to represent additional information that is not part
+      of the basic definition of the element. To make the use of extensions safe and
+      managable, there is a strict set of governance applied to the definition and
+      use of extensions. Though any implementer can define an extension, there is
+      a set of requirements that SHALL be met as part of the definition of the extension.
+    element_property: true
+    items:
+      $ref: Extension.yaml
+    title: Additional content defined by implementations
+    type: array
+  fhir_comments:
+    anyOf:
+    - type: string
+    - items:
+        type: string
+      type: array
+    element_property: false
+    title: Fhir Comments
+  id:
+    description: Unique id for the element within a resource (for internal references).
+      This may be any string value that does not contain spaces.
+    element_property: true
+    pattern: '[ \r\n\t\S]+'
+    title: Unique id for inter-element referencing
+    type: string
+  mode:
+    $ref: CodeableConcept.yaml
+    description: The type of attestation the authenticator offers.
+    element_property: true
+    title: personal | professional | legal | official
+  modifierExtension:
+    description: May be used to represent additional information that is not part
+      of the basic definition of the element and that modifies the understanding of
+      the element in which it is contained and/or the understanding of the containing
+      element's descendants. Usually modifier elements provide negation or qualification.
+      To make the use of extensions safe and managable, there is a strict set of governance
+      applied to the definition and use of extensions. Though any implementer can
+      define an extension, there is a set of requirements that SHALL be met as part
+      of the definition of the extension. Applications processing a resource are required
+      to check for modifier extensions.  Modifier extensions SHALL NOT change the
+      meaning of any elements on Resource or DomainResource (including cannot change
+      the meaning of modifierExtension itself).
+    element_property: true
+    items:
+      $ref: Extension.yaml
+    title: Extensions that cannot be ignored even if unrecognized
+    type: array
+  party:
+    $ref: Reference.yaml
+    description: 'Who attested the document in the specified way. Note: following
+      not in scope, see config.dependency_order. Practitioner PractitionerRole Organization
+      RelatedPerson'
+    element_property: true
+    targets:
+    - backref: document_reference_attester
+      type:
+        $ref: Patient.yaml
+    title: Who attested the document
+  resourceType:
+    const: DocumentReferenceAttester
+    default: DocumentReferenceAttester
+    title: Resource Type
+    type: string
+  time:
+    description: When the document was attested by the party.
+    element_property: true
+    format: date-time
+    title: When the document was attested
+    type: string
+required:
+- mode
+title: DocumentReferenceAttester
+type: object
