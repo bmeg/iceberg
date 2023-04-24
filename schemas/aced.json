@@ -994,7 +994,7 @@
       }
     },
     "treatment_outcome": {
-      "description": "Text term that describes the patient\u00bfs final outcome after the treatment was administered.\n",
+      "description": "Text term that describes the patient¿s final outcome after the treatment was administered.\n",
       "termDef": {
         "term": "Treatment Outcome Type",
         "source": "caDSR",
@@ -1671,7 +1671,7 @@
       },
       "us_core_birthsex_code": {
         "type": "string",
-        "description": "A code classifying the person\u2019s sex assigned at birth as specified by the Office of the National Coordinator for Health IT (ONC). This extension aligns with the C-CDA Birth Sex Observation (LOINC 76689-9).",
+        "description": "A code classifying the person’s sex assigned at birth as specified by the Office of the National Coordinator for Health IT (ONC). This extension aligns with the C-CDA Birth Sex Observation (LOINC 76689-9).",
         "termDef": {
           "cde_id": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
           "term": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
@@ -1712,6 +1712,18 @@
           "source": "fhir",
           "strength": "required"
         }
+      },
+      "us_core_race_coding_coding": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "us_core_ethnicity_coding_coding": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "address_geolocation_valueDecimal": {
+        "type": "string",
+        "description": "From FHIR extension."
       }
     },
     "additionalProperties": false,
@@ -2568,6 +2580,78 @@
         "one_of_many_required": false,
         "type": "string",
         "format": "time"
+      },
+      "category_coding": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "diastolic_blood_pressure": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "diastolic_blood_pressure_value": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "diastolic_blood_pressure_unit": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "systolic_blood_pressure": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "systolic_blood_pressure_value": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "systolic_blood_pressure_unit": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "gene_studied_id_coding": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "gene_studied_id": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "genomic_reference_sequence_id_coding": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "genomic_reference_sequence_id": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "conclusion_string": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "evidence_level_coding": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "evidence_level": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "predicted_phenotype_coding": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "predicted_phenotype": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "observation_interpretation_coding": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "observation_interpretation": {
+        "type": "string",
+        "description": "From FHIR extension."
       }
     },
     "required": [
@@ -3123,6 +3207,10 @@
       "verificationStatus_coding": {
         "type": "string",
         "title": "Coded representation."
+      },
+      "category_coding": {
+        "type": "string",
+        "description": "From FHIR extension."
       }
     },
     "required": [
@@ -3519,7 +3607,7 @@
   },
   "document_reference": {
     "title": "DocumentReference",
-    "description": "Disclaimer: Any field name ends with ``__ext`` doesn't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\nA reference to a document.\nA reference to a document of any kind for any purpose. While the term\n\u201cdocument\u201d implies a more narrow focus, for this resource this \"document\"\nencompasses *any* serialized object with a mime-type, it includes formal\npatient-centric documents (CDA), clinical notes, scanned paper, non-patient\nspecific documents like policy text, as well as a photo, video, or audio\nrecording acquired or used in healthcare.  The DocumentReference resource\nprovides metadata about the document so that the document can be discovered\nand managed.  The actual content may be inline base64 encoded data or\nprovided by direct reference.",
+    "description": "Disclaimer: Any field name ends with ``__ext`` doesn't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\nA reference to a document.\nA reference to a document of any kind for any purpose. While the term\n“document” implies a more narrow focus, for this resource this \"document\"\nencompasses *any* serialized object with a mime-type, it includes formal\npatient-centric documents (CDA), clinical notes, scanned paper, non-patient\nspecific documents like policy text, as well as a photo, video, or audio\nrecording acquired or used in healthcare.  The DocumentReference resource\nprovides metadata about the document so that the document can be discovered\nand managed.  The actual content may be inline base64 encoded data or\nprovided by direct reference.",
     "type": "object",
     "properties": {
       "$ref": "_definitions.yaml#/data_file_properties",
