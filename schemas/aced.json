@@ -1242,7 +1242,7 @@
           "type": "string"
         }
       },
-      "label": {
+      "label_": {
         "title": "Additional names for the study",
         "element_property": true,
         "type": "array",
