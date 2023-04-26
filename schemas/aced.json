@@ -1724,6 +1724,10 @@
       "address_geolocation_valueDecimal": {
         "type": "string",
         "description": "From FHIR extension."
+      },
+      "address_orh_zip_designation_code": {
+        "type": "string",
+        "description": "From FHIR extension."
       }
     },
     "additionalProperties": false,
@@ -1979,6 +1983,10 @@
         ],
         "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
         "type": "string"
+      },
+      "category_coding": {
+        "type": "string",
+        "description": "From FHIR extension."
       }
     },
     "required": [
@@ -2150,6 +2158,18 @@
       "type_coding": {
         "type": "string",
         "title": "Coded representation."
+      },
+      "resource_type": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "additive": {
+        "type": "string",
+        "description": "From FHIR extension."
+      },
+      "timeDateTime": {
+        "type": "string",
+        "description": "From FHIR extension."
       }
     },
     "additionalProperties": false,
@@ -4464,6 +4484,10 @@
         ],
         "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
         "type": "string"
+      },
+      "condition_coding": {
+        "type": "string",
+        "description": "From FHIR extension."
       }
     },
     "required": [
