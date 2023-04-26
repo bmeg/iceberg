@@ -1242,7 +1242,7 @@
           "type": "string"
         }
       },
-      "label": {
+      "label_": {
         "title": "Additional names for the study",
         "element_property": true,
         "type": "array",
@@ -1955,8 +1955,7 @@
       "quantity": {
         "title": "Amount of substance in the package",
         "description": "The amount of the substance.",
-        "element_property": true,
-        "$ref": "Quantity.yaml"
+        "element_property": true
       },
       "quantity_unit": {
         "type": "string",
@@ -3336,8 +3335,7 @@
       "totalVolume": {
         "title": "When the specified product code does not infer a package size, this is the specific amount of drug in the product",
         "description": "When the specified product code does not infer a package size, this is the specific amount of drug in the product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.).",
-        "element_property": true,
-        "$ref": "Quantity.yaml"
+        "element_property": true
       },
       "totalVolume_unit": {
         "type": "string",
