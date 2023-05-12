@@ -7,6 +7,10 @@ A clearinghouse for schemas
 
 <img width="569" alt="image" src="https://user-images.githubusercontent.com/47808/233496629-ffa62434-2182-498d-898a-a0bdad6403bd.png">
 
+## simplified schema
+
+<img src="docs/edges.sif.gen3.tsv.png" />
+
 ## schema
 
 * in: we need to be able to read
