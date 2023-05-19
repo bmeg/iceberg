@@ -2,7 +2,7 @@ $id: Meta
 additionalProperties: false
 description: Metadata about a resource. The metadata about a resource. This is content
   in the resource that is maintained by the infrastructure. Changes to the content
-  might not always be associated with version changes to the resource. see https://hl7.org/fhir/R5/Meta
+  might not always be associated with version changes to the resource. [See https://hl7.org/fhir/R5/Meta]
 properties:
   _lastUpdated:
     $ref: FHIRPrimitiveExtension.yaml

@@ -1,6 +1,6 @@
 $id: ResearchStudyRecruitment
 additionalProperties: false
-description: Target or actual group of participants enrolled in study. see https://hl7.org/fhir/R5/ResearchStudyRecruitment
+description: Target or actual group of participants enrolled in study. [See https://hl7.org/fhir/R5/ResearchStudyRecruitment]
 properties:
   _actualNumber:
     $ref: FHIRPrimitiveExtension.yaml

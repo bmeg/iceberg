@@ -2,7 +2,7 @@ $id: Condition
 additionalProperties: false
 description: Detailed information about conditions, problems or diagnoses. A clinical
   condition, problem, diagnosis, or other event, situation, issue, or clinical concept
-  that has risen to a level of concern. see https://hl7.org/fhir/R5/Condition
+  that has risen to a level of concern. [See https://hl7.org/fhir/R5/Condition]
 properties:
   _abatementDateTime:
     $ref: FHIRPrimitiveExtension.yaml
@@ -136,6 +136,7 @@ properties:
     - Encounter
     title: The Encounter during which this Condition was created
   evidence:
+    backref: evidence_condition
     binding_description: null
     binding_strength: example
     binding_uri: http://hl7.org/fhir/ValueSet/clinical-findings

@@ -1,11 +1,11 @@
-$id: DocumentReferenceAttester
+$id: EncounterLocation
 additionalProperties: false
-description: Attests to accuracy of the document. A participant who has authenticated
-  the accuracy of the document. [See https://hl7.org/fhir/R5/DocumentReferenceAttester]
+description: List of locations where the patient has been. List of locations where  the
+  patient has been during this encounter. [See https://hl7.org/fhir/R5/EncounterLocation]
 properties:
-  _time:
+  _status:
     $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``time``.
+    title: Extension field for ``status``.
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -25,6 +25,17 @@ properties:
       type: array
     element_property: false
     title: Fhir Comments
+  form:
+    $ref: CodeableConcept.yaml
+    binding_description: Physical form of the location.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/location-form
+    binding_version: null
+    description: This will be used to specify the required levels (bed/ward/room/etc.)
+      desired to be recorded to simplify either messaging or query.
+    element_property: true
+    title: The physical type of the location (usually the level in the location hierarchy
+      - bed, room, ward, virtual etc.)
   id:
     description: Unique id for the element within a resource (for internal references).
       This may be any string value that does not contain spaces.
@@ -32,15 +43,14 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
-  mode:
-    $ref: CodeableConcept.yaml
-    binding_description: The way in which a person authenticated a document.
-    binding_strength: preferred
-    binding_uri: http://hl7.org/fhir/ValueSet/composition-attestation-mode
-    binding_version: null
-    description: The type of attestation the authenticator offers.
+  location:
+    $ref: Reference.yaml
+    backref: encounter_location
+    description: The location where the encounter takes place.
     element_property: true
-    title: personal | professional | legal | official
+    enum_reference_types:
+    - Location
+    title: Location the encounter takes place
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of
@@ -58,31 +68,34 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
-  party:
-    $ref: Reference.yaml
-    backref: document_reference_attester
-    description: Who attested the document in the specified way.
+  period:
+    $ref: Period.yaml
     element_property: true
-    enum_reference_types:
-    - Patient
-    - RelatedPerson
-    - Practitioner
-    - PractitionerRole
-    - Organization
-    title: Who attested the document
+    title: Time period during which the patient was present at the location
   resourceType:
-    const: DocumentReferenceAttester
-    default: DocumentReferenceAttester
+    const: EncounterLocation
+    default: EncounterLocation
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-  time:
-    description: When the document was attested by the party.
+  status:
+    binding_description: The status of the location.
+    binding_strength: required
+    binding_uri: http://hl7.org/fhir/ValueSet/encounter-location-status
+    binding_version: 5.0.0
+    description: The status of the participants' presence at the specified location
+      during the period specified. If the participant is no longer at the location,
+      then the period will have an end date/time.
     element_property: true
-    format: date-time
-    title: When the document was attested
+    enum_values:
+    - planned
+    - active
+    - reserved
+    - completed
+    pattern: ^[^\s]+(\s[^\s]+)*$
+    title: planned | active | reserved | completed
     type: string
 required:
-- mode
-title: DocumentReferenceAttester
+- location
+title: EncounterLocation
 type: object

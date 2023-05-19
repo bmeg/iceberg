@@ -1,6 +1,6 @@
 $id: ResearchStudyProgressStatus
 additionalProperties: false
-description: Status of study with time for that status. see https://hl7.org/fhir/R5/ResearchStudyProgressStatus
+description: Status of study with time for that status. [See https://hl7.org/fhir/R5/ResearchStudyProgressStatus]
 properties:
   _actual:
     $ref: FHIRPrimitiveExtension.yaml

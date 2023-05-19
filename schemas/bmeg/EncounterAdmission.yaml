@@ -1,11 +1,34 @@
-$id: DocumentReferenceAttester
+$id: EncounterAdmission
 additionalProperties: false
-description: Attests to accuracy of the document. A participant who has authenticated
-  the accuracy of the document. [See https://hl7.org/fhir/R5/DocumentReferenceAttester]
+description: Details about the admission to a healthcare service. Details about the
+  stay during which a healthcare service is provided. This does not describe the event
+  of admitting the patient, but rather any information that is relevant from the time
+  of admittance until the time of discharge. [See https://hl7.org/fhir/R5/EncounterAdmission]
 properties:
-  _time:
-    $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``time``.
+  admitSource:
+    $ref: CodeableConcept.yaml
+    binding_description: From where the patient was admitted.
+    binding_strength: preferred
+    binding_uri: http://hl7.org/fhir/ValueSet/encounter-admit-source
+    binding_version: null
+    element_property: true
+    title: From where patient was admitted (physician referral, transfer)
+  destination:
+    $ref: Reference.yaml
+    backref: destination_encounter_admission
+    element_property: true
+    enum_reference_types:
+    - Location
+    - Organization
+    title: Location/organization to which the patient is discharged
+  dischargeDisposition:
+    $ref: CodeableConcept.yaml
+    binding_description: Discharge Disposition.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/encounter-discharge-disposition
+    binding_version: null
+    element_property: true
+    title: Category or kind of location after discharge
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -32,15 +55,6 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
-  mode:
-    $ref: CodeableConcept.yaml
-    binding_description: The way in which a person authenticated a document.
-    binding_strength: preferred
-    binding_uri: http://hl7.org/fhir/ValueSet/composition-attestation-mode
-    binding_version: null
-    description: The type of attestation the authenticator offers.
-    element_property: true
-    title: personal | professional | legal | official
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of
@@ -58,31 +72,34 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
-  party:
+  origin:
     $ref: Reference.yaml
-    backref: document_reference_attester
-    description: Who attested the document in the specified way.
+    backref: origin_encounter_admission
     element_property: true
     enum_reference_types:
-    - Patient
-    - RelatedPerson
-    - Practitioner
-    - PractitionerRole
+    - Location
     - Organization
-    title: Who attested the document
+    title: The location/organization from which the patient came before admission
+  preAdmissionIdentifier:
+    $ref: Identifier.yaml
+    element_property: true
+    title: Pre-admission identifier
+  reAdmission:
+    $ref: CodeableConcept.yaml
+    binding_description: The reason for re-admission of this admission encounter.
+    binding_strength: example
+    binding_uri: http://terminology.hl7.org/ValueSet/v2-0092
+    binding_version: null
+    description: Indicates that this encounter is directly related to a prior admission,
+      often because the conditions addressed in the prior admission were not fully
+      addressed.
+    element_property: true
+    title: Indicates that the patient is being re-admitted
   resourceType:
-    const: DocumentReferenceAttester
-    default: DocumentReferenceAttester
+    const: EncounterAdmission
+    default: EncounterAdmission
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-  time:
-    description: When the document was attested by the party.
-    element_property: true
-    format: date-time
-    title: When the document was attested
-    type: string
-required:
-- mode
-title: DocumentReferenceAttester
+title: EncounterAdmission
 type: object

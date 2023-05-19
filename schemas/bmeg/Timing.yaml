@@ -5,7 +5,7 @@ description: A timing schedule that specifies an event that may occur multiple t
   when things are planned, expected or requested to occur. The most common usage is
   in dosage instructions for medications. They are also used when planning care of
   various kinds, and may be used for reporting the schedule to which past regular
-  activities were carried out. see https://hl7.org/fhir/R5/Timing
+  activities were carried out. [See https://hl7.org/fhir/R5/Timing]
 properties:
   _event:
     items:

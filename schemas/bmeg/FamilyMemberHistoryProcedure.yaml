@@ -3,7 +3,7 @@ additionalProperties: false
 description: Procedures that the related person had. The significant Procedures (or
   procedure) that the family member had. This is a repeating section to allow a system
   to represent more than one procedure per resource, though there is nothing stopping
-  multiple resources - one per procedure. see https://hl7.org/fhir/R5/FamilyMemberHistoryProcedure
+  multiple resources - one per procedure. [See https://hl7.org/fhir/R5/FamilyMemberHistoryProcedure]
 properties:
   _contributedToDeath:
     $ref: FHIRPrimitiveExtension.yaml

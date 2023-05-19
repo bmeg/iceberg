@@ -2,7 +2,7 @@ $id: CodeableReference
 additionalProperties: false
 description: Reference to a resource or a concept. A reference to a resource (by instance),
   or instead, a reference to a concept defined in a terminology or ontology (by class).
-  see https://hl7.org/fhir/R5/CodeableReference
+  [See https://hl7.org/fhir/R5/CodeableReference]
 properties:
   concept:
     $ref: CodeableConcept.yaml

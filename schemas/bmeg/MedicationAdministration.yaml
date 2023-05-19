@@ -4,7 +4,7 @@ description: Administration of medication to a patient. Describes the event of a
   consuming or otherwise being administered a medication.  This may be as simple as
   swallowing a tablet or it may be a long running infusion.  Related resources tie
   this event to the authorizing prescription, and the specific encounter between patient
-  and health care practitioner. see https://hl7.org/fhir/R5/MedicationAdministration
+  and health care practitioner. [See https://hl7.org/fhir/R5/MedicationAdministration]
 properties:
   _implicitRules:
     $ref: FHIRPrimitiveExtension.yaml
@@ -58,6 +58,7 @@ properties:
     title: Contained, inline Resources
     type: array
   device:
+    backref: device_medication_administration
     description: The device that is to be used for the administration of the medication
       (for example, PCA Pump).
     element_property: true
@@ -159,6 +160,7 @@ properties:
     type: string
   medication:
     $ref: CodeableReference.yaml
+    backref: medication_administration
     binding_description: Codes identifying substance or product that can be administered.
     binding_strength: example
     binding_uri: http://hl7.org/fhir/ValueSet/medication-codes
@@ -258,6 +260,7 @@ properties:
       they did
     type: array
   reason:
+    backref: reason_medication_administration
     binding_description: A set of codes indicating the reason why the MedicationAdministration
       was made.
     binding_strength: example

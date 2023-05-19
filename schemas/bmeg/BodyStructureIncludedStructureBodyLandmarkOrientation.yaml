@@ -1,7 +1,7 @@
 $id: BodyStructureIncludedStructureBodyLandmarkOrientation
 additionalProperties: false
 description: Landmark relative location. Body locations in relation to a specific
-  body landmark (tatoo, scar, other body structure). see https://hl7.org/fhir/R5/BodyStructureIncludedStructureBodyLandmarkOrientation
+  body landmark (tatoo, scar, other body structure). [See https://hl7.org/fhir/R5/BodyStructureIncludedStructureBodyLandmarkOrientation]
 properties:
   clockFacePosition:
     binding_description: Select SNOMED CT codes. A set of codes that describe a things

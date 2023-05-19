@@ -2,7 +2,7 @@ $id: SpecimenContainer
 additionalProperties: false
 description: Direct container of specimen (tube/slide, etc.). The container holding
   the specimen.  The recursive nature of containers; i.e. blood in tube in tray in
-  rack is not addressed here. see https://hl7.org/fhir/R5/SpecimenContainer
+  rack is not addressed here. [See https://hl7.org/fhir/R5/SpecimenContainer]
 properties:
   device:
     $ref: Reference.yaml

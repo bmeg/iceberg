@@ -1,7 +1,7 @@
 $id: DocumentReferenceRelatesTo
 additionalProperties: false
 description: Relationships to other documents. Relationships that this document has
-  with other document references that already exist. see https://hl7.org/fhir/R5/DocumentReferenceRelatesTo
+  with other document references that already exist. [See https://hl7.org/fhir/R5/DocumentReferenceRelatesTo]
 properties:
   code:
     $ref: CodeableConcept.yaml

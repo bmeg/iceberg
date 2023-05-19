@@ -1,12 +1,14 @@
 $id: SpecimenCollection
 additionalProperties: false
-description: Collection details. Details concerning the specimen collection. see https://hl7.org/fhir/R5/SpecimenCollection
+description: Collection details. Details concerning the specimen collection. [See
+  https://hl7.org/fhir/R5/SpecimenCollection]
 properties:
   _collectedDateTime:
     $ref: FHIRPrimitiveExtension.yaml
     title: Extension field for ``collectedDateTime``.
   bodySite:
     $ref: CodeableReference.yaml
+    backref: specimen_collection
     binding_description: SNOMED CT Body site concepts
     binding_strength: example
     binding_uri: http://hl7.org/fhir/ValueSet/body-site
@@ -48,6 +50,7 @@ properties:
     title: Who collected the specimen
   device:
     $ref: CodeableReference.yaml
+    backref: specimen_collection
     description: A coded value specifying the technique that is used to perform the
       procedure.
     element_property: true

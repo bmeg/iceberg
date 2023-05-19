@@ -1,7 +1,7 @@
 $id: RatioRange
 additionalProperties: false
 description: Range of ratio values. A range of ratios expressed as a low and high
-  numerator and a denominator. see https://hl7.org/fhir/R5/RatioRange
+  numerator and a denominator. [See https://hl7.org/fhir/R5/RatioRange]
 properties:
   denominator:
     $ref: Quantity.yaml

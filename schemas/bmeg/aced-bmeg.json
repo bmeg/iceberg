@@ -5,7 +5,7 @@
     "MedicationAdministration": {
       "$id": "http://bmeg.io/schema/0.0.2/MedicationAdministration",
       "additionalProperties": false,
-      "description": "Administration of medication to a patient. Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner. see https://hl7.org/fhir/R5/MedicationAdministration",
+      "description": "Administration of medication to a patient. Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner. [See https://hl7.org/fhir/R5/MedicationAdministration]",
       "properties": {
         "_implicitRules": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -67,6 +67,7 @@
           "type": "array"
         },
         "device": {
+          "backref": "device_medication_administration",
           "description": "The device that is to be used for the administration of the medication (for example, PCA Pump).",
           "element_property": true,
           "enum_reference_types": [
@@ -175,6 +176,7 @@
         },
         "medication": {
           "$ref": "http://bmeg.io/schema/0.0.2/CodeableReference",
+          "backref": "medication_administration",
           "binding_description": "Codes identifying substance or product that can be administered.",
           "binding_strength": "example",
           "binding_uri": "http://hl7.org/fhir/ValueSet/medication-codes",
@@ -260,6 +262,7 @@
           "type": "array"
         },
         "reason": {
+          "backref": "reason_medication_administration",
           "binding_description": "A set of codes indicating the reason why the MedicationAdministration was made.",
           "binding_strength": "example",
           "binding_uri": "http://hl7.org/fhir/ValueSet/reason-medication-given-codes",
@@ -389,7 +392,7 @@
     "DocumentReference": {
       "$id": "http://bmeg.io/schema/0.0.2/DocumentReference",
       "additionalProperties": false,
-      "description": "A reference to a document. A reference to a document of any kind for any purpose. While the term \u201cdocument\u201d implies a more narrow focus, for this resource this \"document\" encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference. see https://hl7.org/fhir/R5/DocumentReference",
+      "description": "A reference to a document. A reference to a document of any kind for any purpose. While the term \u201cdocument\u201d implies a more narrow focus, for this resource this \"document\" encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference. [See https://hl7.org/fhir/R5/DocumentReference]",
       "properties": {
         "_date": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -476,6 +479,7 @@
           "type": "array"
         },
         "bodySite": {
+          "backref": "bodySite_document_reference",
           "binding_description": "SNOMED CT Body site concepts",
           "binding_strength": "example",
           "binding_uri": "http://hl7.org/fhir/ValueSet/body-site",
@@ -586,6 +590,7 @@
           "type": "string"
         },
         "event": {
+          "backref": "event_document_reference",
           "binding_description": "This list of codes represents the main clinical acts being documented.",
           "binding_strength": "example",
           "binding_uri": "http://terminology.hl7.org/ValueSet/v3-ActCode",
@@ -800,7 +805,7 @@
     "TaskPerformer": {
       "$id": "http://bmeg.io/schema/0.0.2/TaskPerformer",
       "additionalProperties": false,
-      "description": "Who or what performed the task. The entity who performed the requested task. see https://hl7.org/fhir/R5/TaskPerformer",
+      "description": "Who or what performed the task. The entity who performed the requested task. [See https://hl7.org/fhir/R5/TaskPerformer]",
       "properties": {
         "actor": {
           "$ref": "http://bmeg.io/schema/0.0.2/Reference",
@@ -880,7 +885,7 @@
     "Timing": {
       "$id": "http://bmeg.io/schema/0.0.2/Timing",
       "additionalProperties": false,
-      "description": "A timing schedule that specifies an event that may occur multiple times. Specifies an event that may occur multiple times. Timing schedules are used to record when things are planned, expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds, and may be used for reporting the schedule to which past regular activities were carried out. see https://hl7.org/fhir/R5/Timing",
+      "description": "A timing schedule that specifies an event that may occur multiple times. Specifies an event that may occur multiple times. Timing schedules are used to record when things are planned, expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds, and may be used for reporting the schedule to which past regular activities were carried out. [See https://hl7.org/fhir/R5/Timing]",
       "properties": {
         "_event": {
           "items": {
@@ -969,7 +974,7 @@
     "SampledData": {
       "$id": "http://bmeg.io/schema/0.0.2/SampledData",
       "additionalProperties": false,
-      "description": "A series of measurements taken by a device. A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data. see https://hl7.org/fhir/R5/SampledData",
+      "description": "A series of measurements taken by a device. A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data. [See https://hl7.org/fhir/R5/SampledData]",
       "properties": {
         "_codeMap": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -1129,7 +1134,7 @@
     "ResearchStudyComparisonGroup": {
       "$id": "http://bmeg.io/schema/0.0.2/ResearchStudyComparisonGroup",
       "additionalProperties": false,
-      "description": "Defined path through the study for a subject. Describes an expected event or sequence of events for one of the subjects of a study. E.g. for a living subject: exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up. E.g. for a stability study: {store sample from lot A at 25 degrees for 1 month}, {store sample from lot A at 40 degrees for 1 month}. see https://hl7.org/fhir/R5/ResearchStudyComparisonGroup",
+      "description": "Defined path through the study for a subject. Describes an expected event or sequence of events for one of the subjects of a study. E.g. for a living subject: exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up. E.g. for a stability study: {store sample from lot A at 25 degrees for 1 month}, {store sample from lot A at 40 degrees for 1 month}. [See https://hl7.org/fhir/R5/ResearchStudyComparisonGroup]",
       "properties": {
         "_description": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -1251,7 +1256,7 @@
     "FamilyMemberHistory": {
       "$id": "http://bmeg.io/schema/0.0.2/FamilyMemberHistory",
       "additionalProperties": false,
-      "description": "Information about patient's relatives, relevant for patient. Significant health conditions for a person related to the patient relevant in the context of care for the patient. see https://hl7.org/fhir/R5/FamilyMemberHistory",
+      "description": "Information about patient's relatives, relevant for patient. Significant health conditions for a person related to the patient relevant in the context of care for the patient. [See https://hl7.org/fhir/R5/FamilyMemberHistory]",
       "properties": {
         "_ageString": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -1596,6 +1601,7 @@
           "type": "array"
         },
         "reason": {
+          "backref": "reason_family_member_history",
           "binding_description": "Codes indicating why the family member history was done.",
           "binding_strength": "example",
           "binding_uri": "http://hl7.org/fhir/ValueSet/clinical-findings",
@@ -1678,7 +1684,7 @@
     "RelatedArtifact": {
       "$id": "http://bmeg.io/schema/0.0.2/RelatedArtifact",
       "additionalProperties": false,
-      "description": "Related artifacts for a knowledge resource. Related artifacts such as additional documentation, justification, or bibliographic references. see https://hl7.org/fhir/R5/RelatedArtifact",
+      "description": "Related artifacts for a knowledge resource. Related artifacts such as additional documentation, justification, or bibliographic references. [See https://hl7.org/fhir/R5/RelatedArtifact]",
       "properties": {
         "_citation": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -1887,7 +1893,7 @@
     "Observation": {
       "$id": "http://bmeg.io/schema/0.0.2/Observation",
       "additionalProperties": false,
-      "description": "Measurements and simple assertions. Measurements and simple assertions made about a patient, device or other subject. see https://hl7.org/fhir/R5/Observation",
+      "description": "Measurements and simple assertions. Measurements and simple assertions made about a patient, device or other subject. [See https://hl7.org/fhir/R5/Observation]",
       "properties": {
         "_effectiveDateTime": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -2504,7 +2510,7 @@
     "ObservationTriggeredBy": {
       "$id": "http://bmeg.io/schema/0.0.2/ObservationTriggeredBy",
       "additionalProperties": false,
-      "description": "Triggering observation(s). Identifies the observation(s) that triggered the performance of this observation. see https://hl7.org/fhir/R5/ObservationTriggeredBy",
+      "description": "Triggering observation(s). Identifies the observation(s) that triggered the performance of this observation. [See https://hl7.org/fhir/R5/ObservationTriggeredBy]",
       "properties": {
         "_reason": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -2605,7 +2611,7 @@
     "DataRequirementCodeFilter": {
       "$id": "http://bmeg.io/schema/0.0.2/DataRequirementCodeFilter",
       "additionalProperties": false,
-      "description": "What codes are expected. Code filters specify additional constraints on the data, specifying the value set of interest for a particular element of the data. Each code filter defines an additional constraint on the data, i.e. code filters are AND'ed, not OR'ed. see https://hl7.org/fhir/R5/DataRequirementCodeFilter",
+      "description": "What codes are expected. Code filters specify additional constraints on the data, specifying the value set of interest for a particular element of the data. Each code filter defines an additional constraint on the data, i.e. code filters are AND'ed, not OR'ed. [See https://hl7.org/fhir/R5/DataRequirementCodeFilter]",
       "properties": {
         "_path": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -2697,7 +2703,7 @@
     "FamilyMemberHistoryParticipant": {
       "$id": "http://bmeg.io/schema/0.0.2/FamilyMemberHistoryParticipant",
       "additionalProperties": false,
-      "description": "Who or what participated in the activities related to the family member history and how they were involved. Indicates who or what participated in the activities related to the family member history and how they were involved. see https://hl7.org/fhir/R5/FamilyMemberHistoryParticipant",
+      "description": "Who or what participated in the activities related to the family member history and how they were involved. Indicates who or what participated in the activities related to the family member history and how they were involved. [See https://hl7.org/fhir/R5/FamilyMemberHistoryParticipant]",
       "properties": {
         "actor": {
           "$ref": "http://bmeg.io/schema/0.0.2/Reference",
@@ -2782,7 +2788,7 @@
     "PatientLink": {
       "$id": "http://bmeg.io/schema/0.0.2/PatientLink",
       "additionalProperties": false,
-      "description": "Link to a Patient or RelatedPerson resource that concerns the same actual individual. see https://hl7.org/fhir/R5/PatientLink",
+      "description": "Link to a Patient or RelatedPerson resource that concerns the same actual individual. [See https://hl7.org/fhir/R5/PatientLink]",
       "properties": {
         "_type": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -2874,7 +2880,7 @@
     "TaskOutput": {
       "$id": "http://bmeg.io/schema/0.0.2/TaskOutput",
       "additionalProperties": false,
-      "description": "Information produced as part of task. Outputs produced by the Task. see https://hl7.org/fhir/R5/TaskOutput",
+      "description": "Information produced as part of task. Outputs produced by the Task. [See https://hl7.org/fhir/R5/TaskOutput]",
       "properties": {
         "_valueBase64Binary": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -3094,6 +3100,7 @@
         },
         "valueCodeableReference": {
           "$ref": "http://bmeg.io/schema/0.0.2/CodeableReference",
+          "backref": "task_output",
           "description": "The value of the Output parameter as a basic type.",
           "element_property": true,
           "one_of_many": "value",
@@ -3472,7 +3479,7 @@
     "Patient": {
       "$id": "http://bmeg.io/schema/0.0.2/Patient",
       "additionalProperties": false,
-      "description": "Information about an individual or animal receiving health care services. Demographics and other administrative information about an individual or animal receiving care or other health-related services. see https://hl7.org/fhir/R5/Patient",
+      "description": "Information about an individual or animal receiving health care services. Demographics and other administrative information about an individual or animal receiving care or other health-related services. [See https://hl7.org/fhir/R5/Patient]",
       "properties": {
         "_active": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -3765,7 +3772,7 @@
     "Annotation": {
       "$id": "http://bmeg.io/schema/0.0.2/Annotation",
       "additionalProperties": false,
-      "description": "Text node with attribution. A  text note which also  contains information about who made the statement and when. see https://hl7.org/fhir/R5/Annotation",
+      "description": "Text node with attribution. A  text note which also  contains information about who made the statement and when. [See https://hl7.org/fhir/R5/Annotation]",
       "properties": {
         "_authorString": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -3864,7 +3871,7 @@
     "Substance": {
       "$id": "http://bmeg.io/schema/0.0.2/Substance",
       "additionalProperties": false,
-      "description": "A homogeneous material with a definite composition. see https://hl7.org/fhir/R5/Substance",
+      "description": "A homogeneous material with a definite composition. [See https://hl7.org/fhir/R5/Substance]",
       "properties": {
         "_description": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -3905,6 +3912,7 @@
         },
         "code": {
           "$ref": "http://bmeg.io/schema/0.0.2/CodeableReference",
+          "backref": "substance",
           "binding_description": "Substance codes.",
           "binding_strength": "example",
           "binding_uri": "http://hl7.org/fhir/ValueSet/substance-code",
@@ -4075,7 +4083,7 @@
     "UsageContext": {
       "$id": "http://bmeg.io/schema/0.0.2/UsageContext",
       "additionalProperties": false,
-      "description": "Describes the context of use for a conformance or knowledge resource. Specifies clinical/business/etc. metadata that can be used to retrieve, index and/or categorize an artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care). see https://hl7.org/fhir/R5/UsageContext",
+      "description": "Describes the context of use for a conformance or knowledge resource. Specifies clinical/business/etc. metadata that can be used to retrieve, index and/or categorize an artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care). [See https://hl7.org/fhir/R5/UsageContext]",
       "properties": {
         "code": {
           "$ref": "http://bmeg.io/schema/0.0.2/Coding",
@@ -4177,7 +4185,7 @@
     "CodeableReference": {
       "$id": "http://bmeg.io/schema/0.0.2/CodeableReference",
       "additionalProperties": false,
-      "description": "Reference to a resource or a concept. A reference to a resource (by instance), or instead, a reference to a concept defined in a terminology or ontology (by class). see https://hl7.org/fhir/R5/CodeableReference",
+      "description": "Reference to a resource or a concept. A reference to a resource (by instance), or instead, a reference to a concept defined in a terminology or ontology (by class). [See https://hl7.org/fhir/R5/CodeableReference]",
       "properties": {
         "concept": {
           "$ref": "http://bmeg.io/schema/0.0.2/CodeableConcept",
@@ -4320,7 +4328,7 @@
     "Period": {
       "$id": "http://bmeg.io/schema/0.0.2/Period",
       "additionalProperties": false,
-      "description": "Time range defined by start and end date/time. A time period defined by a start and end date and optionally time. see https://hl7.org/fhir/R5/Period",
+      "description": "Time range defined by start and end date/time. A time period defined by a start and end date and optionally time. [See https://hl7.org/fhir/R5/Period]",
       "properties": {
         "_end": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -4386,10 +4394,100 @@
       "title": "Period",
       "type": "object"
     },
+    "EncounterParticipant": {
+      "$id": "http://bmeg.io/schema/0.0.2/EncounterParticipant",
+      "additionalProperties": false,
+      "description": "List of participants involved in the encounter. The list of people responsible for providing the service. [See https://hl7.org/fhir/R5/EncounterParticipant]",
+      "properties": {
+        "actor": {
+          "$ref": "http://bmeg.io/schema/0.0.2/Reference",
+          "backref": "encounter_participant",
+          "description": "Person involved in the encounter, the patient/group is also included here to indicate that the patient was actually participating in the encounter. Not including the patient here covers use cases such as a case meeting between practitioners about a patient - non contact times.",
+          "element_property": true,
+          "enum_reference_types": [
+            "Patient",
+            "Group",
+            "RelatedPerson",
+            "Practitioner",
+            "PractitionerRole",
+            "Device",
+            "HealthcareService"
+          ],
+          "title": "The individual, device, or service participating in the encounter"
+        },
+        "extension": {
+          "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Extension"
+          },
+          "title": "Additional content defined by implementations",
+          "type": "array"
+        },
+        "fhir_comments": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "element_property": false,
+          "title": "Fhir Comments"
+        },
+        "id": {
+          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "title": "Unique id for inter-element referencing",
+          "type": "string"
+        },
+        "modifierExtension": {
+          "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.  Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Extension"
+          },
+          "title": "Extensions that cannot be ignored even if unrecognized",
+          "type": "array"
+        },
+        "period": {
+          "$ref": "http://bmeg.io/schema/0.0.2/Period",
+          "description": "The period of time that the specified participant participated in the encounter. These can overlap or be sub-sets of the overall encounter's period.",
+          "element_property": true,
+          "title": "Period of time during the encounter that the participant participated"
+        },
+        "resourceType": {
+          "const": "EncounterParticipant",
+          "default": "EncounterParticipant",
+          "description": "One of the resource types defined as part of FHIR",
+          "title": "Resource Type",
+          "type": "string"
+        },
+        "type": {
+          "binding_description": "Role of participant in encounter.",
+          "binding_strength": "extensible",
+          "binding_uri": "http://hl7.org/fhir/ValueSet/encounter-participant-type",
+          "binding_version": null,
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/CodeableConcept"
+          },
+          "title": "Role of participant in encounter",
+          "type": "array"
+        }
+      },
+      "title": "EncounterParticipant",
+      "type": "object"
+    },
     "AvailabilityNotAvailableTime": {
       "$id": "http://bmeg.io/schema/0.0.2/AvailabilityNotAvailableTime",
       "additionalProperties": false,
-      "description": "Not available during this time due to provided reason. see https://hl7.org/fhir/R5/AvailabilityNotAvailableTime",
+      "description": "Not available during this time due to provided reason. [See https://hl7.org/fhir/R5/AvailabilityNotAvailableTime]",
       "properties": {
         "_description": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -4451,7 +4549,7 @@
     "BodyStructureIncludedStructureBodyLandmarkOrientation": {
       "$id": "http://bmeg.io/schema/0.0.2/BodyStructureIncludedStructureBodyLandmarkOrientation",
       "additionalProperties": false,
-      "description": "Landmark relative location. Body locations in relation to a specific body landmark (tatoo, scar, other body structure). see https://hl7.org/fhir/R5/BodyStructureIncludedStructureBodyLandmarkOrientation",
+      "description": "Landmark relative location. Body locations in relation to a specific body landmark (tatoo, scar, other body structure). [See https://hl7.org/fhir/R5/BodyStructureIncludedStructureBodyLandmarkOrientation]",
       "properties": {
         "clockFacePosition": {
           "binding_description": "Select SNOMED CT codes. A set of codes that describe a things orientation based on a hourly positions of a clock face.",
@@ -4555,7 +4653,7 @@
     "ConditionParticipant": {
       "$id": "http://bmeg.io/schema/0.0.2/ConditionParticipant",
       "additionalProperties": false,
-      "description": "Who or what participated in the activities related to the condition and how they were involved. Indicates who or what participated in the activities related to the condition and how they were involved. see https://hl7.org/fhir/R5/ConditionParticipant",
+      "description": "Who or what participated in the activities related to the condition and how they were involved. Indicates who or what participated in the activities related to the condition and how they were involved. [See https://hl7.org/fhir/R5/ConditionParticipant]",
       "properties": {
         "actor": {
           "$ref": "http://bmeg.io/schema/0.0.2/Reference",
@@ -4640,7 +4738,7 @@
     "FHIRPrimitiveExtension": {
       "$id": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
       "additionalProperties": false,
-      "description": " see https://hl7.org/fhir/R5/FHIRPrimitiveExtension",
+      "description": " [See https://hl7.org/fhir/R5/FHIRPrimitiveExtension]",
       "properties": {
         "extension": {
           "description": "Additional content defined by implementations",
@@ -4687,7 +4785,7 @@
     "ExtendedContactDetail": {
       "$id": "http://bmeg.io/schema/0.0.2/ExtendedContactDetail",
       "additionalProperties": false,
-      "description": "Contact information. Specifies contact information for a specific purpose over a period of time, might be handled/monitored by a specific named person or organization. see https://hl7.org/fhir/R5/ExtendedContactDetail",
+      "description": "Contact information. Specifies contact information for a specific purpose over a period of time, might be handled/monitored by a specific named person or organization. [See https://hl7.org/fhir/R5/ExtendedContactDetail]",
       "properties": {
         "address": {
           "$ref": "http://bmeg.io/schema/0.0.2/Address",
@@ -4782,7 +4880,7 @@
     "DataRequirementValueFilter": {
       "$id": "http://bmeg.io/schema/0.0.2/DataRequirementValueFilter",
       "additionalProperties": false,
-      "description": "What values are expected. Value filters specify additional constraints on the data for elements other than code-valued or date-valued. Each value filter specifies an additional constraint on the data (i.e. valueFilters are AND'ed, not OR'ed). see https://hl7.org/fhir/R5/DataRequirementValueFilter",
+      "description": "What values are expected. Value filters specify additional constraints on the data for elements other than code-valued or date-valued. Each value filter specifies an additional constraint on the data (i.e. valueFilters are AND'ed, not OR'ed). [See https://hl7.org/fhir/R5/DataRequirementValueFilter]",
       "properties": {
         "_comparator": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -4904,7 +5002,7 @@
     "DataRequirementSort": {
       "$id": "http://bmeg.io/schema/0.0.2/DataRequirementSort",
       "additionalProperties": false,
-      "description": "Order of the results. Specifies the order of the results to be returned. see https://hl7.org/fhir/R5/DataRequirementSort",
+      "description": "Order of the results. Specifies the order of the results to be returned. [See https://hl7.org/fhir/R5/DataRequirementSort]",
       "properties": {
         "_direction": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -5370,7 +5468,7 @@
     "Task": {
       "$id": "http://bmeg.io/schema/0.0.2/Task",
       "additionalProperties": false,
-      "description": "A task to be performed. see https://hl7.org/fhir/R5/Task",
+      "description": "A task to be performed. [See https://hl7.org/fhir/R5/Task]",
       "properties": {
         "_authoredOn": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -5524,10 +5622,10 @@
           ],
           "title": "What task is acting on"
         },
-        "for": {
+        "for_fhir": {
           "$ref": "http://bmeg.io/schema/0.0.2/Reference",
           "backref": "for_task",
-          "description": "The entity who benefits from the performance of the service specified in the task (e.g., the patient).",
+          "description": "[Reserved word `for` renamed to `for_fhir`] The entity who benefits from the performance of the service specified in the task (e.g., the patient).",
           "element_property": true,
           "enum_reference_types": [
             "Resource"
@@ -5744,6 +5842,7 @@
           "type": "string"
         },
         "reason": {
+          "backref": "reason_task",
           "description": "A description, code, or reference indicating why this task needs to be performed.",
           "element_property": true,
           "items": {
@@ -5766,6 +5865,7 @@
           "type": "array"
         },
         "requestedPerformer": {
+          "backref": "requestedPerformer_task",
           "binding_description": "The type(s) of task performers allowed.",
           "binding_strength": "preferred",
           "binding_uri": "http://hl7.org/fhir/ValueSet/performer-role",
@@ -5843,6 +5943,7 @@
         },
         "statusReason": {
           "$ref": "http://bmeg.io/schema/0.0.2/CodeableReference",
+          "backref": "task",
           "binding_description": "Codes to identify the reason for current status.  These will typically be specific to a particular workflow.",
           "binding_strength": "example",
           "binding_uri": "http://hl7.org/fhir/ValueSet/task-status-reason",
@@ -5864,7 +5965,7 @@
     "ResearchStudyAssociatedParty": {
       "$id": "http://bmeg.io/schema/0.0.2/ResearchStudyAssociatedParty",
       "additionalProperties": false,
-      "description": "Sponsors, collaborators, and other parties. see https://hl7.org/fhir/R5/ResearchStudyAssociatedParty",
+      "description": "Sponsors, collaborators, and other parties. [See https://hl7.org/fhir/R5/ResearchStudyAssociatedParty]",
       "properties": {
         "_name": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -5976,7 +6077,7 @@
     "Range": {
       "$id": "http://bmeg.io/schema/0.0.2/Range",
       "additionalProperties": false,
-      "description": "Set of values bounded by low and high. A set of ordered Quantities defined by a low and high limit. see https://hl7.org/fhir/R5/Range",
+      "description": "Set of values bounded by low and high. A set of ordered Quantities defined by a low and high limit. [See https://hl7.org/fhir/R5/Range]",
       "properties": {
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -6035,7 +6136,7 @@
     "PatientContact": {
       "$id": "http://bmeg.io/schema/0.0.2/PatientContact",
       "additionalProperties": false,
-      "description": "A contact party (e.g. guardian, partner, friend) for the patient. see https://hl7.org/fhir/R5/PatientContact",
+      "description": "A contact party (e.g. guardian, partner, friend) for the patient. [See https://hl7.org/fhir/R5/PatientContact]",
       "properties": {
         "_gender": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -6159,7 +6260,7 @@
     "DataRequirement": {
       "$id": "http://bmeg.io/schema/0.0.2/DataRequirement",
       "additionalProperties": false,
-      "description": "Describes a required data item. Describes a required data item for evaluation in terms of the type of data, and optional code or date-based filters of the data. see https://hl7.org/fhir/R5/DataRequirement",
+      "description": "Describes a required data item. Describes a required data item for evaluation in terms of the type of data, and optional code or date-based filters of the data. [See https://hl7.org/fhir/R5/DataRequirement]",
       "properties": {
         "_limit": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -6326,7 +6427,7 @@
     "Condition": {
       "$id": "http://bmeg.io/schema/0.0.2/Condition",
       "additionalProperties": false,
-      "description": "Detailed information about conditions, problems or diagnoses. A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern. see https://hl7.org/fhir/R5/Condition",
+      "description": "Detailed information about conditions, problems or diagnoses. A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern. [See https://hl7.org/fhir/R5/Condition]",
       "properties": {
         "_abatementDateTime": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -6463,6 +6564,7 @@
           "title": "The Encounter during which this Condition was created"
         },
         "evidence": {
+          "backref": "evidence_condition",
           "binding_description": null,
           "binding_strength": "example",
           "binding_uri": "http://hl7.org/fhir/ValueSet/clinical-findings",
@@ -6684,7 +6786,7 @@
     "AvailabilityAvailableTime": {
       "$id": "http://bmeg.io/schema/0.0.2/AvailabilityAvailableTime",
       "additionalProperties": false,
-      "description": "Times the {item} is available. see https://hl7.org/fhir/R5/AvailabilityAvailableTime",
+      "description": "Times the {item} is available. [See https://hl7.org/fhir/R5/AvailabilityAvailableTime]",
       "properties": {
         "_allDay": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -6789,7 +6891,7 @@
     "ResearchStudyRecruitment": {
       "$id": "http://bmeg.io/schema/0.0.2/ResearchStudyRecruitment",
       "additionalProperties": false,
-      "description": "Target or actual group of participants enrolled in study. see https://hl7.org/fhir/R5/ResearchStudyRecruitment",
+      "description": "Target or actual group of participants enrolled in study. [See https://hl7.org/fhir/R5/ResearchStudyRecruitment]",
       "properties": {
         "_actualNumber": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -6884,7 +6986,7 @@
     "SpecimenCollection": {
       "$id": "http://bmeg.io/schema/0.0.2/SpecimenCollection",
       "additionalProperties": false,
-      "description": "Collection details. Details concerning the specimen collection. see https://hl7.org/fhir/R5/SpecimenCollection",
+      "description": "Collection details. Details concerning the specimen collection. [See https://hl7.org/fhir/R5/SpecimenCollection]",
       "properties": {
         "_collectedDateTime": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -6892,6 +6994,7 @@
         },
         "bodySite": {
           "$ref": "http://bmeg.io/schema/0.0.2/CodeableReference",
+          "backref": "specimen_collection",
           "binding_description": "SNOMED CT Body site concepts",
           "binding_strength": "example",
           "binding_uri": "http://hl7.org/fhir/ValueSet/body-site",
@@ -6935,6 +7038,7 @@
         },
         "device": {
           "$ref": "http://bmeg.io/schema/0.0.2/CodeableReference",
+          "backref": "specimen_collection",
           "description": "A coded value specifying the technique that is used to perform the procedure.",
           "element_property": true,
           "enum_reference_types": [
@@ -7044,7 +7148,7 @@
     "Attachment": {
       "$id": "http://bmeg.io/schema/0.0.2/Attachment",
       "additionalProperties": false,
-      "description": "Content in a format defined elsewhere. For referring to data content defined in other formats. see https://hl7.org/fhir/R5/Attachment",
+      "description": "Content in a format defined elsewhere. For referring to data content defined in other formats. [See https://hl7.org/fhir/R5/Attachment]",
       "properties": {
         "_contentType": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -7240,7 +7344,7 @@
     "ResearchStudyProgressStatus": {
       "$id": "http://bmeg.io/schema/0.0.2/ResearchStudyProgressStatus",
       "additionalProperties": false,
-      "description": "Status of study with time for that status. see https://hl7.org/fhir/R5/ResearchStudyProgressStatus",
+      "description": "Status of study with time for that status. [See https://hl7.org/fhir/R5/ResearchStudyProgressStatus]",
       "properties": {
         "_actual": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -7323,7 +7427,7 @@
     "MedicationIngredient": {
       "$id": "http://bmeg.io/schema/0.0.2/MedicationIngredient",
       "additionalProperties": false,
-      "description": "Active or inactive ingredient. Identifies a particular constituent of interest in the product. see https://hl7.org/fhir/R5/MedicationIngredient",
+      "description": "Active or inactive ingredient. Identifies a particular constituent of interest in the product. [See https://hl7.org/fhir/R5/MedicationIngredient]",
       "properties": {
         "_isActive": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -7368,6 +7472,7 @@
         },
         "item": {
           "$ref": "http://bmeg.io/schema/0.0.2/CodeableReference",
+          "backref": "medication_ingredient",
           "binding_description": null,
           "binding_strength": "example",
           "binding_uri": "http://hl7.org/fhir/ValueSet/medication-codes",
@@ -7430,7 +7535,7 @@
     "Money": {
       "$id": "http://bmeg.io/schema/0.0.2/Money",
       "additionalProperties": false,
-      "description": "An amount of economic utility in some recognized currency. see https://hl7.org/fhir/R5/Money",
+      "description": "An amount of economic utility in some recognized currency. [See https://hl7.org/fhir/R5/Money]",
       "properties": {
         "_currency": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -7500,7 +7605,7 @@
     "FamilyMemberHistoryProcedure": {
       "$id": "http://bmeg.io/schema/0.0.2/FamilyMemberHistoryProcedure",
       "additionalProperties": false,
-      "description": "Procedures that the related person had. The significant Procedures (or procedure) that the family member had. This is a repeating section to allow a system to represent more than one procedure per resource, though there is nothing stopping multiple resources - one per procedure. see https://hl7.org/fhir/R5/FamilyMemberHistoryProcedure",
+      "description": "Procedures that the related person had. The significant Procedures (or procedure) that the family member had. This is a repeating section to allow a system to represent more than one procedure per resource, though there is nothing stopping multiple resources - one per procedure. [See https://hl7.org/fhir/R5/FamilyMemberHistoryProcedure]",
       "properties": {
         "_contributedToDeath": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -7645,10 +7750,426 @@
       "title": "FamilyMemberHistoryProcedure",
       "type": "object"
     },
+    "Encounter": {
+      "$id": "http://bmeg.io/schema/0.0.2/Encounter",
+      "additionalProperties": false,
+      "description": "An interaction during which services are provided to the patient. An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.  Encounter is primarily used to record information about the actual activities that occurred, where Appointment is used to record planned activities. [See https://hl7.org/fhir/R5/Encounter]",
+      "properties": {
+        "_implicitRules": {
+          "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
+          "title": "Extension field for ``implicitRules``."
+        },
+        "_language": {
+          "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
+          "title": "Extension field for ``language``."
+        },
+        "_plannedEndDate": {
+          "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
+          "title": "Extension field for ``plannedEndDate``."
+        },
+        "_plannedStartDate": {
+          "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
+          "title": "Extension field for ``plannedStartDate``."
+        },
+        "_status": {
+          "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
+          "title": "Extension field for ``status``."
+        },
+        "account": {
+          "backref": "account_encounter",
+          "element_property": true,
+          "enum_reference_types": [
+            "Account"
+          ],
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Reference"
+          },
+          "title": "The set of accounts that may be used for billing for this Encounter",
+          "type": "array"
+        },
+        "actualPeriod": {
+          "$ref": "http://bmeg.io/schema/0.0.2/Period",
+          "element_property": true,
+          "title": "The actual start and end time of the encounter"
+        },
+        "admission": {
+          "$ref": "http://bmeg.io/schema/0.0.2/EncounterAdmission",
+          "description": "Details about the stay during which a healthcare service is provided.  This does not describe the event of admitting the patient, but rather any information that is relevant from the time of admittance until the time of discharge.",
+          "element_property": true,
+          "title": "Details about the admission to a healthcare service"
+        },
+        "appointment": {
+          "backref": "appointment_encounter",
+          "element_property": true,
+          "enum_reference_types": [
+            "Appointment"
+          ],
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Reference"
+          },
+          "title": "The appointment that scheduled this encounter",
+          "type": "array"
+        },
+        "basedOn": {
+          "backref": "basedOn_encounter",
+          "description": "The request this encounter satisfies (e.g. incoming referral or procedure request).",
+          "element_property": true,
+          "enum_reference_types": [
+            "CarePlan",
+            "DeviceRequest",
+            "MedicationRequest",
+            "ServiceRequest"
+          ],
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Reference"
+          },
+          "title": "The request that initiated this encounter",
+          "type": "array"
+        },
+        "careTeam": {
+          "backref": "careTeam_encounter",
+          "description": "The group(s) of individuals, organizations that are allocated to participate in this encounter. The participants backbone will record the actuals of when these individuals participated during the encounter.",
+          "element_property": true,
+          "enum_reference_types": [
+            "CareTeam"
+          ],
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Reference"
+          },
+          "title": "The group(s) that are allocated to participate in this encounter",
+          "type": "array"
+        },
+        "class": {
+          "binding_description": "Classification of the encounter.",
+          "binding_strength": "preferred",
+          "binding_uri": "http://terminology.hl7.org/ValueSet/encounter-class",
+          "binding_version": null,
+          "description": "Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations.",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/CodeableConcept"
+          },
+          "title": "Classification of patient encounter context - e.g. Inpatient, outpatient",
+          "type": "array"
+        },
+        "contained": {
+          "description": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, nor can they have their own independent transaction scope. This is allowed to be a Parameters resource if and only if it is referenced by a resource that provides context/meaning.",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Resource"
+          },
+          "title": "Contained, inline Resources",
+          "type": "array"
+        },
+        "diagnosis": {
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/EncounterDiagnosis"
+          },
+          "title": "The list of diagnosis relevant to this encounter",
+          "type": "array"
+        },
+        "dietPreference": {
+          "binding_description": "Medical, cultural or ethical food preferences to help with catering requirements.",
+          "binding_strength": "example",
+          "binding_uri": "http://hl7.org/fhir/ValueSet/encounter-diet",
+          "binding_version": null,
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/CodeableConcept"
+          },
+          "title": "Diet preferences reported by the patient",
+          "type": "array"
+        },
+        "episodeOfCare": {
+          "backref": "episodeOfCare_encounter",
+          "description": "Where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as government reporting, issue tracking, association via a common problem.  The association is recorded on the encounter as these are typically created after the episode of care and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years).",
+          "element_property": true,
+          "enum_reference_types": [
+            "EpisodeOfCare"
+          ],
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Reference"
+          },
+          "title": "Episode(s) of care that this encounter should be recorded against",
+          "type": "array"
+        },
+        "extension": {
+          "description": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Extension"
+          },
+          "title": "Additional content defined by implementations",
+          "type": "array"
+        },
+        "fhir_comments": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "element_property": false,
+          "title": "Fhir Comments"
+        },
+        "id": {
+          "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+          "element_property": true,
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9\\-.]+$",
+          "title": "Logical id of this artifact",
+          "type": "string"
+        },
+        "identifier": {
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Identifier"
+          },
+          "title": "Identifier(s) by which this encounter is known",
+          "type": "array"
+        },
+        "implicitRules": {
+          "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.",
+          "element_property": true,
+          "pattern": "\\S*",
+          "title": "A set of rules under which this content was created",
+          "type": "string"
+        },
+        "language": {
+          "binding_description": "IETF language tag for a human language",
+          "binding_strength": "required",
+          "binding_uri": "http://hl7.org/fhir/ValueSet/all-languages",
+          "binding_version": "5.0.0",
+          "description": "The base language in which the resource is written.",
+          "element_property": true,
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "title": "Language of the resource content",
+          "type": "string"
+        },
+        "length": {
+          "$ref": "http://bmeg.io/schema/0.0.2/Duration",
+          "description": "Actual quantity of time the encounter lasted. This excludes the time during leaves of absence.  When missing it is the time in between the start and end values.",
+          "element_property": true,
+          "title": "Actual quantity of time the encounter lasted (less time absent)"
+        },
+        "location": {
+          "description": "List of locations where  the patient has been during this encounter.",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/EncounterLocation"
+          },
+          "title": "List of locations where the patient has been",
+          "type": "array"
+        },
+        "meta": {
+          "$ref": "http://bmeg.io/schema/0.0.2/Meta",
+          "description": "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.",
+          "element_property": true,
+          "title": "Metadata about the resource"
+        },
+        "modifierExtension": {
+          "description": "May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.  Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Extension"
+          },
+          "title": "Extensions that cannot be ignored",
+          "type": "array"
+        },
+        "partOf": {
+          "$ref": "http://bmeg.io/schema/0.0.2/Reference",
+          "backref": "encounter",
+          "description": "Another Encounter of which this encounter is a part of (administratively or in time).",
+          "element_property": true,
+          "enum_reference_types": [
+            "Encounter"
+          ],
+          "title": "Another Encounter this encounter is part of"
+        },
+        "participant": {
+          "description": "The list of people responsible for providing the service.",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/EncounterParticipant"
+          },
+          "title": "List of participants involved in the encounter",
+          "type": "array"
+        },
+        "plannedEndDate": {
+          "element_property": true,
+          "format": "date-time",
+          "title": "The planned end date/time (or discharge date) of the encounter",
+          "type": "string"
+        },
+        "plannedStartDate": {
+          "element_property": true,
+          "format": "date-time",
+          "title": "The planned start date/time (or admission date) of the encounter",
+          "type": "string"
+        },
+        "priority": {
+          "$ref": "http://bmeg.io/schema/0.0.2/CodeableConcept",
+          "binding_description": "Indicates the urgency of the encounter.",
+          "binding_strength": "example",
+          "binding_uri": "http://terminology.hl7.org/ValueSet/v3-ActPriority",
+          "binding_version": null,
+          "element_property": true,
+          "title": "Indicates the urgency of the encounter"
+        },
+        "reason": {
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/EncounterReason"
+          },
+          "title": "The list of medical reasons that are expected to be addressed during the episode of care",
+          "type": "array"
+        },
+        "resourceType": {
+          "const": "Encounter",
+          "default": "Encounter",
+          "description": "One of the resource types defined as part of FHIR",
+          "title": "Resource Type",
+          "type": "string"
+        },
+        "serviceProvider": {
+          "$ref": "http://bmeg.io/schema/0.0.2/Reference",
+          "backref": "encounter",
+          "description": "The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the colonoscopy example on the Encounter examples tab.",
+          "element_property": true,
+          "enum_reference_types": [
+            "Organization"
+          ],
+          "title": "The organization (facility) responsible for this encounter"
+        },
+        "serviceType": {
+          "backref": "serviceType_encounter",
+          "binding_description": "Broad categorization of the service that is to be provided.",
+          "binding_strength": "example",
+          "binding_uri": "http://hl7.org/fhir/ValueSet/service-type",
+          "binding_version": null,
+          "description": "Broad categorization of the service that is to be provided (e.g. cardiology).",
+          "element_property": true,
+          "enum_reference_types": [
+            "HealthcareService"
+          ],
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/CodeableReference"
+          },
+          "title": "Specific type of service",
+          "type": "array"
+        },
+        "specialArrangement": {
+          "binding_description": "Special arrangements.",
+          "binding_strength": "preferred",
+          "binding_uri": "http://hl7.org/fhir/ValueSet/encounter-special-arrangements",
+          "binding_version": null,
+          "description": "Any special requests that have been made for this encounter, such as the provision of specific equipment or other things.",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/CodeableConcept"
+          },
+          "title": "Wheelchair, translator, stretcher, etc",
+          "type": "array"
+        },
+        "specialCourtesy": {
+          "binding_description": "Special courtesies.",
+          "binding_strength": "preferred",
+          "binding_uri": "http://hl7.org/fhir/ValueSet/encounter-special-courtesy",
+          "binding_version": null,
+          "description": "Special courtesies that may be provided to the patient during the encounter (VIP, board member, professional courtesy).",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/CodeableConcept"
+          },
+          "title": "Special courtesies (VIP, board member)",
+          "type": "array"
+        },
+        "status": {
+          "binding_description": "Current state of the encounter.",
+          "binding_strength": "required",
+          "binding_uri": "http://hl7.org/fhir/ValueSet/encounter-status",
+          "binding_version": "5.0.0",
+          "description": "The current state of the encounter (not the state of the patient within the encounter - that is subjectState).",
+          "element_property": true,
+          "element_required": true,
+          "enum_values": [
+            "planned",
+            "in-progress",
+            "on-hold",
+            "discharged",
+            "completed",
+            "cancelled",
+            "discontinued",
+            "entered-in-error",
+            "unknown"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "title": "planned | in-progress | on-hold | discharged | completed | cancelled | discontinued | entered-in-error | unknown",
+          "type": "string"
+        },
+        "subject": {
+          "$ref": "http://bmeg.io/schema/0.0.2/Reference",
+          "backref": "encounter",
+          "description": "The patient or group related to this encounter. In some use-cases the patient MAY not be present, such as a case meeting about a patient between several practitioners or a careteam.",
+          "element_property": true,
+          "enum_reference_types": [
+            "Patient",
+            "Group"
+          ],
+          "title": "The patient or group related to this encounter"
+        },
+        "subjectStatus": {
+          "$ref": "http://bmeg.io/schema/0.0.2/CodeableConcept",
+          "binding_description": "Current status of the subject  within the encounter.",
+          "binding_strength": "example",
+          "binding_uri": "http://hl7.org/fhir/ValueSet/encounter-subject-status",
+          "binding_version": null,
+          "description": "The subjectStatus value can be used to track the patient's status within the encounter. It details whether the patient has arrived or departed, has been triaged or is currently in a waiting status.",
+          "element_property": true,
+          "title": "The current status of the subject in relation to the Encounter"
+        },
+        "text": {
+          "$ref": "http://bmeg.io/schema/0.0.2/Narrative",
+          "description": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.",
+          "element_property": true,
+          "title": "Text summary of the resource, for human interpretation"
+        },
+        "type": {
+          "binding_description": "A specific code indicating type of service provided",
+          "binding_strength": "example",
+          "binding_uri": "http://hl7.org/fhir/ValueSet/encounter-type",
+          "binding_version": null,
+          "description": "Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/CodeableConcept"
+          },
+          "title": "Specific type of encounter (e.g. e-mail consultation, surgical day-care, ...)",
+          "type": "array"
+        },
+        "virtualService": {
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/VirtualServiceDetail"
+          },
+          "title": "Connection details of a virtual service (e.g. conference call)",
+          "type": "array"
+        }
+      },
+      "title": "Encounter",
+      "type": "object"
+    },
     "TaskRestriction": {
       "$id": "http://bmeg.io/schema/0.0.2/TaskRestriction",
       "additionalProperties": false,
-      "description": "Constraints on fulfillment tasks. If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned. see https://hl7.org/fhir/R5/TaskRestriction",
+      "description": "Constraints on fulfillment tasks. If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned. [See https://hl7.org/fhir/R5/TaskRestriction]",
       "properties": {
         "_repetitions": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -7739,7 +8260,7 @@
     "RatioRange": {
       "$id": "http://bmeg.io/schema/0.0.2/RatioRange",
       "additionalProperties": false,
-      "description": "Range of ratio values. A range of ratios expressed as a low and high numerator and a denominator. see https://hl7.org/fhir/R5/RatioRange",
+      "description": "Range of ratio values. A range of ratios expressed as a low and high numerator and a denominator. [See https://hl7.org/fhir/R5/RatioRange]",
       "properties": {
         "denominator": {
           "$ref": "http://bmeg.io/schema/0.0.2/Quantity",
@@ -7804,7 +8325,7 @@
     "FamilyMemberHistoryCondition": {
       "$id": "http://bmeg.io/schema/0.0.2/FamilyMemberHistoryCondition",
       "additionalProperties": false,
-      "description": "Condition that the related person had. The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition. see https://hl7.org/fhir/R5/FamilyMemberHistoryCondition",
+      "description": "Condition that the related person had. The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition. [See https://hl7.org/fhir/R5/FamilyMemberHistoryCondition]",
       "properties": {
         "_contributedToDeath": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -7939,7 +8460,7 @@
     "Resource": {
       "$id": "http://bmeg.io/schema/0.0.2/Resource",
       "additionalProperties": false,
-      "description": "Base Resource. This is the base resource type for everything. see https://hl7.org/fhir/R5/Resource",
+      "description": "Base Resource. This is the base resource type for everything. [See https://hl7.org/fhir/R5/Resource]",
       "properties": {
         "_implicitRules": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -8011,7 +8532,7 @@
     "DosageDoseAndRate": {
       "$id": "http://bmeg.io/schema/0.0.2/DosageDoseAndRate",
       "additionalProperties": false,
-      "description": "Amount of medication administered, to be administered or typical amount to be administered. Depending on the resource,this is the amount of medication administered, to be administered or typical amount to be administered. see https://hl7.org/fhir/R5/DosageDoseAndRate",
+      "description": "Amount of medication administered, to be administered or typical amount to be administered. Depending on the resource,this is the amount of medication administered, to be administered or typical amount to be administered. [See https://hl7.org/fhir/R5/DosageDoseAndRate]",
       "properties": {
         "doseQuantity": {
           "$ref": "http://bmeg.io/schema/0.0.2/Quantity",
@@ -8103,7 +8624,7 @@
     "ObservationReferenceRange": {
       "$id": "http://bmeg.io/schema/0.0.2/ObservationReferenceRange",
       "additionalProperties": false,
-      "description": "Provides guide for interpretation. Guidance on how to interpret the value by comparison to a normal or recommended range.  Multiple reference ranges are interpreted as an \"OR\". In other words, to represent two distinct target populations, two `referenceRange` elements would be used. see https://hl7.org/fhir/R5/ObservationReferenceRange",
+      "description": "Provides guide for interpretation. Guidance on how to interpret the value by comparison to a normal or recommended range.  Multiple reference ranges are interpreted as an \"OR\". In other words, to represent two distinct target populations, two `referenceRange` elements would be used. [See https://hl7.org/fhir/R5/ObservationReferenceRange]",
       "properties": {
         "_text": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -8221,7 +8742,7 @@
     "ContactDetail": {
       "$id": "http://bmeg.io/schema/0.0.2/ContactDetail",
       "additionalProperties": false,
-      "description": "Contact information. Specifies contact information for a person or organization. see https://hl7.org/fhir/R5/ContactDetail",
+      "description": "Contact information. Specifies contact information for a person or organization. [See https://hl7.org/fhir/R5/ContactDetail]",
       "properties": {
         "_name": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -8288,7 +8809,7 @@
     "ResearchStudyLabel": {
       "$id": "http://bmeg.io/schema/0.0.2/ResearchStudyLabel",
       "additionalProperties": false,
-      "description": "Additional names for the study. see https://hl7.org/fhir/R5/ResearchStudyLabel",
+      "description": "Additional names for the study. [See https://hl7.org/fhir/R5/ResearchStudyLabel]",
       "properties": {
         "_value": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -8364,7 +8885,7 @@
     "DocumentReferenceContentProfile": {
       "$id": "http://bmeg.io/schema/0.0.2/DocumentReferenceContentProfile",
       "additionalProperties": false,
-      "description": "Content profile rules for the document. An identifier of the document constraints, encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType. see https://hl7.org/fhir/R5/DocumentReferenceContentProfile",
+      "description": "Content profile rules for the document. An identifier of the document constraints, encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType. [See https://hl7.org/fhir/R5/DocumentReferenceContentProfile]",
       "properties": {
         "_valueCanonical": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -8451,7 +8972,7 @@
     "ResearchStudyObjective": {
       "$id": "http://bmeg.io/schema/0.0.2/ResearchStudyObjective",
       "additionalProperties": false,
-      "description": "A goal for the study. A goal that the study is aiming to achieve in terms of a scientific question to be answered by the analysis of data collected during the study. see https://hl7.org/fhir/R5/ResearchStudyObjective",
+      "description": "A goal for the study. A goal that the study is aiming to achieve in terms of a scientific question to be answered by the analysis of data collected during the study. [See https://hl7.org/fhir/R5/ResearchStudyObjective]",
       "properties": {
         "_description": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -8539,7 +9060,7 @@
     "ResearchSubjectProgress": {
       "$id": "http://bmeg.io/schema/0.0.2/ResearchSubjectProgress",
       "additionalProperties": false,
-      "description": "Subject status. The current state (status) of the subject and resons for status change where appropriate. see https://hl7.org/fhir/R5/ResearchSubjectProgress",
+      "description": "Subject status. The current state (status) of the subject and resons for status change where appropriate. [See https://hl7.org/fhir/R5/ResearchSubjectProgress]",
       "properties": {
         "_endDate": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -8657,7 +9178,7 @@
     "Distance": {
       "$id": "http://bmeg.io/schema/0.0.2/Distance",
       "additionalProperties": false,
-      "description": "A length - a value with a unit that is a physical distance. see https://hl7.org/fhir/R5/Distance",
+      "description": "A length - a value with a unit that is a physical distance. [See https://hl7.org/fhir/R5/Distance]",
       "properties": {
         "_code": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -8769,7 +9290,7 @@
     "BodyStructure": {
       "$id": "http://bmeg.io/schema/0.0.2/BodyStructure",
       "additionalProperties": false,
-      "description": "Specific and identified anatomical structure. Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case. see https://hl7.org/fhir/R5/BodyStructure",
+      "description": "Specific and identified anatomical structure. Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case. [See https://hl7.org/fhir/R5/BodyStructure]",
       "properties": {
         "_active": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -8955,7 +9476,7 @@
     "ObservationComponent": {
       "$id": "http://bmeg.io/schema/0.0.2/ObservationComponent",
       "additionalProperties": false,
-      "description": "Component results. Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations. see https://hl7.org/fhir/R5/ObservationComponent",
+      "description": "Component results. Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations. [See https://hl7.org/fhir/R5/ObservationComponent]",
       "properties": {
         "_valueBoolean": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -9187,7 +9708,7 @@
     "Address": {
       "$id": "http://bmeg.io/schema/0.0.2/Address",
       "additionalProperties": false,
-      "description": "An address expressed using postal conventions (as opposed to GPS or other location definition formats). An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world. The ISO21090-codedString may be used to provide a coded representation of the contents of strings in an Address. see https://hl7.org/fhir/R5/Address",
+      "description": "An address expressed using postal conventions (as opposed to GPS or other location definition formats). An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world. The ISO21090-codedString may be used to provide a coded representation of the contents of strings in an Address. [See https://hl7.org/fhir/R5/Address]",
       "properties": {
         "_city": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -9364,7 +9885,7 @@
     "Expression": {
       "$id": "http://bmeg.io/schema/0.0.2/Expression",
       "additionalProperties": false,
-      "description": "An expression that can be used to generate a value. A expression that is evaluated in a specified context and returns a value. The context of use of the expression must specify the context in which the expression is evaluated, and how the result of the expression is used. see https://hl7.org/fhir/R5/Expression",
+      "description": "An expression that can be used to generate a value. A expression that is evaluated in a specified context and returns a value. The context of use of the expression must specify the context in which the expression is evaluated, and how the result of the expression is used. [See https://hl7.org/fhir/R5/Expression]",
       "properties": {
         "_description": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -9476,7 +9997,7 @@
     "SubstanceIngredient": {
       "$id": "http://bmeg.io/schema/0.0.2/SubstanceIngredient",
       "additionalProperties": false,
-      "description": "Composition information about the substance. A substance can be composed of other substances. see https://hl7.org/fhir/R5/SubstanceIngredient",
+      "description": "Composition information about the substance. A substance can be composed of other substances. [See https://hl7.org/fhir/R5/SubstanceIngredient]",
       "properties": {
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -9555,10 +10076,200 @@
       "title": "SubstanceIngredient",
       "type": "object"
     },
+    "EncounterLocation": {
+      "$id": "http://bmeg.io/schema/0.0.2/EncounterLocation",
+      "additionalProperties": false,
+      "description": "List of locations where the patient has been. List of locations where  the patient has been during this encounter. [See https://hl7.org/fhir/R5/EncounterLocation]",
+      "properties": {
+        "_status": {
+          "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
+          "title": "Extension field for ``status``."
+        },
+        "extension": {
+          "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Extension"
+          },
+          "title": "Additional content defined by implementations",
+          "type": "array"
+        },
+        "fhir_comments": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "element_property": false,
+          "title": "Fhir Comments"
+        },
+        "form": {
+          "$ref": "http://bmeg.io/schema/0.0.2/CodeableConcept",
+          "binding_description": "Physical form of the location.",
+          "binding_strength": "example",
+          "binding_uri": "http://hl7.org/fhir/ValueSet/location-form",
+          "binding_version": null,
+          "description": "This will be used to specify the required levels (bed/ward/room/etc.) desired to be recorded to simplify either messaging or query.",
+          "element_property": true,
+          "title": "The physical type of the location (usually the level in the location hierarchy - bed, room, ward, virtual etc.)"
+        },
+        "id": {
+          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "title": "Unique id for inter-element referencing",
+          "type": "string"
+        },
+        "location": {
+          "$ref": "http://bmeg.io/schema/0.0.2/Reference",
+          "backref": "encounter_location",
+          "description": "The location where the encounter takes place.",
+          "element_property": true,
+          "enum_reference_types": [
+            "Location"
+          ],
+          "title": "Location the encounter takes place"
+        },
+        "modifierExtension": {
+          "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.  Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Extension"
+          },
+          "title": "Extensions that cannot be ignored even if unrecognized",
+          "type": "array"
+        },
+        "period": {
+          "$ref": "http://bmeg.io/schema/0.0.2/Period",
+          "element_property": true,
+          "title": "Time period during which the patient was present at the location"
+        },
+        "resourceType": {
+          "const": "EncounterLocation",
+          "default": "EncounterLocation",
+          "description": "One of the resource types defined as part of FHIR",
+          "title": "Resource Type",
+          "type": "string"
+        },
+        "status": {
+          "binding_description": "The status of the location.",
+          "binding_strength": "required",
+          "binding_uri": "http://hl7.org/fhir/ValueSet/encounter-location-status",
+          "binding_version": "5.0.0",
+          "description": "The status of the participants' presence at the specified location during the period specified. If the participant is no longer at the location, then the period will have an end date/time.",
+          "element_property": true,
+          "enum_values": [
+            "planned",
+            "active",
+            "reserved",
+            "completed"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "title": "planned | active | reserved | completed",
+          "type": "string"
+        }
+      },
+      "required": [
+        "location"
+      ],
+      "title": "EncounterLocation",
+      "type": "object"
+    },
+    "EncounterDiagnosis": {
+      "$id": "http://bmeg.io/schema/0.0.2/EncounterDiagnosis",
+      "additionalProperties": false,
+      "description": "The list of diagnosis relevant to this encounter. [See https://hl7.org/fhir/R5/EncounterDiagnosis]",
+      "properties": {
+        "condition": {
+          "backref": "condition_encounter_diagnosis",
+          "binding_description": null,
+          "binding_strength": "example",
+          "binding_uri": "http://hl7.org/fhir/ValueSet/condition-code",
+          "binding_version": null,
+          "description": "The coded diagnosis or a reference to a Condition (with other resources referenced in the evidence.detail), the use property will indicate the purpose of this specific diagnosis.",
+          "element_property": true,
+          "enum_reference_types": [
+            "Condition"
+          ],
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/CodeableReference"
+          },
+          "title": "The diagnosis relevant to the encounter",
+          "type": "array"
+        },
+        "extension": {
+          "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Extension"
+          },
+          "title": "Additional content defined by implementations",
+          "type": "array"
+        },
+        "fhir_comments": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "element_property": false,
+          "title": "Fhir Comments"
+        },
+        "id": {
+          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "title": "Unique id for inter-element referencing",
+          "type": "string"
+        },
+        "modifierExtension": {
+          "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.  Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Extension"
+          },
+          "title": "Extensions that cannot be ignored even if unrecognized",
+          "type": "array"
+        },
+        "resourceType": {
+          "const": "EncounterDiagnosis",
+          "default": "EncounterDiagnosis",
+          "description": "One of the resource types defined as part of FHIR",
+          "title": "Resource Type",
+          "type": "string"
+        },
+        "use": {
+          "binding_description": "The type of diagnosis this condition represents.",
+          "binding_strength": "preferred",
+          "binding_uri": "http://hl7.org/fhir/ValueSet/encounter-diagnosis-use",
+          "binding_version": null,
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/CodeableConcept"
+          },
+          "title": "Role that this diagnosis has within the encounter (e.g. admission, billing, discharge \u2026)",
+          "type": "array"
+        }
+      },
+      "title": "EncounterDiagnosis",
+      "type": "object"
+    },
     "Reference": {
       "$id": "http://bmeg.io/schema/0.0.2/Reference",
       "additionalProperties": false,
-      "description": "A reference from one resource to another. see https://hl7.org/fhir/R5/Reference",
+      "description": "A reference from one resource to another. [See https://hl7.org/fhir/R5/Reference]",
       "properties": {
         "_display": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -9648,7 +10359,7 @@
     "Availability": {
       "$id": "http://bmeg.io/schema/0.0.2/Availability",
       "additionalProperties": false,
-      "description": "Availability data for an {item}. see https://hl7.org/fhir/R5/Availability",
+      "description": "Availability data for an {item}. [See https://hl7.org/fhir/R5/Availability]",
       "properties": {
         "availableTime": {
           "element_property": true,
@@ -9711,7 +10422,7 @@
     "Count": {
       "$id": "http://bmeg.io/schema/0.0.2/Count",
       "additionalProperties": false,
-      "description": "A measured or measurable amount. A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies. see https://hl7.org/fhir/R5/Count",
+      "description": "A measured or measurable amount. A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies. [See https://hl7.org/fhir/R5/Count]",
       "properties": {
         "_code": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -9823,7 +10534,7 @@
     "Quantity": {
       "$id": "http://bmeg.io/schema/0.0.2/Quantity",
       "additionalProperties": false,
-      "description": "A measured or measurable amount. A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies. see https://hl7.org/fhir/R5/Quantity",
+      "description": "A measured or measurable amount. A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies. [See https://hl7.org/fhir/R5/Quantity]",
       "properties": {
         "_code": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -9935,9 +10646,10 @@
     "BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark": {
       "$id": "http://bmeg.io/schema/0.0.2/BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark",
       "additionalProperties": false,
-      "description": "Landmark relative location. The distance in centimeters a certain observation is made from a body landmark. see https://hl7.org/fhir/R5/BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark",
+      "description": "Landmark relative location. The distance in centimeters a certain observation is made from a body landmark. [See https://hl7.org/fhir/R5/BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark]",
       "properties": {
         "device": {
+          "backref": "device_body_structure_included_structure_body_landmark_orientation_distance_from_landmark",
           "binding_description": "Codes to identify medical devices.",
           "binding_strength": "example",
           "binding_uri": "http://hl7.org/fhir/ValueSet/device-type",
@@ -10016,7 +10728,7 @@
     "DocumentReferenceAttester": {
       "$id": "http://bmeg.io/schema/0.0.2/DocumentReferenceAttester",
       "additionalProperties": false,
-      "description": "Attests to accuracy of the document. A participant who has authenticated the accuracy of the document. see https://hl7.org/fhir/R5/DocumentReferenceAttester",
+      "description": "Attests to accuracy of the document. A participant who has authenticated the accuracy of the document. [See https://hl7.org/fhir/R5/DocumentReferenceAttester]",
       "properties": {
         "_time": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -10110,7 +10822,7 @@
     "DocumentReferenceRelatesTo": {
       "$id": "http://bmeg.io/schema/0.0.2/DocumentReferenceRelatesTo",
       "additionalProperties": false,
-      "description": "Relationships to other documents. Relationships that this document has with other document references that already exist. see https://hl7.org/fhir/R5/DocumentReferenceRelatesTo",
+      "description": "Relationships to other documents. Relationships that this document has with other document references that already exist. [See https://hl7.org/fhir/R5/DocumentReferenceRelatesTo]",
       "properties": {
         "code": {
           "$ref": "http://bmeg.io/schema/0.0.2/CodeableConcept",
@@ -10190,7 +10902,7 @@
     "Narrative": {
       "$id": "http://bmeg.io/schema/0.0.2/Narrative",
       "additionalProperties": false,
-      "description": "Human-readable summary of the resource (essential clinical and business information). A human-readable summary of the resource conveying the essential clinical and business information for the resource. see https://hl7.org/fhir/R5/Narrative",
+      "description": "Human-readable summary of the resource (essential clinical and business information). A human-readable summary of the resource conveying the essential clinical and business information for the resource. [See https://hl7.org/fhir/R5/Narrative]",
       "properties": {
         "_div": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -10270,7 +10982,7 @@
     "SpecimenFeature": {
       "$id": "http://bmeg.io/schema/0.0.2/SpecimenFeature",
       "additionalProperties": false,
-      "description": "The physical feature of a specimen. A physical feature or landmark on a specimen, highlighted for context by the collector of the specimen (e.g. surgeon), that identifies the type of feature as well as its meaning (e.g. the red ink indicating the resection margin of the right lobe of the excised prostate tissue or wire loop at radiologically suspected tumor location). see https://hl7.org/fhir/R5/SpecimenFeature",
+      "description": "The physical feature of a specimen. A physical feature or landmark on a specimen, highlighted for context by the collector of the specimen (e.g. surgeon), that identifies the type of feature as well as its meaning (e.g. the red ink indicating the resection margin of the right lobe of the excised prostate tissue or wire loop at radiologically suspected tumor location). [See https://hl7.org/fhir/R5/SpecimenFeature]",
       "properties": {
         "_description": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -10351,7 +11063,7 @@
     "DocumentReferenceContent": {
       "$id": "http://bmeg.io/schema/0.0.2/DocumentReferenceContent",
       "additionalProperties": false,
-      "description": "Document referenced. The document and format referenced.  If there are multiple content element repetitions, these must all represent the same document in different format, or attachment metadata. see https://hl7.org/fhir/R5/DocumentReferenceContent",
+      "description": "Document referenced. The document and format referenced.  If there are multiple content element repetitions, these must all represent the same document in different format, or attachment metadata. [See https://hl7.org/fhir/R5/DocumentReferenceContent]",
       "properties": {
         "attachment": {
           "$ref": "http://bmeg.io/schema/0.0.2/Attachment",
@@ -10422,10 +11134,258 @@
       "title": "DocumentReferenceContent",
       "type": "object"
     },
+    "EncounterAdmission": {
+      "$id": "http://bmeg.io/schema/0.0.2/EncounterAdmission",
+      "additionalProperties": false,
+      "description": "Details about the admission to a healthcare service. Details about the stay during which a healthcare service is provided. This does not describe the event of admitting the patient, but rather any information that is relevant from the time of admittance until the time of discharge. [See https://hl7.org/fhir/R5/EncounterAdmission]",
+      "properties": {
+        "admitSource": {
+          "$ref": "http://bmeg.io/schema/0.0.2/CodeableConcept",
+          "binding_description": "From where the patient was admitted.",
+          "binding_strength": "preferred",
+          "binding_uri": "http://hl7.org/fhir/ValueSet/encounter-admit-source",
+          "binding_version": null,
+          "element_property": true,
+          "title": "From where patient was admitted (physician referral, transfer)"
+        },
+        "destination": {
+          "$ref": "http://bmeg.io/schema/0.0.2/Reference",
+          "backref": "destination_encounter_admission",
+          "element_property": true,
+          "enum_reference_types": [
+            "Location",
+            "Organization"
+          ],
+          "title": "Location/organization to which the patient is discharged"
+        },
+        "dischargeDisposition": {
+          "$ref": "http://bmeg.io/schema/0.0.2/CodeableConcept",
+          "binding_description": "Discharge Disposition.",
+          "binding_strength": "example",
+          "binding_uri": "http://hl7.org/fhir/ValueSet/encounter-discharge-disposition",
+          "binding_version": null,
+          "element_property": true,
+          "title": "Category or kind of location after discharge"
+        },
+        "extension": {
+          "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Extension"
+          },
+          "title": "Additional content defined by implementations",
+          "type": "array"
+        },
+        "fhir_comments": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "element_property": false,
+          "title": "Fhir Comments"
+        },
+        "id": {
+          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "title": "Unique id for inter-element referencing",
+          "type": "string"
+        },
+        "modifierExtension": {
+          "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.  Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Extension"
+          },
+          "title": "Extensions that cannot be ignored even if unrecognized",
+          "type": "array"
+        },
+        "origin": {
+          "$ref": "http://bmeg.io/schema/0.0.2/Reference",
+          "backref": "origin_encounter_admission",
+          "element_property": true,
+          "enum_reference_types": [
+            "Location",
+            "Organization"
+          ],
+          "title": "The location/organization from which the patient came before admission"
+        },
+        "preAdmissionIdentifier": {
+          "$ref": "http://bmeg.io/schema/0.0.2/Identifier",
+          "element_property": true,
+          "title": "Pre-admission identifier"
+        },
+        "reAdmission": {
+          "$ref": "http://bmeg.io/schema/0.0.2/CodeableConcept",
+          "binding_description": "The reason for re-admission of this admission encounter.",
+          "binding_strength": "example",
+          "binding_uri": "http://terminology.hl7.org/ValueSet/v2-0092",
+          "binding_version": null,
+          "description": "Indicates that this encounter is directly related to a prior admission, often because the conditions addressed in the prior admission were not fully addressed.",
+          "element_property": true,
+          "title": "Indicates that the patient is being re-admitted"
+        },
+        "resourceType": {
+          "const": "EncounterAdmission",
+          "default": "EncounterAdmission",
+          "description": "One of the resource types defined as part of FHIR",
+          "title": "Resource Type",
+          "type": "string"
+        }
+      },
+      "title": "EncounterAdmission",
+      "type": "object"
+    },
+    "VirtualServiceDetail": {
+      "$id": "http://bmeg.io/schema/0.0.2/VirtualServiceDetail",
+      "additionalProperties": false,
+      "description": "Virtual Service Contact Details. [See https://hl7.org/fhir/R5/VirtualServiceDetail]",
+      "properties": {
+        "_additionalInfo": {
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension"
+          },
+          "title": "Extension field for ``additionalInfo``.",
+          "type": "array"
+        },
+        "_addressString": {
+          "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
+          "title": "Extension field for ``addressString``."
+        },
+        "_addressUrl": {
+          "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
+          "title": "Extension field for ``addressUrl``."
+        },
+        "_maxParticipants": {
+          "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
+          "title": "Extension field for ``maxParticipants``."
+        },
+        "_sessionKey": {
+          "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
+          "title": "Extension field for ``sessionKey``."
+        },
+        "additionalInfo": {
+          "element_property": true,
+          "items": {
+            "format": "uri",
+            "maxLength": 65536,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Address to see alternative connection details",
+          "type": "array"
+        },
+        "addressContactPoint": {
+          "$ref": "http://bmeg.io/schema/0.0.2/ContactPoint",
+          "description": "What address or number needs to be used for a user to connect to the virtual service to join. The channelType informs as to which datatype is appropriate to use (requires knowledge of the specific type).",
+          "element_property": true,
+          "one_of_many": "address",
+          "one_of_many_required": false,
+          "title": "Contact address/number"
+        },
+        "addressExtendedContactDetail": {
+          "$ref": "http://bmeg.io/schema/0.0.2/ExtendedContactDetail",
+          "description": "What address or number needs to be used for a user to connect to the virtual service to join. The channelType informs as to which datatype is appropriate to use (requires knowledge of the specific type).",
+          "element_property": true,
+          "one_of_many": "address",
+          "one_of_many_required": false,
+          "title": "Contact address/number"
+        },
+        "addressString": {
+          "description": "What address or number needs to be used for a user to connect to the virtual service to join. The channelType informs as to which datatype is appropriate to use (requires knowledge of the specific type).",
+          "element_property": true,
+          "one_of_many": "address",
+          "one_of_many_required": false,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "title": "Contact address/number",
+          "type": "string"
+        },
+        "addressUrl": {
+          "description": "What address or number needs to be used for a user to connect to the virtual service to join. The channelType informs as to which datatype is appropriate to use (requires knowledge of the specific type).",
+          "element_property": true,
+          "format": "uri",
+          "maxLength": 65536,
+          "minLength": 1,
+          "one_of_many": "address",
+          "one_of_many_required": false,
+          "title": "Contact address/number",
+          "type": "string"
+        },
+        "channelType": {
+          "$ref": "http://bmeg.io/schema/0.0.2/Coding",
+          "binding_description": "The purpose for which an extended contact detail should be used.",
+          "binding_strength": "example",
+          "binding_uri": "http://hl7.org/fhir/ValueSet/virtual-service-type",
+          "binding_version": null,
+          "description": "The type of virtual service to connect to (i.e. Teams, Zoom, Specific VMR technology, WhatsApp).",
+          "element_property": true,
+          "title": "Channel Type"
+        },
+        "extension": {
+          "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Extension"
+          },
+          "title": "Additional content defined by implementations",
+          "type": "array"
+        },
+        "fhir_comments": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "element_property": false,
+          "title": "Fhir Comments"
+        },
+        "id": {
+          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "title": "Unique id for inter-element referencing",
+          "type": "string"
+        },
+        "maxParticipants": {
+          "element_property": true,
+          "exclusiveMinimum": 0,
+          "title": "Maximum number of participants supported by the virtual service",
+          "type": "integer"
+        },
+        "resourceType": {
+          "const": "VirtualServiceDetail",
+          "default": "VirtualServiceDetail",
+          "description": "One of the resource types defined as part of FHIR",
+          "title": "Resource Type",
+          "type": "string"
+        },
+        "sessionKey": {
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "title": "Session Key required by the virtual service",
+          "type": "string"
+        }
+      },
+      "title": "VirtualServiceDetail",
+      "type": "object"
+    },
     "ResearchStudy": {
       "$id": "http://bmeg.io/schema/0.0.2/ResearchStudy",
       "additionalProperties": false,
-      "description": "Investigation to increase healthcare-related patient-independent knowledge. A scientific study of nature that sometimes includes processes involved in health and disease. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future. see https://hl7.org/fhir/R5/ResearchStudy",
+      "description": "Investigation to increase healthcare-related patient-independent knowledge. A scientific study of nature that sometimes includes processes involved in health and disease. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future. [See https://hl7.org/fhir/R5/ResearchStudy]",
       "properties": {
         "_date": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -10565,6 +11525,7 @@
           "title": "Fhir Comments"
         },
         "focus": {
+          "backref": "focus_research_study",
           "binding_description": "Common codes of research study focus",
           "binding_strength": "example",
           "binding_uri": "http://hl7.org/fhir/ValueSet/research-study-focus-type",
@@ -10882,7 +11843,7 @@
     "DataRequirementDateFilter": {
       "$id": "http://bmeg.io/schema/0.0.2/DataRequirementDateFilter",
       "additionalProperties": false,
-      "description": "What dates/date ranges are expected. Date filters specify additional constraints on the data in terms of the applicable date range for specific elements. Each date filter specifies an additional constraint on the data, i.e. date filters are AND'ed, not OR'ed. see https://hl7.org/fhir/R5/DataRequirementDateFilter",
+      "description": "What dates/date ranges are expected. Date filters specify additional constraints on the data in terms of the applicable date range for specific elements. Each date filter specifies an additional constraint on the data, i.e. date filters are AND'ed, not OR'ed. [See https://hl7.org/fhir/R5/DataRequirementDateFilter]",
       "properties": {
         "_path": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -10977,10 +11938,100 @@
       "title": "DataRequirementDateFilter",
       "type": "object"
     },
+    "EncounterReason": {
+      "$id": "http://bmeg.io/schema/0.0.2/EncounterReason",
+      "additionalProperties": false,
+      "description": "The list of medical reasons that are expected to be addressed during the episode of care. [See https://hl7.org/fhir/R5/EncounterReason]",
+      "properties": {
+        "extension": {
+          "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Extension"
+          },
+          "title": "Additional content defined by implementations",
+          "type": "array"
+        },
+        "fhir_comments": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "element_property": false,
+          "title": "Fhir Comments"
+        },
+        "id": {
+          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "title": "Unique id for inter-element referencing",
+          "type": "string"
+        },
+        "modifierExtension": {
+          "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.  Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/Extension"
+          },
+          "title": "Extensions that cannot be ignored even if unrecognized",
+          "type": "array"
+        },
+        "resourceType": {
+          "const": "EncounterReason",
+          "default": "EncounterReason",
+          "description": "One of the resource types defined as part of FHIR",
+          "title": "Resource Type",
+          "type": "string"
+        },
+        "use": {
+          "binding_description": null,
+          "binding_strength": "example",
+          "binding_uri": "http://hl7.org/fhir/ValueSet/encounter-reason-use",
+          "binding_version": null,
+          "description": "What the reason value should be used as e.g. Chief Complaint, Health Concern, Health Maintenance (including screening).",
+          "element_property": true,
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/CodeableConcept"
+          },
+          "title": "What the reason value should be used for/as",
+          "type": "array"
+        },
+        "value": {
+          "backref": "value_encounter_reason",
+          "binding_description": "Reason why the encounter takes place.",
+          "binding_strength": "preferred",
+          "binding_uri": "http://hl7.org/fhir/ValueSet/encounter-reason",
+          "binding_version": null,
+          "description": "Reason the encounter takes place, expressed as a code or a reference to another resource. For admissions, this can be used for a coded admission diagnosis.",
+          "element_property": true,
+          "enum_reference_types": [
+            "Condition",
+            "DiagnosticReport",
+            "Observation",
+            "ImmunizationRecommendation",
+            "Procedure"
+          ],
+          "items": {
+            "$ref": "http://bmeg.io/schema/0.0.2/CodeableReference"
+          },
+          "title": "Reason the encounter takes place (core or reference)",
+          "type": "array"
+        }
+      },
+      "title": "EncounterReason",
+      "type": "object"
+    },
     "Signature": {
       "$id": "http://bmeg.io/schema/0.0.2/Signature",
       "additionalProperties": false,
-      "description": "A Signature - XML DigSig, JWS, Graphical image of signature, etc.. A signature along with supporting context. The signature may be a digital signature that is cryptographic in nature, or some other signature acceptable to the domain. This other signature may be as simple as a graphical image representing a hand-written signature, or a signature ceremony Different signature approaches have different utilities. see https://hl7.org/fhir/R5/Signature",
+      "description": "A Signature - XML DigSig, JWS, Graphical image of signature, etc.. A signature along with supporting context. The signature may be a digital signature that is cryptographic in nature, or some other signature acceptable to the domain. This other signature may be as simple as a graphical image representing a hand-written signature, or a signature ceremony Different signature approaches have different utilities. [See https://hl7.org/fhir/R5/Signature]",
       "properties": {
         "_data": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -11122,7 +12173,7 @@
     "Dosage": {
       "$id": "http://bmeg.io/schema/0.0.2/Dosage",
       "additionalProperties": false,
-      "description": "How the medication is/was taken or should be taken. Indicates how the medication is/was taken or should be taken by the patient. see https://hl7.org/fhir/R5/Dosage",
+      "description": "How the medication is/was taken or should be taken. Indicates how the medication is/was taken or should be taken by the patient. [See https://hl7.org/fhir/R5/Dosage]",
       "properties": {
         "_asNeeded": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -11304,7 +12355,7 @@
     "PatientCommunication": {
       "$id": "http://bmeg.io/schema/0.0.2/PatientCommunication",
       "additionalProperties": false,
-      "description": "A language which may be used to communicate with the patient about his or her health. see https://hl7.org/fhir/R5/PatientCommunication",
+      "description": "A language which may be used to communicate with the patient about his or her health. [See https://hl7.org/fhir/R5/PatientCommunication]",
       "properties": {
         "_preferred": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -11383,7 +12434,7 @@
     "Specimen": {
       "$id": "http://bmeg.io/schema/0.0.2/Specimen",
       "additionalProperties": false,
-      "description": "Sample for analysis. A sample to be used for analysis. see https://hl7.org/fhir/R5/Specimen",
+      "description": "Sample for analysis. A sample to be used for analysis. [See https://hl7.org/fhir/R5/Specimen]",
       "properties": {
         "_combined": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -11672,7 +12723,7 @@
     "MedicationAdministrationDosage": {
       "$id": "http://bmeg.io/schema/0.0.2/MedicationAdministrationDosage",
       "additionalProperties": false,
-      "description": "Details of how medication was taken. Describes the medication dosage information details e.g. dose, rate, site, route, etc. see https://hl7.org/fhir/R5/MedicationAdministrationDosage",
+      "description": "Details of how medication was taken. Describes the medication dosage information details e.g. dose, rate, site, route, etc. [See https://hl7.org/fhir/R5/MedicationAdministrationDosage]",
       "properties": {
         "_text": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -11791,7 +12842,7 @@
     "SpecimenContainer": {
       "$id": "http://bmeg.io/schema/0.0.2/SpecimenContainer",
       "additionalProperties": false,
-      "description": "Direct container of specimen (tube/slide, etc.). The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here. see https://hl7.org/fhir/R5/SpecimenContainer",
+      "description": "Direct container of specimen (tube/slide, etc.). The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here. [See https://hl7.org/fhir/R5/SpecimenContainer]",
       "properties": {
         "device": {
           "$ref": "http://bmeg.io/schema/0.0.2/Reference",
@@ -11876,7 +12927,7 @@
     "Extension": {
       "$id": "http://bmeg.io/schema/0.0.2/Extension",
       "additionalProperties": false,
-      "description": "Optional Extensions Element. Optional Extension Element - found in all resources. see https://hl7.org/fhir/R5/Extension",
+      "description": "Optional Extensions Element. Optional Extension Element - found in all resources. [See https://hl7.org/fhir/R5/Extension]",
       "properties": {
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -12009,6 +13060,7 @@
         },
         "valueCodeableReference": {
           "$ref": "http://bmeg.io/schema/0.0.2/CodeableReference",
+          "backref": "extension",
           "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
           "element_property": true,
           "one_of_many": "value",
@@ -12384,7 +13436,7 @@
     "HumanName": {
       "$id": "http://bmeg.io/schema/0.0.2/HumanName",
       "additionalProperties": false,
-      "description": "Name of a human or other living entity - parts and usage. A name, normally of a human, that can be used for other living entities (e.g. animals but not organizations) that have been assigned names by a human and may need the use of name parts or the need for usage information. see https://hl7.org/fhir/R5/HumanName",
+      "description": "Name of a human or other living entity - parts and usage. A name, normally of a human, that can be used for other living entities (e.g. animals but not organizations) that have been assigned names by a human and may need the use of name parts or the need for usage information. [See https://hl7.org/fhir/R5/HumanName]",
       "properties": {
         "_family": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -12534,7 +13586,7 @@
     "TriggerDefinition": {
       "$id": "http://bmeg.io/schema/0.0.2/TriggerDefinition",
       "additionalProperties": false,
-      "description": "Defines an expected trigger for a module. A description of a triggering event. Triggering events can be named events, data events, or periodic, as determined by the type element. see https://hl7.org/fhir/R5/TriggerDefinition",
+      "description": "Defines an expected trigger for a module. A description of a triggering event. Triggering events can be named events, data events, or periodic, as determined by the type element. [See https://hl7.org/fhir/R5/TriggerDefinition]",
       "properties": {
         "_name": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -12699,7 +13751,7 @@
     "Meta": {
       "$id": "http://bmeg.io/schema/0.0.2/Meta",
       "additionalProperties": false,
-      "description": "Metadata about a resource. The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource. see https://hl7.org/fhir/R5/Meta",
+      "description": "Metadata about a resource. The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource. [See https://hl7.org/fhir/R5/Meta]",
       "properties": {
         "_lastUpdated": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -12827,7 +13879,7 @@
     "ResearchStudyOutcomeMeasure": {
       "$id": "http://bmeg.io/schema/0.0.2/ResearchStudyOutcomeMeasure",
       "additionalProperties": false,
-      "description": "A variable measured during the study. An \"outcome measure\", \"endpoint\", \"effect measure\" or \"measure of effect\" is a specific measurement or observation used to quantify the effect of experimental variables on the participants in a study, or for observational studies, to describe patterns of diseases or traits or associations with exposures, risk factors or treatment. see https://hl7.org/fhir/R5/ResearchStudyOutcomeMeasure",
+      "description": "A variable measured during the study. An \"outcome measure\", \"endpoint\", \"effect measure\" or \"measure of effect\" is a specific measurement or observation used to quantify the effect of experimental variables on the participants in a study, or for observational studies, to describe patterns of diseases or traits or associations with exposures, risk factors or treatment. [See https://hl7.org/fhir/R5/ResearchStudyOutcomeMeasure]",
       "properties": {
         "_description": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -13004,7 +14056,7 @@
     "Identifier": {
       "$id": "http://bmeg.io/schema/0.0.2/Identifier",
       "additionalProperties": false,
-      "description": "An identifier intended for computation. An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers. see https://hl7.org/fhir/R5/Identifier",
+      "description": "An identifier intended for computation. An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers. [See https://hl7.org/fhir/R5/Identifier]",
       "properties": {
         "_system": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -13121,10 +14173,11 @@
     "MedicationAdministrationPerformer": {
       "$id": "http://bmeg.io/schema/0.0.2/MedicationAdministrationPerformer",
       "additionalProperties": false,
-      "description": "Who or what performed the medication administration and what type of performance they did. The performer of the medication treatment.  For devices this is the device that performed the administration of the medication.  An IV Pump would be an example of a device that is performing the administration. Both the IV Pump and the practitioner that set the rate or bolus on the pump can be listed as performers. see https://hl7.org/fhir/R5/MedicationAdministrationPerformer",
+      "description": "Who or what performed the medication administration and what type of performance they did. The performer of the medication treatment.  For devices this is the device that performed the administration of the medication.  An IV Pump would be an example of a device that is performing the administration. Both the IV Pump and the practitioner that set the rate or bolus on the pump can be listed as performers. [See https://hl7.org/fhir/R5/MedicationAdministrationPerformer]",
       "properties": {
         "actor": {
           "$ref": "http://bmeg.io/schema/0.0.2/CodeableReference",
+          "backref": "medication_administration_performer",
           "description": "Indicates who or what performed the medication administration.",
           "element_property": true,
           "enum_reference_types": [
@@ -13203,7 +14256,7 @@
     "BodyStructureIncludedStructure": {
       "$id": "http://bmeg.io/schema/0.0.2/BodyStructureIncludedStructure",
       "additionalProperties": false,
-      "description": "Included anatomic location(s). The anatomical location(s) or region(s) of the specimen, lesion, or body structure. see https://hl7.org/fhir/R5/BodyStructureIncludedStructure",
+      "description": "Included anatomic location(s). The anatomical location(s) or region(s) of the specimen, lesion, or body structure. [See https://hl7.org/fhir/R5/BodyStructureIncludedStructure]",
       "properties": {
         "bodyLandmarkOrientation": {
           "description": "Body locations in relation to a specific body landmark (tatoo, scar, other body structure).",
@@ -13314,7 +14367,7 @@
     "TaskInput": {
       "$id": "http://bmeg.io/schema/0.0.2/TaskInput",
       "additionalProperties": false,
-      "description": "Information used to perform task. Additional information that may be needed in the execution of the task. see https://hl7.org/fhir/R5/TaskInput",
+      "description": "Information used to perform task. Additional information that may be needed in the execution of the task. [See https://hl7.org/fhir/R5/TaskInput]",
       "properties": {
         "_valueBase64Binary": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -13534,6 +14587,7 @@
         },
         "valueCodeableReference": {
           "$ref": "http://bmeg.io/schema/0.0.2/CodeableReference",
+          "backref": "task_input",
           "description": "The value of the input parameter as a basic type.",
           "element_property": true,
           "one_of_many": "value",
@@ -13912,7 +14966,7 @@
     "Medication": {
       "$id": "http://bmeg.io/schema/0.0.2/Medication",
       "additionalProperties": false,
-      "description": "Definition of a Medication. This resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use. see https://hl7.org/fhir/R5/Medication",
+      "description": "Definition of a Medication. This resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use. [See https://hl7.org/fhir/R5/Medication]",
       "properties": {
         "_implicitRules": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -14106,7 +15160,7 @@
     "MedicationBatch": {
       "$id": "http://bmeg.io/schema/0.0.2/MedicationBatch",
       "additionalProperties": false,
-      "description": "Details about packaged medications. Information that only applies to packages (not products). see https://hl7.org/fhir/R5/MedicationBatch",
+      "description": "Details about packaged medications. Information that only applies to packages (not products). [See https://hl7.org/fhir/R5/MedicationBatch]",
       "properties": {
         "_expirationDate": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -14184,7 +15238,7 @@
     "ResearchSubject": {
       "$id": "http://bmeg.io/schema/0.0.2/ResearchSubject",
       "additionalProperties": false,
-      "description": "Participant or object which is the recipient of investigative activities in a study. A ResearchSubject is a participant or object which is the recipient of investigative activities in a research study. see https://hl7.org/fhir/R5/ResearchSubject",
+      "description": "Participant or object which is the recipient of investigative activities in a study. A ResearchSubject is a participant or object which is the recipient of investigative activities in a research study. [See https://hl7.org/fhir/R5/ResearchSubject]",
       "properties": {
         "_actualComparisonGroup": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -14404,7 +15458,7 @@
     "CodeableConcept": {
       "$id": "http://bmeg.io/schema/0.0.2/CodeableConcept",
       "additionalProperties": false,
-      "description": "Concept - reference to a terminology or just  text. A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text. see https://hl7.org/fhir/R5/CodeableConcept",
+      "description": "Concept - reference to a terminology or just  text. A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text. [See https://hl7.org/fhir/R5/CodeableConcept]",
       "properties": {
         "_text": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -14471,7 +15525,7 @@
     "ContactPoint": {
       "$id": "http://bmeg.io/schema/0.0.2/ContactPoint",
       "additionalProperties": false,
-      "description": "Details of a Technology mediated contact point (phone, fax, email, etc.). Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc. see https://hl7.org/fhir/R5/ContactPoint",
+      "description": "Details of a Technology mediated contact point (phone, fax, email, etc.). Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc. [See https://hl7.org/fhir/R5/ContactPoint]",
       "properties": {
         "_rank": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -14591,7 +15645,7 @@
     "Age": {
       "$id": "http://bmeg.io/schema/0.0.2/Age",
       "additionalProperties": false,
-      "description": "A duration of time during which an organism (or a process) has existed. see https://hl7.org/fhir/R5/Age",
+      "description": "A duration of time during which an organism (or a process) has existed. [See https://hl7.org/fhir/R5/Age]",
       "properties": {
         "_code": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -14703,7 +15757,7 @@
     "ConditionStage": {
       "$id": "http://bmeg.io/schema/0.0.2/ConditionStage",
       "additionalProperties": false,
-      "description": "Stage/grade, usually assessed formally. A simple summary of the stage such as \"Stage 3\" or \"Early Onset\". The determination of the stage is disease-specific, such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer's, or Parkinson disease. see https://hl7.org/fhir/R5/ConditionStage",
+      "description": "Stage/grade, usually assessed formally. A simple summary of the stage such as \"Stage 3\" or \"Early Onset\". The determination of the stage is disease-specific, such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer's, or Parkinson disease. [See https://hl7.org/fhir/R5/ConditionStage]",
       "properties": {
         "assessment": {
           "backref": "assessment_condition_stage",
@@ -14794,7 +15848,7 @@
     "Duration": {
       "$id": "http://bmeg.io/schema/0.0.2/Duration",
       "additionalProperties": false,
-      "description": "A length of time. see https://hl7.org/fhir/R5/Duration",
+      "description": "A length of time. [See https://hl7.org/fhir/R5/Duration]",
       "properties": {
         "_code": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -14906,7 +15960,7 @@
     "SpecimenProcessing": {
       "$id": "http://bmeg.io/schema/0.0.2/SpecimenProcessing",
       "additionalProperties": false,
-      "description": "Processing and processing step details. Details concerning processing and processing steps for the specimen. see https://hl7.org/fhir/R5/SpecimenProcessing",
+      "description": "Processing and processing step details. Details concerning processing and processing steps for the specimen. [See https://hl7.org/fhir/R5/SpecimenProcessing]",
       "properties": {
         "_description": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -15015,7 +16069,7 @@
     "Ratio": {
       "$id": "http://bmeg.io/schema/0.0.2/Ratio",
       "additionalProperties": false,
-      "description": "A ratio of two Quantity values - a numerator and a denominator. A relationship of two Quantity values - expressed as a numerator and a denominator. see https://hl7.org/fhir/R5/Ratio",
+      "description": "A ratio of two Quantity values - a numerator and a denominator. A relationship of two Quantity values - expressed as a numerator and a denominator. [See https://hl7.org/fhir/R5/Ratio]",
       "properties": {
         "denominator": {
           "$ref": "http://bmeg.io/schema/0.0.2/Quantity",
@@ -15074,7 +16128,7 @@
     "ParameterDefinition": {
       "$id": "http://bmeg.io/schema/0.0.2/ParameterDefinition",
       "additionalProperties": false,
-      "description": "Definition of a parameter to a module. The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse. see https://hl7.org/fhir/R5/ParameterDefinition",
+      "description": "Definition of a parameter to a module. The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse. [See https://hl7.org/fhir/R5/ParameterDefinition]",
       "properties": {
         "_documentation": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -15214,7 +16268,7 @@
     "Coding": {
       "$id": "http://bmeg.io/schema/0.0.2/Coding",
       "additionalProperties": false,
-      "description": "A reference to a code defined by a terminology system. see https://hl7.org/fhir/R5/Coding",
+      "description": "A reference to a code defined by a terminology system. [See https://hl7.org/fhir/R5/Coding]",
       "properties": {
         "_code": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -15315,7 +16369,7 @@
     "TimingRepeat": {
       "$id": "http://bmeg.io/schema/0.0.2/TimingRepeat",
       "additionalProperties": false,
-      "description": "When the event is to occur. A set of rules that describe when the event is scheduled. see https://hl7.org/fhir/R5/TimingRepeat",
+      "description": "When the event is to occur. A set of rules that describe when the event is scheduled. [See https://hl7.org/fhir/R5/TimingRepeat]",
       "properties": {
         "_count": {
           "$ref": "http://bmeg.io/schema/0.0.2/FHIRPrimitiveExtension",
@@ -15660,6 +16714,9 @@
       "$ref": "http://bmeg.io/schema/0.0.2/Period"
     },
     {
+      "$ref": "http://bmeg.io/schema/0.0.2/EncounterParticipant"
+    },
+    {
       "$ref": "http://bmeg.io/schema/0.0.2/AvailabilityNotAvailableTime"
     },
     {
@@ -15726,6 +16783,9 @@
       "$ref": "http://bmeg.io/schema/0.0.2/FamilyMemberHistoryProcedure"
     },
     {
+      "$ref": "http://bmeg.io/schema/0.0.2/Encounter"
+    },
+    {
       "$ref": "http://bmeg.io/schema/0.0.2/TaskRestriction"
     },
     {
@@ -15777,6 +16837,12 @@
       "$ref": "http://bmeg.io/schema/0.0.2/SubstanceIngredient"
     },
     {
+      "$ref": "http://bmeg.io/schema/0.0.2/EncounterLocation"
+    },
+    {
+      "$ref": "http://bmeg.io/schema/0.0.2/EncounterDiagnosis"
+    },
+    {
       "$ref": "http://bmeg.io/schema/0.0.2/Reference"
     },
     {
@@ -15807,10 +16873,19 @@
       "$ref": "http://bmeg.io/schema/0.0.2/DocumentReferenceContent"
     },
     {
+      "$ref": "http://bmeg.io/schema/0.0.2/EncounterAdmission"
+    },
+    {
+      "$ref": "http://bmeg.io/schema/0.0.2/VirtualServiceDetail"
+    },
+    {
       "$ref": "http://bmeg.io/schema/0.0.2/ResearchStudy"
     },
     {
       "$ref": "http://bmeg.io/schema/0.0.2/DataRequirementDateFilter"
+    },
+    {
+      "$ref": "http://bmeg.io/schema/0.0.2/EncounterReason"
     },
     {
       "$ref": "http://bmeg.io/schema/0.0.2/Signature"

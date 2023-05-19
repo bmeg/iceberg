@@ -1,7 +1,7 @@
 $id: MedicationIngredient
 additionalProperties: false
 description: Active or inactive ingredient. Identifies a particular constituent of
-  interest in the product. see https://hl7.org/fhir/R5/MedicationIngredient
+  interest in the product. [See https://hl7.org/fhir/R5/MedicationIngredient]
 properties:
   _isActive:
     $ref: FHIRPrimitiveExtension.yaml
@@ -40,6 +40,7 @@ properties:
     type: boolean
   item:
     $ref: CodeableReference.yaml
+    backref: medication_ingredient
     binding_description: null
     binding_strength: example
     binding_uri: http://hl7.org/fhir/ValueSet/medication-codes

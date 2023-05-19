@@ -3,7 +3,7 @@ additionalProperties: false
 description: Provides guide for interpretation. Guidance on how to interpret the value
   by comparison to a normal or recommended range.  Multiple reference ranges are interpreted
   as an "OR". In other words, to represent two distinct target populations, two `referenceRange`
-  elements would be used. see https://hl7.org/fhir/R5/ObservationReferenceRange
+  elements would be used. [See https://hl7.org/fhir/R5/ObservationReferenceRange]
 properties:
   _text:
     $ref: FHIRPrimitiveExtension.yaml

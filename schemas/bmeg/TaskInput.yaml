@@ -1,7 +1,7 @@
 $id: TaskInput
 additionalProperties: false
 description: Information used to perform task. Additional information that may be
-  needed in the execution of the task. see https://hl7.org/fhir/R5/TaskInput
+  needed in the execution of the task. [See https://hl7.org/fhir/R5/TaskInput]
 properties:
   _valueBase64Binary:
     $ref: FHIRPrimitiveExtension.yaml
@@ -193,6 +193,7 @@ properties:
     title: Content to use in performing the task
   valueCodeableReference:
     $ref: CodeableReference.yaml
+    backref: task_input
     description: The value of the input parameter as a basic type.
     element_property: true
     one_of_many: value

@@ -2,7 +2,7 @@ $id: ConditionParticipant
 additionalProperties: false
 description: Who or what participated in the activities related to the condition and
   how they were involved. Indicates who or what participated in the activities related
-  to the condition and how they were involved. see https://hl7.org/fhir/R5/ConditionParticipant
+  to the condition and how they were involved. [See https://hl7.org/fhir/R5/ConditionParticipant]
 properties:
   actor:
     $ref: Reference.yaml

@@ -3,7 +3,7 @@ additionalProperties: false
 description: Definition of a Medication. This resource is primarily used for the identification
   and definition of a medication, including ingredients, for the purposes of prescribing,
   dispensing, and administering a medication as well as for making statements about
-  medication use. see https://hl7.org/fhir/R5/Medication
+  medication use. [See https://hl7.org/fhir/R5/Medication]
 properties:
   _implicitRules:
     $ref: FHIRPrimitiveExtension.yaml

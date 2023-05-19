@@ -1,6 +1,6 @@
 $id: AvailabilityAvailableTime
 additionalProperties: false
-description: Times the {item} is available. see https://hl7.org/fhir/R5/AvailabilityAvailableTime
+description: Times the {item} is available. [See https://hl7.org/fhir/R5/AvailabilityAvailableTime]
 properties:
   _allDay:
     $ref: FHIRPrimitiveExtension.yaml

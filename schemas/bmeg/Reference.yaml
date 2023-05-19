@@ -1,6 +1,6 @@
 $id: Reference
 additionalProperties: false
-description: A reference from one resource to another. see https://hl7.org/fhir/R5/Reference
+description: A reference from one resource to another. [See https://hl7.org/fhir/R5/Reference]
 properties:
   _display:
     $ref: FHIRPrimitiveExtension.yaml

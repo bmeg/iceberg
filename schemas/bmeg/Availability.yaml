@@ -1,6 +1,6 @@
 $id: Availability
 additionalProperties: false
-description: Availability data for an {item}. see https://hl7.org/fhir/R5/Availability
+description: Availability data for an {item}. [See https://hl7.org/fhir/R5/Availability]
 properties:
   availableTime:
     element_property: true

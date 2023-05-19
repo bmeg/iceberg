@@ -1,7 +1,7 @@
 $id: Ratio
 additionalProperties: false
 description: A ratio of two Quantity values - a numerator and a denominator. A relationship
-  of two Quantity values - expressed as a numerator and a denominator. see https://hl7.org/fhir/R5/Ratio
+  of two Quantity values - expressed as a numerator and a denominator. [See https://hl7.org/fhir/R5/Ratio]
 properties:
   denominator:
     $ref: Quantity.yaml

@@ -1,7 +1,7 @@
 $id: Annotation
 additionalProperties: false
 description: Text node with attribution. A  text note which also  contains information
-  about who made the statement and when. see https://hl7.org/fhir/R5/Annotation
+  about who made the statement and when. [See https://hl7.org/fhir/R5/Annotation]
 properties:
   _authorString:
     $ref: FHIRPrimitiveExtension.yaml

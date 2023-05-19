@@ -8,7 +8,7 @@ description: "A reference to a document. A reference to a document of any kind f
   \ video, or audio recording acquired or used in healthcare.  The DocumentReference\
   \ resource provides metadata about the document so that the document can be discovered\
   \ and managed.  The actual content may be inline base64 encoded data or provided\
-  \ by direct reference. see https://hl7.org/fhir/R5/DocumentReference"
+  \ by direct reference. [See https://hl7.org/fhir/R5/DocumentReference]"
 properties:
   _date:
     $ref: FHIRPrimitiveExtension.yaml
@@ -81,6 +81,7 @@ properties:
     title: Procedure that caused this media to be created
     type: array
   bodySite:
+    backref: bodySite_document_reference
     binding_description: SNOMED CT Body site concepts
     binding_strength: example
     binding_uri: http://hl7.org/fhir/ValueSet/body-site
@@ -183,6 +184,7 @@ properties:
       | cancelled | entered-in-error | deprecated | unknown
     type: string
   event:
+    backref: event_document_reference
     binding_description: This list of codes represents the main clinical acts being
       documented.
     binding_strength: example

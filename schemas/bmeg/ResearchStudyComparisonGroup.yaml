@@ -4,7 +4,7 @@ description: 'Defined path through the study for a subject. Describes an expecte
   event or sequence of events for one of the subjects of a study. E.g. for a living
   subject: exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up.
   E.g. for a stability study: {store sample from lot A at 25 degrees for 1 month},
-  {store sample from lot A at 40 degrees for 1 month}. see https://hl7.org/fhir/R5/ResearchStudyComparisonGroup'
+  {store sample from lot A at 40 degrees for 1 month}. [See https://hl7.org/fhir/R5/ResearchStudyComparisonGroup]'
 properties:
   _description:
     $ref: FHIRPrimitiveExtension.yaml

@@ -1,7 +1,7 @@
 $id: Period
 additionalProperties: false
 description: Time range defined by start and end date/time. A time period defined
-  by a start and end date and optionally time. see https://hl7.org/fhir/R5/Period
+  by a start and end date and optionally time. [See https://hl7.org/fhir/R5/Period]
 properties:
   _end:
     $ref: FHIRPrimitiveExtension.yaml

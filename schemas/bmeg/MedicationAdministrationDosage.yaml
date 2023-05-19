@@ -1,7 +1,7 @@
 $id: MedicationAdministrationDosage
 additionalProperties: false
 description: Details of how medication was taken. Describes the medication dosage
-  information details e.g. dose, rate, site, route, etc. see https://hl7.org/fhir/R5/MedicationAdministrationDosage
+  information details e.g. dose, rate, site, route, etc. [See https://hl7.org/fhir/R5/MedicationAdministrationDosage]
 properties:
   _text:
     $ref: FHIRPrimitiveExtension.yaml

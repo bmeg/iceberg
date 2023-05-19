@@ -1,7 +1,7 @@
 $id: Extension
 additionalProperties: false
 description: Optional Extensions Element. Optional Extension Element - found in all
-  resources. see https://hl7.org/fhir/R5/Extension
+  resources. [See https://hl7.org/fhir/R5/Extension]
 properties:
   extension:
     description: May be used to represent additional information that is not part
@@ -128,6 +128,7 @@ properties:
     title: Value of extension
   valueCodeableReference:
     $ref: CodeableReference.yaml
+    backref: extension
     description: Value of extension - must be one of a constrained set of the data
       types (see [Extensibility](extensibility.html) for a list).
     element_property: true

@@ -1,7 +1,7 @@
 $id: ObservationTriggeredBy
 additionalProperties: false
 description: Triggering observation(s). Identifies the observation(s) that triggered
-  the performance of this observation. see https://hl7.org/fhir/R5/ObservationTriggeredBy
+  the performance of this observation. [See https://hl7.org/fhir/R5/ObservationTriggeredBy]
 properties:
   _reason:
     $ref: FHIRPrimitiveExtension.yaml

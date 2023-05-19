@@ -5,7 +5,7 @@ description: Investigation to increase healthcare-related patient-independent kn
   and disease. For example, clinical trials are research studies that involve people.
   These studies may be related to new ways to screen, prevent, diagnose, and treat
   disease. They may also study certain outcomes and certain groups of people by looking
-  at data collected in the past or future. see https://hl7.org/fhir/R5/ResearchStudy
+  at data collected in the past or future. [See https://hl7.org/fhir/R5/ResearchStudy]
 properties:
   _date:
     $ref: FHIRPrimitiveExtension.yaml
@@ -135,6 +135,7 @@ properties:
     element_property: false
     title: Fhir Comments
   focus:
+    backref: focus_research_study
     binding_description: Common codes of research study focus
     binding_strength: example
     binding_uri: http://hl7.org/fhir/ValueSet/research-study-focus-type

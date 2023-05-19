@@ -4,7 +4,7 @@ description: Component results. Some observations have multiple component observ
   component observations are expressed as separate code value pairs that share the
   same attributes.  Examples include systolic and diastolic component observations
   for blood pressure measurement and multiple component observations for genetics
-  observations. see https://hl7.org/fhir/R5/ObservationComponent
+  observations. [See https://hl7.org/fhir/R5/ObservationComponent]
 properties:
   _valueBoolean:
     $ref: FHIRPrimitiveExtension.yaml

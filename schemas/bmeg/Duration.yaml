@@ -1,6 +1,6 @@
 $id: Duration
 additionalProperties: false
-description: A length of time. see https://hl7.org/fhir/R5/Duration
+description: A length of time. [See https://hl7.org/fhir/R5/Duration]
 properties:
   _code:
     $ref: FHIRPrimitiveExtension.yaml

@@ -1,7 +1,7 @@
 $id: Observation
 additionalProperties: false
 description: Measurements and simple assertions. Measurements and simple assertions
-  made about a patient, device or other subject. see https://hl7.org/fhir/R5/Observation
+  made about a patient, device or other subject. [See https://hl7.org/fhir/R5/Observation]
 properties:
   _effectiveDateTime:
     $ref: FHIRPrimitiveExtension.yaml

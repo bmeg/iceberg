@@ -2,7 +2,7 @@ $id: CodeableConcept
 additionalProperties: false
 description: Concept - reference to a terminology or just  text. A concept that may
   be defined by a formal reference to a terminology or ontology or may be provided
-  by text. see https://hl7.org/fhir/R5/CodeableConcept
+  by text. [See https://hl7.org/fhir/R5/CodeableConcept]
 properties:
   _text:
     $ref: FHIRPrimitiveExtension.yaml

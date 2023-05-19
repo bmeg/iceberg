@@ -1,6 +1,6 @@
 $id: Distance
 additionalProperties: false
-description: A length - a value with a unit that is a physical distance. see https://hl7.org/fhir/R5/Distance
+description: A length - a value with a unit that is a physical distance. [See https://hl7.org/fhir/R5/Distance]
 properties:
   _code:
     $ref: FHIRPrimitiveExtension.yaml

@@ -1,11 +1,8 @@
-$id: DocumentReferenceAttester
+$id: EncounterReason
 additionalProperties: false
-description: Attests to accuracy of the document. A participant who has authenticated
-  the accuracy of the document. [See https://hl7.org/fhir/R5/DocumentReferenceAttester]
+description: The list of medical reasons that are expected to be addressed during
+  the episode of care. [See https://hl7.org/fhir/R5/EncounterReason]
 properties:
-  _time:
-    $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``time``.
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -32,15 +29,6 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
-  mode:
-    $ref: CodeableConcept.yaml
-    binding_description: The way in which a person authenticated a document.
-    binding_strength: preferred
-    binding_uri: http://hl7.org/fhir/ValueSet/composition-attestation-mode
-    binding_version: null
-    description: The type of attestation the authenticator offers.
-    element_property: true
-    title: personal | professional | legal | official
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of
@@ -58,31 +46,43 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
-  party:
-    $ref: Reference.yaml
-    backref: document_reference_attester
-    description: Who attested the document in the specified way.
-    element_property: true
-    enum_reference_types:
-    - Patient
-    - RelatedPerson
-    - Practitioner
-    - PractitionerRole
-    - Organization
-    title: Who attested the document
   resourceType:
-    const: DocumentReferenceAttester
-    default: DocumentReferenceAttester
+    const: EncounterReason
+    default: EncounterReason
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-  time:
-    description: When the document was attested by the party.
+  use:
+    binding_description: null
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/encounter-reason-use
+    binding_version: null
+    description: What the reason value should be used as e.g. Chief Complaint, Health
+      Concern, Health Maintenance (including screening).
     element_property: true
-    format: date-time
-    title: When the document was attested
-    type: string
-required:
-- mode
-title: DocumentReferenceAttester
+    items:
+      $ref: CodeableConcept.yaml
+    title: What the reason value should be used for/as
+    type: array
+  value:
+    backref: value_encounter_reason
+    binding_description: Reason why the encounter takes place.
+    binding_strength: preferred
+    binding_uri: http://hl7.org/fhir/ValueSet/encounter-reason
+    binding_version: null
+    description: Reason the encounter takes place, expressed as a code or a reference
+      to another resource. For admissions, this can be used for a coded admission
+      diagnosis.
+    element_property: true
+    enum_reference_types:
+    - Condition
+    - DiagnosticReport
+    - Observation
+    - ImmunizationRecommendation
+    - Procedure
+    items:
+      $ref: CodeableReference.yaml
+    title: Reason the encounter takes place (core or reference)
+    type: array
+title: EncounterReason
 type: object

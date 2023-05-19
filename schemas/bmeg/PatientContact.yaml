@@ -1,7 +1,7 @@
 $id: PatientContact
 additionalProperties: false
-description: A contact party (e.g. guardian, partner, friend) for the patient. see
-  https://hl7.org/fhir/R5/PatientContact
+description: A contact party (e.g. guardian, partner, friend) for the patient. [See
+  https://hl7.org/fhir/R5/PatientContact]
 properties:
   _gender:
     $ref: FHIRPrimitiveExtension.yaml

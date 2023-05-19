@@ -1,6 +1,6 @@
 $id: Coding
 additionalProperties: false
-description: A reference to a code defined by a terminology system. see https://hl7.org/fhir/R5/Coding
+description: A reference to a code defined by a terminology system. [See https://hl7.org/fhir/R5/Coding]
 properties:
   _code:
     $ref: FHIRPrimitiveExtension.yaml

@@ -1,6 +1,6 @@
 $id: Task
 additionalProperties: false
-description: A task to be performed. see https://hl7.org/fhir/R5/Task
+description: A task to be performed. [See https://hl7.org/fhir/R5/Task]
 properties:
   _authoredOn:
     $ref: FHIRPrimitiveExtension.yaml
@@ -138,11 +138,11 @@ properties:
     enum_reference_types:
     - Resource
     title: What task is acting on
-  for:
+  for_fhir:
     $ref: Reference.yaml
     backref: for_task
-    description: The entity who benefits from the performance of the service specified
-      in the task (e.g., the patient).
+    description: '[Reserved word `for` renamed to `for_fhir`] The entity who benefits
+      from the performance of the service specified in the task (e.g., the patient).'
     element_property: true
     enum_reference_types:
     - Resource
@@ -353,6 +353,7 @@ properties:
     title: routine | urgent | asap | stat
     type: string
   reason:
+    backref: reason_task
     description: A description, code, or reference indicating why this task needs
       to be performed.
     element_property: true
@@ -373,6 +374,7 @@ properties:
     title: Key events in history of the Task
     type: array
   requestedPerformer:
+    backref: requestedPerformer_task
     binding_description: The type(s) of task performers allowed.
     binding_strength: preferred
     binding_uri: http://hl7.org/fhir/ValueSet/performer-role
@@ -444,6 +446,7 @@ properties:
     type: string
   statusReason:
     $ref: CodeableReference.yaml
+    backref: task
     binding_description: Codes to identify the reason for current status.  These will
       typically be specific to a particular workflow.
     binding_strength: example

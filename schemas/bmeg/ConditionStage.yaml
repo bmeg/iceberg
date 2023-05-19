@@ -3,7 +3,7 @@ additionalProperties: false
 description: Stage/grade, usually assessed formally. A simple summary of the stage
   such as "Stage 3" or "Early Onset". The determination of the stage is disease-specific,
   such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer's, or Parkinson
-  disease. see https://hl7.org/fhir/R5/ConditionStage
+  disease. [See https://hl7.org/fhir/R5/ConditionStage]
 properties:
   assessment:
     backref: assessment_condition_stage

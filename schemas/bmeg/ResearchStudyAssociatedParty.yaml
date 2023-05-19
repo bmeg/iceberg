@@ -1,6 +1,6 @@
 $id: ResearchStudyAssociatedParty
 additionalProperties: false
-description: Sponsors, collaborators, and other parties. see https://hl7.org/fhir/R5/ResearchStudyAssociatedParty
+description: Sponsors, collaborators, and other parties. [See https://hl7.org/fhir/R5/ResearchStudyAssociatedParty]
 properties:
   _name:
     $ref: FHIRPrimitiveExtension.yaml

@@ -1,6 +1,6 @@
 $id: Specimen
 additionalProperties: false
-description: Sample for analysis. A sample to be used for analysis. see https://hl7.org/fhir/R5/Specimen
+description: Sample for analysis. A sample to be used for analysis. [See https://hl7.org/fhir/R5/Specimen]
 properties:
   _combined:
     $ref: FHIRPrimitiveExtension.yaml
