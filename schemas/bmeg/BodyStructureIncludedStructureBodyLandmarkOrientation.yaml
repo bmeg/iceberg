@@ -1,0 +1,102 @@
+$id: BodyStructureIncludedStructureBodyLandmarkOrientation
+additionalProperties: false
+description: Landmark relative location. Body locations in relation to a specific
+  body landmark (tatoo, scar, other body structure). [See https://hl7.org/fhir/R5/BodyStructureIncludedStructureBodyLandmarkOrientation]
+properties:
+  clockFacePosition:
+    binding_description: Select SNOMED CT codes. A set of codes that describe a things
+      orientation based on a hourly positions of a clock face.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/bodystructure-bodylandmarkorientation-clockface-position
+    binding_version: null
+    description: An description of the direction away from a landmark something is
+      located based on a radial clock dial.
+    element_property: true
+    items:
+      $ref: CodeableConcept.yaml
+    title: Clockface orientation
+    type: array
+  distanceFromLandmark:
+    description: The distance in centimeters a certain observation is made from a
+      body landmark.
+    element_property: true
+    items:
+      $ref: BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark.yaml
+    title: Landmark relative location
+    type: array
+  extension:
+    description: May be used to represent additional information that is not part
+      of the basic definition of the element. To make the use of extensions safe and
+      managable, there is a strict set of governance applied to the definition and
+      use of extensions. Though any implementer can define an extension, there is
+      a set of requirements that SHALL be met as part of the definition of the extension.
+    element_property: true
+    items:
+      $ref: Extension.yaml
+    title: Additional content defined by implementations
+    type: array
+  fhir_comments:
+    anyOf:
+    - type: string
+    - items:
+        type: string
+      type: array
+    element_property: false
+    title: Fhir Comments
+  id:
+    description: Unique id for the element within a resource (for internal references).
+      This may be any string value that does not contain spaces.
+    element_property: true
+    pattern: '[ \r\n\t\S]+'
+    title: Unique id for inter-element referencing
+    type: string
+  landmarkDescription:
+    binding_description: Select SNOMED code system values. Values used in a podiatry
+      setting to decsribe landmarks on the body.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/body-site
+    binding_version: null
+    description: A description of a landmark on the body used as a reference to locate
+      something else.
+    element_property: true
+    items:
+      $ref: CodeableConcept.yaml
+    title: Body ]andmark description
+    type: array
+  modifierExtension:
+    description: May be used to represent additional information that is not part
+      of the basic definition of the element and that modifies the understanding of
+      the element in which it is contained and/or the understanding of the containing
+      element's descendants. Usually modifier elements provide negation or qualification.
+      To make the use of extensions safe and managable, there is a strict set of governance
+      applied to the definition and use of extensions. Though any implementer can
+      define an extension, there is a set of requirements that SHALL be met as part
+      of the definition of the extension. Applications processing a resource are required
+      to check for modifier extensions.  Modifier extensions SHALL NOT change the
+      meaning of any elements on Resource or DomainResource (including cannot change
+      the meaning of modifierExtension itself).
+    element_property: true
+    items:
+      $ref: Extension.yaml
+    title: Extensions that cannot be ignored even if unrecognized
+    type: array
+  resourceType:
+    const: BodyStructureIncludedStructureBodyLandmarkOrientation
+    default: BodyStructureIncludedStructureBodyLandmarkOrientation
+    description: One of the resource types defined as part of FHIR
+    title: Resource Type
+    type: string
+  surfaceOrientation:
+    binding_description: Select SNOMED code system values. The surface area a body
+      location is in relation to a landmark.
+    binding_strength: preferred
+    binding_uri: http://hl7.org/fhir/ValueSet/bodystructure-relative-location
+    binding_version: null
+    description: The surface area a body location is in relation to a landmark.
+    element_property: true
+    items:
+      $ref: CodeableConcept.yaml
+    title: Relative landmark surface orientation
+    type: array
+title: BodyStructureIncludedStructureBodyLandmarkOrientation
+type: object
