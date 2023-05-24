@@ -67,7 +67,7 @@ properties:
   disability_adjusted_life_years:
     description: '[extension disability_adjusted_life_years] Disability Adjusted Life
       Years as defined in the literature and summarized at <a href="https://en.wikipedia.org/wiki/Disability-adjusted_life_year"/>.'
-    type: decimal
+    type: string
   extension:
     description: '[Text representation of Extension] May be used to represent additional
       information that is not part of the basic definition of the resource. To make
@@ -243,7 +243,7 @@ properties:
   quality_adjusted_life_years:
     description: '[extension quality_adjusted_life_years] Quality Adjusted Life Years
       as defined in the literature and summarized at <a href="https://en.wikipedia.org/wiki/Quality-adjusted_life_year"/>.'
-    type: decimal
+    type: string
   resourceType:
     const: Patient
     default: Patient
@@ -276,7 +276,7 @@ properties:
         strength: required
         term: http://hl7.org/fhir/us/core/ValueSet/birthsex
         term_url: http://hl7.org/fhir/us/core/ValueSet/birthsex
-    type: code
+    type: string
   us_core_ethnicity_detailed:
     binding_description: null
     binding_strength: required
