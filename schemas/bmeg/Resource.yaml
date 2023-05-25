@@ -1,6 +1,6 @@
 $id: Resource
 additionalProperties: false
-description: Base Resource. This is the base resource type for everything. [See https://hl7.org/fhir/R5/Resource]
+description: Base Resource. This is the base resource type for everything. [See https://hl7.org/fhir/R5/Resource.html]
 properties:
   _implicitRules:
     $ref: FHIRPrimitiveExtension.yaml

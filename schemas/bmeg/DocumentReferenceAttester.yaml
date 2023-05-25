@@ -1,7 +1,7 @@
 $id: DocumentReferenceAttester
 additionalProperties: false
 description: Attests to accuracy of the document. A participant who has authenticated
-  the accuracy of the document. [See https://hl7.org/fhir/R5/DocumentReferenceAttester]
+  the accuracy of the document. [See https://hl7.org/fhir/R5/DocumentReferenceAttester.html]
 properties:
   _time:
     $ref: FHIRPrimitiveExtension.yaml

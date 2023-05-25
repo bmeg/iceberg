@@ -6,7 +6,7 @@ description: An address expressed using postal conventions (as opposed to GPS or
   to convey addresses for use in delivering mail as well as for visiting locations
   which might not be valid for mail delivery.  There are a variety of postal address
   formats defined around the world. The ISO21090-codedString may be used to provide
-  a coded representation of the contents of strings in an Address. [See https://hl7.org/fhir/R5/Address]
+  a coded representation of the contents of strings in an Address. [See https://hl7.org/fhir/R5/Address.html]
 properties:
   _city:
     $ref: FHIRPrimitiveExtension.yaml

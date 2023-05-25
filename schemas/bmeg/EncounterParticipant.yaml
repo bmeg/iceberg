@@ -1,7 +1,7 @@
 $id: EncounterParticipant
 additionalProperties: false
 description: List of participants involved in the encounter. The list of people responsible
-  for providing the service. [See https://hl7.org/fhir/R5/EncounterParticipant]
+  for providing the service. [See https://hl7.org/fhir/R5/EncounterParticipant.html]
 properties:
   actor:
     $ref: Reference.yaml

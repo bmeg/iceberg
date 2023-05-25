@@ -3,7 +3,7 @@ additionalProperties: true
 category: Administrative
 description: Information about an individual or animal receiving health care services.
   Demographics and other administrative information about an individual or animal
-  receiving care or other health-related services. [See https://hl7.org/fhir/R5/Patient]
+  receiving care or other health-related services. [See https://hl7.org/fhir/R5/Patient.html]
 id: patient
 links: []
 program: '*'

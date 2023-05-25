@@ -3,7 +3,7 @@ additionalProperties: true
 category: Administrative
 description: Participant or object which is the recipient of investigative activities
   in a study. A ResearchSubject is a participant or object which is the recipient
-  of investigative activities in a research study. [See https://hl7.org/fhir/R5/ResearchSubject]
+  of investigative activities in a research study. [See https://hl7.org/fhir/R5/ResearchSubject.html]
 id: research_subject
 links:
 - backref: research_subject

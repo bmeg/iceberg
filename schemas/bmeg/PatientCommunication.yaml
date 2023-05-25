@@ -1,7 +1,7 @@
 $id: PatientCommunication
 additionalProperties: false
 description: A language which may be used to communicate with the patient about his
-  or her health. [See https://hl7.org/fhir/R5/PatientCommunication]
+  or her health. [See https://hl7.org/fhir/R5/PatientCommunication.html]
 properties:
   _preferred:
     $ref: FHIRPrimitiveExtension.yaml

@@ -112,7 +112,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": true,
     "category": "Clinical",
-    "description": "Measurements and simple assertions. Measurements and simple assertions made about a patient, device or other subject. [See https://hl7.org/fhir/R5/Observation]",
+    "description": "Measurements and simple assertions. Measurements and simple assertions made about a patient, device or other subject. [See https://hl7.org/fhir/R5/Observation.html]",
     "id": "observation",
     "links": [
       {
@@ -1024,7 +1024,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": true,
     "category": "Administrative",
-    "description": "Investigation to increase healthcare-related patient-independent knowledge. A scientific study of nature that sometimes includes processes involved in health and disease. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future. [See https://hl7.org/fhir/R5/ResearchStudy]",
+    "description": "Investigation to increase healthcare-related patient-independent knowledge. A scientific study of nature that sometimes includes processes involved in health and disease. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future. [See https://hl7.org/fhir/R5/ResearchStudy.html]",
     "id": "research_study",
     "links": [
       {
@@ -1934,7 +1934,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": true,
     "category": "Administrative",
-    "description": "Information about an individual or animal receiving health care services. Demographics and other administrative information about an individual or animal receiving care or other health-related services. [See https://hl7.org/fhir/R5/Patient]",
+    "description": "Information about an individual or animal receiving health care services. Demographics and other administrative information about an individual or animal receiving care or other health-related services. [See https://hl7.org/fhir/R5/Patient.html]",
     "id": "patient",
     "links": [],
     "program": "*",
@@ -2457,7 +2457,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": true,
     "category": "Clinical",
-    "description": "A homogeneous material with a definite composition. [See https://hl7.org/fhir/R5/Substance]",
+    "description": "A homogeneous material with a definite composition. [See https://hl7.org/fhir/R5/Substance.html]",
     "id": "substance",
     "links": [],
     "program": "*",
@@ -3250,7 +3250,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": true,
     "category": "data_file",
-    "description": "A reference to a document. A reference to a document of any kind for any purpose. While the term \u201cdocument\u201d implies a more narrow focus, for this resource this \"document\" encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference. [See https://hl7.org/fhir/R5/DocumentReference]",
+    "description": "A reference to a document. A reference to a document of any kind for any purpose. While the term \u201cdocument\u201d implies a more narrow focus, for this resource this \"document\" encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference. [See https://hl7.org/fhir/R5/DocumentReference.html]",
     "id": "document_reference",
     "links": [
       {
@@ -4137,7 +4137,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": true,
     "category": "Analysis",
-    "description": "A task to be performed. [See https://hl7.org/fhir/R5/Task]",
+    "description": "A task to be performed. [See https://hl7.org/fhir/R5/Task.html]",
     "id": "task",
     "links": [
       {
@@ -4836,7 +4836,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": true,
     "category": "Clinical",
-    "description": "Detailed information about conditions, problems or diagnoses. A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern. [See https://hl7.org/fhir/R5/Condition]",
+    "description": "Detailed information about conditions, problems or diagnoses. A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern. [See https://hl7.org/fhir/R5/Condition.html]",
     "id": "condition",
     "links": [
       {
@@ -5544,7 +5544,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": true,
     "category": "Clinical",
-    "description": "An interaction during which services are provided to the patient. An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.  Encounter is primarily used to record information about the actual activities that occurred, where Appointment is used to record planned activities. [See https://hl7.org/fhir/R5/Encounter]",
+    "description": "An interaction during which services are provided to the patient. An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.  Encounter is primarily used to record information about the actual activities that occurred, where Appointment is used to record planned activities. [See https://hl7.org/fhir/R5/Encounter.html]",
     "id": "encounter",
     "links": [
       {
@@ -6402,7 +6402,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": true,
     "category": "Administrative",
-    "description": "Participant or object which is the recipient of investigative activities in a study. A ResearchSubject is a participant or object which is the recipient of investigative activities in a research study. [See https://hl7.org/fhir/R5/ResearchSubject]",
+    "description": "Participant or object which is the recipient of investigative activities in a study. A ResearchSubject is a participant or object which is the recipient of investigative activities in a research study. [See https://hl7.org/fhir/R5/ResearchSubject.html]",
     "id": "research_subject",
     "links": [
       {
@@ -7405,7 +7405,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": true,
     "category": "Clinical",
-    "description": "Information about patient's relatives, relevant for patient. Significant health conditions for a person related to the patient relevant in the context of care for the patient. [See https://hl7.org/fhir/R5/FamilyMemberHistory]",
+    "description": "Information about patient's relatives, relevant for patient. Significant health conditions for a person related to the patient relevant in the context of care for the patient. [See https://hl7.org/fhir/R5/FamilyMemberHistory.html]",
     "id": "family_member_history",
     "links": [
       {
@@ -8002,7 +8002,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": true,
     "category": "Clinical",
-    "description": "Specific and identified anatomical structure. Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case. [See https://hl7.org/fhir/R5/BodyStructure]",
+    "description": "Specific and identified anatomical structure. Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case. [See https://hl7.org/fhir/R5/BodyStructure.html]",
     "id": "body_structure",
     "links": [
       {
@@ -8196,7 +8196,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": true,
     "category": "Biospecimen",
-    "description": "Sample for analysis. A sample to be used for analysis. [See https://hl7.org/fhir/R5/Specimen]",
+    "description": "Sample for analysis. A sample to be used for analysis. [See https://hl7.org/fhir/R5/Specimen.html]",
     "id": "specimen",
     "links": [
       {
@@ -8711,7 +8711,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": true,
     "category": "Clinical",
-    "description": "Administration of medication to a patient. Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner. [See https://hl7.org/fhir/R5/MedicationAdministration]",
+    "description": "Administration of medication to a patient. Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner. [See https://hl7.org/fhir/R5/MedicationAdministration.html]",
     "id": "medication_administration",
     "links": [
       {
@@ -9420,7 +9420,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": true,
     "category": "Clinical",
-    "description": "Definition of a Medication. This resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use. [See https://hl7.org/fhir/R5/Medication]",
+    "description": "Definition of a Medication. This resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use. [See https://hl7.org/fhir/R5/Medication.html]",
     "id": "medication",
     "links": [],
     "program": "*",

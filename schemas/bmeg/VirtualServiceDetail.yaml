@@ -1,6 +1,6 @@
 $id: VirtualServiceDetail
 additionalProperties: false
-description: Virtual Service Contact Details. [See https://hl7.org/fhir/R5/VirtualServiceDetail]
+description: Virtual Service Contact Details. [See https://hl7.org/fhir/R5/VirtualServiceDetail.html]
 properties:
   _additionalInfo:
     items:

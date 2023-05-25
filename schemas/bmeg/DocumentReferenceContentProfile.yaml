@@ -2,7 +2,7 @@ $id: DocumentReferenceContentProfile
 additionalProperties: false
 description: Content profile rules for the document. An identifier of the document
   constraints, encoding, structure, and template that the document conforms to beyond
-  the base format indicated in the mimeType. [See https://hl7.org/fhir/R5/DocumentReferenceContentProfile]
+  the base format indicated in the mimeType. [See https://hl7.org/fhir/R5/DocumentReferenceContentProfile.html]
 properties:
   _valueCanonical:
     $ref: FHIRPrimitiveExtension.yaml

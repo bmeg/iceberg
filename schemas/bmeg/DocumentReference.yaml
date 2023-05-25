@@ -8,7 +8,7 @@ description: "A reference to a document. A reference to a document of any kind f
   \ video, or audio recording acquired or used in healthcare.  The DocumentReference\
   \ resource provides metadata about the document so that the document can be discovered\
   \ and managed.  The actual content may be inline base64 encoded data or provided\
-  \ by direct reference. [See https://hl7.org/fhir/R5/DocumentReference]"
+  \ by direct reference. [See https://hl7.org/fhir/R5/DocumentReference.html]"
 properties:
   _date:
     $ref: FHIRPrimitiveExtension.yaml

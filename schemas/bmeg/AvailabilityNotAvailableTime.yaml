@@ -1,6 +1,6 @@
 $id: AvailabilityNotAvailableTime
 additionalProperties: false
-description: Not available during this time due to provided reason. [See https://hl7.org/fhir/R5/AvailabilityNotAvailableTime]
+description: Not available during this time due to provided reason. [See https://hl7.org/fhir/R5/AvailabilityNotAvailableTime.html]
 properties:
   _description:
     $ref: FHIRPrimitiveExtension.yaml

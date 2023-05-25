@@ -4,7 +4,7 @@ description: A variable measured during the study. An "outcome measure", "endpoi
   "effect measure" or "measure of effect" is a specific measurement or observation
   used to quantify the effect of experimental variables on the participants in a study,
   or for observational studies, to describe patterns of diseases or traits or associations
-  with exposures, risk factors or treatment. [See https://hl7.org/fhir/R5/ResearchStudyOutcomeMeasure]
+  with exposures, risk factors or treatment. [See https://hl7.org/fhir/R5/ResearchStudyOutcomeMeasure.html]
 properties:
   _description:
     $ref: FHIRPrimitiveExtension.yaml

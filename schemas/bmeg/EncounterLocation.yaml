@@ -1,7 +1,7 @@
 $id: EncounterLocation
 additionalProperties: false
 description: List of locations where the patient has been. List of locations where  the
-  patient has been during this encounter. [See https://hl7.org/fhir/R5/EncounterLocation]
+  patient has been during this encounter. [See https://hl7.org/fhir/R5/EncounterLocation.html]
 properties:
   _status:
     $ref: FHIRPrimitiveExtension.yaml

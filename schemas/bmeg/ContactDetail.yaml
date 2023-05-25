@@ -1,7 +1,7 @@
 $id: ContactDetail
 additionalProperties: false
 description: Contact information. Specifies contact information for a person or organization.
-  [See https://hl7.org/fhir/R5/ContactDetail]
+  [See https://hl7.org/fhir/R5/ContactDetail.html]
 properties:
   _name:
     $ref: FHIRPrimitiveExtension.yaml

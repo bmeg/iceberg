@@ -1,6 +1,6 @@
 $id: Task
 additionalProperties: false
-description: A task to be performed. [See https://hl7.org/fhir/R5/Task]
+description: A task to be performed. [See https://hl7.org/fhir/R5/Task.html]
 properties:
   _authoredOn:
     $ref: FHIRPrimitiveExtension.yaml

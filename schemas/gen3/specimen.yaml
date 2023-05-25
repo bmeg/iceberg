@@ -1,7 +1,7 @@
 $schema: http://json-schema.org/draft-04/schema#
 additionalProperties: true
 category: Biospecimen
-description: Sample for analysis. A sample to be used for analysis. [See https://hl7.org/fhir/R5/Specimen]
+description: Sample for analysis. A sample to be used for analysis. [See https://hl7.org/fhir/R5/Specimen.html]
 id: specimen
 links:
 - backref: specimen

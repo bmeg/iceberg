@@ -1,6 +1,6 @@
 $id: FHIRPrimitiveExtension
 additionalProperties: false
-description: ' [See https://hl7.org/fhir/R5/FHIRPrimitiveExtension]'
+description: ' [See https://hl7.org/fhir/R5/FHIRPrimitiveExtension.html]'
 properties:
   extension:
     description: Additional content defined by implementations

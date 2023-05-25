@@ -1,7 +1,7 @@
 $id: BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark
 additionalProperties: false
 description: Landmark relative location. The distance in centimeters a certain observation
-  is made from a body landmark. [See https://hl7.org/fhir/R5/BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark]
+  is made from a body landmark. [See https://hl7.org/fhir/R5/BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark.html]
 properties:
   device:
     backref: device_body_structure_included_structure_body_landmark_orientation_distance_from_landmark

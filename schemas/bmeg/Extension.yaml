@@ -1,7 +1,7 @@
 $id: Extension
 additionalProperties: false
 description: Optional Extensions Element. Optional Extension Element - found in all
-  resources. [See https://hl7.org/fhir/R5/Extension]
+  resources. [See https://hl7.org/fhir/R5/Extension.html]
 properties:
   extension:
     description: May be used to represent additional information that is not part

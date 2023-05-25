@@ -3,7 +3,7 @@ additionalProperties: false
 description: Details about the admission to a healthcare service. Details about the
   stay during which a healthcare service is provided. This does not describe the event
   of admitting the patient, but rather any information that is relevant from the time
-  of admittance until the time of discharge. [See https://hl7.org/fhir/R5/EncounterAdmission]
+  of admittance until the time of discharge. [See https://hl7.org/fhir/R5/EncounterAdmission.html]
 properties:
   admitSource:
     $ref: CodeableConcept.yaml

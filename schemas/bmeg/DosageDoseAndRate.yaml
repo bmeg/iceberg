@@ -2,7 +2,7 @@ $id: DosageDoseAndRate
 additionalProperties: false
 description: Amount of medication administered, to be administered or typical amount
   to be administered. Depending on the resource,this is the amount of medication administered,
-  to be administered or typical amount to be administered. [See https://hl7.org/fhir/R5/DosageDoseAndRate]
+  to be administered or typical amount to be administered. [See https://hl7.org/fhir/R5/DosageDoseAndRate.html]
 properties:
   doseQuantity:
     $ref: Quantity.yaml

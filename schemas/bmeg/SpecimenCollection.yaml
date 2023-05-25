@@ -1,7 +1,7 @@
 $id: SpecimenCollection
 additionalProperties: false
 description: Collection details. Details concerning the specimen collection. [See
-  https://hl7.org/fhir/R5/SpecimenCollection]
+  https://hl7.org/fhir/R5/SpecimenCollection.html]
 properties:
   _collectedDateTime:
     $ref: FHIRPrimitiveExtension.yaml

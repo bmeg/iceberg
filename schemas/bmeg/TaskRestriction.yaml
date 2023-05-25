@@ -3,7 +3,7 @@ additionalProperties: false
 description: Constraints on fulfillment tasks. If the Task.focus is a request resource
   and the task is seeking fulfillment (i.e. is asking for the request to be actioned),
   this element identifies any limitations on what parts of the referenced request
-  should be actioned. [See https://hl7.org/fhir/R5/TaskRestriction]
+  should be actioned. [See https://hl7.org/fhir/R5/TaskRestriction.html]
 properties:
   _repetitions:
     $ref: FHIRPrimitiveExtension.yaml

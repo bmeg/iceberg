@@ -1,6 +1,6 @@
 $id: EncounterDiagnosis
 additionalProperties: false
-description: The list of diagnosis relevant to this encounter. [See https://hl7.org/fhir/R5/EncounterDiagnosis]
+description: The list of diagnosis relevant to this encounter. [See https://hl7.org/fhir/R5/EncounterDiagnosis.html]
 properties:
   condition:
     backref: condition_encounter_diagnosis

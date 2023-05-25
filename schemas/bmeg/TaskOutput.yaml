@@ -1,7 +1,7 @@
 $id: TaskOutput
 additionalProperties: false
 description: Information produced as part of task. Outputs produced by the Task. [See
-  https://hl7.org/fhir/R5/TaskOutput]
+  https://hl7.org/fhir/R5/TaskOutput.html]
 properties:
   _valueBase64Binary:
     $ref: FHIRPrimitiveExtension.yaml

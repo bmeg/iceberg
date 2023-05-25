@@ -1,6 +1,6 @@
 $id: ResearchStudyLabel
 additionalProperties: false
-description: Additional names for the study. [See https://hl7.org/fhir/R5/ResearchStudyLabel]
+description: Additional names for the study. [See https://hl7.org/fhir/R5/ResearchStudyLabel.html]
 properties:
   _value:
     $ref: FHIRPrimitiveExtension.yaml

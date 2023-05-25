@@ -1,7 +1,7 @@
 $schema: http://json-schema.org/draft-04/schema#
 additionalProperties: true
 category: Analysis
-description: A task to be performed. [See https://hl7.org/fhir/R5/Task]
+description: A task to be performed. [See https://hl7.org/fhir/R5/Task.html]
 id: task
 links:
 - backref: task

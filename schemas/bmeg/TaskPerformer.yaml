@@ -1,7 +1,7 @@
 $id: TaskPerformer
 additionalProperties: false
 description: Who or what performed the task. The entity who performed the requested
-  task. [See https://hl7.org/fhir/R5/TaskPerformer]
+  task. [See https://hl7.org/fhir/R5/TaskPerformer.html]
 properties:
   actor:
     $ref: Reference.yaml

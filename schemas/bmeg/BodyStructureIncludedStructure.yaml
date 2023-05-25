@@ -1,7 +1,7 @@
 $id: BodyStructureIncludedStructure
 additionalProperties: false
 description: Included anatomic location(s). The anatomical location(s) or region(s)
-  of the specimen, lesion, or body structure. [See https://hl7.org/fhir/R5/BodyStructureIncludedStructure]
+  of the specimen, lesion, or body structure. [See https://hl7.org/fhir/R5/BodyStructureIncludedStructure.html]
 properties:
   bodyLandmarkOrientation:
     description: Body locations in relation to a specific body landmark (tatoo, scar,
