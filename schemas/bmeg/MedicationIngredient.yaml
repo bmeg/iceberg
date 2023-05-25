@@ -1,7 +1,7 @@
 $id: MedicationIngredient
 additionalProperties: false
 description: Active or inactive ingredient. Identifies a particular constituent of
-  interest in the product. [See https://hl7.org/fhir/R5/MedicationIngredient]
+  interest in the product. [See https://hl7.org/fhir/R5/MedicationIngredient.html]
 properties:
   _isActive:
     $ref: FHIRPrimitiveExtension.yaml

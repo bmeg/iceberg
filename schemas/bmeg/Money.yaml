@@ -1,6 +1,6 @@
 $id: Money
 additionalProperties: false
-description: An amount of economic utility in some recognized currency. [See https://hl7.org/fhir/R5/Money]
+description: An amount of economic utility in some recognized currency. [See https://hl7.org/fhir/R5/Money.html]
 properties:
   _currency:
     $ref: FHIRPrimitiveExtension.yaml

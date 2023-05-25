@@ -1,7 +1,7 @@
 $id: ResearchSubjectProgress
 additionalProperties: false
 description: Subject status. The current state (status) of the subject and resons
-  for status change where appropriate. [See https://hl7.org/fhir/R5/ResearchSubjectProgress]
+  for status change where appropriate. [See https://hl7.org/fhir/R5/ResearchSubjectProgress.html]
 properties:
   _endDate:
     $ref: FHIRPrimitiveExtension.yaml

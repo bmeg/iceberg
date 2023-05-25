@@ -1,7 +1,7 @@
 $id: EncounterReason
 additionalProperties: false
 description: The list of medical reasons that are expected to be addressed during
-  the episode of care. [See https://hl7.org/fhir/R5/EncounterReason]
+  the episode of care. [See https://hl7.org/fhir/R5/EncounterReason.html]
 properties:
   extension:
     description: May be used to represent additional information that is not part

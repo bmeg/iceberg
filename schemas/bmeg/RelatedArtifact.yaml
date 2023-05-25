@@ -1,7 +1,7 @@
 $id: RelatedArtifact
 additionalProperties: false
 description: Related artifacts for a knowledge resource. Related artifacts such as
-  additional documentation, justification, or bibliographic references. [See https://hl7.org/fhir/R5/RelatedArtifact]
+  additional documentation, justification, or bibliographic references. [See https://hl7.org/fhir/R5/RelatedArtifact.html]
 properties:
   _citation:
     $ref: FHIRPrimitiveExtension.yaml

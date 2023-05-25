@@ -1,7 +1,7 @@
 $id: TaskInput
 additionalProperties: false
 description: Information used to perform task. Additional information that may be
-  needed in the execution of the task. [See https://hl7.org/fhir/R5/TaskInput]
+  needed in the execution of the task. [See https://hl7.org/fhir/R5/TaskInput.html]
 properties:
   _valueBase64Binary:
     $ref: FHIRPrimitiveExtension.yaml

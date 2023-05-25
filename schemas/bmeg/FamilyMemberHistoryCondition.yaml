@@ -3,7 +3,7 @@ additionalProperties: false
 description: Condition that the related person had. The significant Conditions (or
   condition) that the family member had. This is a repeating section to allow a system
   to represent more than one condition per resource, though there is nothing stopping
-  multiple resources - one per condition. [See https://hl7.org/fhir/R5/FamilyMemberHistoryCondition]
+  multiple resources - one per condition. [See https://hl7.org/fhir/R5/FamilyMemberHistoryCondition.html]
 properties:
   _contributedToDeath:
     $ref: FHIRPrimitiveExtension.yaml

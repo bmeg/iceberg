@@ -2,7 +2,7 @@ $schema: http://json-schema.org/draft-04/schema#
 additionalProperties: true
 category: Clinical
 description: Measurements and simple assertions. Measurements and simple assertions
-  made about a patient, device or other subject. [See https://hl7.org/fhir/R5/Observation]
+  made about a patient, device or other subject. [See https://hl7.org/fhir/R5/Observation.html]
 id: observation
 links:
 - backref: subject_observation

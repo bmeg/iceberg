@@ -4,7 +4,7 @@ description: Administration of medication to a patient. Describes the event of a
   consuming or otherwise being administered a medication.  This may be as simple as
   swallowing a tablet or it may be a long running infusion.  Related resources tie
   this event to the authorizing prescription, and the specific encounter between patient
-  and health care practitioner. [See https://hl7.org/fhir/R5/MedicationAdministration]
+  and health care practitioner. [See https://hl7.org/fhir/R5/MedicationAdministration.html]
 properties:
   _implicitRules:
     $ref: FHIRPrimitiveExtension.yaml

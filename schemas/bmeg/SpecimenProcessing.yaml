@@ -1,7 +1,7 @@
 $id: SpecimenProcessing
 additionalProperties: false
 description: Processing and processing step details. Details concerning processing
-  and processing steps for the specimen. [See https://hl7.org/fhir/R5/SpecimenProcessing]
+  and processing steps for the specimen. [See https://hl7.org/fhir/R5/SpecimenProcessing.html]
 properties:
   _description:
     $ref: FHIRPrimitiveExtension.yaml

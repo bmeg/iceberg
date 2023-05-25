@@ -2,7 +2,7 @@ $id: FamilyMemberHistory
 additionalProperties: false
 description: Information about patient's relatives, relevant for patient. Significant
   health conditions for a person related to the patient relevant in the context of
-  care for the patient. [See https://hl7.org/fhir/R5/FamilyMemberHistory]
+  care for the patient. [See https://hl7.org/fhir/R5/FamilyMemberHistory.html]
 properties:
   _ageString:
     $ref: FHIRPrimitiveExtension.yaml

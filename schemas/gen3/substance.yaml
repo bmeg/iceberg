@@ -1,7 +1,7 @@
 $schema: http://json-schema.org/draft-04/schema#
 additionalProperties: true
 category: Clinical
-description: A homogeneous material with a definite composition. [See https://hl7.org/fhir/R5/Substance]
+description: A homogeneous material with a definite composition. [See https://hl7.org/fhir/R5/Substance.html]
 id: substance
 links: []
 program: '*'

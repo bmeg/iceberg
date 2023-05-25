@@ -3,7 +3,7 @@ additionalProperties: true
 category: Clinical
 description: Detailed information about conditions, problems or diagnoses. A clinical
   condition, problem, diagnosis, or other event, situation, issue, or clinical concept
-  that has risen to a level of concern. [See https://hl7.org/fhir/R5/Condition]
+  that has risen to a level of concern. [See https://hl7.org/fhir/R5/Condition.html]
 id: condition
 links:
 - backref: condition

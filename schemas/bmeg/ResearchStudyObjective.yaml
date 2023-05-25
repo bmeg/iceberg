@@ -2,7 +2,7 @@ $id: ResearchStudyObjective
 additionalProperties: false
 description: A goal for the study. A goal that the study is aiming to achieve in terms
   of a scientific question to be answered by the analysis of data collected during
-  the study. [See https://hl7.org/fhir/R5/ResearchStudyObjective]
+  the study. [See https://hl7.org/fhir/R5/ResearchStudyObjective.html]
 properties:
   _description:
     $ref: FHIRPrimitiveExtension.yaml
