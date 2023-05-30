@@ -1,9 +1,23 @@
-$id: DiagnosticReportSupportingInfo
+$id: ProcedurePerformer
 additionalProperties: false
-description: Additional information supporting the diagnostic report. This backbone
-  element contains supporting information that was used in the creation of the report
-  not included in the results already included in the report. [See https://hl7.org/fhir/R5/DiagnosticReportSupportingInfo.html]
+description: Who performed the procedure and what they did. Indicates who or what
+  performed the procedure and how they were involved. [See https://hl7.org/fhir/R5/ProcedurePerformer.html]
 properties:
+  actor:
+    $ref: Reference.yaml
+    backref: actor_procedure_performer
+    description: Indicates who or what performed the procedure.
+    element_property: true
+    enum_reference_types:
+    - Practitioner
+    - PractitionerRole
+    - Organization
+    - Patient
+    - RelatedPerson
+    - Device
+    - CareTeam
+    - HealthcareService
+    title: Who performed the procedure
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -23,6 +37,16 @@ properties:
       type: array
     element_property: false
     title: Fhir Comments
+  function:
+    $ref: CodeableConcept.yaml
+    binding_description: A code that identifies the role of a performer of the procedure.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/performer-role
+    binding_version: null
+    description: Distinguishes the type of involvement of the performer in the procedure.
+      For example, surgeon, anaesthetist, endoscopist.
+    element_property: true
+    title: Type of performance
   id:
     description: Unique id for the element within a resource (for internal references).
       This may be any string value that does not contain spaces.
@@ -47,36 +71,27 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
-  reference:
+  onBehalfOf:
     $ref: Reference.yaml
-    backref: diagnostic_report_supporting_info
-    description: The reference for the supporting information in the diagnostic report.
+    backref: onBehalfOf_procedure_performer
+    description: The Organization the Patient, RelatedPerson, Device, CareTeam, and
+      HealthcareService was acting on behalf of.
     element_property: true
     enum_reference_types:
-    - Procedure
-    - Observation
-    - DiagnosticReport
-    - Citation
-    title: Supporting information reference
+    - Organization
+    title: Organization the device or practitioner was acting for
+  period:
+    $ref: Period.yaml
+    description: Time period during which the performer performed the procedure.
+    element_property: true
+    title: When the performer performed the procedure
   resourceType:
-    const: DiagnosticReportSupportingInfo
-    default: DiagnosticReportSupportingInfo
+    const: ProcedurePerformer
+    default: ProcedurePerformer
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-  type:
-    $ref: CodeableConcept.yaml
-    binding_description: The code value for the role of the supporting information
-      in the diagnostic report.
-    binding_strength: example
-    binding_uri: http://terminology.hl7.org/ValueSet/v2-0936
-    binding_version: null
-    description: The code value for the role of the supporting information in the
-      diagnostic report.
-    element_property: true
-    title: Supporting information role code
 required:
-- reference
-- type
-title: DiagnosticReportSupportingInfo
+- actor
+title: ProcedurePerformer
 type: object

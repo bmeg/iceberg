@@ -1,9 +1,24 @@
-$id: DiagnosticReportSupportingInfo
+$id: LocationPosition
 additionalProperties: false
-description: Additional information supporting the diagnostic report. This backbone
-  element contains supporting information that was used in the creation of the report
-  not included in the results already included in the report. [See https://hl7.org/fhir/R5/DiagnosticReportSupportingInfo.html]
+description: The absolute geographic location. The absolute geographic location of
+  the Location, expressed using the WGS84 datum (This is the same co-ordinate system
+  used in KML). [See https://hl7.org/fhir/R5/LocationPosition.html]
 properties:
+  _altitude:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``altitude``.
+  _latitude:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``latitude``.
+  _longitude:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``longitude``.
+  altitude:
+    description: Altitude. The value domain and the interpretation are the same as
+      for the text of the altitude element in KML (see notes on Location main page).
+    element_property: true
+    title: Altitude with WGS84 datum
+    type: number
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -30,6 +45,20 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  latitude:
+    description: Latitude. The value domain and the interpretation are the same as
+      for the text of the latitude element in KML (see notes on Location main page).
+    element_property: true
+    element_required: true
+    title: Latitude with WGS84 datum
+    type: number
+  longitude:
+    description: Longitude. The value domain and the interpretation are the same as
+      for the text of the longitude element in KML (see notes on Location main page).
+    element_property: true
+    element_required: true
+    title: Longitude with WGS84 datum
+    type: number
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of
@@ -47,36 +76,11 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
-  reference:
-    $ref: Reference.yaml
-    backref: diagnostic_report_supporting_info
-    description: The reference for the supporting information in the diagnostic report.
-    element_property: true
-    enum_reference_types:
-    - Procedure
-    - Observation
-    - DiagnosticReport
-    - Citation
-    title: Supporting information reference
   resourceType:
-    const: DiagnosticReportSupportingInfo
-    default: DiagnosticReportSupportingInfo
+    const: LocationPosition
+    default: LocationPosition
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-  type:
-    $ref: CodeableConcept.yaml
-    binding_description: The code value for the role of the supporting information
-      in the diagnostic report.
-    binding_strength: example
-    binding_uri: http://terminology.hl7.org/ValueSet/v2-0936
-    binding_version: null
-    description: The code value for the role of the supporting information in the
-      diagnostic report.
-    element_property: true
-    title: Supporting information role code
-required:
-- reference
-- type
-title: DiagnosticReportSupportingInfo
+title: LocationPosition
 type: object

@@ -3,7 +3,7 @@ additionalProperties: false
 description: Key images or data associated with this report. A list of key images
   or data associated with this report. The images or data are generally created during
   the diagnostic process, and may be directly of the patient, or of treated specimens
-  (i.e. slides of interest). see https://hl7.org/fhir/R5/DiagnosticReportMedia
+  (i.e. slides of interest). [See https://hl7.org/fhir/R5/DiagnosticReportMedia.html]
 properties:
   _comment:
     $ref: FHIRPrimitiveExtension.yaml

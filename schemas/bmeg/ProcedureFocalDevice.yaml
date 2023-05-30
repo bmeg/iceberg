@@ -1,9 +1,18 @@
-$id: DiagnosticReportSupportingInfo
+$id: ProcedureFocalDevice
 additionalProperties: false
-description: Additional information supporting the diagnostic report. This backbone
-  element contains supporting information that was used in the creation of the report
-  not included in the results already included in the report. [See https://hl7.org/fhir/R5/DiagnosticReportSupportingInfo.html]
+description: Manipulated, implanted, or removed device. A device that is implanted,
+  removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis,
+  attaching a wound-vac, etc.) as a focal portion of the Procedure. [See https://hl7.org/fhir/R5/ProcedureFocalDevice.html]
 properties:
+  action:
+    $ref: CodeableConcept.yaml
+    binding_description: A kind of change that happened to the device during the procedure.
+    binding_strength: preferred
+    binding_uri: http://hl7.org/fhir/ValueSet/device-action
+    binding_version: null
+    description: The kind of change that happened to the device during the procedure.
+    element_property: true
+    title: Kind of change to device
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -30,6 +39,14 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  manipulated:
+    $ref: Reference.yaml
+    backref: procedure_focal_device
+    description: The device that was manipulated (changed) during the procedure.
+    element_property: true
+    enum_reference_types:
+    - Device
+    title: Device that was changed
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of
@@ -47,36 +64,13 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
-  reference:
-    $ref: Reference.yaml
-    backref: diagnostic_report_supporting_info
-    description: The reference for the supporting information in the diagnostic report.
-    element_property: true
-    enum_reference_types:
-    - Procedure
-    - Observation
-    - DiagnosticReport
-    - Citation
-    title: Supporting information reference
   resourceType:
-    const: DiagnosticReportSupportingInfo
-    default: DiagnosticReportSupportingInfo
+    const: ProcedureFocalDevice
+    default: ProcedureFocalDevice
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-  type:
-    $ref: CodeableConcept.yaml
-    binding_description: The code value for the role of the supporting information
-      in the diagnostic report.
-    binding_strength: example
-    binding_uri: http://terminology.hl7.org/ValueSet/v2-0936
-    binding_version: null
-    description: The code value for the role of the supporting information in the
-      diagnostic report.
-    element_property: true
-    title: Supporting information role code
 required:
-- reference
-- type
-title: DiagnosticReportSupportingInfo
+- manipulated
+title: ProcedureFocalDevice
 type: object

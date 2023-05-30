@@ -1,0 +1,411 @@
+$id: Immunization
+additionalProperties: false
+description: Immunization event information. Describes the event of a patient being
+  administered a vaccine or a record of an immunization as reported by a patient,
+  a clinician or another party. [See https://hl7.org/fhir/R5/Immunization.html]
+properties:
+  _expirationDate:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``expirationDate``.
+  _implicitRules:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``implicitRules``.
+  _isSubpotent:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``isSubpotent``.
+  _language:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``language``.
+  _lotNumber:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``lotNumber``.
+  _occurrenceDateTime:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``occurrenceDateTime``.
+  _occurrenceString:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``occurrenceString``.
+  _primarySource:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``primarySource``.
+  _status:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``status``.
+  administeredProduct:
+    $ref: CodeableReference.yaml
+    backref: immunization
+    description: An indication of which product was administered to the patient. This
+      is typically a more detailed representation of the concept conveyed by the vaccineCode
+      data element. If a Medication resource is referenced, it may be to a stand-alone
+      resource or a contained resource within the Immunization resource.
+    element_property: true
+    enum_reference_types:
+    - Medication
+    title: Product that was administered
+  basedOn:
+    backref: basedOn_immunization
+    description: A plan, order or recommendation fulfilled in whole or in part by
+      this immunization.
+    element_property: true
+    enum_reference_types:
+    - CarePlan
+    - MedicationRequest
+    - ServiceRequest
+    - ImmunizationRecommendation
+    items:
+      $ref: Reference.yaml
+    title: Authority that the immunization event is based on
+    type: array
+  contained:
+    description: These resources do not have an independent existence apart from the
+      resource that contains them - they cannot be identified independently, nor can
+      they have their own independent transaction scope. This is allowed to be a Parameters
+      resource if and only if it is referenced by a resource that provides context/meaning.
+    element_property: true
+    items:
+      $ref: Resource.yaml
+    title: Contained, inline Resources
+    type: array
+  doseQuantity:
+    $ref: Quantity.yaml
+    description: The quantity of vaccine product that was administered.
+    element_property: true
+    title: Amount of vaccine administered
+  encounter:
+    $ref: Reference.yaml
+    backref: immunization
+    description: The visit or admission or other contact between patient and health
+      care provider the immunization was performed as part of.
+    element_property: true
+    enum_reference_types:
+    - Encounter
+    title: Encounter immunization was part of
+  expirationDate:
+    description: Date vaccine batch expires.
+    element_property: true
+    format: date
+    title: Vaccine expiration date
+    type: string
+  extension:
+    description: May be used to represent additional information that is not part
+      of the basic definition of the resource. To make the use of extensions safe
+      and managable, there is a strict set of governance applied to the definition
+      and use of extensions. Though any implementer can define an extension, there
+      is a set of requirements that SHALL be met as part of the definition of the
+      extension.
+    element_property: true
+    items:
+      $ref: Extension.yaml
+    title: Additional content defined by implementations
+    type: array
+  fhir_comments:
+    anyOf:
+    - type: string
+    - items:
+        type: string
+      type: array
+    element_property: false
+    title: Fhir Comments
+  fundingSource:
+    $ref: CodeableConcept.yaml
+    binding_description: x
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/immunization-funding-source
+    binding_version: null
+    description: Indicates the source of the vaccine actually administered. This may
+      be different than the patient eligibility (e.g. the patient may be eligible
+      for a publically purchased vaccine but due to inventory issues, vaccine purchased
+      with private funds was actually administered).
+    element_property: true
+    title: Funding source for the vaccine
+  id:
+    description: The logical id of the resource, as used in the URL for the resource.
+      Once assigned, this value never changes.
+    element_property: true
+    maxLength: 64
+    minLength: 1
+    pattern: ^[A-Za-z0-9\-.]+$
+    title: Logical id of this artifact
+    type: string
+  identifier:
+    description: A unique identifier assigned to this immunization record.
+    element_property: true
+    items:
+      $ref: Identifier.yaml
+    title: Business identifier
+    type: array
+  implicitRules:
+    description: A reference to a set of rules that were followed when the resource
+      was constructed, and which must be understood when processing the content. Often,
+      this is a reference to an implementation guide that defines the special rules
+      along with other profiles etc.
+    element_property: true
+    pattern: \S*
+    title: A set of rules under which this content was created
+    type: string
+  informationSource:
+    $ref: CodeableReference.yaml
+    backref: informationSource_immunization
+    binding_description: x
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/immunization-origin
+    binding_version: null
+    description: Typically the source of the data when the report of the immunization
+      event is not based on information from the person who administered the vaccine.
+    element_property: true
+    enum_reference_types:
+    - Patient
+    - Practitioner
+    - PractitionerRole
+    - RelatedPerson
+    - Organization
+    title: Indicates the source of a  reported record
+  isSubpotent:
+    description: Indication if a dose is considered to be subpotent. By default, a
+      dose should be considered to be potent.
+    element_property: true
+    title: Dose potency
+    type: boolean
+  language:
+    binding_description: IETF language tag for a human language
+    binding_strength: required
+    binding_uri: http://hl7.org/fhir/ValueSet/all-languages
+    binding_version: 5.0.0
+    description: The base language in which the resource is written.
+    element_property: true
+    pattern: ^[^\s]+(\s[^\s]+)*$
+    title: Language of the resource content
+    type: string
+  location:
+    $ref: Reference.yaml
+    backref: immunization
+    description: The service delivery location where the vaccine administration occurred.
+    element_property: true
+    enum_reference_types:
+    - Location
+    title: Where immunization occurred
+  lotNumber:
+    description: Lot number of the  vaccine product.
+    element_property: true
+    pattern: '[ \r\n\t\S]+'
+    title: Vaccine lot number
+    type: string
+  manufacturer:
+    $ref: CodeableReference.yaml
+    backref: manufacturer_immunization
+    description: Name of vaccine manufacturer.
+    element_property: true
+    enum_reference_types:
+    - Organization
+    title: Vaccine manufacturer
+  meta:
+    $ref: Meta.yaml
+    description: The metadata about the resource. This is content that is maintained
+      by the infrastructure. Changes to the content might not always be associated
+      with version changes to the resource.
+    element_property: true
+    title: Metadata about the resource
+  modifierExtension:
+    description: May be used to represent additional information that is not part
+      of the basic definition of the resource and that modifies the understanding
+      of the element that contains it and/or the understanding of the containing element's
+      descendants. Usually modifier elements provide negation or qualification. To
+      make the use of extensions safe and managable, there is a strict set of governance
+      applied to the definition and use of extensions. Though any implementer is allowed
+      to define an extension, there is a set of requirements that SHALL be met as
+      part of the definition of the extension. Applications processing a resource
+      are required to check for modifier extensions.  Modifier extensions SHALL NOT
+      change the meaning of any elements on Resource or DomainResource (including
+      cannot change the meaning of modifierExtension itself).
+    element_property: true
+    items:
+      $ref: Extension.yaml
+    title: Extensions that cannot be ignored
+    type: array
+  note:
+    description: Extra information about the immunization that is not conveyed by
+      the other attributes.
+    element_property: true
+    items:
+      $ref: Annotation.yaml
+    title: Additional immunization notes
+    type: array
+  occurrenceDateTime:
+    description: Date vaccine administered or was to be administered.
+    element_property: true
+    format: date-time
+    one_of_many: occurrence
+    one_of_many_required: true
+    title: Vaccine administration date
+    type: string
+  occurrenceString:
+    description: Date vaccine administered or was to be administered.
+    element_property: true
+    one_of_many: occurrence
+    one_of_many_required: true
+    pattern: '[ \r\n\t\S]+'
+    title: Vaccine administration date
+    type: string
+  patient:
+    $ref: Reference.yaml
+    backref: patient_immunization
+    description: The patient who either received or did not receive the immunization.
+    element_property: true
+    enum_reference_types:
+    - Patient
+    title: Who was immunized
+  performer:
+    description: Indicates who performed the immunization event.
+    element_property: true
+    items:
+      $ref: ImmunizationPerformer.yaml
+    title: Who performed event
+    type: array
+  primarySource:
+    description: Indicates whether the data contained in the resource was captured
+      by the individual/organization which was responsible for the administration
+      of the vaccine rather than as 'secondary reported' data documented by a third
+      party. A value of 'true' means this data originated with the individual/organization
+      which was responsible for the administration of the vaccine.
+    element_property: true
+    title: Indicates context the data was captured in
+    type: boolean
+  programEligibility:
+    description: Indicates a patient's eligibility for a funding program.
+    element_property: true
+    items:
+      $ref: ImmunizationProgramEligibility.yaml
+    title: Patient eligibility for a specific vaccination program
+    type: array
+  protocolApplied:
+    description: The protocol (set of recommendations) being followed by the provider
+      who administered the dose.
+    element_property: true
+    items:
+      $ref: ImmunizationProtocolApplied.yaml
+    title: Protocol followed by the provider
+    type: array
+  reaction:
+    description: Categorical data indicating that an adverse event is associated in
+      time to an immunization.
+    element_property: true
+    items:
+      $ref: ImmunizationReaction.yaml
+    title: Details of a reaction that follows immunization
+    type: array
+  reason:
+    backref: reason_immunization
+    binding_description: x
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/immunization-reason
+    binding_version: null
+    description: Describes why the immunization occurred in coded or textual form,
+      or Indicates another resource (Condition, Observation or DiagnosticReport) whose
+      existence justifies this immunization.
+    element_property: true
+    enum_reference_types:
+    - Condition
+    - Observation
+    - DiagnosticReport
+    items:
+      $ref: CodeableReference.yaml
+    title: Why immunization occurred
+    type: array
+  resourceType:
+    const: Immunization
+    default: Immunization
+    description: One of the resource types defined as part of FHIR
+    title: Resource Type
+    type: string
+  route:
+    $ref: CodeableConcept.yaml
+    binding_description: x
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/immunization-route
+    binding_version: null
+    description: The path by which the vaccine product is taken into the body.
+    element_property: true
+    title: How vaccine entered body
+  site:
+    $ref: CodeableConcept.yaml
+    binding_description: x
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/immunization-site
+    binding_version: null
+    description: Body site where vaccine was administered.
+    element_property: true
+    title: Body site vaccine  was administered
+  status:
+    binding_description: x
+    binding_strength: required
+    binding_uri: http://hl7.org/fhir/ValueSet/immunization-status
+    binding_version: 5.0.0
+    description: Indicates the current status of the immunization event.
+    element_property: true
+    element_required: true
+    enum_values:
+    - completed
+    - entered-in-error
+    - not-done
+    pattern: ^[^\s]+(\s[^\s]+)*$
+    title: completed | entered-in-error | not-done
+    type: string
+  statusReason:
+    $ref: CodeableConcept.yaml
+    binding_description: x
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/immunization-status-reason
+    binding_version: null
+    description: Indicates the reason the immunization event was not performed.
+    element_property: true
+    title: Reason for current status
+  subpotentReason:
+    binding_description: The reason why a dose is considered to be subpotent.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/immunization-subpotent-reason
+    binding_version: null
+    description: Reason why a dose is considered to be subpotent.
+    element_property: true
+    items:
+      $ref: CodeableConcept.yaml
+    title: Reason for being subpotent
+    type: array
+  supportingInformation:
+    backref: supportingInformation_immunization
+    description: Additional information that is relevant to the immunization (e.g.
+      for a vaccine recipient who is pregnant, the gestational age of the fetus).
+      The reason why a vaccine was given (e.g. occupation, underlying medical condition)
+      should be conveyed in Immunization.reason, not as supporting information. The
+      reason why a vaccine was not given (e.g. contraindication) should be conveyed
+      in Immunization.statusReason, not as supporting information.
+    element_property: true
+    enum_reference_types:
+    - Resource
+    items:
+      $ref: Reference.yaml
+    title: Additional information in support of the immunization
+    type: array
+  text:
+    $ref: Narrative.yaml
+    description: A human-readable narrative that contains a summary of the resource
+      and can be used to represent the content of the resource to a human. The narrative
+      need not encode all the structured data, but is required to contain sufficient
+      detail to make it "clinically safe" for a human to just read the narrative.
+      Resource definitions may define what content should be represented in the narrative
+      to ensure clinical safety.
+    element_property: true
+    title: Text summary of the resource, for human interpretation
+  vaccineCode:
+    $ref: CodeableConcept.yaml
+    binding_description: x
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/vaccine-code
+    binding_version: null
+    description: Vaccine that was administered or was to be administered.
+    element_property: true
+    title: Vaccine administered
+required:
+- patient
+- vaccineCode
+title: Immunization
+type: object

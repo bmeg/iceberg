@@ -16,6 +16,12 @@ links:
   name: subject_Substance
   required: false
   target_type: substance
+- backref: specimen
+  label: Specimen_subject_Location_specimen
+  multiplicity: many_to_many
+  name: subject_Location
+  required: false
+  target_type: location
 - backref: parent_specimen
   label: Specimen_parent_Specimen_parent_specimen
   multiplicity: many_to_many
@@ -230,14 +236,36 @@ properties:
       type: string
     title: Specimen from which this specimen originated
     type: array
-  processing:
-    description: '[Text representation of SpecimenProcessing] Details concerning processing
-      and processing steps for the specimen.'
+  processing_additive:
+    backref: additive_specimen_processing
+    description: '[Text representation of Reference] [Plucked from Specimen.processing]
+      Material used in the processing step'
     element_property: true
+    enum_reference_types:
+    - Substance
     items:
       type: string
-    title: Processing and processing step details
+    title: Material used in the processing step
     type: array
+  processing_method:
+    binding_description: Type indicating the technique used to process the specimen.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/specimen-processing-method
+    binding_version: null
+    description: text representation. [Plucked from Specimen.processing] A coded value
+      specifying the method used to process the specimen.
+    element_property: true
+    term:
+      description: Type indicating the technique used to process the specimen.
+      termDef:
+        cde_id: http://hl7.org/fhir/ValueSet/specimen-processing-method
+        cde_version: null
+        source: fhir
+        strength: example
+        term: http://hl7.org/fhir/ValueSet/specimen-processing-method
+        term_url: http://hl7.org/fhir/ValueSet/specimen-processing-method
+    title: Indicates the treatment step  applied to the specimen
+    type: string
   project_id:
     term:
       $ref: _terms.yaml#/project_id

@@ -1,9 +1,20 @@
-$id: DiagnosticReportSupportingInfo
+$id: ImmunizationReaction
 additionalProperties: false
-description: Additional information supporting the diagnostic report. This backbone
-  element contains supporting information that was used in the creation of the report
-  not included in the results already included in the report. [See https://hl7.org/fhir/R5/DiagnosticReportSupportingInfo.html]
+description: Details of a reaction that follows immunization. Categorical data indicating
+  that an adverse event is associated in time to an immunization. [See https://hl7.org/fhir/R5/ImmunizationReaction.html]
 properties:
+  _date:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``date``.
+  _reported:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``reported``.
+  date:
+    description: Date of reaction to the immunization.
+    element_property: true
+    format: date-time
+    title: When reaction started
+    type: string
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -30,6 +41,14 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  manifestation:
+    $ref: CodeableReference.yaml
+    backref: immunization_reaction
+    description: Details of the reaction.
+    element_property: true
+    enum_reference_types:
+    - Observation
+    title: Additional information on reaction
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of
@@ -47,36 +66,16 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
-  reference:
-    $ref: Reference.yaml
-    backref: diagnostic_report_supporting_info
-    description: The reference for the supporting information in the diagnostic report.
+  reported:
+    description: Self-reported indicator.
     element_property: true
-    enum_reference_types:
-    - Procedure
-    - Observation
-    - DiagnosticReport
-    - Citation
-    title: Supporting information reference
+    title: Indicates self-reported reaction
+    type: boolean
   resourceType:
-    const: DiagnosticReportSupportingInfo
-    default: DiagnosticReportSupportingInfo
+    const: ImmunizationReaction
+    default: ImmunizationReaction
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-  type:
-    $ref: CodeableConcept.yaml
-    binding_description: The code value for the role of the supporting information
-      in the diagnostic report.
-    binding_strength: example
-    binding_uri: http://terminology.hl7.org/ValueSet/v2-0936
-    binding_version: null
-    description: The code value for the role of the supporting information in the
-      diagnostic report.
-    element_property: true
-    title: Supporting information role code
-required:
-- reference
-- type
-title: DiagnosticReportSupportingInfo
+title: ImmunizationReaction
 type: object

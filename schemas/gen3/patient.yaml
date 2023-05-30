@@ -5,7 +5,25 @@ description: Information about an individual or animal receiving health care ser
   Demographics and other administrative information about an individual or animal
   receiving care or other health-related services. [See https://hl7.org/fhir/R5/Patient.html]
 id: patient
-links: []
+links:
+- backref: generalPractitioner_patient
+  label: Patient_generalPractitioner_Organization_generalPractitioner_patient
+  multiplicity: many_to_many
+  name: generalPractitioner_Organization
+  required: false
+  target_type: organization
+- backref: generalPractitioner_patient
+  label: Patient_generalPractitioner_Practitioner_generalPractitioner_patient
+  multiplicity: many_to_many
+  name: generalPractitioner_Practitioner
+  required: false
+  target_type: practitioner
+- backref: generalPractitioner_patient
+  label: Patient_generalPractitioner_PractitionerRole_generalPractitioner_patient
+  multiplicity: many_to_many
+  name: generalPractitioner_PractitionerRole
+  required: false
+  target_type: practitioner_role
 program: '*'
 project: '*'
 properties:
@@ -19,13 +37,13 @@ properties:
     element_property: true
     title: Whether this patient's record is in active use
     type: boolean
-  address:
-    description: '[Text representation of Address] An address for the individual'
+  address_postalCode:
+    description: '[Plucked from Patient.address] A postal code designating a region
+      defined by the postal service.'
     element_property: true
-    items:
-      type: string
-    title: An address for the individual
-    type: array
+    pattern: '[ \r\n\t\S]+'
+    title: Postal code for area
+    type: string
   birthDate:
     description: The date of birth for the individual
     element_property: true

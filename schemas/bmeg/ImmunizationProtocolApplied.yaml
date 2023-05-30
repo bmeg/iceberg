@@ -1,9 +1,34 @@
-$id: DiagnosticReportSupportingInfo
+$id: ImmunizationProtocolApplied
 additionalProperties: false
-description: Additional information supporting the diagnostic report. This backbone
-  element contains supporting information that was used in the creation of the report
-  not included in the results already included in the report. [See https://hl7.org/fhir/R5/DiagnosticReportSupportingInfo.html]
+description: Protocol followed by the provider. The protocol (set of recommendations)
+  being followed by the provider who administered the dose. [See https://hl7.org/fhir/R5/ImmunizationProtocolApplied.html]
 properties:
+  _doseNumber:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``doseNumber``.
+  _series:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``series``.
+  _seriesDoses:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``seriesDoses``.
+  authority:
+    $ref: Reference.yaml
+    backref: immunization_protocol_applied
+    description: Indicates the authority who published the protocol (e.g. ACIP) that
+      is being followed.
+    element_property: true
+    enum_reference_types:
+    - Organization
+    title: Who is responsible for publishing the recommendations
+  doseNumber:
+    description: Nominal position in a series as intended by the practitioner administering
+      the dose.
+    element_property: true
+    element_required: true
+    pattern: '[ \r\n\t\S]+'
+    title: Dose number within series
+    type: string
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -47,36 +72,36 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
-  reference:
-    $ref: Reference.yaml
-    backref: diagnostic_report_supporting_info
-    description: The reference for the supporting information in the diagnostic report.
-    element_property: true
-    enum_reference_types:
-    - Procedure
-    - Observation
-    - DiagnosticReport
-    - Citation
-    title: Supporting information reference
   resourceType:
-    const: DiagnosticReportSupportingInfo
-    default: DiagnosticReportSupportingInfo
+    const: ImmunizationProtocolApplied
+    default: ImmunizationProtocolApplied
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-  type:
-    $ref: CodeableConcept.yaml
-    binding_description: The code value for the role of the supporting information
-      in the diagnostic report.
-    binding_strength: example
-    binding_uri: http://terminology.hl7.org/ValueSet/v2-0936
-    binding_version: null
-    description: The code value for the role of the supporting information in the
-      diagnostic report.
+  series:
+    description: One possible path to achieve presumed immunity against a disease
+      - within the context of an authority.
     element_property: true
-    title: Supporting information role code
-required:
-- reference
-- type
-title: DiagnosticReportSupportingInfo
+    pattern: '[ \r\n\t\S]+'
+    title: Name of vaccine series
+    type: string
+  seriesDoses:
+    description: The recommended number of doses to achieve immunity as intended by
+      the practitioner administering the dose.
+    element_property: true
+    pattern: '[ \r\n\t\S]+'
+    title: Recommended number of doses for immunity
+    type: string
+  targetDisease:
+    binding_description: x
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/immunization-target-disease
+    binding_version: null
+    description: The vaccine preventable disease the dose is being administered against.
+    element_property: true
+    items:
+      $ref: CodeableConcept.yaml
+    title: Vaccine preventatable disease being targeted
+    type: array
+title: ImmunizationProtocolApplied
 type: object
