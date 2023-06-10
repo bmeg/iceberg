@@ -5,7 +5,25 @@ description: Information about an individual or animal receiving health care ser
   Demographics and other administrative information about an individual or animal
   receiving care or other health-related services. [See https://hl7.org/fhir/R5/Patient.html]
 id: patient
-links: []
+links:
+- backref: generalPractitioner_patient
+  label: Patient_generalPractitioner_Organization_generalPractitioner_patient
+  multiplicity: many_to_many
+  name: generalPractitioner_Organization
+  required: false
+  target_type: organization
+- backref: generalPractitioner_patient
+  label: Patient_generalPractitioner_Practitioner_generalPractitioner_patient
+  multiplicity: many_to_many
+  name: generalPractitioner_Practitioner
+  required: false
+  target_type: practitioner
+- backref: generalPractitioner_patient
+  label: Patient_generalPractitioner_PractitionerRole_generalPractitioner_patient
+  multiplicity: many_to_many
+  name: generalPractitioner_PractitionerRole
+  required: false
+  target_type: practitioner_role
 program: '*'
 project: '*'
 properties:
@@ -19,13 +37,13 @@ properties:
     element_property: true
     title: Whether this patient's record is in active use
     type: boolean
-  address:
-    description: '[Text representation of Address] An address for the individual'
+  address_postalCode:
+    description: '[Plucked from Patient.address] A postal code designating a region
+      defined by the postal service.'
     element_property: true
-    items:
-      type: string
-    title: An address for the individual
-    type: array
+    pattern: '[ \r\n\t\S]+'
+    title: Postal code for area
+    type: string
   birthDate:
     description: The date of birth for the individual
     element_property: true
@@ -67,7 +85,7 @@ properties:
   disability_adjusted_life_years:
     description: '[extension disability_adjusted_life_years] Disability Adjusted Life
       Years as defined in the literature and summarized at <a href="https://en.wikipedia.org/wiki/Disability-adjusted_life_year"/>.'
-    type: string
+    type: number
   extension:
     description: '[Text representation of Extension] May be used to represent additional
       information that is not part of the basic definition of the resource. To make
@@ -243,7 +261,7 @@ properties:
   quality_adjusted_life_years:
     description: '[extension quality_adjusted_life_years] Quality Adjusted Life Years
       as defined in the literature and summarized at <a href="https://en.wikipedia.org/wiki/Quality-adjusted_life_year"/>.'
-    type: string
+    type: number
   resourceType:
     const: Patient
     default: Patient
@@ -276,6 +294,15 @@ properties:
         strength: required
         term: http://hl7.org/fhir/us/core/ValueSet/birthsex
         term_url: http://hl7.org/fhir/us/core/ValueSet/birthsex
+    type: string
+  us_core_ethnicity:
+    description: '[extension us_core_ethnicity] Concepts classifying the person into
+      a named category of humans sharing common history, traits, geographical origin
+      or nationality.  The ethnicity codes used to represent these concepts are based
+      upon the [CDC ethnicity and Ethnicity Code Set Version 1.0](http://www.cdc.gov/phin/resources/vocabulary/index.html)
+      which includes over 900 concepts for representing race and ethnicity of which
+      43 reference ethnicity.  The ethnicity concepts are grouped by and pre-mapped
+      to the 2 OMB ethnicity categories: - Hispanic or Latino - Not Hispanic or Latino.'
     type: string
   us_core_ethnicity_detailed:
     binding_description: null
@@ -323,15 +350,6 @@ properties:
         term: http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity-category
         term_url: http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity-category
     type: string
-  us_core_ethnicity_text:
-    description: '[extension us_core_ethnicity] Concepts classifying the person into
-      a named category of humans sharing common history, traits, geographical origin
-      or nationality.  The ethnicity codes used to represent these concepts are based
-      upon the [CDC ethnicity and Ethnicity Code Set Version 1.0](http://www.cdc.gov/phin/resources/vocabulary/index.html)
-      which includes over 900 concepts for representing race and ethnicity of which
-      43 reference ethnicity.  The ethnicity concepts are grouped by and pre-mapped
-      to the 2 OMB ethnicity categories: - Hispanic or Latino - Not Hispanic or Latino.'
-    type: string
   us_core_genderIdentity:
     binding_description: null
     binding_strength: extensible
@@ -377,6 +395,17 @@ properties:
         term_url: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.32
     type: string
   us_core_genderIdentity_text: *id002
+  us_core_race:
+    description: "[extension us_core_race] Concepts classifying the person into a\
+      \ named category of humans sharing common history, traits, geographical origin\
+      \ or nationality.  The race codes used to represent these concepts are based\
+      \ upon the [CDC Race and Ethnicity Code Set Version 1.0](http://www.cdc.gov/phin/resources/vocabulary/index.html)\
+      \ which includes over 900 concepts for representing race and ethnicity of which\
+      \ 921 reference race.  The race concepts are grouped by and pre-mapped to the\
+      \ 5 OMB race categories:\n\n - American Indian or Alaska Native\n - Asian\n\
+      \ - Black or African American\n - Native Hawaiian or Other Pacific Islander\n\
+      \ - White."
+    type: string
   us_core_race_detailed:
     binding_description: null
     binding_strength: required
@@ -428,17 +457,6 @@ properties:
         strength: required
         term: http://hl7.org/fhir/us/core/ValueSet/omb-race-category
         term_url: http://hl7.org/fhir/us/core/ValueSet/omb-race-category
-    type: string
-  us_core_race_text:
-    description: "[extension us_core_race] Concepts classifying the person into a\
-      \ named category of humans sharing common history, traits, geographical origin\
-      \ or nationality.  The race codes used to represent these concepts are based\
-      \ upon the [CDC Race and Ethnicity Code Set Version 1.0](http://www.cdc.gov/phin/resources/vocabulary/index.html)\
-      \ which includes over 900 concepts for representing race and ethnicity of which\
-      \ 921 reference race.  The race concepts are grouped by and pre-mapped to the\
-      \ 5 OMB race categories:\n\n - American Indian or Alaska Native\n - Asian\n\
-      \ - Black or African American\n - Native Hawaiian or Other Pacific Islander\n\
-      \ - White."
     type: string
   us_core_tribal_affiliation_isEnrolled:
     description: '[extension us_core_tribal_affiliation] This Extension profile represents

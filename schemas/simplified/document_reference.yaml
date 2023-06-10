@@ -18,18 +18,6 @@ links:
   name: author_Patient
   required: false
   target_type: patient
-- backref: bodySite_document_reference
-  label: DocumentReference_bodySite_BodyStructure_bodySite_document_reference
-  multiplicity: many_to_many
-  name: bodySite
-  required: false
-  target_type: body_structure
-- backref: context_document_reference
-  label: DocumentReference_context_Encounter_context_document_reference
-  multiplicity: many_to_many
-  name: context_Encounter
-  required: false
-  target_type: encounter
 program: '*'
 project: '*'
 properties:
@@ -181,26 +169,35 @@ properties:
     title: Categorization of document
     type: array
   category_text: *id002
-  content:
-    description: '[Text representation of DocumentReferenceContent] The document and
-      format referenced.  If there are multiple content element repetitions, these
-      must all represent the same document in different format, or attachment metadata.'
+  content_attachment_contentType:
+    binding_description: BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)
+    binding_strength: required
+    binding_uri: http://hl7.org/fhir/ValueSet/mimetypes
+    binding_version: 5.0.0
+    description: '[Plucked from DocumentReference.content] Identifies the type of
+      the data in the attachment and allows a method to be chosen to interpret or
+      render the data. Includes mime type parameters such as charset where appropriate.'
     element_property: true
-    items:
-      type: string
-    title: Document referenced
-    type: array
-  content_contentType:
-    description: from content attachment
+    pattern: ^[^\s]+(\s[^\s]+)*$
+    title: Mime type of the content, with charset etc.
     type: string
-  content_md5:
-    description: from content attachment
+  content_attachment_extension_md5:
+    description: '[Plucked from DocumentReference.content] Value of extension'
     type: string
-  content_size:
-    description: from content attachment
-    type: number
-  content_url:
-    description: from content attachment
+  content_attachment_size:
+    description: '[Plucked from DocumentReference.content] The number of bytes of
+      data that make up this attachment (before base64 encoding, if that is done).'
+    element_property: true
+    title: Number of bytes of content (if url provided)
+    type: integer
+  content_attachment_url:
+    description: '[Plucked from DocumentReference.content] A location where the data
+      can be accessed.'
+    element_property: true
+    format: uri
+    maxLength: 65536
+    minLength: 1
+    title: Uri where the data can be found
     type: string
   context:
     backref: context_document_reference

@@ -32,6 +32,12 @@ links:
   name: partOf_MedicationAdministration
   required: false
   target_type: medication_administration
+- backref: partOf_medication_administration
+  label: MedicationAdministration_partOf_Procedure_partOf_medication_administration
+  multiplicity: many_to_many
+  name: partOf_Procedure
+  required: false
+  target_type: procedure
 - backref: reason_medication_administration
   label: MedicationAdministration_reason_Condition_reason_medication_administration
   multiplicity: many_to_many
@@ -44,6 +50,12 @@ links:
   name: reason_Observation
   required: false
   target_type: observation
+- backref: reason_medication_administration
+  label: MedicationAdministration_reason_DiagnosticReport_reason_medication_administration
+  multiplicity: many_to_many
+  name: reason_DiagnosticReport
+  required: false
+  target_type: diagnostic_report
 program: '*'
 project: '*'
 properties:

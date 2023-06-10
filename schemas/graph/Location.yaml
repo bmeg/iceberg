@@ -1,0 +1,295 @@
+$id: Location
+additionalProperties: false
+description: Details and position information for a place. Details and position information
+  for a place where services are provided and resources and participants may be stored,
+  found, contained, or accommodated. [See https://hl7.org/fhir/R5/Location.html]
+properties:
+  _alias:
+    items:
+      $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``alias``.
+    type: array
+  _description:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``description``.
+  _implicitRules:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``implicitRules``.
+  _language:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``language``.
+  _mode:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``mode``.
+  _name:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``name``.
+  _status:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``status``.
+  address:
+    $ref: Address.yaml
+    element_property: true
+    title: Physical location
+  alias:
+    element_property: true
+    items:
+      pattern: '[ \r\n\t\S]+'
+      type: string
+    title: A list of alternate names that the location is known as, or was known as,
+      in the past
+    type: array
+  characteristic:
+    binding_description: A custom attribute that could be provided at a service (e.g.
+      Wheelchair accessibiliy).
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/location-characteristic
+    binding_version: null
+    element_property: true
+    items:
+      $ref: CodeableConcept.yaml
+    title: Collection of characteristics (attributes)
+    type: array
+  contact:
+    description: The contact details of communication devices available at the location.
+      This can include addresses, phone numbers, fax numbers, mobile numbers, email
+      addresses and web sites.
+    element_property: true
+    items:
+      $ref: ExtendedContactDetail.yaml
+    title: Official contact details for the location
+    type: array
+  contained:
+    description: These resources do not have an independent existence apart from the
+      resource that contains them - they cannot be identified independently, nor can
+      they have their own independent transaction scope. This is allowed to be a Parameters
+      resource if and only if it is referenced by a resource that provides context/meaning.
+    element_property: true
+    items:
+      $ref: Resource.yaml
+    title: Contained, inline Resources
+    type: array
+  description:
+    description: Description of the Location, which helps in finding or referencing
+      the place.
+    element_property: true
+    pattern: \s*(\S|\s)*
+    title: Additional details about the location that could be displayed as further
+      information to identify the location beyond its name
+    type: string
+  endpoint:
+    backref: endpoint_location
+    element_property: true
+    enum_reference_types:
+    - Endpoint
+    items:
+      $ref: Reference.yaml
+    title: Technical endpoints providing access to services operated for the location
+    type: array
+  extension:
+    description: May be used to represent additional information that is not part
+      of the basic definition of the resource. To make the use of extensions safe
+      and managable, there is a strict set of governance applied to the definition
+      and use of extensions. Though any implementer can define an extension, there
+      is a set of requirements that SHALL be met as part of the definition of the
+      extension.
+    element_property: true
+    items:
+      $ref: Extension.yaml
+    title: Additional content defined by implementations
+    type: array
+  fhir_comments:
+    anyOf:
+    - type: string
+    - items:
+        type: string
+      type: array
+    element_property: false
+    title: Fhir Comments
+  form:
+    $ref: CodeableConcept.yaml
+    binding_description: Physical form of the location.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/location-form
+    binding_version: null
+    description: Physical form of the location, e.g. building, room, vehicle, road,
+      virtual.
+    element_property: true
+    title: Physical form of the location
+  hoursOfOperation:
+    description: What days/times during a week is this location usually open, and
+      any exceptions where the location is not available.
+    element_property: true
+    items:
+      $ref: Availability.yaml
+    title: What days/times during a week is this location usually open (including
+      exceptions)
+    type: array
+  id:
+    description: The logical id of the resource, as used in the URL for the resource.
+      Once assigned, this value never changes.
+    element_property: true
+    maxLength: 64
+    minLength: 1
+    pattern: ^[A-Za-z0-9\-.]+$
+    title: Logical id of this artifact
+    type: string
+  identifier:
+    element_property: true
+    items:
+      $ref: Identifier.yaml
+    title: Unique code or number identifying the location to its users
+    type: array
+  implicitRules:
+    description: A reference to a set of rules that were followed when the resource
+      was constructed, and which must be understood when processing the content. Often,
+      this is a reference to an implementation guide that defines the special rules
+      along with other profiles etc.
+    element_property: true
+    pattern: \S*
+    title: A set of rules under which this content was created
+    type: string
+  language:
+    binding_description: IETF language tag for a human language
+    binding_strength: required
+    binding_uri: http://hl7.org/fhir/ValueSet/all-languages
+    binding_version: 5.0.0
+    description: The base language in which the resource is written.
+    element_property: true
+    pattern: ^[^\s]+(\s[^\s]+)*$
+    title: Language of the resource content
+    type: string
+  managingOrganization:
+    $ref: Reference.yaml
+    backref: location
+    description: The organization responsible for the provisioning and upkeep of the
+      location.
+    element_property: true
+    enum_reference_types:
+    - Organization
+    title: Organization responsible for provisioning and upkeep
+  meta:
+    $ref: Meta.yaml
+    description: The metadata about the resource. This is content that is maintained
+      by the infrastructure. Changes to the content might not always be associated
+      with version changes to the resource.
+    element_property: true
+    title: Metadata about the resource
+  mode:
+    binding_description: Indicates whether a resource instance represents a specific
+      location or a class of locations.
+    binding_strength: required
+    binding_uri: http://hl7.org/fhir/ValueSet/location-mode
+    binding_version: 5.0.0
+    description: Indicates whether a resource instance represents a specific location
+      or a class of locations.
+    element_property: true
+    enum_values:
+    - instance
+    - kind
+    pattern: ^[^\s]+(\s[^\s]+)*$
+    title: instance | kind
+    type: string
+  modifierExtension:
+    description: May be used to represent additional information that is not part
+      of the basic definition of the resource and that modifies the understanding
+      of the element that contains it and/or the understanding of the containing element's
+      descendants. Usually modifier elements provide negation or qualification. To
+      make the use of extensions safe and managable, there is a strict set of governance
+      applied to the definition and use of extensions. Though any implementer is allowed
+      to define an extension, there is a set of requirements that SHALL be met as
+      part of the definition of the extension. Applications processing a resource
+      are required to check for modifier extensions.  Modifier extensions SHALL NOT
+      change the meaning of any elements on Resource or DomainResource (including
+      cannot change the meaning of modifierExtension itself).
+    element_property: true
+    items:
+      $ref: Extension.yaml
+    title: Extensions that cannot be ignored
+    type: array
+  name:
+    description: Name of the location as used by humans. Does not need to be unique.
+    element_property: true
+    pattern: '[ \r\n\t\S]+'
+    title: Name of the location as used by humans
+    type: string
+  operationalStatus:
+    $ref: Coding.yaml
+    binding_description: The operational status if the location (where typically a
+      bed/room).
+    binding_strength: preferred
+    binding_uri: http://terminology.hl7.org/ValueSet/v2-0116
+    binding_version: null
+    description: The operational status covers operation values most relevant to beds
+      (but can also apply to rooms/units/chairs/etc. such as an isolation unit/dialysis
+      chair). This typically covers concepts such as contamination, housekeeping,
+      and other activities like maintenance.
+    element_property: true
+    title: The operational status of the location (typically only for a bed/room)
+  partOf:
+    $ref: Reference.yaml
+    backref: location
+    description: Another Location of which this Location is physically a part of.
+    element_property: true
+    enum_reference_types:
+    - Location
+    title: Another Location this one is physically a part of
+  position:
+    $ref: LocationPosition.yaml
+    description: The absolute geographic location of the Location, expressed using
+      the WGS84 datum (This is the same co-ordinate system used in KML).
+    element_property: true
+    title: The absolute geographic location
+  resourceType:
+    const: Location
+    default: Location
+    description: One of the resource types defined as part of FHIR
+    title: Resource Type
+    type: string
+  status:
+    binding_description: Indicates whether the location is still in use.
+    binding_strength: required
+    binding_uri: http://hl7.org/fhir/ValueSet/location-status
+    binding_version: 5.0.0
+    description: The status property covers the general availability of the resource,
+      not the current value which may be covered by the operationStatus, or by a schedule/slots
+      if they are configured for the location.
+    element_property: true
+    enum_values:
+    - active
+    - suspended
+    - inactive
+    pattern: ^[^\s]+(\s[^\s]+)*$
+    title: active | suspended | inactive
+    type: string
+  text:
+    $ref: Narrative.yaml
+    description: A human-readable narrative that contains a summary of the resource
+      and can be used to represent the content of the resource to a human. The narrative
+      need not encode all the structured data, but is required to contain sufficient
+      detail to make it "clinically safe" for a human to just read the narrative.
+      Resource definitions may define what content should be represented in the narrative
+      to ensure clinical safety.
+    element_property: true
+    title: Text summary of the resource, for human interpretation
+  type:
+    binding_description: Indicates the type of function performed at the location.
+    binding_strength: extensible
+    binding_uri: http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType
+    binding_version: null
+    description: Indicates the type of function performed at the location.
+    element_property: true
+    items:
+      $ref: CodeableConcept.yaml
+    title: Type of function performed
+    type: array
+  virtualService:
+    description: Connection details of a virtual service (e.g. shared conference call
+      facility with dedicated number/details).
+    element_property: true
+    items:
+      $ref: VirtualServiceDetail.yaml
+    title: Connection details of a virtual service (e.g. conference call)
+    type: array
+title: Location
+type: object

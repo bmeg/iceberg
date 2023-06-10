@@ -326,13 +326,7 @@ properties:
     backref: focus_observation
     description: '[Text representation of Reference] The actual focus of an observation
       when it is not the patient of record representing something or someone associated
-      with the patient such as a spouse, parent, fetus, or donor. For example, fetus
-      observations in a mother''s record.  The focus of an observation could also
-      be an existing condition,  an intervention, the subject''s diet,  another observation
-      of the subject,  or a body structure such as tumor or implanted device.   An
-      example use case would be using the Observation resource to capture whether
-      the mother is trained to change her child''s tracheostomy tube. In this example,
-      the child is the patient of record and the mother is the focus.'
+      with the patient such as a spouse, parent, fetus, or donor.'
     element_property: true
     enum_reference_types:
     - ResearchStudy

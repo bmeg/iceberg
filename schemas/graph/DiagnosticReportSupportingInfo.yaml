@@ -2,7 +2,7 @@ $id: DiagnosticReportSupportingInfo
 additionalProperties: false
 description: Additional information supporting the diagnostic report. This backbone
   element contains supporting information that was used in the creation of the report
-  not included in the results already included in the report. see https://hl7.org/fhir/R5/DiagnosticReportSupportingInfo
+  not included in the results already included in the report. [See https://hl7.org/fhir/R5/DiagnosticReportSupportingInfo.html]
 properties:
   extension:
     description: May be used to represent additional information that is not part
