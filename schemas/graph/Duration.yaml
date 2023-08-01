@@ -1,6 +1,8 @@
 $id: Duration
 additionalProperties: false
-description: A length of time. [See https://hl7.org/fhir/R5/Duration.html]
+description: A length of time. [See https://hl7.org/fhir/R5/Duration.html] [See https://hl7.org/fhir/R5/Duration.html]
+  [See https://hl7.org/fhir/R5/Duration.html]
+links: []
 properties:
   _code:
     $ref: FHIRPrimitiveExtension.yaml
@@ -68,6 +70,11 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   resourceType:
     const: Duration
     default: Duration

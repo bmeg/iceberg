@@ -1,6 +1,39 @@
 $id: Substance
 additionalProperties: false
 description: A homogeneous material with a definite composition. [See https://hl7.org/fhir/R5/Substance.html]
+links:
+- $comment: From CodeableReference/code
+  href: __ANY__/{id}
+  rel: code_reference
+  targetSchema:
+    $ref: __ANY__
+  templateHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /code/reference/reference
+  templateRequired:
+  - id
+- $comment: From SubstanceIngredient/ingredient
+  href: Substance/{id}
+  rel: ingredient_substanceReference
+  targetSchema:
+    $ref: Substance
+  templateHints:
+    backref:
+    - substance_ingredient
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /ingredient/-/substanceReference/reference
+  templateRequired:
+  - id
 properties:
   _description:
     $ref: FHIRPrimitiveExtension.yaml
@@ -138,6 +171,11 @@ properties:
     pattern: ^[^\s]+(\s[^\s]+)*$
     title: Language of the resource content
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   meta:
     $ref: Meta.yaml
     description: The metadata about the resource. This is content that is maintained

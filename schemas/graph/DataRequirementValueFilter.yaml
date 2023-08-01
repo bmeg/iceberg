@@ -4,6 +4,7 @@ description: What values are expected. Value filters specify additional constrai
   on the data for elements other than code-valued or date-valued. Each value filter
   specifies an additional constraint on the data (i.e. valueFilters are AND'ed, not
   OR'ed). [See https://hl7.org/fhir/R5/DataRequirementValueFilter.html]
+links: []
 properties:
   _comparator:
     $ref: FHIRPrimitiveExtension.yaml
@@ -61,6 +62,11 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   path:
     description: The attribute of the filter. The specified path SHALL be a FHIRPath
       resolvable on the specified type of the DataRequirement, and SHALL consist only

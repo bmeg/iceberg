@@ -2,6 +2,24 @@ $id: MedicationIngredient
 additionalProperties: false
 description: Active or inactive ingredient. Identifies a particular constituent of
   interest in the product. [See https://hl7.org/fhir/R5/MedicationIngredient.html]
+  [See https://hl7.org/fhir/R5/MedicationIngredient.html]
+links:
+- $comment: From CodeableReference/item
+  href: __ANY__/{id}
+  rel: item_reference
+  targetSchema:
+    $ref: __ANY__
+  templateHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /item/reference/reference
+  templateRequired:
+  - id
 properties:
   _isActive:
     $ref: FHIRPrimitiveExtension.yaml
@@ -54,6 +72,11 @@ properties:
     - Medication
     title: The ingredient (substance or medication) that the ingredient.strength relates
       to
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

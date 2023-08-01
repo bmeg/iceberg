@@ -1,6 +1,52 @@
 $id: ResearchStudyRecruitment
 additionalProperties: false
 description: Target or actual group of participants enrolled in study. [See https://hl7.org/fhir/R5/ResearchStudyRecruitment.html]
+links:
+- href: Group/{id}
+  rel: actualGroup
+  targetSchema:
+    $ref: Group
+  templateHints:
+    backref:
+    - actualGroup_research_study_recruitment
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /actualGroup/reference
+  templateRequired:
+  - id
+- href: Group/{id}
+  rel: eligibility_Group
+  targetSchema:
+    $ref: Group
+  templateHints:
+    backref:
+    - eligibility_research_study_recruitment
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /eligibility/reference
+  templateRequired:
+  - id
+- href: EvidenceVariable/{id}
+  rel: eligibility_EvidenceVariable
+  targetSchema:
+    $ref: EvidenceVariable
+  templateHints:
+    backref:
+    - eligibility_research_study_recruitment
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /eligibility/reference
+  templateRequired:
+  - id
 properties:
   _actualNumber:
     $ref: FHIRPrimitiveExtension.yaml
@@ -54,6 +100,11 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

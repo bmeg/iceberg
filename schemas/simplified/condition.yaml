@@ -12,12 +12,6 @@ links:
   name: subject_Patient
   required: false
   target_type: patient
-- backref: condition
-  label: Condition_encounter_Encounter_condition
-  multiplicity: many_to_many
-  name: encounter
-  required: false
-  target_type: encounter
 program: '*'
 project: '*'
 properties:

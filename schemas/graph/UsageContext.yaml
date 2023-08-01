@@ -4,7 +4,113 @@ description: Describes the context of use for a conformance or knowledge resourc
   Specifies clinical/business/etc. metadata that can be used to retrieve, index and/or
   categorize an artifact. This metadata can either be specific to the applicable population
   (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting,
-  provider of care). [See https://hl7.org/fhir/R5/UsageContext.html]
+  provider of care). [See https://hl7.org/fhir/R5/UsageContext.html] [See https://hl7.org/fhir/R5/UsageContext.html]
+links:
+- href: PlanDefinition/{id}
+  rel: valueReference_PlanDefinition
+  targetSchema:
+    $ref: PlanDefinition
+  templateHints:
+    backref:
+    - usage_context
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueReference/reference
+  templateRequired:
+  - id
+- href: ResearchStudy/{id}
+  rel: valueReference_ResearchStudy
+  targetSchema:
+    $ref: ResearchStudy
+  templateHints:
+    backref:
+    - usage_context
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueReference/reference
+  templateRequired:
+  - id
+- href: InsurancePlan/{id}
+  rel: valueReference_InsurancePlan
+  targetSchema:
+    $ref: InsurancePlan
+  templateHints:
+    backref:
+    - usage_context
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueReference/reference
+  templateRequired:
+  - id
+- href: HealthcareService/{id}
+  rel: valueReference_HealthcareService
+  targetSchema:
+    $ref: HealthcareService
+  templateHints:
+    backref:
+    - usage_context
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueReference/reference
+  templateRequired:
+  - id
+- href: Group/{id}
+  rel: valueReference_Group
+  targetSchema:
+    $ref: Group
+  templateHints:
+    backref:
+    - usage_context
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueReference/reference
+  templateRequired:
+  - id
+- href: Location/{id}
+  rel: valueReference_Location
+  targetSchema:
+    $ref: Location
+  templateHints:
+    backref:
+    - usage_context
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueReference/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: valueReference_Organization
+  targetSchema:
+    $ref: Organization
+  templateHints:
+    backref:
+    - usage_context
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueReference/reference
+  templateRequired:
+  - id
 properties:
   code:
     $ref: Coding.yaml
@@ -43,6 +149,11 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   resourceType:
     const: UsageContext
     default: UsageContext

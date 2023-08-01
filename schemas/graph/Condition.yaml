@@ -3,6 +3,308 @@ additionalProperties: false
 description: Detailed information about conditions, problems or diagnoses. A clinical
   condition, problem, diagnosis, or other event, situation, issue, or clinical concept
   that has risen to a level of concern. [See https://hl7.org/fhir/R5/Condition.html]
+links:
+- href: Encounter/{id}
+  rel: encounter
+  targetSchema:
+    $ref: Encounter
+  templateHints:
+    backref:
+    - condition
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /encounter/reference
+  templateRequired:
+  - id
+- href: Patient/{id}
+  rel: subject_Patient
+  targetSchema:
+    $ref: Patient
+  templateHints:
+    backref:
+    - condition
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: Group/{id}
+  rel: subject_Group
+  targetSchema:
+    $ref: Group
+  templateHints:
+    backref:
+    - condition
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/evidence
+  href: __ANY__/{id}
+  rel: evidence_reference
+  targetSchema:
+    $ref: __ANY__
+  templateHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /evidence/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Practitioner/{id}
+  rel: note_authorReference_Practitioner
+  targetSchema:
+    $ref: Practitioner
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: PractitionerRole/{id}
+  rel: note_authorReference_PractitionerRole
+  targetSchema:
+    $ref: PractitionerRole
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Patient/{id}
+  rel: note_authorReference_Patient
+  targetSchema:
+    $ref: Patient
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: RelatedPerson/{id}
+  rel: note_authorReference_RelatedPerson
+  targetSchema:
+    $ref: RelatedPerson
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Organization/{id}
+  rel: note_authorReference_Organization
+  targetSchema:
+    $ref: Organization
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From ConditionParticipant/participant
+  href: Practitioner/{id}
+  rel: participant_actor_Practitioner
+  targetSchema:
+    $ref: Practitioner
+  templateHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /participant/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From ConditionParticipant/participant
+  href: PractitionerRole/{id}
+  rel: participant_actor_PractitionerRole
+  targetSchema:
+    $ref: PractitionerRole
+  templateHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /participant/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From ConditionParticipant/participant
+  href: Patient/{id}
+  rel: participant_actor_Patient
+  targetSchema:
+    $ref: Patient
+  templateHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /participant/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From ConditionParticipant/participant
+  href: RelatedPerson/{id}
+  rel: participant_actor_RelatedPerson
+  targetSchema:
+    $ref: RelatedPerson
+  templateHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /participant/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From ConditionParticipant/participant
+  href: Device/{id}
+  rel: participant_actor_Device
+  targetSchema:
+    $ref: Device
+  templateHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /participant/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From ConditionParticipant/participant
+  href: Organization/{id}
+  rel: participant_actor_Organization
+  targetSchema:
+    $ref: Organization
+  templateHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /participant/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From ConditionParticipant/participant
+  href: CareTeam/{id}
+  rel: participant_actor_CareTeam
+  targetSchema:
+    $ref: CareTeam
+  templateHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /participant/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From ConditionStage/stage
+  href: ClinicalImpression/{id}
+  rel: stage_assessment_ClinicalImpression
+  targetSchema:
+    $ref: ClinicalImpression
+  templateHints:
+    backref:
+    - assessment_condition_stage
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  templatePointers:
+    id: /stage/-/assessment/-/reference
+  templateRequired:
+  - id
+- $comment: From ConditionStage/stage
+  href: DiagnosticReport/{id}
+  rel: stage_assessment_DiagnosticReport
+  targetSchema:
+    $ref: DiagnosticReport
+  templateHints:
+    backref:
+    - assessment_condition_stage
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  templatePointers:
+    id: /stage/-/assessment/-/reference
+  templateRequired:
+  - id
+- $comment: From ConditionStage/stage
+  href: Observation/{id}
+  rel: stage_assessment_Observation
+  targetSchema:
+    $ref: Observation
+  templateHints:
+    backref:
+    - assessment_condition_stage
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  templatePointers:
+    id: /stage/-/assessment/-/reference
+  templateRequired:
+  - id
 properties:
   _abatementDateTime:
     $ref: FHIRPrimitiveExtension.yaml
@@ -207,6 +509,11 @@ properties:
     pattern: ^[^\s]+(\s[^\s]+)*$
     title: Language of the resource content
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   meta:
     $ref: Meta.yaml
     description: The metadata about the resource. This is content that is maintained

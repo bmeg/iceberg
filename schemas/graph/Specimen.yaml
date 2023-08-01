@@ -1,6 +1,335 @@
 $id: Specimen
 additionalProperties: false
 description: Sample for analysis. A sample to be used for analysis. [See https://hl7.org/fhir/R5/Specimen.html]
+links:
+- href: Specimen/{id}
+  rel: parent
+  targetSchema:
+    $ref: Specimen
+  templateHints:
+    backref:
+    - parent_specimen
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  templatePointers:
+    id: /parent/-/reference
+  templateRequired:
+  - id
+- href: ServiceRequest/{id}
+  rel: request
+  targetSchema:
+    $ref: ServiceRequest
+  templateHints:
+    backref:
+    - request_specimen
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  templatePointers:
+    id: /request/-/reference
+  templateRequired:
+  - id
+- href: Patient/{id}
+  rel: subject_Patient
+  targetSchema:
+    $ref: Patient
+  templateHints:
+    backref:
+    - specimen
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: Group/{id}
+  rel: subject_Group
+  targetSchema:
+    $ref: Group
+  templateHints:
+    backref:
+    - specimen
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: Device/{id}
+  rel: subject_Device
+  targetSchema:
+    $ref: Device
+  templateHints:
+    backref:
+    - specimen
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: BiologicallyDerivedProduct/{id}
+  rel: subject_BiologicallyDerivedProduct
+  targetSchema:
+    $ref: BiologicallyDerivedProduct
+  templateHints:
+    backref:
+    - specimen
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: Substance/{id}
+  rel: subject_Substance
+  targetSchema:
+    $ref: Substance
+  templateHints:
+    backref:
+    - specimen
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: Location/{id}
+  rel: subject_Location
+  targetSchema:
+    $ref: Location
+  templateHints:
+    backref:
+    - specimen
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- $comment: From SpecimenCollection/collection
+  href: Practitioner/{id}
+  rel: collection_collector_Practitioner
+  targetSchema:
+    $ref: Practitioner
+  templateHints:
+    backref:
+    - specimen_collection
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /collection/collector/reference
+  templateRequired:
+  - id
+- $comment: From SpecimenCollection/collection
+  href: PractitionerRole/{id}
+  rel: collection_collector_PractitionerRole
+  targetSchema:
+    $ref: PractitionerRole
+  templateHints:
+    backref:
+    - specimen_collection
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /collection/collector/reference
+  templateRequired:
+  - id
+- $comment: From SpecimenCollection/collection
+  href: Patient/{id}
+  rel: collection_collector_Patient
+  targetSchema:
+    $ref: Patient
+  templateHints:
+    backref:
+    - specimen_collection
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /collection/collector/reference
+  templateRequired:
+  - id
+- $comment: From SpecimenCollection/collection
+  href: RelatedPerson/{id}
+  rel: collection_collector_RelatedPerson
+  targetSchema:
+    $ref: RelatedPerson
+  templateHints:
+    backref:
+    - specimen_collection
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /collection/collector/reference
+  templateRequired:
+  - id
+- $comment: From SpecimenCollection/collection
+  href: Procedure/{id}
+  rel: collection_procedure
+  targetSchema:
+    $ref: Procedure
+  templateHints:
+    backref:
+    - specimen_collection
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /collection/procedure/reference
+  templateRequired:
+  - id
+- $comment: From SpecimenContainer/container
+  href: Device/{id}
+  rel: container_device
+  targetSchema:
+    $ref: Device
+  templateHints:
+    backref:
+    - specimen_container
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /container/-/device/reference
+  templateRequired:
+  - id
+- $comment: From SpecimenContainer/container
+  href: Location/{id}
+  rel: container_location
+  targetSchema:
+    $ref: Location
+  templateHints:
+    backref:
+    - specimen_container
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /container/-/location/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Practitioner/{id}
+  rel: note_authorReference_Practitioner
+  targetSchema:
+    $ref: Practitioner
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: PractitionerRole/{id}
+  rel: note_authorReference_PractitionerRole
+  targetSchema:
+    $ref: PractitionerRole
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Patient/{id}
+  rel: note_authorReference_Patient
+  targetSchema:
+    $ref: Patient
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: RelatedPerson/{id}
+  rel: note_authorReference_RelatedPerson
+  targetSchema:
+    $ref: RelatedPerson
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Organization/{id}
+  rel: note_authorReference_Organization
+  targetSchema:
+    $ref: Organization
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From SpecimenProcessing/processing
+  href: Substance/{id}
+  rel: processing_additive
+  targetSchema:
+    $ref: Substance
+  templateHints:
+    backref:
+    - additive_specimen_processing
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  templatePointers:
+    id: /processing/-/additive/-/reference
+  templateRequired:
+  - id
 properties:
   _combined:
     $ref: FHIRPrimitiveExtension.yaml
@@ -137,6 +466,11 @@ properties:
     pattern: ^[^\s]+(\s[^\s]+)*$
     title: Language of the resource content
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   meta:
     $ref: Meta.yaml
     description: The metadata about the resource. This is content that is maintained

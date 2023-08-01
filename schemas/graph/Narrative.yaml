@@ -3,6 +3,8 @@ additionalProperties: false
 description: Human-readable summary of the resource (essential clinical and business
   information). A human-readable summary of the resource conveying the essential clinical
   and business information for the resource. [See https://hl7.org/fhir/R5/Narrative.html]
+  [See https://hl7.org/fhir/R5/Narrative.html]
+links: []
 properties:
   _div:
     $ref: FHIRPrimitiveExtension.yaml
@@ -42,6 +44,11 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   resourceType:
     const: Narrative
     default: Narrative

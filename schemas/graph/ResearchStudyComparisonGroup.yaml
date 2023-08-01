@@ -5,6 +5,37 @@ description: 'Defined path through the study for a subject. Describes an expecte
   subject: exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up.
   E.g. for a stability study: {store sample from lot A at 25 degrees for 1 month},
   {store sample from lot A at 40 degrees for 1 month}. [See https://hl7.org/fhir/R5/ResearchStudyComparisonGroup.html]'
+links:
+- href: EvidenceVariable/{id}
+  rel: intendedExposure
+  targetSchema:
+    $ref: EvidenceVariable
+  templateHints:
+    backref:
+    - intendedExposure_research_study_comparison_group
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  templatePointers:
+    id: /intendedExposure/-/reference
+  templateRequired:
+  - id
+- href: Group/{id}
+  rel: observedGroup
+  targetSchema:
+    $ref: Group
+  templateHints:
+    backref:
+    - research_study_comparison_group
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /observedGroup/reference
+  templateRequired:
+  - id
 properties:
   _description:
     $ref: FHIRPrimitiveExtension.yaml
@@ -65,6 +96,11 @@ properties:
     title: Allows the comparisonGroup for the study and the comparisonGroup for the
       subject to be linked easily
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

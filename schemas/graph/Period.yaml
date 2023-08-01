@@ -2,6 +2,15 @@ $id: Period
 additionalProperties: false
 description: Time range defined by start and end date/time. A time period defined
   by a start and end date and optionally time. [See https://hl7.org/fhir/R5/Period.html]
+  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
+  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
+  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
+  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
+  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
+  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
+  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
+  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
+links: []
 properties:
   _end:
     $ref: FHIRPrimitiveExtension.yaml
@@ -44,6 +53,11 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   resourceType:
     const: Period
     default: Period

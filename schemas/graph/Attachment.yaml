@@ -1,7 +1,9 @@
 $id: Attachment
 additionalProperties: false
 description: Content in a format defined elsewhere. For referring to data content
-  defined in other formats. [See https://hl7.org/fhir/R5/Attachment.html]
+  defined in other formats. [See https://hl7.org/fhir/R5/Attachment.html] [See https://hl7.org/fhir/R5/Attachment.html]
+  [See https://hl7.org/fhir/R5/Attachment.html] [See https://hl7.org/fhir/R5/Attachment.html]
+links: []
 properties:
   _contentType:
     $ref: FHIRPrimitiveExtension.yaml
@@ -129,6 +131,11 @@ properties:
     pattern: ^[^\s]+(\s[^\s]+)*$
     title: Human language of the content (BCP-47)
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   pages:
     description: The number of pages when printed.
     element_property: true

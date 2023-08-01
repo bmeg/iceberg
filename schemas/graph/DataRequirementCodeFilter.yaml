@@ -4,6 +4,7 @@ description: What codes are expected. Code filters specify additional constraint
   on the data, specifying the value set of interest for a particular element of the
   data. Each code filter defines an additional constraint on the data, i.e. code filters
   are AND'ed, not OR'ed. [See https://hl7.org/fhir/R5/DataRequirementCodeFilter.html]
+links: []
 properties:
   _path:
     $ref: FHIRPrimitiveExtension.yaml
@@ -51,6 +52,11 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   path:
     description: The code-valued attribute of the filter. The specified path SHALL
       be a FHIRPath resolvable on the specified type of the DataRequirement, and SHALL

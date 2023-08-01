@@ -2,7 +2,25 @@ $id: DataRequirement
 additionalProperties: false
 description: Describes a required data item. Describes a required data item for evaluation
   in terms of the type of data, and optional code or date-based filters of the data.
+  [See https://hl7.org/fhir/R5/DataRequirement.html] [See https://hl7.org/fhir/R5/DataRequirement.html]
+  [See https://hl7.org/fhir/R5/DataRequirement.html] [See https://hl7.org/fhir/R5/DataRequirement.html]
   [See https://hl7.org/fhir/R5/DataRequirement.html]
+links:
+- href: Group/{id}
+  rel: subjectReference
+  targetSchema:
+    $ref: Group
+  templateHints:
+    backref:
+    - data_requirement
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /subjectReference/reference
+  templateRequired:
+  - id
 properties:
   _limit:
     $ref: FHIRPrimitiveExtension.yaml
@@ -72,6 +90,11 @@ properties:
     exclusiveMinimum: 0
     title: Number of results
     type: integer
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   mustSupport:
     description: Indicates that specific elements of the type are referenced by the
       knowledge module and must be supported by the consumer in order to obtain an

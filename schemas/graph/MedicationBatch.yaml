@@ -1,7 +1,9 @@
 $id: MedicationBatch
 additionalProperties: false
 description: Details about packaged medications. Information that only applies to
-  packages (not products). [See https://hl7.org/fhir/R5/MedicationBatch.html]
+  packages (not products). [See https://hl7.org/fhir/R5/MedicationBatch.html] [See
+  https://hl7.org/fhir/R5/MedicationBatch.html]
+links: []
 properties:
   _expirationDate:
     $ref: FHIRPrimitiveExtension.yaml
@@ -41,6 +43,11 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   lotNumber:
     description: The assigned lot number of a batch of the specified product.
     element_property: true

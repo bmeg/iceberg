@@ -1,7 +1,10 @@
 $id: RatioRange
 additionalProperties: false
 description: Range of ratio values. A range of ratios expressed as a low and high
-  numerator and a denominator. [See https://hl7.org/fhir/R5/RatioRange.html]
+  numerator and a denominator. [See https://hl7.org/fhir/R5/RatioRange.html] [See
+  https://hl7.org/fhir/R5/RatioRange.html] [See https://hl7.org/fhir/R5/RatioRange.html]
+  [See https://hl7.org/fhir/R5/RatioRange.html]
+links: []
 properties:
   denominator:
     $ref: Quantity.yaml
@@ -39,6 +42,11 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   lowNumerator:
     $ref: Quantity.yaml
     description: The value of the low limit numerator.

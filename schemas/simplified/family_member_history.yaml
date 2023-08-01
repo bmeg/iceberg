@@ -25,12 +25,6 @@ links:
   required: false
   target_type: observation
 - backref: reason_family_member_history
-  label: FamilyMemberHistory_reason_DiagnosticReport_reason_family_member_history
-  multiplicity: many_to_many
-  name: reason_DiagnosticReport
-  required: false
-  target_type: diagnostic_report
-- backref: reason_family_member_history
   label: FamilyMemberHistory_reason_DocumentReference_reason_family_member_history
   multiplicity: many_to_many
   name: reason_DocumentReference

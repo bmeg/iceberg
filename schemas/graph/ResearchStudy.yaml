@@ -6,6 +6,383 @@ description: Investigation to increase healthcare-related patient-independent kn
   These studies may be related to new ways to screen, prevent, diagnose, and treat
   disease. They may also study certain outcomes and certain groups of people by looking
   at data collected in the past or future. [See https://hl7.org/fhir/R5/ResearchStudy.html]
+links:
+- href: ResearchStudy/{id}
+  rel: partOf
+  targetSchema:
+    $ref: ResearchStudy
+  templateHints:
+    backref:
+    - partOf_research_study
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  templatePointers:
+    id: /partOf/-/reference
+  templateRequired:
+  - id
+- href: PlanDefinition/{id}
+  rel: protocol
+  targetSchema:
+    $ref: PlanDefinition
+  templateHints:
+    backref:
+    - protocol_research_study
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  templatePointers:
+    id: /protocol/-/reference
+  templateRequired:
+  - id
+- href: EvidenceReport/{id}
+  rel: result_EvidenceReport
+  targetSchema:
+    $ref: EvidenceReport
+  templateHints:
+    backref:
+    - result_research_study
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  templatePointers:
+    id: /result/-/reference
+  templateRequired:
+  - id
+- href: Citation/{id}
+  rel: result_Citation
+  targetSchema:
+    $ref: Citation
+  templateHints:
+    backref:
+    - result_research_study
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  templatePointers:
+    id: /result/-/reference
+  templateRequired:
+  - id
+- href: DiagnosticReport/{id}
+  rel: result_DiagnosticReport
+  targetSchema:
+    $ref: DiagnosticReport
+  templateHints:
+    backref:
+    - result_research_study
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  templatePointers:
+    id: /result/-/reference
+  templateRequired:
+  - id
+- href: Location/{id}
+  rel: site_Location
+  targetSchema:
+    $ref: Location
+  templateHints:
+    backref:
+    - site_research_study
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  templatePointers:
+    id: /site/-/reference
+  templateRequired:
+  - id
+- href: ResearchStudy/{id}
+  rel: site_ResearchStudy
+  targetSchema:
+    $ref: ResearchStudy
+  templateHints:
+    backref:
+    - site_research_study
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  templatePointers:
+    id: /site/-/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: site_Organization
+  targetSchema:
+    $ref: Organization
+  templateHints:
+    backref:
+    - site_research_study
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  templatePointers:
+    id: /site/-/reference
+  templateRequired:
+  - id
+- $comment: From ResearchStudyAssociatedParty/associatedParty
+  href: Practitioner/{id}
+  rel: associatedParty_party_Practitioner
+  targetSchema:
+    $ref: Practitioner
+  templateHints:
+    backref:
+    - research_study_associated_party
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /associatedParty/-/party/reference
+  templateRequired:
+  - id
+- $comment: From ResearchStudyAssociatedParty/associatedParty
+  href: PractitionerRole/{id}
+  rel: associatedParty_party_PractitionerRole
+  targetSchema:
+    $ref: PractitionerRole
+  templateHints:
+    backref:
+    - research_study_associated_party
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /associatedParty/-/party/reference
+  templateRequired:
+  - id
+- $comment: From ResearchStudyAssociatedParty/associatedParty
+  href: Organization/{id}
+  rel: associatedParty_party_Organization
+  targetSchema:
+    $ref: Organization
+  templateHints:
+    backref:
+    - research_study_associated_party
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /associatedParty/-/party/reference
+  templateRequired:
+  - id
+- $comment: From ResearchStudyComparisonGroup/comparisonGroup
+  href: EvidenceVariable/{id}
+  rel: comparisonGroup_intendedExposure
+  targetSchema:
+    $ref: EvidenceVariable
+  templateHints:
+    backref:
+    - intendedExposure_research_study_comparison_group
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  templatePointers:
+    id: /comparisonGroup/-/intendedExposure/-/reference
+  templateRequired:
+  - id
+- $comment: From ResearchStudyComparisonGroup/comparisonGroup
+  href: Group/{id}
+  rel: comparisonGroup_observedGroup
+  targetSchema:
+    $ref: Group
+  templateHints:
+    backref:
+    - research_study_comparison_group
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /comparisonGroup/-/observedGroup/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/focus
+  href: __ANY__/{id}
+  rel: focus_reference
+  targetSchema:
+    $ref: __ANY__
+  templateHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /focus/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Practitioner/{id}
+  rel: note_authorReference_Practitioner
+  targetSchema:
+    $ref: Practitioner
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: PractitionerRole/{id}
+  rel: note_authorReference_PractitionerRole
+  targetSchema:
+    $ref: PractitionerRole
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Patient/{id}
+  rel: note_authorReference_Patient
+  targetSchema:
+    $ref: Patient
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: RelatedPerson/{id}
+  rel: note_authorReference_RelatedPerson
+  targetSchema:
+    $ref: RelatedPerson
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Organization/{id}
+  rel: note_authorReference_Organization
+  targetSchema:
+    $ref: Organization
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From ResearchStudyOutcomeMeasure/outcomeMeasure
+  href: EvidenceVariable/{id}
+  rel: outcomeMeasure_reference
+  targetSchema:
+    $ref: EvidenceVariable
+  templateHints:
+    backref:
+    - research_study_outcome_measure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /outcomeMeasure/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From ResearchStudyRecruitment/recruitment
+  href: Group/{id}
+  rel: recruitment_actualGroup
+  targetSchema:
+    $ref: Group
+  templateHints:
+    backref:
+    - actualGroup_research_study_recruitment
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /recruitment/actualGroup/reference
+  templateRequired:
+  - id
+- $comment: From ResearchStudyRecruitment/recruitment
+  href: Group/{id}
+  rel: recruitment_eligibility_Group
+  targetSchema:
+    $ref: Group
+  templateHints:
+    backref:
+    - eligibility_research_study_recruitment
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /recruitment/eligibility/reference
+  templateRequired:
+  - id
+- $comment: From ResearchStudyRecruitment/recruitment
+  href: EvidenceVariable/{id}
+  rel: recruitment_eligibility_EvidenceVariable
+  targetSchema:
+    $ref: EvidenceVariable
+  templateHints:
+    backref:
+    - eligibility_research_study_recruitment
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /recruitment/eligibility/reference
+  templateRequired:
+  - id
+- $comment: From RelatedArtifact/relatedArtifact
+  href: Resource/{id}
+  rel: relatedArtifact_resourceReference
+  targetSchema:
+    $ref: Resource
+  templateHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /relatedArtifact/-/resourceReference/reference
+  templateRequired:
+  - id
 properties:
   _date:
     $ref: FHIRPrimitiveExtension.yaml
@@ -201,6 +578,11 @@ properties:
     pattern: ^[^\s]+(\s[^\s]+)*$
     title: Language of the resource content
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   meta:
     $ref: Meta.yaml
     description: The metadata about the resource. This is content that is maintained

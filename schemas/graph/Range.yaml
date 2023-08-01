@@ -1,7 +1,14 @@
 $id: Range
 additionalProperties: false
 description: Set of values bounded by low and high. A set of ordered Quantities defined
-  by a low and high limit. [See https://hl7.org/fhir/R5/Range.html]
+  by a low and high limit. [See https://hl7.org/fhir/R5/Range.html] [See https://hl7.org/fhir/R5/Range.html]
+  [See https://hl7.org/fhir/R5/Range.html] [See https://hl7.org/fhir/R5/Range.html]
+  [See https://hl7.org/fhir/R5/Range.html] [See https://hl7.org/fhir/R5/Range.html]
+  [See https://hl7.org/fhir/R5/Range.html] [See https://hl7.org/fhir/R5/Range.html]
+  [See https://hl7.org/fhir/R5/Range.html] [See https://hl7.org/fhir/R5/Range.html]
+  [See https://hl7.org/fhir/R5/Range.html] [See https://hl7.org/fhir/R5/Range.html]
+  [See https://hl7.org/fhir/R5/Range.html] [See https://hl7.org/fhir/R5/Range.html]
+links: []
 properties:
   extension:
     description: May be used to represent additional information that is not part
@@ -34,6 +41,11 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   low:
     $ref: Quantity.yaml
     description: The low limit. The boundary is inclusive.

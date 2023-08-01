@@ -3,6 +3,7 @@ additionalProperties: false
 description: Content profile rules for the document. An identifier of the document
   constraints, encoding, structure, and template that the document conforms to beyond
   the base format indicated in the mimeType. [See https://hl7.org/fhir/R5/DocumentReferenceContentProfile.html]
+links: []
 properties:
   _valueCanonical:
     $ref: FHIRPrimitiveExtension.yaml
@@ -36,6 +37,11 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

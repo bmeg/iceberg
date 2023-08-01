@@ -1,6 +1,7 @@
 $id: FHIRPrimitiveExtension
 additionalProperties: false
 description: ' [See https://hl7.org/fhir/R5/FHIRPrimitiveExtension.html]'
+links: []
 properties:
   extension:
     description: Additional content defined by implementations
@@ -23,6 +24,11 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Type `String`
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   resourceType:
     const: FHIRPrimitiveExtension
     default: FHIRPrimitiveExtension

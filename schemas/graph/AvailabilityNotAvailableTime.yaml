@@ -1,6 +1,8 @@
 $id: AvailabilityNotAvailableTime
 additionalProperties: false
 description: Not available during this time due to provided reason. [See https://hl7.org/fhir/R5/AvailabilityNotAvailableTime.html]
+  [See https://hl7.org/fhir/R5/AvailabilityNotAvailableTime.html]
+links: []
 properties:
   _description:
     $ref: FHIRPrimitiveExtension.yaml
@@ -40,6 +42,11 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   resourceType:
     const: AvailabilityNotAvailableTime
     default: AvailabilityNotAvailableTime

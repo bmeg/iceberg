@@ -2,6 +2,486 @@ $id: TaskOutput
 additionalProperties: false
 description: Information produced as part of task. Outputs produced by the Task. [See
   https://hl7.org/fhir/R5/TaskOutput.html]
+links:
+- href: __ANY__/{id}
+  rel: valueReference
+  targetSchema:
+    $ref: __ANY__
+  templateHints:
+    backref:
+    - task_output
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/valueAnnotation
+  href: Practitioner/{id}
+  rel: valueAnnotation_authorReference_Practitioner
+  targetSchema:
+    $ref: Practitioner
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueAnnotation/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/valueAnnotation
+  href: PractitionerRole/{id}
+  rel: valueAnnotation_authorReference_PractitionerRole
+  targetSchema:
+    $ref: PractitionerRole
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueAnnotation/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/valueAnnotation
+  href: Patient/{id}
+  rel: valueAnnotation_authorReference_Patient
+  targetSchema:
+    $ref: Patient
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueAnnotation/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/valueAnnotation
+  href: RelatedPerson/{id}
+  rel: valueAnnotation_authorReference_RelatedPerson
+  targetSchema:
+    $ref: RelatedPerson
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueAnnotation/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/valueAnnotation
+  href: Organization/{id}
+  rel: valueAnnotation_authorReference_Organization
+  targetSchema:
+    $ref: Organization
+  templateHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueAnnotation/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/valueCodeableReference
+  href: __ANY__/{id}
+  rel: valueCodeableReference_reference
+  targetSchema:
+    $ref: __ANY__
+  templateHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueCodeableReference/reference/reference
+  templateRequired:
+  - id
+- $comment: From DataRequirement/valueDataRequirement
+  href: Group/{id}
+  rel: valueDataRequirement_subjectReference
+  targetSchema:
+    $ref: Group
+  templateHints:
+    backref:
+    - data_requirement
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueDataRequirement/subjectReference/reference
+  templateRequired:
+  - id
+- $comment: From ExtendedContactDetail/valueExtendedContactDetail
+  href: Organization/{id}
+  rel: valueExtendedContactDetail_organization
+  targetSchema:
+    $ref: Organization
+  templateHints:
+    backref:
+    - extended_contact_detail
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueExtendedContactDetail/organization/reference
+  templateRequired:
+  - id
+- $comment: From RelatedArtifact/valueRelatedArtifact
+  href: Resource/{id}
+  rel: valueRelatedArtifact_resourceReference
+  targetSchema:
+    $ref: Resource
+  templateHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueRelatedArtifact/resourceReference/reference
+  templateRequired:
+  - id
+- $comment: From Signature/valueSignature
+  href: Practitioner/{id}
+  rel: valueSignature_onBehalfOf_Practitioner
+  targetSchema:
+    $ref: Practitioner
+  templateHints:
+    backref:
+    - onBehalfOf_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueSignature/onBehalfOf/reference
+  templateRequired:
+  - id
+- $comment: From Signature/valueSignature
+  href: PractitionerRole/{id}
+  rel: valueSignature_onBehalfOf_PractitionerRole
+  targetSchema:
+    $ref: PractitionerRole
+  templateHints:
+    backref:
+    - onBehalfOf_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueSignature/onBehalfOf/reference
+  templateRequired:
+  - id
+- $comment: From Signature/valueSignature
+  href: RelatedPerson/{id}
+  rel: valueSignature_onBehalfOf_RelatedPerson
+  targetSchema:
+    $ref: RelatedPerson
+  templateHints:
+    backref:
+    - onBehalfOf_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueSignature/onBehalfOf/reference
+  templateRequired:
+  - id
+- $comment: From Signature/valueSignature
+  href: Patient/{id}
+  rel: valueSignature_onBehalfOf_Patient
+  targetSchema:
+    $ref: Patient
+  templateHints:
+    backref:
+    - onBehalfOf_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueSignature/onBehalfOf/reference
+  templateRequired:
+  - id
+- $comment: From Signature/valueSignature
+  href: Device/{id}
+  rel: valueSignature_onBehalfOf_Device
+  targetSchema:
+    $ref: Device
+  templateHints:
+    backref:
+    - onBehalfOf_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueSignature/onBehalfOf/reference
+  templateRequired:
+  - id
+- $comment: From Signature/valueSignature
+  href: Organization/{id}
+  rel: valueSignature_onBehalfOf_Organization
+  targetSchema:
+    $ref: Organization
+  templateHints:
+    backref:
+    - onBehalfOf_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueSignature/onBehalfOf/reference
+  templateRequired:
+  - id
+- $comment: From Signature/valueSignature
+  href: Practitioner/{id}
+  rel: valueSignature_who_Practitioner
+  targetSchema:
+    $ref: Practitioner
+  templateHints:
+    backref:
+    - who_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueSignature/who/reference
+  templateRequired:
+  - id
+- $comment: From Signature/valueSignature
+  href: PractitionerRole/{id}
+  rel: valueSignature_who_PractitionerRole
+  targetSchema:
+    $ref: PractitionerRole
+  templateHints:
+    backref:
+    - who_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueSignature/who/reference
+  templateRequired:
+  - id
+- $comment: From Signature/valueSignature
+  href: RelatedPerson/{id}
+  rel: valueSignature_who_RelatedPerson
+  targetSchema:
+    $ref: RelatedPerson
+  templateHints:
+    backref:
+    - who_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueSignature/who/reference
+  templateRequired:
+  - id
+- $comment: From Signature/valueSignature
+  href: Patient/{id}
+  rel: valueSignature_who_Patient
+  targetSchema:
+    $ref: Patient
+  templateHints:
+    backref:
+    - who_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueSignature/who/reference
+  templateRequired:
+  - id
+- $comment: From Signature/valueSignature
+  href: Device/{id}
+  rel: valueSignature_who_Device
+  targetSchema:
+    $ref: Device
+  templateHints:
+    backref:
+    - who_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueSignature/who/reference
+  templateRequired:
+  - id
+- $comment: From Signature/valueSignature
+  href: Organization/{id}
+  rel: valueSignature_who_Organization
+  targetSchema:
+    $ref: Organization
+  templateHints:
+    backref:
+    - who_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueSignature/who/reference
+  templateRequired:
+  - id
+- $comment: From TriggerDefinition/valueTriggerDefinition
+  href: Schedule/{id}
+  rel: valueTriggerDefinition_timingReference
+  targetSchema:
+    $ref: Schedule
+  templateHints:
+    backref:
+    - trigger_definition
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueTriggerDefinition/timingReference/reference
+  templateRequired:
+  - id
+- $comment: From UsageContext/valueUsageContext
+  href: PlanDefinition/{id}
+  rel: valueUsageContext_valueReference_PlanDefinition
+  targetSchema:
+    $ref: PlanDefinition
+  templateHints:
+    backref:
+    - usage_context
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueUsageContext/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From UsageContext/valueUsageContext
+  href: ResearchStudy/{id}
+  rel: valueUsageContext_valueReference_ResearchStudy
+  targetSchema:
+    $ref: ResearchStudy
+  templateHints:
+    backref:
+    - usage_context
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueUsageContext/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From UsageContext/valueUsageContext
+  href: InsurancePlan/{id}
+  rel: valueUsageContext_valueReference_InsurancePlan
+  targetSchema:
+    $ref: InsurancePlan
+  templateHints:
+    backref:
+    - usage_context
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueUsageContext/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From UsageContext/valueUsageContext
+  href: HealthcareService/{id}
+  rel: valueUsageContext_valueReference_HealthcareService
+  targetSchema:
+    $ref: HealthcareService
+  templateHints:
+    backref:
+    - usage_context
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueUsageContext/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From UsageContext/valueUsageContext
+  href: Group/{id}
+  rel: valueUsageContext_valueReference_Group
+  targetSchema:
+    $ref: Group
+  templateHints:
+    backref:
+    - usage_context
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueUsageContext/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From UsageContext/valueUsageContext
+  href: Location/{id}
+  rel: valueUsageContext_valueReference_Location
+  targetSchema:
+    $ref: Location
+  templateHints:
+    backref:
+    - usage_context
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueUsageContext/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From UsageContext/valueUsageContext
+  href: Organization/{id}
+  rel: valueUsageContext_valueReference_Organization
+  targetSchema:
+    $ref: Organization
+  templateHints:
+    backref:
+    - usage_context
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  templatePointers:
+    id: /valueUsageContext/valueReference/reference
+  templateRequired:
+  - id
 properties:
   _valueBase64Binary:
     $ref: FHIRPrimitiveExtension.yaml
@@ -89,6 +569,11 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    links:
+      items:
+        $ref: https://json-schema.org/draft/2020-12/links
+      type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of
@@ -422,6 +907,8 @@ properties:
     backref: task_output
     description: The value of the Output parameter as a basic type.
     element_property: true
+    enum_reference_types:
+    - __ANY__
     one_of_many: value
     one_of_many_required: true
     title: Result of output
