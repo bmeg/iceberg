@@ -10,6 +10,30 @@ links:
   name: encounter
   required: false
   target_type: encounter
+- backref: task
+  label: Task_location_Location_task
+  multiplicity: many_to_many
+  name: location
+  required: false
+  target_type: location
+- backref: owner_task
+  label: Task_owner_Practitioner_owner_task
+  multiplicity: many_to_many
+  name: owner_Practitioner
+  required: false
+  target_type: practitioner
+- backref: owner_task
+  label: Task_owner_PractitionerRole_owner_task
+  multiplicity: many_to_many
+  name: owner_PractitionerRole
+  required: false
+  target_type: practitioner_role
+- backref: owner_task
+  label: Task_owner_Organization_owner_task
+  multiplicity: many_to_many
+  name: owner_Organization
+  required: false
+  target_type: organization
 - backref: owner_task
   label: Task_owner_Patient_owner_task
   multiplicity: many_to_many
@@ -225,14 +249,15 @@ properties:
       type: string
     title: Task Instance Identifier
     type: array
-  input:
-    description: '[Text representation of TaskInput] Additional information that may
-      be needed in the execution of the task.'
+  input_valueReference:
+    backref: task_input
+    description: '[Text representation of Reference] [Plucked from Task.input] The
+      value of the input parameter as a basic type.'
     element_property: true
-    items:
-      type: string
-    title: Information used to perform task
-    type: array
+    one_of_many: value
+    one_of_many_required: true
+    title: Content to use in performing the task
+    type: string
   instantiatesCanonical:
     description: The URL pointing to a *FHIR*-defined protocol, guideline, orderset
       or other definition that is adhered to in whole or in part by this Task.
@@ -309,13 +334,15 @@ properties:
       type: string
     title: Comments made about the task
     type: array
-  output:
-    description: '[Text representation of TaskOutput] Outputs produced by the Task.'
+  output_valueReference:
+    backref: task_output
+    description: '[Text representation of Reference] [Plucked from Task.output] The
+      value of the Output parameter as a basic type.'
     element_property: true
-    items:
-      type: string
-    title: Information produced as part of task
-    type: array
+    one_of_many: value
+    one_of_many_required: true
+    title: Result of output
+    type: string
   owner:
     backref: owner_task
     description: '[Text representation of Reference] Party responsible for managing

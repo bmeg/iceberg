@@ -7,7 +7,7 @@ description: A Diagnostic report - a combination of request information, atomic 
   clinical context such as requesting provider information, and some mix of atomic
   results, images, textual and coded interpretations, and formatted representation
   of diagnostic reports. The report also includes non-clinical context such as batch
-  analysis and stability reporting of products and substances. see https://hl7.org/fhir/R5/DiagnosticReport
+  analysis and stability reporting of products and substances. [See https://hl7.org/fhir/R5/DiagnosticReport.html]
 properties:
   _conclusion:
     $ref: FHIRPrimitiveExtension.yaml
