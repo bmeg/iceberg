@@ -3,7 +3,7 @@ additionalProperties: false
 description: What values are expected. Value filters specify additional constraints
   on the data for elements other than code-valued or date-valued. Each value filter
   specifies an additional constraint on the data (i.e. valueFilters are AND'ed, not
-  OR'ed). [See https://hl7.org/fhir/R5/DataRequirementValueFilter.html]
+  OR'ed). [See https://hl7.org/fhir/R5/DataRequirementValueFilter.html] [See https://hl7.org/fhir/R5/DataRequirementValueFilter.html]
 links: []
 properties:
   _comparator:

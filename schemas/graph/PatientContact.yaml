@@ -5,15 +5,15 @@ description: A contact party (e.g. guardian, partner, friend) for the patient. [
 links:
 - href: Organization/{id}
   rel: organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - patient_contact
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /organization/reference
   templateRequired:

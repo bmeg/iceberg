@@ -6,135 +6,135 @@ description: Participant or object which is the recipient of investigative activ
 links:
 - href: Consent/{id}
   rel: consent
-  targetSchema:
-    $ref: Consent
-  templateHints:
+  targetHints:
     backref:
     - consent_research_subject
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Consent
   templatePointers:
     id: /consent/-/reference
   templateRequired:
   - id
 - href: ResearchStudy/{id}
   rel: study
-  targetSchema:
-    $ref: ResearchStudy
-  templateHints:
+  targetHints:
     backref:
     - research_subject
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: ResearchStudy
   templatePointers:
     id: /study/reference
   templateRequired:
   - id
 - href: Patient/{id}
   rel: subject_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - research_subject
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
 - href: Group/{id}
   rel: subject_Group
-  targetSchema:
-    $ref: Group
-  templateHints:
+  targetHints:
     backref:
     - research_subject
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Group
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
 - href: Specimen/{id}
   rel: subject_Specimen
-  targetSchema:
-    $ref: Specimen
-  templateHints:
+  targetHints:
     backref:
     - research_subject
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Specimen
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
 - href: Device/{id}
   rel: subject_Device
-  targetSchema:
-    $ref: Device
-  templateHints:
+  targetHints:
     backref:
     - research_subject
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Device
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
 - href: Medication/{id}
   rel: subject_Medication
-  targetSchema:
-    $ref: Medication
-  templateHints:
+  targetHints:
     backref:
     - research_subject
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Medication
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
 - href: Substance/{id}
   rel: subject_Substance
-  targetSchema:
-    $ref: Substance
-  templateHints:
+  targetHints:
     backref:
     - research_subject
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Substance
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
 - href: BiologicallyDerivedProduct/{id}
   rel: subject_BiologicallyDerivedProduct
-  targetSchema:
-    $ref: BiologicallyDerivedProduct
-  templateHints:
+  targetHints:
     backref:
     - research_subject
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: BiologicallyDerivedProduct
   templatePointers:
     id: /subject/reference
   templateRequired:

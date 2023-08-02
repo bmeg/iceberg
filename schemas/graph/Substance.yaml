@@ -5,15 +5,15 @@ links:
 - $comment: From CodeableReference/code
   href: __ANY__/{id}
   rel: code_reference
-  targetSchema:
-    $ref: __ANY__
-  templateHints:
+  targetHints:
     backref:
     - codeable_reference
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: __ANY__
   templatePointers:
     id: /code/reference/reference
   templateRequired:
@@ -21,15 +21,15 @@ links:
 - $comment: From SubstanceIngredient/ingredient
   href: Substance/{id}
   rel: ingredient_substanceReference
-  targetSchema:
-    $ref: Substance
-  templateHints:
+  targetHints:
     backref:
     - substance_ingredient
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Substance
   templatePointers:
     id: /ingredient/-/substanceReference/reference
   templateRequired:

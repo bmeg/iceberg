@@ -3,33 +3,34 @@ additionalProperties: false
 description: Direct container of specimen (tube/slide, etc.). The container holding
   the specimen.  The recursive nature of containers; i.e. blood in tube in tray in
   rack is not addressed here. [See https://hl7.org/fhir/R5/SpecimenContainer.html]
+  [See https://hl7.org/fhir/R5/SpecimenContainer.html]
 links:
 - href: Device/{id}
   rel: device
-  targetSchema:
-    $ref: Device
-  templateHints:
+  targetHints:
     backref:
     - specimen_container
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Device
   templatePointers:
     id: /device/reference
   templateRequired:
   - id
 - href: Location/{id}
   rel: location
-  targetSchema:
-    $ref: Location
-  templateHints:
+  targetHints:
     backref:
     - specimen_container
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Location
   templatePointers:
     id: /location/reference
   templateRequired:

@@ -6,184 +6,184 @@ description: A Signature - XML DigSig, JWS, Graphical image of signature, etc.. 
   This other signature may be as simple as a graphical image representing a hand-written
   signature, or a signature ceremony Different signature approaches have different
   utilities. [See https://hl7.org/fhir/R5/Signature.html] [See https://hl7.org/fhir/R5/Signature.html]
-  [See https://hl7.org/fhir/R5/Signature.html]
+  [See https://hl7.org/fhir/R5/Signature.html] [See https://hl7.org/fhir/R5/Signature.html]
 links:
 - href: Practitioner/{id}
   rel: onBehalfOf_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - onBehalfOf_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /onBehalfOf/reference
   templateRequired:
   - id
 - href: PractitionerRole/{id}
   rel: onBehalfOf_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - onBehalfOf_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /onBehalfOf/reference
   templateRequired:
   - id
 - href: RelatedPerson/{id}
   rel: onBehalfOf_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - onBehalfOf_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /onBehalfOf/reference
   templateRequired:
   - id
 - href: Patient/{id}
   rel: onBehalfOf_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - onBehalfOf_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /onBehalfOf/reference
   templateRequired:
   - id
 - href: Device/{id}
   rel: onBehalfOf_Device
-  targetSchema:
-    $ref: Device
-  templateHints:
+  targetHints:
     backref:
     - onBehalfOf_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Device
   templatePointers:
     id: /onBehalfOf/reference
   templateRequired:
   - id
 - href: Organization/{id}
   rel: onBehalfOf_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - onBehalfOf_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /onBehalfOf/reference
   templateRequired:
   - id
 - href: Practitioner/{id}
   rel: who_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - who_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /who/reference
   templateRequired:
   - id
 - href: PractitionerRole/{id}
   rel: who_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - who_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /who/reference
   templateRequired:
   - id
 - href: RelatedPerson/{id}
   rel: who_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - who_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /who/reference
   templateRequired:
   - id
 - href: Patient/{id}
   rel: who_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - who_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /who/reference
   templateRequired:
   - id
 - href: Device/{id}
   rel: who_Device
-  targetSchema:
-    $ref: Device
-  templateHints:
+  targetHints:
     backref:
     - who_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Device
   templatePointers:
     id: /who/reference
   templateRequired:
   - id
 - href: Organization/{id}
   rel: who_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - who_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /who/reference
   templateRequired:

@@ -5,15 +5,15 @@ description: Triggering observation(s). Identifies the observation(s) that trigg
 links:
 - href: Observation/{id}
   rel: observation
-  targetSchema:
-    $ref: Observation
-  templateHints:
+  targetHints:
     backref:
     - observation_triggered_by
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Observation
   templatePointers:
     id: /observation/reference
   templateRequired:

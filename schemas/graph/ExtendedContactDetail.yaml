@@ -2,19 +2,19 @@ $id: ExtendedContactDetail
 additionalProperties: false
 description: Contact information. Specifies contact information for a specific purpose
   over a period of time, might be handled/monitored by a specific named person or
-  organization. [See https://hl7.org/fhir/R5/ExtendedContactDetail.html] [See https://hl7.org/fhir/R5/ExtendedContactDetail.html]
+  organization. [See https://hl7.org/fhir/R5/ExtendedContactDetail.html]
 links:
 - href: Organization/{id}
   rel: organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - extended_contact_detail
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /organization/reference
   templateRequired:

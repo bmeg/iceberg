@@ -2,20 +2,19 @@ $id: MedicationIngredient
 additionalProperties: false
 description: Active or inactive ingredient. Identifies a particular constituent of
   interest in the product. [See https://hl7.org/fhir/R5/MedicationIngredient.html]
-  [See https://hl7.org/fhir/R5/MedicationIngredient.html]
 links:
 - $comment: From CodeableReference/item
   href: __ANY__/{id}
   rel: item_reference
-  targetSchema:
-    $ref: __ANY__
-  templateHints:
+  targetHints:
     backref:
     - codeable_reference
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: __ANY__
   templatePointers:
     id: /item/reference/reference
   templateRequired:

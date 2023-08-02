@@ -3,79 +3,81 @@ additionalProperties: false
 description: Text node with attribution. A  text note which also  contains information
   about who made the statement and when. [See https://hl7.org/fhir/R5/Annotation.html]
   [See https://hl7.org/fhir/R5/Annotation.html] [See https://hl7.org/fhir/R5/Annotation.html]
-  [See https://hl7.org/fhir/R5/Annotation.html]
+  [See https://hl7.org/fhir/R5/Annotation.html] [See https://hl7.org/fhir/R5/Annotation.html]
+  [See https://hl7.org/fhir/R5/Annotation.html] [See https://hl7.org/fhir/R5/Annotation.html]
+  [See https://hl7.org/fhir/R5/Annotation.html] [See https://hl7.org/fhir/R5/Annotation.html]
 links:
 - href: Practitioner/{id}
   rel: authorReference_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /authorReference/reference
   templateRequired:
   - id
 - href: PractitionerRole/{id}
   rel: authorReference_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /authorReference/reference
   templateRequired:
   - id
 - href: Patient/{id}
   rel: authorReference_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /authorReference/reference
   templateRequired:
   - id
 - href: RelatedPerson/{id}
   rel: authorReference_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /authorReference/reference
   templateRequired:
   - id
 - href: Organization/{id}
   rel: authorReference_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /authorReference/reference
   templateRequired:

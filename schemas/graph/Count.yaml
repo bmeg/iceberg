@@ -4,7 +4,7 @@ description: A measured or measurable amount. A measured amount (or an amount th
   can potentially be measured). Note that measured amounts include amounts that are
   not precisely quantified, including amounts involving arbitrary units and floating
   currencies. [See https://hl7.org/fhir/R5/Count.html] [See https://hl7.org/fhir/R5/Count.html]
-  [See https://hl7.org/fhir/R5/Count.html]
+  [See https://hl7.org/fhir/R5/Count.html] [See https://hl7.org/fhir/R5/Count.html]
 links: []
 properties:
   _code:

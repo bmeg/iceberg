@@ -6,45 +6,45 @@ description: Detailed information about conditions, problems or diagnoses. A cli
 links:
 - href: Encounter/{id}
   rel: encounter
-  targetSchema:
-    $ref: Encounter
-  templateHints:
+  targetHints:
     backref:
     - condition
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Encounter
   templatePointers:
     id: /encounter/reference
   templateRequired:
   - id
 - href: Patient/{id}
   rel: subject_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - condition
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
 - href: Group/{id}
   rel: subject_Group
-  targetSchema:
-    $ref: Group
-  templateHints:
+  targetHints:
     backref:
     - condition
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Group
   templatePointers:
     id: /subject/reference
   templateRequired:
@@ -52,15 +52,15 @@ links:
 - $comment: From CodeableReference/evidence
   href: __ANY__/{id}
   rel: evidence_reference
-  targetSchema:
-    $ref: __ANY__
-  templateHints:
+  targetHints:
     backref:
     - codeable_reference
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: __ANY__
   templatePointers:
     id: /evidence/-/reference/reference
   templateRequired:
@@ -68,15 +68,15 @@ links:
 - $comment: From Annotation/note
   href: Practitioner/{id}
   rel: note_authorReference_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -84,15 +84,15 @@ links:
 - $comment: From Annotation/note
   href: PractitionerRole/{id}
   rel: note_authorReference_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -100,15 +100,15 @@ links:
 - $comment: From Annotation/note
   href: Patient/{id}
   rel: note_authorReference_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -116,15 +116,15 @@ links:
 - $comment: From Annotation/note
   href: RelatedPerson/{id}
   rel: note_authorReference_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -132,15 +132,15 @@ links:
 - $comment: From Annotation/note
   href: Organization/{id}
   rel: note_authorReference_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -148,15 +148,15 @@ links:
 - $comment: From ConditionParticipant/participant
   href: Practitioner/{id}
   rel: participant_actor_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - condition_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /participant/-/actor/reference
   templateRequired:
@@ -164,15 +164,15 @@ links:
 - $comment: From ConditionParticipant/participant
   href: PractitionerRole/{id}
   rel: participant_actor_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - condition_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /participant/-/actor/reference
   templateRequired:
@@ -180,15 +180,15 @@ links:
 - $comment: From ConditionParticipant/participant
   href: Patient/{id}
   rel: participant_actor_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - condition_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /participant/-/actor/reference
   templateRequired:
@@ -196,15 +196,15 @@ links:
 - $comment: From ConditionParticipant/participant
   href: RelatedPerson/{id}
   rel: participant_actor_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - condition_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /participant/-/actor/reference
   templateRequired:
@@ -212,15 +212,15 @@ links:
 - $comment: From ConditionParticipant/participant
   href: Device/{id}
   rel: participant_actor_Device
-  targetSchema:
-    $ref: Device
-  templateHints:
+  targetHints:
     backref:
     - condition_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Device
   templatePointers:
     id: /participant/-/actor/reference
   templateRequired:
@@ -228,15 +228,15 @@ links:
 - $comment: From ConditionParticipant/participant
   href: Organization/{id}
   rel: participant_actor_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - condition_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /participant/-/actor/reference
   templateRequired:
@@ -244,15 +244,15 @@ links:
 - $comment: From ConditionParticipant/participant
   href: CareTeam/{id}
   rel: participant_actor_CareTeam
-  targetSchema:
-    $ref: CareTeam
-  templateHints:
+  targetHints:
     backref:
     - condition_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: CareTeam
   templatePointers:
     id: /participant/-/actor/reference
   templateRequired:
@@ -260,15 +260,15 @@ links:
 - $comment: From ConditionStage/stage
   href: ClinicalImpression/{id}
   rel: stage_assessment_ClinicalImpression
-  targetSchema:
-    $ref: ClinicalImpression
-  templateHints:
+  targetHints:
     backref:
     - assessment_condition_stage
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: ClinicalImpression
   templatePointers:
     id: /stage/-/assessment/-/reference
   templateRequired:
@@ -276,15 +276,15 @@ links:
 - $comment: From ConditionStage/stage
   href: DiagnosticReport/{id}
   rel: stage_assessment_DiagnosticReport
-  targetSchema:
-    $ref: DiagnosticReport
-  templateHints:
+  targetHints:
     backref:
     - assessment_condition_stage
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: DiagnosticReport
   templatePointers:
     id: /stage/-/assessment/-/reference
   templateRequired:
@@ -292,15 +292,15 @@ links:
 - $comment: From ConditionStage/stage
   href: Observation/{id}
   rel: stage_assessment_Observation
-  targetSchema:
-    $ref: Observation
-  templateHints:
+  targetHints:
     backref:
     - assessment_condition_stage
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Observation
   templatePointers:
     id: /stage/-/assessment/-/reference
   templateRequired:

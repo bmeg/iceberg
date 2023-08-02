@@ -4,315 +4,315 @@ description: A task to be performed. [See https://hl7.org/fhir/R5/Task.html]
 links:
 - href: Resource/{id}
   rel: basedOn
-  targetSchema:
-    $ref: Resource
-  templateHints:
+  targetHints:
     backref:
     - basedOn_task
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Resource
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: Encounter/{id}
   rel: encounter
-  targetSchema:
-    $ref: Encounter
-  templateHints:
+  targetHints:
     backref:
     - task
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Encounter
   templatePointers:
     id: /encounter/reference
   templateRequired:
   - id
 - href: Resource/{id}
   rel: focus
-  targetSchema:
-    $ref: Resource
-  templateHints:
+  targetHints:
     backref:
     - focus_task
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Resource
   templatePointers:
     id: /focus/reference
   templateRequired:
   - id
 - href: Resource/{id}
   rel: for_fhir
-  targetSchema:
-    $ref: Resource
-  templateHints:
+  targetHints:
     backref:
     - for_task
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Resource
   templatePointers:
     id: /for_fhir/reference
   templateRequired:
   - id
 - href: Coverage/{id}
   rel: insurance_Coverage
-  targetSchema:
-    $ref: Coverage
-  templateHints:
+  targetHints:
     backref:
     - insurance_task
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Coverage
   templatePointers:
     id: /insurance/-/reference
   templateRequired:
   - id
 - href: ClaimResponse/{id}
   rel: insurance_ClaimResponse
-  targetSchema:
-    $ref: ClaimResponse
-  templateHints:
+  targetHints:
     backref:
     - insurance_task
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: ClaimResponse
   templatePointers:
     id: /insurance/-/reference
   templateRequired:
   - id
 - href: Location/{id}
   rel: location
-  targetSchema:
-    $ref: Location
-  templateHints:
+  targetHints:
     backref:
     - task
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Location
   templatePointers:
     id: /location/reference
   templateRequired:
   - id
 - href: Practitioner/{id}
   rel: owner_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - owner_task
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /owner/reference
   templateRequired:
   - id
 - href: PractitionerRole/{id}
   rel: owner_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - owner_task
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /owner/reference
   templateRequired:
   - id
 - href: Organization/{id}
   rel: owner_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - owner_task
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /owner/reference
   templateRequired:
   - id
 - href: CareTeam/{id}
   rel: owner_CareTeam
-  targetSchema:
-    $ref: CareTeam
-  templateHints:
+  targetHints:
     backref:
     - owner_task
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: CareTeam
   templatePointers:
     id: /owner/reference
   templateRequired:
   - id
 - href: Patient/{id}
   rel: owner_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - owner_task
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /owner/reference
   templateRequired:
   - id
 - href: RelatedPerson/{id}
   rel: owner_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - owner_task
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /owner/reference
   templateRequired:
   - id
 - href: Task/{id}
   rel: partOf
-  targetSchema:
-    $ref: Task
-  templateHints:
+  targetHints:
     backref:
     - partOf_task
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Task
   templatePointers:
     id: /partOf/-/reference
   templateRequired:
   - id
 - href: Provenance/{id}
   rel: relevantHistory
-  targetSchema:
-    $ref: Provenance
-  templateHints:
+  targetHints:
     backref:
     - relevantHistory_task
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Provenance
   templatePointers:
     id: /relevantHistory/-/reference
   templateRequired:
   - id
 - href: Device/{id}
   rel: requester_Device
-  targetSchema:
-    $ref: Device
-  templateHints:
+  targetHints:
     backref:
     - requester_task
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Device
   templatePointers:
     id: /requester/reference
   templateRequired:
   - id
 - href: Organization/{id}
   rel: requester_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - requester_task
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /requester/reference
   templateRequired:
   - id
 - href: Patient/{id}
   rel: requester_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - requester_task
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /requester/reference
   templateRequired:
   - id
 - href: Practitioner/{id}
   rel: requester_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - requester_task
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /requester/reference
   templateRequired:
   - id
 - href: PractitionerRole/{id}
   rel: requester_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - requester_task
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /requester/reference
   templateRequired:
   - id
 - href: RelatedPerson/{id}
   rel: requester_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - requester_task
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /requester/reference
   templateRequired:
@@ -320,15 +320,15 @@ links:
 - $comment: From TaskInput/input
   href: __ANY__/{id}
   rel: input_valueReference
-  targetSchema:
-    $ref: __ANY__
-  templateHints:
+  targetHints:
     backref:
     - task_input
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: __ANY__
   templatePointers:
     id: /input/-/valueReference/reference
   templateRequired:
@@ -336,15 +336,15 @@ links:
 - $comment: From Annotation/note
   href: Practitioner/{id}
   rel: note_authorReference_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -352,15 +352,15 @@ links:
 - $comment: From Annotation/note
   href: PractitionerRole/{id}
   rel: note_authorReference_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -368,15 +368,15 @@ links:
 - $comment: From Annotation/note
   href: Patient/{id}
   rel: note_authorReference_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -384,15 +384,15 @@ links:
 - $comment: From Annotation/note
   href: RelatedPerson/{id}
   rel: note_authorReference_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -400,15 +400,15 @@ links:
 - $comment: From Annotation/note
   href: Organization/{id}
   rel: note_authorReference_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -416,15 +416,15 @@ links:
 - $comment: From TaskOutput/output
   href: __ANY__/{id}
   rel: output_valueReference
-  targetSchema:
-    $ref: __ANY__
-  templateHints:
+  targetHints:
     backref:
     - task_output
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: __ANY__
   templatePointers:
     id: /output/-/valueReference/reference
   templateRequired:
@@ -432,15 +432,15 @@ links:
 - $comment: From TaskPerformer/performer
   href: Practitioner/{id}
   rel: performer_actor_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - task_performer
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /performer/-/actor/reference
   templateRequired:
@@ -448,15 +448,15 @@ links:
 - $comment: From TaskPerformer/performer
   href: PractitionerRole/{id}
   rel: performer_actor_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - task_performer
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /performer/-/actor/reference
   templateRequired:
@@ -464,15 +464,15 @@ links:
 - $comment: From TaskPerformer/performer
   href: Organization/{id}
   rel: performer_actor_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - task_performer
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /performer/-/actor/reference
   templateRequired:
@@ -480,15 +480,15 @@ links:
 - $comment: From TaskPerformer/performer
   href: CareTeam/{id}
   rel: performer_actor_CareTeam
-  targetSchema:
-    $ref: CareTeam
-  templateHints:
+  targetHints:
     backref:
     - task_performer
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: CareTeam
   templatePointers:
     id: /performer/-/actor/reference
   templateRequired:
@@ -496,15 +496,15 @@ links:
 - $comment: From TaskPerformer/performer
   href: Patient/{id}
   rel: performer_actor_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - task_performer
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /performer/-/actor/reference
   templateRequired:
@@ -512,15 +512,15 @@ links:
 - $comment: From TaskPerformer/performer
   href: RelatedPerson/{id}
   rel: performer_actor_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - task_performer
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /performer/-/actor/reference
   templateRequired:
@@ -528,15 +528,15 @@ links:
 - $comment: From CodeableReference/reason
   href: __ANY__/{id}
   rel: reason_reference
-  targetSchema:
-    $ref: __ANY__
-  templateHints:
+  targetHints:
     backref:
     - codeable_reference
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: __ANY__
   templatePointers:
     id: /reason/-/reference/reference
   templateRequired:
@@ -544,15 +544,15 @@ links:
 - $comment: From CodeableReference/requestedPerformer
   href: __ANY__/{id}
   rel: requestedPerformer_reference
-  targetSchema:
-    $ref: __ANY__
-  templateHints:
+  targetHints:
     backref:
     - codeable_reference
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: __ANY__
   templatePointers:
     id: /requestedPerformer/-/reference/reference
   templateRequired:
@@ -560,15 +560,15 @@ links:
 - $comment: From TaskRestriction/restriction
   href: Patient/{id}
   rel: restriction_recipient_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - recipient_task_restriction
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /restriction/recipient/-/reference
   templateRequired:
@@ -576,15 +576,15 @@ links:
 - $comment: From TaskRestriction/restriction
   href: Practitioner/{id}
   rel: restriction_recipient_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - recipient_task_restriction
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /restriction/recipient/-/reference
   templateRequired:
@@ -592,15 +592,15 @@ links:
 - $comment: From TaskRestriction/restriction
   href: PractitionerRole/{id}
   rel: restriction_recipient_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - recipient_task_restriction
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /restriction/recipient/-/reference
   templateRequired:
@@ -608,15 +608,15 @@ links:
 - $comment: From TaskRestriction/restriction
   href: RelatedPerson/{id}
   rel: restriction_recipient_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - recipient_task_restriction
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /restriction/recipient/-/reference
   templateRequired:
@@ -624,15 +624,15 @@ links:
 - $comment: From TaskRestriction/restriction
   href: Group/{id}
   rel: restriction_recipient_Group
-  targetSchema:
-    $ref: Group
-  templateHints:
+  targetHints:
     backref:
     - recipient_task_restriction
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Group
   templatePointers:
     id: /restriction/recipient/-/reference
   templateRequired:
@@ -640,15 +640,15 @@ links:
 - $comment: From TaskRestriction/restriction
   href: Organization/{id}
   rel: restriction_recipient_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - recipient_task_restriction
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /restriction/recipient/-/reference
   templateRequired:
@@ -656,15 +656,15 @@ links:
 - $comment: From CodeableReference/statusReason
   href: __ANY__/{id}
   rel: statusReason_reference
-  targetSchema:
-    $ref: __ANY__
-  templateHints:
+  targetHints:
     backref:
     - codeable_reference
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: __ANY__
   templatePointers:
     id: /statusReason/reference/reference
   templateRequired:

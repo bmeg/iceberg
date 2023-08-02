@@ -10,15 +10,15 @@ links:
 - $comment: From CodeableReference/actor
   href: __ANY__/{id}
   rel: actor_reference
-  targetSchema:
-    $ref: __ANY__
-  templateHints:
+  targetHints:
     backref:
     - codeable_reference
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: __ANY__
   templatePointers:
     id: /actor/reference/reference
   templateRequired:

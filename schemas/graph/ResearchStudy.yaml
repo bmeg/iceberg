@@ -9,120 +9,120 @@ description: Investigation to increase healthcare-related patient-independent kn
 links:
 - href: ResearchStudy/{id}
   rel: partOf
-  targetSchema:
-    $ref: ResearchStudy
-  templateHints:
+  targetHints:
     backref:
     - partOf_research_study
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: ResearchStudy
   templatePointers:
     id: /partOf/-/reference
   templateRequired:
   - id
 - href: PlanDefinition/{id}
   rel: protocol
-  targetSchema:
-    $ref: PlanDefinition
-  templateHints:
+  targetHints:
     backref:
     - protocol_research_study
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: PlanDefinition
   templatePointers:
     id: /protocol/-/reference
   templateRequired:
   - id
 - href: EvidenceReport/{id}
   rel: result_EvidenceReport
-  targetSchema:
-    $ref: EvidenceReport
-  templateHints:
+  targetHints:
     backref:
     - result_research_study
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: EvidenceReport
   templatePointers:
     id: /result/-/reference
   templateRequired:
   - id
 - href: Citation/{id}
   rel: result_Citation
-  targetSchema:
-    $ref: Citation
-  templateHints:
+  targetHints:
     backref:
     - result_research_study
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Citation
   templatePointers:
     id: /result/-/reference
   templateRequired:
   - id
 - href: DiagnosticReport/{id}
   rel: result_DiagnosticReport
-  targetSchema:
-    $ref: DiagnosticReport
-  templateHints:
+  targetHints:
     backref:
     - result_research_study
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: DiagnosticReport
   templatePointers:
     id: /result/-/reference
   templateRequired:
   - id
 - href: Location/{id}
   rel: site_Location
-  targetSchema:
-    $ref: Location
-  templateHints:
+  targetHints:
     backref:
     - site_research_study
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Location
   templatePointers:
     id: /site/-/reference
   templateRequired:
   - id
 - href: ResearchStudy/{id}
   rel: site_ResearchStudy
-  targetSchema:
-    $ref: ResearchStudy
-  templateHints:
+  targetHints:
     backref:
     - site_research_study
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: ResearchStudy
   templatePointers:
     id: /site/-/reference
   templateRequired:
   - id
 - href: Organization/{id}
   rel: site_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - site_research_study
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /site/-/reference
   templateRequired:
@@ -130,15 +130,15 @@ links:
 - $comment: From ResearchStudyAssociatedParty/associatedParty
   href: Practitioner/{id}
   rel: associatedParty_party_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - research_study_associated_party
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /associatedParty/-/party/reference
   templateRequired:
@@ -146,15 +146,15 @@ links:
 - $comment: From ResearchStudyAssociatedParty/associatedParty
   href: PractitionerRole/{id}
   rel: associatedParty_party_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - research_study_associated_party
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /associatedParty/-/party/reference
   templateRequired:
@@ -162,15 +162,15 @@ links:
 - $comment: From ResearchStudyAssociatedParty/associatedParty
   href: Organization/{id}
   rel: associatedParty_party_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - research_study_associated_party
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /associatedParty/-/party/reference
   templateRequired:
@@ -178,15 +178,15 @@ links:
 - $comment: From ResearchStudyComparisonGroup/comparisonGroup
   href: EvidenceVariable/{id}
   rel: comparisonGroup_intendedExposure
-  targetSchema:
-    $ref: EvidenceVariable
-  templateHints:
+  targetHints:
     backref:
     - intendedExposure_research_study_comparison_group
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: EvidenceVariable
   templatePointers:
     id: /comparisonGroup/-/intendedExposure/-/reference
   templateRequired:
@@ -194,15 +194,15 @@ links:
 - $comment: From ResearchStudyComparisonGroup/comparisonGroup
   href: Group/{id}
   rel: comparisonGroup_observedGroup
-  targetSchema:
-    $ref: Group
-  templateHints:
+  targetHints:
     backref:
     - research_study_comparison_group
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Group
   templatePointers:
     id: /comparisonGroup/-/observedGroup/reference
   templateRequired:
@@ -210,15 +210,15 @@ links:
 - $comment: From CodeableReference/focus
   href: __ANY__/{id}
   rel: focus_reference
-  targetSchema:
-    $ref: __ANY__
-  templateHints:
+  targetHints:
     backref:
     - codeable_reference
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: __ANY__
   templatePointers:
     id: /focus/-/reference/reference
   templateRequired:
@@ -226,15 +226,15 @@ links:
 - $comment: From Annotation/note
   href: Practitioner/{id}
   rel: note_authorReference_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -242,15 +242,15 @@ links:
 - $comment: From Annotation/note
   href: PractitionerRole/{id}
   rel: note_authorReference_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -258,15 +258,15 @@ links:
 - $comment: From Annotation/note
   href: Patient/{id}
   rel: note_authorReference_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -274,15 +274,15 @@ links:
 - $comment: From Annotation/note
   href: RelatedPerson/{id}
   rel: note_authorReference_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -290,15 +290,15 @@ links:
 - $comment: From Annotation/note
   href: Organization/{id}
   rel: note_authorReference_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -306,15 +306,15 @@ links:
 - $comment: From ResearchStudyOutcomeMeasure/outcomeMeasure
   href: EvidenceVariable/{id}
   rel: outcomeMeasure_reference
-  targetSchema:
-    $ref: EvidenceVariable
-  templateHints:
+  targetHints:
     backref:
     - research_study_outcome_measure
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: EvidenceVariable
   templatePointers:
     id: /outcomeMeasure/-/reference/reference
   templateRequired:
@@ -322,15 +322,15 @@ links:
 - $comment: From ResearchStudyRecruitment/recruitment
   href: Group/{id}
   rel: recruitment_actualGroup
-  targetSchema:
-    $ref: Group
-  templateHints:
+  targetHints:
     backref:
     - actualGroup_research_study_recruitment
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Group
   templatePointers:
     id: /recruitment/actualGroup/reference
   templateRequired:
@@ -338,15 +338,15 @@ links:
 - $comment: From ResearchStudyRecruitment/recruitment
   href: Group/{id}
   rel: recruitment_eligibility_Group
-  targetSchema:
-    $ref: Group
-  templateHints:
+  targetHints:
     backref:
     - eligibility_research_study_recruitment
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Group
   templatePointers:
     id: /recruitment/eligibility/reference
   templateRequired:
@@ -354,15 +354,15 @@ links:
 - $comment: From ResearchStudyRecruitment/recruitment
   href: EvidenceVariable/{id}
   rel: recruitment_eligibility_EvidenceVariable
-  targetSchema:
-    $ref: EvidenceVariable
-  templateHints:
+  targetHints:
     backref:
     - eligibility_research_study_recruitment
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: EvidenceVariable
   templatePointers:
     id: /recruitment/eligibility/reference
   templateRequired:
@@ -370,15 +370,15 @@ links:
 - $comment: From RelatedArtifact/relatedArtifact
   href: Resource/{id}
   rel: relatedArtifact_resourceReference
-  targetSchema:
-    $ref: Resource
-  templateHints:
+  targetHints:
     backref:
     - related_artifact
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Resource
   templatePointers:
     id: /relatedArtifact/-/resourceReference/reference
   templateRequired:

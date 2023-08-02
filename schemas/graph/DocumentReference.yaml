@@ -12,420 +12,420 @@ description: "A reference to a document. A reference to a document of any kind f
 links:
 - href: Practitioner/{id}
   rel: author_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - author_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /author/-/reference
   templateRequired:
   - id
 - href: PractitionerRole/{id}
   rel: author_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - author_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /author/-/reference
   templateRequired:
   - id
 - href: Organization/{id}
   rel: author_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - author_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /author/-/reference
   templateRequired:
   - id
 - href: Device/{id}
   rel: author_Device
-  targetSchema:
-    $ref: Device
-  templateHints:
+  targetHints:
     backref:
     - author_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Device
   templatePointers:
     id: /author/-/reference
   templateRequired:
   - id
 - href: Patient/{id}
   rel: author_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - author_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /author/-/reference
   templateRequired:
   - id
 - href: RelatedPerson/{id}
   rel: author_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - author_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /author/-/reference
   templateRequired:
   - id
 - href: CareTeam/{id}
   rel: author_CareTeam
-  targetSchema:
-    $ref: CareTeam
-  templateHints:
+  targetHints:
     backref:
     - author_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: CareTeam
   templatePointers:
     id: /author/-/reference
   templateRequired:
   - id
 - href: Appointment/{id}
   rel: basedOn_Appointment
-  targetSchema:
-    $ref: Appointment
-  templateHints:
+  targetHints:
     backref:
     - basedOn_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Appointment
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: AppointmentResponse/{id}
   rel: basedOn_AppointmentResponse
-  targetSchema:
-    $ref: AppointmentResponse
-  templateHints:
+  targetHints:
     backref:
     - basedOn_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: AppointmentResponse
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: CarePlan/{id}
   rel: basedOn_CarePlan
-  targetSchema:
-    $ref: CarePlan
-  templateHints:
+  targetHints:
     backref:
     - basedOn_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: CarePlan
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: Claim/{id}
   rel: basedOn_Claim
-  targetSchema:
-    $ref: Claim
-  templateHints:
+  targetHints:
     backref:
     - basedOn_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Claim
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: CommunicationRequest/{id}
   rel: basedOn_CommunicationRequest
-  targetSchema:
-    $ref: CommunicationRequest
-  templateHints:
+  targetHints:
     backref:
     - basedOn_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: CommunicationRequest
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: Contract/{id}
   rel: basedOn_Contract
-  targetSchema:
-    $ref: Contract
-  templateHints:
+  targetHints:
     backref:
     - basedOn_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Contract
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: CoverageEligibilityRequest/{id}
   rel: basedOn_CoverageEligibilityRequest
-  targetSchema:
-    $ref: CoverageEligibilityRequest
-  templateHints:
+  targetHints:
     backref:
     - basedOn_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: CoverageEligibilityRequest
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: DeviceRequest/{id}
   rel: basedOn_DeviceRequest
-  targetSchema:
-    $ref: DeviceRequest
-  templateHints:
+  targetHints:
     backref:
     - basedOn_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: DeviceRequest
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: EnrollmentRequest/{id}
   rel: basedOn_EnrollmentRequest
-  targetSchema:
-    $ref: EnrollmentRequest
-  templateHints:
+  targetHints:
     backref:
     - basedOn_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: EnrollmentRequest
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: ImmunizationRecommendation/{id}
   rel: basedOn_ImmunizationRecommendation
-  targetSchema:
-    $ref: ImmunizationRecommendation
-  templateHints:
+  targetHints:
     backref:
     - basedOn_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: ImmunizationRecommendation
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: MedicationRequest/{id}
   rel: basedOn_MedicationRequest
-  targetSchema:
-    $ref: MedicationRequest
-  templateHints:
+  targetHints:
     backref:
     - basedOn_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: MedicationRequest
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: NutritionOrder/{id}
   rel: basedOn_NutritionOrder
-  targetSchema:
-    $ref: NutritionOrder
-  templateHints:
+  targetHints:
     backref:
     - basedOn_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: NutritionOrder
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: RequestOrchestration/{id}
   rel: basedOn_RequestOrchestration
-  targetSchema:
-    $ref: RequestOrchestration
-  templateHints:
+  targetHints:
     backref:
     - basedOn_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: RequestOrchestration
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: ServiceRequest/{id}
   rel: basedOn_ServiceRequest
-  targetSchema:
-    $ref: ServiceRequest
-  templateHints:
+  targetHints:
     backref:
     - basedOn_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: ServiceRequest
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: SupplyRequest/{id}
   rel: basedOn_SupplyRequest
-  targetSchema:
-    $ref: SupplyRequest
-  templateHints:
+  targetHints:
     backref:
     - basedOn_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: SupplyRequest
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: VisionPrescription/{id}
   rel: basedOn_VisionPrescription
-  targetSchema:
-    $ref: VisionPrescription
-  templateHints:
+  targetHints:
     backref:
     - basedOn_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: VisionPrescription
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: Appointment/{id}
   rel: context_Appointment
-  targetSchema:
-    $ref: Appointment
-  templateHints:
+  targetHints:
     backref:
     - context_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Appointment
   templatePointers:
     id: /context/-/reference
   templateRequired:
   - id
 - href: Encounter/{id}
   rel: context_Encounter
-  targetSchema:
-    $ref: Encounter
-  templateHints:
+  targetHints:
     backref:
     - context_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Encounter
   templatePointers:
     id: /context/-/reference
   templateRequired:
   - id
 - href: EpisodeOfCare/{id}
   rel: context_EpisodeOfCare
-  targetSchema:
-    $ref: EpisodeOfCare
-  templateHints:
+  targetHints:
     backref:
     - context_document_reference
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: EpisodeOfCare
   templatePointers:
     id: /context/-/reference
   templateRequired:
   - id
 - href: Organization/{id}
   rel: custodian
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - custodian_document_reference
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /custodian/reference
   templateRequired:
   - id
 - href: Resource/{id}
   rel: subject
-  targetSchema:
-    $ref: Resource
-  templateHints:
+  targetHints:
     backref:
     - document_reference
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Resource
   templatePointers:
     id: /subject/reference
   templateRequired:
@@ -433,15 +433,15 @@ links:
 - $comment: From DocumentReferenceAttester/attester
   href: Patient/{id}
   rel: attester_party_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - document_reference_attester
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /attester/-/party/reference
   templateRequired:
@@ -449,15 +449,15 @@ links:
 - $comment: From DocumentReferenceAttester/attester
   href: RelatedPerson/{id}
   rel: attester_party_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - document_reference_attester
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /attester/-/party/reference
   templateRequired:
@@ -465,15 +465,15 @@ links:
 - $comment: From DocumentReferenceAttester/attester
   href: Practitioner/{id}
   rel: attester_party_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - document_reference_attester
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /attester/-/party/reference
   templateRequired:
@@ -481,15 +481,15 @@ links:
 - $comment: From DocumentReferenceAttester/attester
   href: PractitionerRole/{id}
   rel: attester_party_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - document_reference_attester
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /attester/-/party/reference
   templateRequired:
@@ -497,15 +497,15 @@ links:
 - $comment: From DocumentReferenceAttester/attester
   href: Organization/{id}
   rel: attester_party_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - document_reference_attester
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /attester/-/party/reference
   templateRequired:
@@ -513,15 +513,15 @@ links:
 - $comment: From CodeableReference/bodySite
   href: __ANY__/{id}
   rel: bodySite_reference
-  targetSchema:
-    $ref: __ANY__
-  templateHints:
+  targetHints:
     backref:
     - codeable_reference
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: __ANY__
   templatePointers:
     id: /bodySite/-/reference/reference
   templateRequired:
@@ -529,15 +529,15 @@ links:
 - $comment: From CodeableReference/event
   href: __ANY__/{id}
   rel: event_reference
-  targetSchema:
-    $ref: __ANY__
-  templateHints:
+  targetHints:
     backref:
     - codeable_reference
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: __ANY__
   templatePointers:
     id: /event/-/reference/reference
   templateRequired:
@@ -545,15 +545,15 @@ links:
 - $comment: From DocumentReferenceRelatesTo/relatesTo
   href: DocumentReference/{id}
   rel: relatesTo_target
-  targetSchema:
-    $ref: DocumentReference
-  templateHints:
+  targetHints:
     backref:
     - document_reference_relates_to
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: DocumentReference
   templatePointers:
     id: /relatesTo/-/target/reference
   templateRequired:

@@ -4,20 +4,19 @@ description: Condition that the related person had. The significant Conditions (
   condition) that the family member had. This is a repeating section to allow a system
   to represent more than one condition per resource, though there is nothing stopping
   multiple resources - one per condition. [See https://hl7.org/fhir/R5/FamilyMemberHistoryCondition.html]
-  [See https://hl7.org/fhir/R5/FamilyMemberHistoryCondition.html]
 links:
 - $comment: From Annotation/note
   href: Practitioner/{id}
   rel: note_authorReference_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -25,15 +24,15 @@ links:
 - $comment: From Annotation/note
   href: PractitionerRole/{id}
   rel: note_authorReference_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -41,15 +40,15 @@ links:
 - $comment: From Annotation/note
   href: Patient/{id}
   rel: note_authorReference_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -57,15 +56,15 @@ links:
 - $comment: From Annotation/note
   href: RelatedPerson/{id}
   rel: note_authorReference_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -73,15 +72,15 @@ links:
 - $comment: From Annotation/note
   href: Organization/{id}
   rel: note_authorReference_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:

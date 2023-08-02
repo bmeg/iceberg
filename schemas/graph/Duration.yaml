@@ -1,7 +1,8 @@
 $id: Duration
 additionalProperties: false
 description: A length of time. [See https://hl7.org/fhir/R5/Duration.html] [See https://hl7.org/fhir/R5/Duration.html]
-  [See https://hl7.org/fhir/R5/Duration.html]
+  [See https://hl7.org/fhir/R5/Duration.html] [See https://hl7.org/fhir/R5/Duration.html]
+  [See https://hl7.org/fhir/R5/Duration.html] [See https://hl7.org/fhir/R5/Duration.html]
 links: []
 properties:
   _code:

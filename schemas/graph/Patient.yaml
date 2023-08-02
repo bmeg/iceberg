@@ -6,60 +6,60 @@ description: Information about an individual or animal receiving health care ser
 links:
 - href: Organization/{id}
   rel: generalPractitioner_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - generalPractitioner_patient
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /generalPractitioner/-/reference
   templateRequired:
   - id
 - href: Practitioner/{id}
   rel: generalPractitioner_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - generalPractitioner_patient
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /generalPractitioner/-/reference
   templateRequired:
   - id
 - href: PractitionerRole/{id}
   rel: generalPractitioner_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - generalPractitioner_patient
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /generalPractitioner/-/reference
   templateRequired:
   - id
 - href: Organization/{id}
   rel: managingOrganization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - managingOrganization_patient
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /managingOrganization/reference
   templateRequired:
@@ -67,15 +67,15 @@ links:
 - $comment: From PatientContact/contact
   href: Organization/{id}
   rel: contact_organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - patient_contact
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /contact/-/organization/reference
   templateRequired:
@@ -83,15 +83,15 @@ links:
 - $comment: From PatientLink/link
   href: Patient/{id}
   rel: link_other_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - patient_link
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /link/-/other/reference
   templateRequired:
@@ -99,15 +99,15 @@ links:
 - $comment: From PatientLink/link
   href: RelatedPerson/{id}
   rel: link_other_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - patient_link
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /link/-/other/reference
   templateRequired:

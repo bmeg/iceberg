@@ -8,30 +8,30 @@ description: 'Defined path through the study for a subject. Describes an expecte
 links:
 - href: EvidenceVariable/{id}
   rel: intendedExposure
-  targetSchema:
-    $ref: EvidenceVariable
-  templateHints:
+  targetHints:
     backref:
     - intendedExposure_research_study_comparison_group
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: EvidenceVariable
   templatePointers:
     id: /intendedExposure/-/reference
   templateRequired:
   - id
 - href: Group/{id}
   rel: observedGroup
-  targetSchema:
-    $ref: Group
-  templateHints:
+  targetHints:
     backref:
     - research_study_comparison_group
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Group
   templatePointers:
     id: /observedGroup/reference
   templateRequired:

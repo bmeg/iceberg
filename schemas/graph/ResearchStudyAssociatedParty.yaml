@@ -5,45 +5,45 @@ description: Sponsors, collaborators, and other parties. [See https://hl7.org/fh
 links:
 - href: Practitioner/{id}
   rel: party_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - research_study_associated_party
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /party/reference
   templateRequired:
   - id
 - href: PractitionerRole/{id}
   rel: party_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - research_study_associated_party
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /party/reference
   templateRequired:
   - id
 - href: Organization/{id}
   rel: party_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - research_study_associated_party
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /party/reference
   templateRequired:

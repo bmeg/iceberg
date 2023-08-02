@@ -2,6 +2,7 @@ $id: Dosage
 additionalProperties: false
 description: How the medication is/was taken or should be taken. Indicates how the
   medication is/was taken or should be taken by the patient. [See https://hl7.org/fhir/R5/Dosage.html]
+  [See https://hl7.org/fhir/R5/Dosage.html] [See https://hl7.org/fhir/R5/Dosage.html]
   [See https://hl7.org/fhir/R5/Dosage.html]
 links: []
 properties:

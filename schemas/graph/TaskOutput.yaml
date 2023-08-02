@@ -1,19 +1,19 @@
 $id: TaskOutput
 additionalProperties: false
 description: Information produced as part of task. Outputs produced by the Task. [See
-  https://hl7.org/fhir/R5/TaskOutput.html]
+  https://hl7.org/fhir/R5/TaskOutput.html] [See https://hl7.org/fhir/R5/TaskOutput.html]
 links:
 - href: __ANY__/{id}
   rel: valueReference
-  targetSchema:
-    $ref: __ANY__
-  templateHints:
+  targetHints:
     backref:
     - task_output
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: __ANY__
   templatePointers:
     id: /valueReference/reference
   templateRequired:
@@ -21,15 +21,15 @@ links:
 - $comment: From Annotation/valueAnnotation
   href: Practitioner/{id}
   rel: valueAnnotation_authorReference_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /valueAnnotation/authorReference/reference
   templateRequired:
@@ -37,15 +37,15 @@ links:
 - $comment: From Annotation/valueAnnotation
   href: PractitionerRole/{id}
   rel: valueAnnotation_authorReference_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /valueAnnotation/authorReference/reference
   templateRequired:
@@ -53,15 +53,15 @@ links:
 - $comment: From Annotation/valueAnnotation
   href: Patient/{id}
   rel: valueAnnotation_authorReference_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /valueAnnotation/authorReference/reference
   templateRequired:
@@ -69,15 +69,15 @@ links:
 - $comment: From Annotation/valueAnnotation
   href: RelatedPerson/{id}
   rel: valueAnnotation_authorReference_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /valueAnnotation/authorReference/reference
   templateRequired:
@@ -85,15 +85,15 @@ links:
 - $comment: From Annotation/valueAnnotation
   href: Organization/{id}
   rel: valueAnnotation_authorReference_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /valueAnnotation/authorReference/reference
   templateRequired:
@@ -101,15 +101,15 @@ links:
 - $comment: From CodeableReference/valueCodeableReference
   href: __ANY__/{id}
   rel: valueCodeableReference_reference
-  targetSchema:
-    $ref: __ANY__
-  templateHints:
+  targetHints:
     backref:
     - codeable_reference
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: __ANY__
   templatePointers:
     id: /valueCodeableReference/reference/reference
   templateRequired:
@@ -117,15 +117,15 @@ links:
 - $comment: From DataRequirement/valueDataRequirement
   href: Group/{id}
   rel: valueDataRequirement_subjectReference
-  targetSchema:
-    $ref: Group
-  templateHints:
+  targetHints:
     backref:
     - data_requirement
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Group
   templatePointers:
     id: /valueDataRequirement/subjectReference/reference
   templateRequired:
@@ -133,15 +133,15 @@ links:
 - $comment: From ExtendedContactDetail/valueExtendedContactDetail
   href: Organization/{id}
   rel: valueExtendedContactDetail_organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - extended_contact_detail
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /valueExtendedContactDetail/organization/reference
   templateRequired:
@@ -149,15 +149,15 @@ links:
 - $comment: From RelatedArtifact/valueRelatedArtifact
   href: Resource/{id}
   rel: valueRelatedArtifact_resourceReference
-  targetSchema:
-    $ref: Resource
-  templateHints:
+  targetHints:
     backref:
     - related_artifact
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Resource
   templatePointers:
     id: /valueRelatedArtifact/resourceReference/reference
   templateRequired:
@@ -165,15 +165,15 @@ links:
 - $comment: From Signature/valueSignature
   href: Practitioner/{id}
   rel: valueSignature_onBehalfOf_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - onBehalfOf_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /valueSignature/onBehalfOf/reference
   templateRequired:
@@ -181,15 +181,15 @@ links:
 - $comment: From Signature/valueSignature
   href: PractitionerRole/{id}
   rel: valueSignature_onBehalfOf_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - onBehalfOf_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /valueSignature/onBehalfOf/reference
   templateRequired:
@@ -197,15 +197,15 @@ links:
 - $comment: From Signature/valueSignature
   href: RelatedPerson/{id}
   rel: valueSignature_onBehalfOf_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - onBehalfOf_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /valueSignature/onBehalfOf/reference
   templateRequired:
@@ -213,15 +213,15 @@ links:
 - $comment: From Signature/valueSignature
   href: Patient/{id}
   rel: valueSignature_onBehalfOf_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - onBehalfOf_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /valueSignature/onBehalfOf/reference
   templateRequired:
@@ -229,15 +229,15 @@ links:
 - $comment: From Signature/valueSignature
   href: Device/{id}
   rel: valueSignature_onBehalfOf_Device
-  targetSchema:
-    $ref: Device
-  templateHints:
+  targetHints:
     backref:
     - onBehalfOf_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Device
   templatePointers:
     id: /valueSignature/onBehalfOf/reference
   templateRequired:
@@ -245,15 +245,15 @@ links:
 - $comment: From Signature/valueSignature
   href: Organization/{id}
   rel: valueSignature_onBehalfOf_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - onBehalfOf_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /valueSignature/onBehalfOf/reference
   templateRequired:
@@ -261,15 +261,15 @@ links:
 - $comment: From Signature/valueSignature
   href: Practitioner/{id}
   rel: valueSignature_who_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - who_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /valueSignature/who/reference
   templateRequired:
@@ -277,15 +277,15 @@ links:
 - $comment: From Signature/valueSignature
   href: PractitionerRole/{id}
   rel: valueSignature_who_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - who_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /valueSignature/who/reference
   templateRequired:
@@ -293,15 +293,15 @@ links:
 - $comment: From Signature/valueSignature
   href: RelatedPerson/{id}
   rel: valueSignature_who_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - who_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /valueSignature/who/reference
   templateRequired:
@@ -309,15 +309,15 @@ links:
 - $comment: From Signature/valueSignature
   href: Patient/{id}
   rel: valueSignature_who_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - who_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /valueSignature/who/reference
   templateRequired:
@@ -325,15 +325,15 @@ links:
 - $comment: From Signature/valueSignature
   href: Device/{id}
   rel: valueSignature_who_Device
-  targetSchema:
-    $ref: Device
-  templateHints:
+  targetHints:
     backref:
     - who_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Device
   templatePointers:
     id: /valueSignature/who/reference
   templateRequired:
@@ -341,15 +341,15 @@ links:
 - $comment: From Signature/valueSignature
   href: Organization/{id}
   rel: valueSignature_who_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - who_signature
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /valueSignature/who/reference
   templateRequired:
@@ -357,15 +357,15 @@ links:
 - $comment: From TriggerDefinition/valueTriggerDefinition
   href: Schedule/{id}
   rel: valueTriggerDefinition_timingReference
-  targetSchema:
-    $ref: Schedule
-  templateHints:
+  targetHints:
     backref:
     - trigger_definition
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Schedule
   templatePointers:
     id: /valueTriggerDefinition/timingReference/reference
   templateRequired:
@@ -373,15 +373,15 @@ links:
 - $comment: From UsageContext/valueUsageContext
   href: PlanDefinition/{id}
   rel: valueUsageContext_valueReference_PlanDefinition
-  targetSchema:
-    $ref: PlanDefinition
-  templateHints:
+  targetHints:
     backref:
     - usage_context
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PlanDefinition
   templatePointers:
     id: /valueUsageContext/valueReference/reference
   templateRequired:
@@ -389,15 +389,15 @@ links:
 - $comment: From UsageContext/valueUsageContext
   href: ResearchStudy/{id}
   rel: valueUsageContext_valueReference_ResearchStudy
-  targetSchema:
-    $ref: ResearchStudy
-  templateHints:
+  targetHints:
     backref:
     - usage_context
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: ResearchStudy
   templatePointers:
     id: /valueUsageContext/valueReference/reference
   templateRequired:
@@ -405,15 +405,15 @@ links:
 - $comment: From UsageContext/valueUsageContext
   href: InsurancePlan/{id}
   rel: valueUsageContext_valueReference_InsurancePlan
-  targetSchema:
-    $ref: InsurancePlan
-  templateHints:
+  targetHints:
     backref:
     - usage_context
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: InsurancePlan
   templatePointers:
     id: /valueUsageContext/valueReference/reference
   templateRequired:
@@ -421,15 +421,15 @@ links:
 - $comment: From UsageContext/valueUsageContext
   href: HealthcareService/{id}
   rel: valueUsageContext_valueReference_HealthcareService
-  targetSchema:
-    $ref: HealthcareService
-  templateHints:
+  targetHints:
     backref:
     - usage_context
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: HealthcareService
   templatePointers:
     id: /valueUsageContext/valueReference/reference
   templateRequired:
@@ -437,15 +437,15 @@ links:
 - $comment: From UsageContext/valueUsageContext
   href: Group/{id}
   rel: valueUsageContext_valueReference_Group
-  targetSchema:
-    $ref: Group
-  templateHints:
+  targetHints:
     backref:
     - usage_context
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Group
   templatePointers:
     id: /valueUsageContext/valueReference/reference
   templateRequired:
@@ -453,15 +453,15 @@ links:
 - $comment: From UsageContext/valueUsageContext
   href: Location/{id}
   rel: valueUsageContext_valueReference_Location
-  targetSchema:
-    $ref: Location
-  templateHints:
+  targetHints:
     backref:
     - usage_context
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Location
   templatePointers:
     id: /valueUsageContext/valueReference/reference
   templateRequired:
@@ -469,15 +469,15 @@ links:
 - $comment: From UsageContext/valueUsageContext
   href: Organization/{id}
   rel: valueUsageContext_valueReference_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - usage_context
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /valueUsageContext/valueReference/reference
   templateRequired:

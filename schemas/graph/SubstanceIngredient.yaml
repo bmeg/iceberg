@@ -6,15 +6,15 @@ description: Composition information about the substance. A substance can be com
 links:
 - href: Substance/{id}
   rel: substanceReference
-  targetSchema:
-    $ref: Substance
-  templateHints:
+  targetHints:
     backref:
     - substance_ingredient
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Substance
   templatePointers:
     id: /substanceReference/reference
   templateRequired:

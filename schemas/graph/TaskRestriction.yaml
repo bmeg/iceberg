@@ -3,94 +3,94 @@ additionalProperties: false
 description: Constraints on fulfillment tasks. If the Task.focus is a request resource
   and the task is seeking fulfillment (i.e. is asking for the request to be actioned),
   this element identifies any limitations on what parts of the referenced request
-  should be actioned. [See https://hl7.org/fhir/R5/TaskRestriction.html]
+  should be actioned. [See https://hl7.org/fhir/R5/TaskRestriction.html] [See https://hl7.org/fhir/R5/TaskRestriction.html]
 links:
 - href: Patient/{id}
   rel: recipient_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - recipient_task_restriction
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /recipient/-/reference
   templateRequired:
   - id
 - href: Practitioner/{id}
   rel: recipient_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - recipient_task_restriction
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /recipient/-/reference
   templateRequired:
   - id
 - href: PractitionerRole/{id}
   rel: recipient_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - recipient_task_restriction
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /recipient/-/reference
   templateRequired:
   - id
 - href: RelatedPerson/{id}
   rel: recipient_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - recipient_task_restriction
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /recipient/-/reference
   templateRequired:
   - id
 - href: Group/{id}
   rel: recipient_Group
-  targetSchema:
-    $ref: Group
-  templateHints:
+  targetHints:
     backref:
     - recipient_task_restriction
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Group
   templatePointers:
     id: /recipient/-/reference
   templateRequired:
   - id
 - href: Organization/{id}
   rel: recipient_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - recipient_task_restriction
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /recipient/-/reference
   templateRequired:

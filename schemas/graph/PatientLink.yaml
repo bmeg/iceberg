@@ -5,30 +5,30 @@ description: Link to a Patient or RelatedPerson resource that concerns the same 
 links:
 - href: Patient/{id}
   rel: other_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - patient_link
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /other/reference
   templateRequired:
   - id
 - href: RelatedPerson/{id}
   rel: other_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - patient_link
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /other/reference
   templateRequired:

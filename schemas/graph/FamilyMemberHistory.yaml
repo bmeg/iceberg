@@ -6,15 +6,15 @@ description: Information about patient's relatives, relevant for patient. Signif
 links:
 - href: Patient/{id}
   rel: patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - family_member_history
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /patient/reference
   templateRequired:
@@ -22,15 +22,15 @@ links:
 - $comment: From Annotation/note
   href: Practitioner/{id}
   rel: note_authorReference_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -38,15 +38,15 @@ links:
 - $comment: From Annotation/note
   href: PractitionerRole/{id}
   rel: note_authorReference_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -54,15 +54,15 @@ links:
 - $comment: From Annotation/note
   href: Patient/{id}
   rel: note_authorReference_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -70,15 +70,15 @@ links:
 - $comment: From Annotation/note
   href: RelatedPerson/{id}
   rel: note_authorReference_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -86,15 +86,15 @@ links:
 - $comment: From Annotation/note
   href: Organization/{id}
   rel: note_authorReference_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -102,15 +102,15 @@ links:
 - $comment: From FamilyMemberHistoryParticipant/participant
   href: Practitioner/{id}
   rel: participant_actor_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - family_member_history_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /participant/-/actor/reference
   templateRequired:
@@ -118,15 +118,15 @@ links:
 - $comment: From FamilyMemberHistoryParticipant/participant
   href: PractitionerRole/{id}
   rel: participant_actor_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - family_member_history_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /participant/-/actor/reference
   templateRequired:
@@ -134,15 +134,15 @@ links:
 - $comment: From FamilyMemberHistoryParticipant/participant
   href: Patient/{id}
   rel: participant_actor_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - family_member_history_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /participant/-/actor/reference
   templateRequired:
@@ -150,15 +150,15 @@ links:
 - $comment: From FamilyMemberHistoryParticipant/participant
   href: RelatedPerson/{id}
   rel: participant_actor_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - family_member_history_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /participant/-/actor/reference
   templateRequired:
@@ -166,15 +166,15 @@ links:
 - $comment: From FamilyMemberHistoryParticipant/participant
   href: Device/{id}
   rel: participant_actor_Device
-  targetSchema:
-    $ref: Device
-  templateHints:
+  targetHints:
     backref:
     - family_member_history_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Device
   templatePointers:
     id: /participant/-/actor/reference
   templateRequired:
@@ -182,15 +182,15 @@ links:
 - $comment: From FamilyMemberHistoryParticipant/participant
   href: Organization/{id}
   rel: participant_actor_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - family_member_history_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /participant/-/actor/reference
   templateRequired:
@@ -198,15 +198,15 @@ links:
 - $comment: From FamilyMemberHistoryParticipant/participant
   href: CareTeam/{id}
   rel: participant_actor_CareTeam
-  targetSchema:
-    $ref: CareTeam
-  templateHints:
+  targetHints:
     backref:
     - family_member_history_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: CareTeam
   templatePointers:
     id: /participant/-/actor/reference
   templateRequired:
@@ -214,15 +214,15 @@ links:
 - $comment: From CodeableReference/reason
   href: __ANY__/{id}
   rel: reason_reference
-  targetSchema:
-    $ref: __ANY__
-  templateHints:
+  targetHints:
     backref:
     - codeable_reference
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: __ANY__
   templatePointers:
     id: /reason/-/reference/reference
   templateRequired:

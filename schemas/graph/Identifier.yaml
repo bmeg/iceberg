@@ -4,21 +4,19 @@ description: An identifier intended for computation. An identifier - identifies 
   entity uniquely and unambiguously. Typically this is used for business identifiers.
   [See https://hl7.org/fhir/R5/Identifier.html] [See https://hl7.org/fhir/R5/Identifier.html]
   [See https://hl7.org/fhir/R5/Identifier.html] [See https://hl7.org/fhir/R5/Identifier.html]
-  [See https://hl7.org/fhir/R5/Identifier.html] [See https://hl7.org/fhir/R5/Identifier.html]
-  [See https://hl7.org/fhir/R5/Identifier.html] [See https://hl7.org/fhir/R5/Identifier.html]
   [See https://hl7.org/fhir/R5/Identifier.html]
 links:
 - href: Organization/{id}
   rel: assigner
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - identifier
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /assigner/reference
   templateRequired:

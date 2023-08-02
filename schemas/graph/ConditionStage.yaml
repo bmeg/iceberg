@@ -7,45 +7,45 @@ description: Stage/grade, usually assessed formally. A simple summary of the sta
 links:
 - href: ClinicalImpression/{id}
   rel: assessment_ClinicalImpression
-  targetSchema:
-    $ref: ClinicalImpression
-  templateHints:
+  targetHints:
     backref:
     - assessment_condition_stage
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: ClinicalImpression
   templatePointers:
     id: /assessment/-/reference
   templateRequired:
   - id
 - href: DiagnosticReport/{id}
   rel: assessment_DiagnosticReport
-  targetSchema:
-    $ref: DiagnosticReport
-  templateHints:
+  targetHints:
     backref:
     - assessment_condition_stage
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: DiagnosticReport
   templatePointers:
     id: /assessment/-/reference
   templateRequired:
   - id
 - href: Observation/{id}
   rel: assessment_Observation
-  targetSchema:
-    $ref: Observation
-  templateHints:
+  targetHints:
     backref:
     - assessment_condition_stage
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Observation
   templatePointers:
     id: /assessment/-/reference
   templateRequired:

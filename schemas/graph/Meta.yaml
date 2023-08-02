@@ -6,7 +6,7 @@ description: Metadata about a resource. The metadata about a resource. This is c
   [See https://hl7.org/fhir/R5/Meta.html] [See https://hl7.org/fhir/R5/Meta.html]
   [See https://hl7.org/fhir/R5/Meta.html] [See https://hl7.org/fhir/R5/Meta.html]
   [See https://hl7.org/fhir/R5/Meta.html] [See https://hl7.org/fhir/R5/Meta.html]
-  [See https://hl7.org/fhir/R5/Meta.html] [See https://hl7.org/fhir/R5/Meta.html]
+  [See https://hl7.org/fhir/R5/Meta.html]
 links: []
 properties:
   _lastUpdated:

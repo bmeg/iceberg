@@ -8,15 +8,15 @@ description: Component results. Some observations have multiple component observ
 links:
 - href: MolecularSequence/{id}
   rel: valueReference
-  targetSchema:
-    $ref: MolecularSequence
-  templateHints:
+  targetHints:
     backref:
     - observation_component
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: MolecularSequence
   templatePointers:
     id: /valueReference/reference
   templateRequired:

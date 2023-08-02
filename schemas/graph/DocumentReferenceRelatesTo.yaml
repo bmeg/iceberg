@@ -6,15 +6,15 @@ description: Relationships to other documents. Relationships that this document 
 links:
 - href: DocumentReference/{id}
   rel: target
-  targetSchema:
-    $ref: DocumentReference
-  templateHints:
+  targetHints:
     backref:
     - document_reference_relates_to
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: DocumentReference
   templatePointers:
     id: /target/reference
   templateRequired:

@@ -1,7 +1,7 @@
 $id: TimingRepeat
 additionalProperties: false
 description: When the event is to occur. A set of rules that describe when the event
-  is scheduled. [See https://hl7.org/fhir/R5/TimingRepeat.html]
+  is scheduled. [See https://hl7.org/fhir/R5/TimingRepeat.html] [See https://hl7.org/fhir/R5/TimingRepeat.html]
 links: []
 properties:
   _count:

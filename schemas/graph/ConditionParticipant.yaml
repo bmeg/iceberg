@@ -7,105 +7,105 @@ description: Who or what participated in the activities related to the condition
 links:
 - href: Practitioner/{id}
   rel: actor_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - condition_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /actor/reference
   templateRequired:
   - id
 - href: PractitionerRole/{id}
   rel: actor_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - condition_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /actor/reference
   templateRequired:
   - id
 - href: Patient/{id}
   rel: actor_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - condition_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /actor/reference
   templateRequired:
   - id
 - href: RelatedPerson/{id}
   rel: actor_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - condition_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /actor/reference
   templateRequired:
   - id
 - href: Device/{id}
   rel: actor_Device
-  targetSchema:
-    $ref: Device
-  templateHints:
+  targetHints:
     backref:
     - condition_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Device
   templatePointers:
     id: /actor/reference
   templateRequired:
   - id
 - href: Organization/{id}
   rel: actor_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - condition_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /actor/reference
   templateRequired:
   - id
 - href: CareTeam/{id}
   rel: actor_CareTeam
-  targetSchema:
-    $ref: CareTeam
-  templateHints:
+  targetHints:
     backref:
     - condition_participant
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: CareTeam
   templatePointers:
     id: /actor/reference
   templateRequired:

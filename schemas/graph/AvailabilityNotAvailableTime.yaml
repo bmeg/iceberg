@@ -1,7 +1,6 @@
 $id: AvailabilityNotAvailableTime
 additionalProperties: false
 description: Not available during this time due to provided reason. [See https://hl7.org/fhir/R5/AvailabilityNotAvailableTime.html]
-  [See https://hl7.org/fhir/R5/AvailabilityNotAvailableTime.html]
 links: []
 properties:
   _description:

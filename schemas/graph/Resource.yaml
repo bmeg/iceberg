@@ -1,11 +1,6 @@
 $id: Resource
 additionalProperties: false
 description: Base Resource. This is the base resource type for everything. [See https://hl7.org/fhir/R5/Resource.html]
-  [See https://hl7.org/fhir/R5/Resource.html] [See https://hl7.org/fhir/R5/Resource.html]
-  [See https://hl7.org/fhir/R5/Resource.html] [See https://hl7.org/fhir/R5/Resource.html]
-  [See https://hl7.org/fhir/R5/Resource.html] [See https://hl7.org/fhir/R5/Resource.html]
-  [See https://hl7.org/fhir/R5/Resource.html] [See https://hl7.org/fhir/R5/Resource.html]
-  [See https://hl7.org/fhir/R5/Resource.html] [See https://hl7.org/fhir/R5/Resource.html]
 links: []
 properties:
   _implicitRules:

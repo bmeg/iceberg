@@ -7,30 +7,30 @@ description: Definition of a Medication. This resource is primarily used for the
 links:
 - href: MedicationKnowledge/{id}
   rel: definition
-  targetSchema:
-    $ref: MedicationKnowledge
-  templateHints:
+  targetHints:
     backref:
     - medication
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: MedicationKnowledge
   templatePointers:
     id: /definition/reference
   templateRequired:
   - id
 - href: Organization/{id}
   rel: marketingAuthorizationHolder
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - medication
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /marketingAuthorizationHolder/reference
   templateRequired:

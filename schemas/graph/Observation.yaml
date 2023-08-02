@@ -5,735 +5,735 @@ description: Measurements and simple assertions. Measurements and simple asserti
 links:
 - href: CarePlan/{id}
   rel: basedOn_CarePlan
-  targetSchema:
-    $ref: CarePlan
-  templateHints:
+  targetHints:
     backref:
     - basedOn_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: CarePlan
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: DeviceRequest/{id}
   rel: basedOn_DeviceRequest
-  targetSchema:
-    $ref: DeviceRequest
-  templateHints:
+  targetHints:
     backref:
     - basedOn_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: DeviceRequest
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: ImmunizationRecommendation/{id}
   rel: basedOn_ImmunizationRecommendation
-  targetSchema:
-    $ref: ImmunizationRecommendation
-  templateHints:
+  targetHints:
     backref:
     - basedOn_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: ImmunizationRecommendation
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: MedicationRequest/{id}
   rel: basedOn_MedicationRequest
-  targetSchema:
-    $ref: MedicationRequest
-  templateHints:
+  targetHints:
     backref:
     - basedOn_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: MedicationRequest
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: NutritionOrder/{id}
   rel: basedOn_NutritionOrder
-  targetSchema:
-    $ref: NutritionOrder
-  templateHints:
+  targetHints:
     backref:
     - basedOn_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: NutritionOrder
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: ServiceRequest/{id}
   rel: basedOn_ServiceRequest
-  targetSchema:
-    $ref: ServiceRequest
-  templateHints:
+  targetHints:
     backref:
     - basedOn_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: ServiceRequest
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
 - href: BodyStructure/{id}
   rel: bodyStructure
-  targetSchema:
-    $ref: BodyStructure
-  templateHints:
+  targetHints:
     backref:
     - observation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: BodyStructure
   templatePointers:
     id: /bodyStructure/reference
   templateRequired:
   - id
 - href: DocumentReference/{id}
   rel: derivedFrom_DocumentReference
-  targetSchema:
-    $ref: DocumentReference
-  templateHints:
+  targetHints:
     backref:
     - derivedFrom_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: DocumentReference
   templatePointers:
     id: /derivedFrom/-/reference
   templateRequired:
   - id
 - href: ImagingStudy/{id}
   rel: derivedFrom_ImagingStudy
-  targetSchema:
-    $ref: ImagingStudy
-  templateHints:
+  targetHints:
     backref:
     - derivedFrom_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: ImagingStudy
   templatePointers:
     id: /derivedFrom/-/reference
   templateRequired:
   - id
 - href: ImagingSelection/{id}
   rel: derivedFrom_ImagingSelection
-  targetSchema:
-    $ref: ImagingSelection
-  templateHints:
+  targetHints:
     backref:
     - derivedFrom_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: ImagingSelection
   templatePointers:
     id: /derivedFrom/-/reference
   templateRequired:
   - id
 - href: QuestionnaireResponse/{id}
   rel: derivedFrom_QuestionnaireResponse
-  targetSchema:
-    $ref: QuestionnaireResponse
-  templateHints:
+  targetHints:
     backref:
     - derivedFrom_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: QuestionnaireResponse
   templatePointers:
     id: /derivedFrom/-/reference
   templateRequired:
   - id
 - href: Observation/{id}
   rel: derivedFrom_Observation
-  targetSchema:
-    $ref: Observation
-  templateHints:
+  targetHints:
     backref:
     - derivedFrom_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Observation
   templatePointers:
     id: /derivedFrom/-/reference
   templateRequired:
   - id
 - href: MolecularSequence/{id}
   rel: derivedFrom_MolecularSequence
-  targetSchema:
-    $ref: MolecularSequence
-  templateHints:
+  targetHints:
     backref:
     - derivedFrom_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: MolecularSequence
   templatePointers:
     id: /derivedFrom/-/reference
   templateRequired:
   - id
 - href: GenomicStudy/{id}
   rel: derivedFrom_GenomicStudy
-  targetSchema:
-    $ref: GenomicStudy
-  templateHints:
+  targetHints:
     backref:
     - derivedFrom_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: GenomicStudy
   templatePointers:
     id: /derivedFrom/-/reference
   templateRequired:
   - id
 - href: Device/{id}
   rel: device_Device
-  targetSchema:
-    $ref: Device
-  templateHints:
+  targetHints:
     backref:
     - device_observation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Device
   templatePointers:
     id: /device/reference
   templateRequired:
   - id
 - href: DeviceMetric/{id}
   rel: device_DeviceMetric
-  targetSchema:
-    $ref: DeviceMetric
-  templateHints:
+  targetHints:
     backref:
     - device_observation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: DeviceMetric
   templatePointers:
     id: /device/reference
   templateRequired:
   - id
 - href: Encounter/{id}
   rel: encounter
-  targetSchema:
-    $ref: Encounter
-  templateHints:
+  targetHints:
     backref:
     - observation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Encounter
   templatePointers:
     id: /encounter/reference
   templateRequired:
   - id
 - href: Resource/{id}
   rel: focus
-  targetSchema:
-    $ref: Resource
-  templateHints:
+  targetHints:
     backref:
     - focus_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Resource
   templatePointers:
     id: /focus/-/reference
   templateRequired:
   - id
 - href: Observation/{id}
   rel: hasMember_Observation
-  targetSchema:
-    $ref: Observation
-  templateHints:
+  targetHints:
     backref:
     - hasMember_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Observation
   templatePointers:
     id: /hasMember/-/reference
   templateRequired:
   - id
 - href: QuestionnaireResponse/{id}
   rel: hasMember_QuestionnaireResponse
-  targetSchema:
-    $ref: QuestionnaireResponse
-  templateHints:
+  targetHints:
     backref:
     - hasMember_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: QuestionnaireResponse
   templatePointers:
     id: /hasMember/-/reference
   templateRequired:
   - id
 - href: MolecularSequence/{id}
   rel: hasMember_MolecularSequence
-  targetSchema:
-    $ref: MolecularSequence
-  templateHints:
+  targetHints:
     backref:
     - hasMember_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: MolecularSequence
   templatePointers:
     id: /hasMember/-/reference
   templateRequired:
   - id
 - href: ObservationDefinition/{id}
   rel: instantiatesReference
-  targetSchema:
-    $ref: ObservationDefinition
-  templateHints:
+  targetHints:
     backref:
     - observation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: ObservationDefinition
   templatePointers:
     id: /instantiatesReference/reference
   templateRequired:
   - id
 - href: MedicationAdministration/{id}
   rel: partOf_MedicationAdministration
-  targetSchema:
-    $ref: MedicationAdministration
-  templateHints:
+  targetHints:
     backref:
     - partOf_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: MedicationAdministration
   templatePointers:
     id: /partOf/-/reference
   templateRequired:
   - id
 - href: MedicationDispense/{id}
   rel: partOf_MedicationDispense
-  targetSchema:
-    $ref: MedicationDispense
-  templateHints:
+  targetHints:
     backref:
     - partOf_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: MedicationDispense
   templatePointers:
     id: /partOf/-/reference
   templateRequired:
   - id
 - href: MedicationStatement/{id}
   rel: partOf_MedicationStatement
-  targetSchema:
-    $ref: MedicationStatement
-  templateHints:
+  targetHints:
     backref:
     - partOf_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: MedicationStatement
   templatePointers:
     id: /partOf/-/reference
   templateRequired:
   - id
 - href: Procedure/{id}
   rel: partOf_Procedure
-  targetSchema:
-    $ref: Procedure
-  templateHints:
+  targetHints:
     backref:
     - partOf_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Procedure
   templatePointers:
     id: /partOf/-/reference
   templateRequired:
   - id
 - href: Immunization/{id}
   rel: partOf_Immunization
-  targetSchema:
-    $ref: Immunization
-  templateHints:
+  targetHints:
     backref:
     - partOf_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Immunization
   templatePointers:
     id: /partOf/-/reference
   templateRequired:
   - id
 - href: ImagingStudy/{id}
   rel: partOf_ImagingStudy
-  targetSchema:
-    $ref: ImagingStudy
-  templateHints:
+  targetHints:
     backref:
     - partOf_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: ImagingStudy
   templatePointers:
     id: /partOf/-/reference
   templateRequired:
   - id
 - href: GenomicStudy/{id}
   rel: partOf_GenomicStudy
-  targetSchema:
-    $ref: GenomicStudy
-  templateHints:
+  targetHints:
     backref:
     - partOf_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: GenomicStudy
   templatePointers:
     id: /partOf/-/reference
   templateRequired:
   - id
 - href: Practitioner/{id}
   rel: performer_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - performer_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /performer/-/reference
   templateRequired:
   - id
 - href: PractitionerRole/{id}
   rel: performer_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - performer_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /performer/-/reference
   templateRequired:
   - id
 - href: Organization/{id}
   rel: performer_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - performer_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /performer/-/reference
   templateRequired:
   - id
 - href: CareTeam/{id}
   rel: performer_CareTeam
-  targetSchema:
-    $ref: CareTeam
-  templateHints:
+  targetHints:
     backref:
     - performer_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: CareTeam
   templatePointers:
     id: /performer/-/reference
   templateRequired:
   - id
 - href: Patient/{id}
   rel: performer_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - performer_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /performer/-/reference
   templateRequired:
   - id
 - href: RelatedPerson/{id}
   rel: performer_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - performer_observation
     direction:
     - outbound
     multiplicity:
     - has_many
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /performer/-/reference
   templateRequired:
   - id
 - href: Specimen/{id}
   rel: specimen_Specimen
-  targetSchema:
-    $ref: Specimen
-  templateHints:
+  targetHints:
     backref:
     - specimen_observation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Specimen
   templatePointers:
     id: /specimen/reference
   templateRequired:
   - id
 - href: Group/{id}
   rel: specimen_Group
-  targetSchema:
-    $ref: Group
-  templateHints:
+  targetHints:
     backref:
     - specimen_observation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Group
   templatePointers:
     id: /specimen/reference
   templateRequired:
   - id
 - href: Patient/{id}
   rel: subject_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - subject_observation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
 - href: Group/{id}
   rel: subject_Group
-  targetSchema:
-    $ref: Group
-  templateHints:
+  targetHints:
     backref:
     - subject_observation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Group
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
 - href: Device/{id}
   rel: subject_Device
-  targetSchema:
-    $ref: Device
-  templateHints:
+  targetHints:
     backref:
     - subject_observation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Device
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
 - href: Location/{id}
   rel: subject_Location
-  targetSchema:
-    $ref: Location
-  templateHints:
+  targetHints:
     backref:
     - subject_observation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Location
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
 - href: Organization/{id}
   rel: subject_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - subject_observation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
 - href: Procedure/{id}
   rel: subject_Procedure
-  targetSchema:
-    $ref: Procedure
-  templateHints:
+  targetHints:
     backref:
     - subject_observation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Procedure
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
 - href: Practitioner/{id}
   rel: subject_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - subject_observation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
 - href: Medication/{id}
   rel: subject_Medication
-  targetSchema:
-    $ref: Medication
-  templateHints:
+  targetHints:
     backref:
     - subject_observation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Medication
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
 - href: Substance/{id}
   rel: subject_Substance
-  targetSchema:
-    $ref: Substance
-  templateHints:
+  targetHints:
     backref:
     - subject_observation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Substance
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
 - href: BiologicallyDerivedProduct/{id}
   rel: subject_BiologicallyDerivedProduct
-  targetSchema:
-    $ref: BiologicallyDerivedProduct
-  templateHints:
+  targetHints:
     backref:
     - subject_observation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: BiologicallyDerivedProduct
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
 - href: NutritionProduct/{id}
   rel: subject_NutritionProduct
-  targetSchema:
-    $ref: NutritionProduct
-  templateHints:
+  targetHints:
     backref:
     - subject_observation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: NutritionProduct
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
 - href: MolecularSequence/{id}
   rel: valueReference
-  targetSchema:
-    $ref: MolecularSequence
-  templateHints:
+  targetHints:
     backref:
     - valueReference_observation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: MolecularSequence
   templatePointers:
     id: /valueReference/reference
   templateRequired:
@@ -741,15 +741,15 @@ links:
 - $comment: From ObservationComponent/component
   href: MolecularSequence/{id}
   rel: component_valueReference
-  targetSchema:
-    $ref: MolecularSequence
-  templateHints:
+  targetHints:
     backref:
     - observation_component
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: MolecularSequence
   templatePointers:
     id: /component/-/valueReference/reference
   templateRequired:
@@ -757,15 +757,15 @@ links:
 - $comment: From Annotation/note
   href: Practitioner/{id}
   rel: note_authorReference_Practitioner
-  targetSchema:
-    $ref: Practitioner
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Practitioner
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -773,15 +773,15 @@ links:
 - $comment: From Annotation/note
   href: PractitionerRole/{id}
   rel: note_authorReference_PractitionerRole
-  targetSchema:
-    $ref: PractitionerRole
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: PractitionerRole
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -789,15 +789,15 @@ links:
 - $comment: From Annotation/note
   href: Patient/{id}
   rel: note_authorReference_Patient
-  targetSchema:
-    $ref: Patient
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Patient
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -805,15 +805,15 @@ links:
 - $comment: From Annotation/note
   href: RelatedPerson/{id}
   rel: note_authorReference_RelatedPerson
-  targetSchema:
-    $ref: RelatedPerson
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: RelatedPerson
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -821,15 +821,15 @@ links:
 - $comment: From Annotation/note
   href: Organization/{id}
   rel: note_authorReference_Organization
-  targetSchema:
-    $ref: Organization
-  templateHints:
+  targetHints:
     backref:
     - annotation
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Organization
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -837,15 +837,15 @@ links:
 - $comment: From ObservationTriggeredBy/triggeredBy
   href: Observation/{id}
   rel: triggeredBy_observation
-  targetSchema:
-    $ref: Observation
-  templateHints:
+  targetHints:
     backref:
     - observation_triggered_by
     direction:
     - outbound
     multiplicity:
     - has_one
+  targetSchema:
+    $ref: Observation
   templatePointers:
     id: /triggeredBy/-/observation/reference
   templateRequired:
