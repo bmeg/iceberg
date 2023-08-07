@@ -1,7 +1,7 @@
 $id: TimingRepeat
 additionalProperties: false
 description: When the event is to occur. A set of rules that describe when the event
-  is scheduled. [See https://hl7.org/fhir/R5/TimingRepeat.html] [See https://hl7.org/fhir/R5/TimingRepeat.html]
+  is scheduled. [See https://hl7.org/fhir/R5/TimingRepeat.html]
 links: []
 properties:
   _count:
@@ -190,10 +190,9 @@ properties:
     title: Unique id for inter-element referencing
     type: string
   links:
-    links:
-      items:
-        $ref: https://json-schema.org/draft/2020-12/links
-      type: array
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   offset:
     description: The number of minutes from the event. If the event code does not
       indicate whether the minutes is before or after the event, then the offset is

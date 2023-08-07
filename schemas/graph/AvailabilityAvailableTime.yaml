@@ -1,6 +1,7 @@
 $id: AvailabilityAvailableTime
 additionalProperties: false
 description: Times the {item} is available. [See https://hl7.org/fhir/R5/AvailabilityAvailableTime.html]
+  [See https://hl7.org/fhir/R5/AvailabilityAvailableTime.html]
 links: []
 properties:
   _allDay:
@@ -78,10 +79,9 @@ properties:
     title: Unique id for inter-element referencing
     type: string
   links:
-    links:
-      items:
-        $ref: https://json-schema.org/draft/2020-12/links
-      type: array
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   resourceType:
     const: AvailabilityAvailableTime
     default: AvailabilityAvailableTime

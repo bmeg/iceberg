@@ -4,7 +4,7 @@ description: A measured or measurable amount. A measured amount (or an amount th
   can potentially be measured). Note that measured amounts include amounts that are
   not precisely quantified, including amounts involving arbitrary units and floating
   currencies. [See https://hl7.org/fhir/R5/Count.html] [See https://hl7.org/fhir/R5/Count.html]
-  [See https://hl7.org/fhir/R5/Count.html] [See https://hl7.org/fhir/R5/Count.html]
+  [See https://hl7.org/fhir/R5/Count.html]
 links: []
 properties:
   _code:
@@ -74,10 +74,9 @@ properties:
     title: Unique id for inter-element referencing
     type: string
   links:
-    links:
-      items:
-        $ref: https://json-schema.org/draft/2020-12/links
-      type: array
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   resourceType:
     const: Count
     default: Count

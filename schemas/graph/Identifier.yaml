@@ -4,6 +4,8 @@ description: An identifier intended for computation. An identifier - identifies 
   entity uniquely and unambiguously. Typically this is used for business identifiers.
   [See https://hl7.org/fhir/R5/Identifier.html] [See https://hl7.org/fhir/R5/Identifier.html]
   [See https://hl7.org/fhir/R5/Identifier.html] [See https://hl7.org/fhir/R5/Identifier.html]
+  [See https://hl7.org/fhir/R5/Identifier.html] [See https://hl7.org/fhir/R5/Identifier.html]
+  [See https://hl7.org/fhir/R5/Identifier.html] [See https://hl7.org/fhir/R5/Identifier.html]
   [See https://hl7.org/fhir/R5/Identifier.html]
 links:
 - href: Organization/{id}
@@ -66,10 +68,9 @@ properties:
     title: Unique id for inter-element referencing
     type: string
   links:
-    links:
-      items:
-        $ref: https://json-schema.org/draft/2020-12/links
-      type: array
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   period:
     $ref: Period.yaml
     description: Time period during which identifier is/was valid for use.

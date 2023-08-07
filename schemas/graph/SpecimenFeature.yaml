@@ -5,7 +5,6 @@ description: The physical feature of a specimen. A physical feature or landmark 
   that identifies the type of feature as well as its meaning (e.g. the red ink indicating
   the resection margin of the right lobe of the excised prostate tissue or wire loop
   at radiologically suspected tumor location). [See https://hl7.org/fhir/R5/SpecimenFeature.html]
-  [See https://hl7.org/fhir/R5/SpecimenFeature.html]
 links: []
 properties:
   _description:
@@ -45,10 +44,9 @@ properties:
     title: Unique id for inter-element referencing
     type: string
   links:
-    links:
-      items:
-        $ref: https://json-schema.org/draft/2020-12/links
-      type: array
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

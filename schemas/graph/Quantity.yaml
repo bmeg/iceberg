@@ -6,6 +6,9 @@ description: A measured or measurable amount. A measured amount (or an amount th
   currencies. [See https://hl7.org/fhir/R5/Quantity.html] [See https://hl7.org/fhir/R5/Quantity.html]
   [See https://hl7.org/fhir/R5/Quantity.html] [See https://hl7.org/fhir/R5/Quantity.html]
   [See https://hl7.org/fhir/R5/Quantity.html] [See https://hl7.org/fhir/R5/Quantity.html]
+  [See https://hl7.org/fhir/R5/Quantity.html] [See https://hl7.org/fhir/R5/Quantity.html]
+  [See https://hl7.org/fhir/R5/Quantity.html] [See https://hl7.org/fhir/R5/Quantity.html]
+  [See https://hl7.org/fhir/R5/Quantity.html] [See https://hl7.org/fhir/R5/Quantity.html]
   [See https://hl7.org/fhir/R5/Quantity.html]
 links: []
 properties:
@@ -76,10 +79,9 @@ properties:
     title: Unique id for inter-element referencing
     type: string
   links:
-    links:
-      items:
-        $ref: https://json-schema.org/draft/2020-12/links
-      type: array
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   resourceType:
     const: Quantity
     default: Quantity

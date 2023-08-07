@@ -6,6 +6,8 @@ description: Metadata about a resource. The metadata about a resource. This is c
   [See https://hl7.org/fhir/R5/Meta.html] [See https://hl7.org/fhir/R5/Meta.html]
   [See https://hl7.org/fhir/R5/Meta.html] [See https://hl7.org/fhir/R5/Meta.html]
   [See https://hl7.org/fhir/R5/Meta.html] [See https://hl7.org/fhir/R5/Meta.html]
+  [See https://hl7.org/fhir/R5/Meta.html] [See https://hl7.org/fhir/R5/Meta.html]
+  [See https://hl7.org/fhir/R5/Meta.html] [See https://hl7.org/fhir/R5/Meta.html]
   [See https://hl7.org/fhir/R5/Meta.html]
 links: []
 properties:
@@ -56,10 +58,9 @@ properties:
     title: When the resource version last changed
     type: string
   links:
-    links:
-      items:
-        $ref: https://json-schema.org/draft/2020-12/links
-      type: array
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   profile:
     description: A list of profiles (references to [StructureDefinition](structuredefinition.html#)
       resources) that this resource claims to conform to. The URL is a reference to

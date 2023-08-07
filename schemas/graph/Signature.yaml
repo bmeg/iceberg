@@ -6,7 +6,7 @@ description: A Signature - XML DigSig, JWS, Graphical image of signature, etc.. 
   This other signature may be as simple as a graphical image representing a hand-written
   signature, or a signature ceremony Different signature approaches have different
   utilities. [See https://hl7.org/fhir/R5/Signature.html] [See https://hl7.org/fhir/R5/Signature.html]
-  [See https://hl7.org/fhir/R5/Signature.html] [See https://hl7.org/fhir/R5/Signature.html]
+  [See https://hl7.org/fhir/R5/Signature.html]
 links:
 - href: Practitioner/{id}
   rel: onBehalfOf_Practitioner
@@ -235,10 +235,9 @@ properties:
     title: Unique id for inter-element referencing
     type: string
   links:
-    links:
-      items:
-        $ref: https://json-schema.org/draft/2020-12/links
-      type: array
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   onBehalfOf:
     $ref: Reference.yaml
     backref: onBehalfOf_signature

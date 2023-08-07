@@ -1,7 +1,7 @@
 $id: PatientContact
 additionalProperties: false
 description: A contact party (e.g. guardian, partner, friend) for the patient. [See
-  https://hl7.org/fhir/R5/PatientContact.html]
+  https://hl7.org/fhir/R5/PatientContact.html] [See https://hl7.org/fhir/R5/PatientContact.html]
 links:
 - href: Organization/{id}
   rel: organization
@@ -69,10 +69,9 @@ properties:
     title: Unique id for inter-element referencing
     type: string
   links:
-    links:
-      items:
-        $ref: https://json-schema.org/draft/2020-12/links
-      type: array
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

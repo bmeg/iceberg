@@ -2,6 +2,7 @@ $id: MedicationAdministrationDosage
 additionalProperties: false
 description: Details of how medication was taken. Describes the medication dosage
   information details e.g. dose, rate, site, route, etc. [See https://hl7.org/fhir/R5/MedicationAdministrationDosage.html]
+  [See https://hl7.org/fhir/R5/MedicationAdministrationDosage.html]
 links: []
 properties:
   _text:
@@ -41,10 +42,9 @@ properties:
     title: Unique id for inter-element referencing
     type: string
   links:
-    links:
-      items:
-        $ref: https://json-schema.org/draft/2020-12/links
-      type: array
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   method:
     $ref: CodeableConcept.yaml
     binding_description: A coded concept describing the technique by which the medicine

@@ -3,7 +3,7 @@ additionalProperties: false
 description: Defines an expected trigger for a module. A description of a triggering
   event. Triggering events can be named events, data events, or periodic, as determined
   by the type element. [See https://hl7.org/fhir/R5/TriggerDefinition.html] [See https://hl7.org/fhir/R5/TriggerDefinition.html]
-  [See https://hl7.org/fhir/R5/TriggerDefinition.html] [See https://hl7.org/fhir/R5/TriggerDefinition.html]
+  [See https://hl7.org/fhir/R5/TriggerDefinition.html]
 links:
 - href: Schedule/{id}
   rel: timingReference
@@ -99,10 +99,9 @@ properties:
     title: Unique id for inter-element referencing
     type: string
   links:
-    links:
-      items:
-        $ref: https://json-schema.org/draft/2020-12/links
-      type: array
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   name:
     description: A formal name for the event. This may be an absolute URI that identifies
       the event formally (e.g. from a trigger registry), or a simple relative URI

@@ -5,8 +5,6 @@ description: Human-readable summary of the resource (essential clinical and busi
   and business information for the resource. [See https://hl7.org/fhir/R5/Narrative.html]
   [See https://hl7.org/fhir/R5/Narrative.html] [See https://hl7.org/fhir/R5/Narrative.html]
   [See https://hl7.org/fhir/R5/Narrative.html] [See https://hl7.org/fhir/R5/Narrative.html]
-  [See https://hl7.org/fhir/R5/Narrative.html] [See https://hl7.org/fhir/R5/Narrative.html]
-  [See https://hl7.org/fhir/R5/Narrative.html] [See https://hl7.org/fhir/R5/Narrative.html]
 links: []
 properties:
   _div:
@@ -48,10 +46,9 @@ properties:
     title: Unique id for inter-element referencing
     type: string
   links:
-    links:
-      items:
-        $ref: https://json-schema.org/draft/2020-12/links
-      type: array
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   resourceType:
     const: Narrative
     default: Narrative

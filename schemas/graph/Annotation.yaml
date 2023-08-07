@@ -6,6 +6,7 @@ description: Text node with attribution. A  text note which also  contains infor
   [See https://hl7.org/fhir/R5/Annotation.html] [See https://hl7.org/fhir/R5/Annotation.html]
   [See https://hl7.org/fhir/R5/Annotation.html] [See https://hl7.org/fhir/R5/Annotation.html]
   [See https://hl7.org/fhir/R5/Annotation.html] [See https://hl7.org/fhir/R5/Annotation.html]
+  [See https://hl7.org/fhir/R5/Annotation.html]
 links:
 - href: Practitioner/{id}
   rel: authorReference_Practitioner
@@ -141,10 +142,9 @@ properties:
     title: Unique id for inter-element referencing
     type: string
   links:
-    links:
-      items:
-        $ref: https://json-schema.org/draft/2020-12/links
-      type: array
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   resourceType:
     const: Annotation
     default: Annotation

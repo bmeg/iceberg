@@ -2,6 +2,7 @@ $id: ContactDetail
 additionalProperties: false
 description: Contact information. Specifies contact information for a person or organization.
   [See https://hl7.org/fhir/R5/ContactDetail.html] [See https://hl7.org/fhir/R5/ContactDetail.html]
+  [See https://hl7.org/fhir/R5/ContactDetail.html] [See https://hl7.org/fhir/R5/ContactDetail.html]
 links: []
 properties:
   _name:
@@ -34,10 +35,9 @@ properties:
     title: Unique id for inter-element referencing
     type: string
   links:
-    links:
-      items:
-        $ref: https://json-schema.org/draft/2020-12/links
-      type: array
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   name:
     description: The name of an individual to contact.
     element_property: true

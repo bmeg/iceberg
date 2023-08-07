@@ -3,6 +3,8 @@ additionalProperties: false
 description: Content in a format defined elsewhere. For referring to data content
   defined in other formats. [See https://hl7.org/fhir/R5/Attachment.html] [See https://hl7.org/fhir/R5/Attachment.html]
   [See https://hl7.org/fhir/R5/Attachment.html] [See https://hl7.org/fhir/R5/Attachment.html]
+  [See https://hl7.org/fhir/R5/Attachment.html] [See https://hl7.org/fhir/R5/Attachment.html]
+  [See https://hl7.org/fhir/R5/Attachment.html] [See https://hl7.org/fhir/R5/Attachment.html]
 links: []
 properties:
   _contentType:
@@ -132,10 +134,9 @@ properties:
     title: Human language of the content (BCP-47)
     type: string
   links:
-    links:
-      items:
-        $ref: https://json-schema.org/draft/2020-12/links
-      type: array
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   pages:
     description: The number of pages when printed.
     element_property: true

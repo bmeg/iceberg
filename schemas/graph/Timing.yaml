@@ -6,6 +6,9 @@ description: A timing schedule that specifies an event that may occur multiple t
   in dosage instructions for medications. They are also used when planning care of
   various kinds, and may be used for reporting the schedule to which past regular
   activities were carried out. [See https://hl7.org/fhir/R5/Timing.html] [See https://hl7.org/fhir/R5/Timing.html]
+  [See https://hl7.org/fhir/R5/Timing.html] [See https://hl7.org/fhir/R5/Timing.html]
+  [See https://hl7.org/fhir/R5/Timing.html] [See https://hl7.org/fhir/R5/Timing.html]
+  [See https://hl7.org/fhir/R5/Timing.html]
 links: []
 properties:
   _event:
@@ -62,10 +65,9 @@ properties:
     title: Unique id for inter-element referencing
     type: string
   links:
-    links:
-      items:
-        $ref: https://json-schema.org/draft/2020-12/links
-      type: array
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

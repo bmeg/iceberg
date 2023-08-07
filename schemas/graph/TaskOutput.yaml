@@ -1,7 +1,7 @@
 $id: TaskOutput
 additionalProperties: false
 description: Information produced as part of task. Outputs produced by the Task. [See
-  https://hl7.org/fhir/R5/TaskOutput.html] [See https://hl7.org/fhir/R5/TaskOutput.html]
+  https://hl7.org/fhir/R5/TaskOutput.html]
 links:
 - href: __ANY__/{id}
   rel: valueReference
@@ -570,10 +570,9 @@ properties:
     title: Unique id for inter-element referencing
     type: string
   links:
-    links:
-      items:
-        $ref: https://json-schema.org/draft/2020-12/links
-      type: array
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

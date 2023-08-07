@@ -7,7 +7,7 @@ description: An address expressed using postal conventions (as opposed to GPS or
   which might not be valid for mail delivery.  There are a variety of postal address
   formats defined around the world. The ISO21090-codedString may be used to provide
   a coded representation of the contents of strings in an Address. [See https://hl7.org/fhir/R5/Address.html]
-  [See https://hl7.org/fhir/R5/Address.html] [See https://hl7.org/fhir/R5/Address.html]
+  [See https://hl7.org/fhir/R5/Address.html]
 links: []
 properties:
   _city:
@@ -95,10 +95,9 @@ properties:
     title: Street name, number, direction & P.O. Box etc.
     type: array
   links:
-    links:
-      items:
-        $ref: https://json-schema.org/draft/2020-12/links
-      type: array
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   period:
     $ref: Period.yaml
     element_property: true
