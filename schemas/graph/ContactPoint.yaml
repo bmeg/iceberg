@@ -3,6 +3,7 @@ additionalProperties: false
 description: Details of a Technology mediated contact point (phone, fax, email, etc.).
   Details for all kinds of technology mediated contact points for a person or organization,
   including telephone, email, etc. [See https://hl7.org/fhir/R5/ContactPoint.html]
+links: []
 properties:
   _rank:
     $ref: FHIRPrimitiveExtension.yaml
@@ -42,6 +43,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   period:
     $ref: Period.yaml
     element_property: true

@@ -2,6 +2,7 @@ $id: PatientCommunication
 additionalProperties: false
 description: A language which may be used to communicate with the patient about his
   or her health. [See https://hl7.org/fhir/R5/PatientCommunication.html]
+links: []
 properties:
   _preferred:
     $ref: FHIRPrimitiveExtension.yaml
@@ -45,6 +46,10 @@ properties:
     element_property: true
     title: The language which can be used to communicate with the patient about his
       or her health
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

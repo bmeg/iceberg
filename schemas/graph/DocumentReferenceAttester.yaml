@@ -2,6 +2,82 @@ $id: DocumentReferenceAttester
 additionalProperties: false
 description: Attests to accuracy of the document. A participant who has authenticated
   the accuracy of the document. [See https://hl7.org/fhir/R5/DocumentReferenceAttester.html]
+links:
+- href: Patient/{id}
+  rel: party_Patient
+  targetHints:
+    backref:
+    - document_reference_attester
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient
+  templatePointers:
+    id: /party/reference
+  templateRequired:
+  - id
+- href: RelatedPerson/{id}
+  rel: party_RelatedPerson
+  targetHints:
+    backref:
+    - document_reference_attester
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: RelatedPerson
+  templatePointers:
+    id: /party/reference
+  templateRequired:
+  - id
+- href: Practitioner/{id}
+  rel: party_Practitioner
+  targetHints:
+    backref:
+    - document_reference_attester
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner
+  templatePointers:
+    id: /party/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: party_PractitionerRole
+  targetHints:
+    backref:
+    - document_reference_attester
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole
+  templatePointers:
+    id: /party/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: party_Organization
+  targetHints:
+    backref:
+    - document_reference_attester
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization
+  templatePointers:
+    id: /party/reference
+  templateRequired:
+  - id
 properties:
   _time:
     $ref: FHIRPrimitiveExtension.yaml
@@ -32,6 +108,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   mode:
     $ref: CodeableConcept.yaml
     binding_description: The way in which a person authenticated a document.

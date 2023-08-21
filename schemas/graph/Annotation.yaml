@@ -2,6 +2,82 @@ $id: Annotation
 additionalProperties: false
 description: Text node with attribution. A  text note which also  contains information
   about who made the statement and when. [See https://hl7.org/fhir/R5/Annotation.html]
+links:
+- href: Practitioner/{id}
+  rel: authorReference_Practitioner
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner
+  templatePointers:
+    id: /authorReference/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: authorReference_PractitionerRole
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole
+  templatePointers:
+    id: /authorReference/reference
+  templateRequired:
+  - id
+- href: Patient/{id}
+  rel: authorReference_Patient
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient
+  templatePointers:
+    id: /authorReference/reference
+  templateRequired:
+  - id
+- href: RelatedPerson/{id}
+  rel: authorReference_RelatedPerson
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: RelatedPerson
+  templatePointers:
+    id: /authorReference/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: authorReference_Organization
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization
+  templatePointers:
+    id: /authorReference/reference
+  templateRequired:
+  - id
 properties:
   _authorString:
     $ref: FHIRPrimitiveExtension.yaml
@@ -60,6 +136,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   resourceType:
     const: Annotation
     default: Annotation

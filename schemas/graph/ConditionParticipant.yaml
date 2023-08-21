@@ -3,6 +3,112 @@ additionalProperties: false
 description: Who or what participated in the activities related to the condition and
   how they were involved. Indicates who or what participated in the activities related
   to the condition and how they were involved. [See https://hl7.org/fhir/R5/ConditionParticipant.html]
+links:
+- href: Practitioner/{id}
+  rel: actor_Practitioner
+  targetHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: actor_PractitionerRole
+  targetHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: Patient/{id}
+  rel: actor_Patient
+  targetHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: RelatedPerson/{id}
+  rel: actor_RelatedPerson
+  targetHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: RelatedPerson
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: Device/{id}
+  rel: actor_Device
+  targetHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Device
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: actor_Organization
+  targetHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: CareTeam/{id}
+  rel: actor_CareTeam
+  targetHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: CareTeam
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
 properties:
   actor:
     $ref: Reference.yaml
@@ -55,6 +161,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

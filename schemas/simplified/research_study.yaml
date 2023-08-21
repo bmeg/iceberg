@@ -21,24 +21,6 @@ links:
   name: partOf
   required: false
   target_type: research_study
-- backref: result_research_study
-  label: ResearchStudy_result_DiagnosticReport_result_research_study
-  multiplicity: many_to_many
-  name: result_DiagnosticReport
-  required: false
-  target_type: diagnostic_report
-- backref: site_research_study
-  label: ResearchStudy_site_Location_site_research_study
-  multiplicity: many_to_many
-  name: site_Location
-  required: false
-  target_type: location
-- backref: site_research_study
-  label: ResearchStudy_site_Organization_site_research_study
-  multiplicity: many_to_many
-  name: site_Organization
-  required: false
-  target_type: organization
 - backref: research_study
   label: ResearchStudy_gen3_project_Project_research_study
   multiplicity: many_to_many

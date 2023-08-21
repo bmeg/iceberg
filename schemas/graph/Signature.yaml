@@ -6,6 +6,187 @@ description: A Signature - XML DigSig, JWS, Graphical image of signature, etc.. 
   This other signature may be as simple as a graphical image representing a hand-written
   signature, or a signature ceremony Different signature approaches have different
   utilities. [See https://hl7.org/fhir/R5/Signature.html]
+links:
+- href: Practitioner/{id}
+  rel: onBehalfOf_Practitioner
+  targetHints:
+    backref:
+    - onBehalfOf_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner
+  templatePointers:
+    id: /onBehalfOf/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: onBehalfOf_PractitionerRole
+  targetHints:
+    backref:
+    - onBehalfOf_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole
+  templatePointers:
+    id: /onBehalfOf/reference
+  templateRequired:
+  - id
+- href: RelatedPerson/{id}
+  rel: onBehalfOf_RelatedPerson
+  targetHints:
+    backref:
+    - onBehalfOf_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: RelatedPerson
+  templatePointers:
+    id: /onBehalfOf/reference
+  templateRequired:
+  - id
+- href: Patient/{id}
+  rel: onBehalfOf_Patient
+  targetHints:
+    backref:
+    - onBehalfOf_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient
+  templatePointers:
+    id: /onBehalfOf/reference
+  templateRequired:
+  - id
+- href: Device/{id}
+  rel: onBehalfOf_Device
+  targetHints:
+    backref:
+    - onBehalfOf_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Device
+  templatePointers:
+    id: /onBehalfOf/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: onBehalfOf_Organization
+  targetHints:
+    backref:
+    - onBehalfOf_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization
+  templatePointers:
+    id: /onBehalfOf/reference
+  templateRequired:
+  - id
+- href: Practitioner/{id}
+  rel: who_Practitioner
+  targetHints:
+    backref:
+    - who_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner
+  templatePointers:
+    id: /who/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: who_PractitionerRole
+  targetHints:
+    backref:
+    - who_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole
+  templatePointers:
+    id: /who/reference
+  templateRequired:
+  - id
+- href: RelatedPerson/{id}
+  rel: who_RelatedPerson
+  targetHints:
+    backref:
+    - who_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: RelatedPerson
+  templatePointers:
+    id: /who/reference
+  templateRequired:
+  - id
+- href: Patient/{id}
+  rel: who_Patient
+  targetHints:
+    backref:
+    - who_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient
+  templatePointers:
+    id: /who/reference
+  templateRequired:
+  - id
+- href: Device/{id}
+  rel: who_Device
+  targetHints:
+    backref:
+    - who_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Device
+  templatePointers:
+    id: /who/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: who_Organization
+  targetHints:
+    backref:
+    - who_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization
+  templatePointers:
+    id: /who/reference
+  templateRequired:
+  - id
 properties:
   _data:
     $ref: FHIRPrimitiveExtension.yaml
@@ -52,6 +233,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   onBehalfOf:
     $ref: Reference.yaml
     backref: onBehalfOf_signature

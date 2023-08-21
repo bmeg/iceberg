@@ -4,6 +4,52 @@ description: Stage/grade, usually assessed formally. A simple summary of the sta
   such as "Stage 3" or "Early Onset". The determination of the stage is disease-specific,
   such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer's, or Parkinson
   disease. [See https://hl7.org/fhir/R5/ConditionStage.html]
+links:
+- href: ClinicalImpression/{id}
+  rel: assessment_ClinicalImpression
+  targetHints:
+    backref:
+    - assessment_condition_stage
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: ClinicalImpression
+  templatePointers:
+    id: /assessment/-/reference
+  templateRequired:
+  - id
+- href: DiagnosticReport/{id}
+  rel: assessment_DiagnosticReport
+  targetHints:
+    backref:
+    - assessment_condition_stage
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: DiagnosticReport
+  templatePointers:
+    id: /assessment/-/reference
+  templateRequired:
+  - id
+- href: Observation/{id}
+  rel: assessment_Observation
+  targetHints:
+    backref:
+    - assessment_condition_stage
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Observation
+  templatePointers:
+    id: /assessment/-/reference
+  templateRequired:
+  - id
 properties:
   assessment:
     backref: assessment_condition_stage
@@ -44,6 +90,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

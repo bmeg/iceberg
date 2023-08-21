@@ -5,6 +5,285 @@ description: Administration of medication to a patient. Describes the event of a
   swallowing a tablet or it may be a long running infusion.  Related resources tie
   this event to the authorizing prescription, and the specific encounter between patient
   and health care practitioner. [See https://hl7.org/fhir/R5/MedicationAdministration.html]
+links:
+- href: CarePlan/{id}
+  rel: basedOn
+  targetHints:
+    backref:
+    - basedOn_medication_administration
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: CarePlan
+  templatePointers:
+    id: /basedOn/-/reference
+  templateRequired:
+  - id
+- href: Encounter/{id}
+  rel: encounter
+  targetHints:
+    backref:
+    - medication_administration
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Encounter
+  templatePointers:
+    id: /encounter/reference
+  templateRequired:
+  - id
+- href: Provenance/{id}
+  rel: eventHistory
+  targetHints:
+    backref:
+    - eventHistory_medication_administration
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Provenance
+  templatePointers:
+    id: /eventHistory/-/reference
+  templateRequired:
+  - id
+- href: MedicationAdministration/{id}
+  rel: partOf_MedicationAdministration
+  targetHints:
+    backref:
+    - partOf_medication_administration
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: MedicationAdministration
+  templatePointers:
+    id: /partOf/-/reference
+  templateRequired:
+  - id
+- href: Procedure/{id}
+  rel: partOf_Procedure
+  targetHints:
+    backref:
+    - partOf_medication_administration
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Procedure
+  templatePointers:
+    id: /partOf/-/reference
+  templateRequired:
+  - id
+- href: MedicationDispense/{id}
+  rel: partOf_MedicationDispense
+  targetHints:
+    backref:
+    - partOf_medication_administration
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: MedicationDispense
+  templatePointers:
+    id: /partOf/-/reference
+  templateRequired:
+  - id
+- href: MedicationRequest/{id}
+  rel: request
+  targetHints:
+    backref:
+    - medication_administration
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: MedicationRequest
+  templatePointers:
+    id: /request/reference
+  templateRequired:
+  - id
+- href: Patient/{id}
+  rel: subject_Patient
+  targetHints:
+    backref:
+    - medication_administration
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: Group/{id}
+  rel: subject_Group
+  targetHints:
+    backref:
+    - medication_administration
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Group
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: Resource/{id}
+  rel: supportingInformation
+  targetHints:
+    backref:
+    - supportingInformation_medication_administration
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Resource
+  templatePointers:
+    id: /supportingInformation/-/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/device
+  href: __ANY__/{id}
+  rel: device_reference
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: __ANY__
+  templatePointers:
+    id: /device/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/medication
+  href: __ANY__/{id}
+  rel: medication_reference
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: __ANY__
+  templatePointers:
+    id: /medication/reference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Practitioner/{id}
+  rel: note_authorReference_Practitioner
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: PractitionerRole/{id}
+  rel: note_authorReference_PractitionerRole
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Patient/{id}
+  rel: note_authorReference_Patient
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: RelatedPerson/{id}
+  rel: note_authorReference_RelatedPerson
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: RelatedPerson
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Organization/{id}
+  rel: note_authorReference_Organization
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/reason
+  href: __ANY__/{id}
+  rel: reason_reference
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: __ANY__
+  templatePointers:
+    id: /reason/-/reference/reference
+  templateRequired:
+  - id
 properties:
   _implicitRules:
     $ref: FHIRPrimitiveExtension.yaml
@@ -158,6 +437,10 @@ properties:
     pattern: ^[^\s]+(\s[^\s]+)*$
     title: Language of the resource content
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   medication:
     $ref: CodeableReference.yaml
     backref: medication_administration

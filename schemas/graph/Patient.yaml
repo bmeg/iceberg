@@ -3,6 +3,115 @@ additionalProperties: false
 description: Information about an individual or animal receiving health care services.
   Demographics and other administrative information about an individual or animal
   receiving care or other health-related services. [See https://hl7.org/fhir/R5/Patient.html]
+links:
+- href: Organization/{id}
+  rel: generalPractitioner_Organization
+  targetHints:
+    backref:
+    - generalPractitioner_patient
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Organization
+  templatePointers:
+    id: /generalPractitioner/-/reference
+  templateRequired:
+  - id
+- href: Practitioner/{id}
+  rel: generalPractitioner_Practitioner
+  targetHints:
+    backref:
+    - generalPractitioner_patient
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Practitioner
+  templatePointers:
+    id: /generalPractitioner/-/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: generalPractitioner_PractitionerRole
+  targetHints:
+    backref:
+    - generalPractitioner_patient
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: PractitionerRole
+  templatePointers:
+    id: /generalPractitioner/-/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: managingOrganization
+  targetHints:
+    backref:
+    - managingOrganization_patient
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization
+  templatePointers:
+    id: /managingOrganization/reference
+  templateRequired:
+  - id
+- $comment: From PatientContact/contact
+  href: Organization/{id}
+  rel: contact_organization
+  targetHints:
+    backref:
+    - patient_contact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization
+  templatePointers:
+    id: /contact/-/organization/reference
+  templateRequired:
+  - id
+- $comment: From PatientLink/link
+  href: Patient/{id}
+  rel: link_other_Patient
+  targetHints:
+    backref:
+    - patient_link
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient
+  templatePointers:
+    id: /link/-/other/reference
+  templateRequired:
+  - id
+- $comment: From PatientLink/link
+  href: RelatedPerson/{id}
+  rel: link_other_RelatedPerson
+  targetHints:
+    backref:
+    - patient_link
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: RelatedPerson
+  templatePointers:
+    id: /link/-/other/reference
+  templateRequired:
+  - id
 properties:
   _active:
     $ref: FHIRPrimitiveExtension.yaml
@@ -176,6 +285,10 @@ properties:
       $ref: PatientLink.yaml
     title: Link to a Patient or RelatedPerson resource that concerns the same actual
       individual
+    type: array
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
     type: array
   managingOrganization:
     $ref: Reference.yaml

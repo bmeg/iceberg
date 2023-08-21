@@ -3,6 +3,38 @@ additionalProperties: false
 description: Defines an expected trigger for a module. A description of a triggering
   event. Triggering events can be named events, data events, or periodic, as determined
   by the type element. [See https://hl7.org/fhir/R5/TriggerDefinition.html]
+links:
+- href: Schedule/{id}
+  rel: timingReference
+  targetHints:
+    backref:
+    - trigger_definition
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Schedule
+  templatePointers:
+    id: /timingReference/reference
+  templateRequired:
+  - id
+- $comment: From DataRequirement/data
+  href: Group/{id}
+  rel: data_subjectReference
+  targetHints:
+    backref:
+    - data_requirement
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Group
+  templatePointers:
+    id: /data/-/subjectReference/reference
+  templateRequired:
+  - id
 properties:
   _name:
     $ref: FHIRPrimitiveExtension.yaml
@@ -65,6 +97,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   name:
     description: A formal name for the event. This may be an absolute URI that identifies
       the event formally (e.g. from a trigger registry), or a simple relative URI

@@ -3,6 +3,7 @@ additionalProperties: false
 description: Amount of medication administered, to be administered or typical amount
   to be administered. Depending on the resource,this is the amount of medication administered,
   to be administered or typical amount to be administered. [See https://hl7.org/fhir/R5/DosageDoseAndRate.html]
+links: []
 properties:
   doseQuantity:
     $ref: Quantity.yaml
@@ -42,6 +43,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   rateQuantity:
     $ref: Quantity.yaml
     element_property: true

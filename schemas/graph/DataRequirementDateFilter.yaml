@@ -4,6 +4,7 @@ description: What dates/date ranges are expected. Date filters specify additiona
   constraints on the data in terms of the applicable date range for specific elements.
   Each date filter specifies an additional constraint on the data, i.e. date filters
   are AND'ed, not OR'ed. [See https://hl7.org/fhir/R5/DataRequirementDateFilter.html]
+links: []
 properties:
   _path:
     $ref: FHIRPrimitiveExtension.yaml
@@ -40,6 +41,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   path:
     description: The date-valued attribute of the filter. The specified path SHALL
       be a FHIRPath resolvable on the specified type of the DataRequirement, and SHALL

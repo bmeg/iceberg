@@ -4,6 +4,97 @@ description: Constraints on fulfillment tasks. If the Task.focus is a request re
   and the task is seeking fulfillment (i.e. is asking for the request to be actioned),
   this element identifies any limitations on what parts of the referenced request
   should be actioned. [See https://hl7.org/fhir/R5/TaskRestriction.html]
+links:
+- href: Patient/{id}
+  rel: recipient_Patient
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Patient
+  templatePointers:
+    id: /recipient/-/reference
+  templateRequired:
+  - id
+- href: Practitioner/{id}
+  rel: recipient_Practitioner
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Practitioner
+  templatePointers:
+    id: /recipient/-/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: recipient_PractitionerRole
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: PractitionerRole
+  templatePointers:
+    id: /recipient/-/reference
+  templateRequired:
+  - id
+- href: RelatedPerson/{id}
+  rel: recipient_RelatedPerson
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: RelatedPerson
+  templatePointers:
+    id: /recipient/-/reference
+  templateRequired:
+  - id
+- href: Group/{id}
+  rel: recipient_Group
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Group
+  templatePointers:
+    id: /recipient/-/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: recipient_Organization
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Organization
+  templatePointers:
+    id: /recipient/-/reference
+  templateRequired:
+  - id
 properties:
   _repetitions:
     $ref: FHIRPrimitiveExtension.yaml
@@ -34,6 +125,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

@@ -2,6 +2,22 @@ $id: RelatedArtifact
 additionalProperties: false
 description: Related artifacts for a knowledge resource. Related artifacts such as
   additional documentation, justification, or bibliographic references. [See https://hl7.org/fhir/R5/RelatedArtifact.html]
+links:
+- href: Resource/{id}
+  rel: resourceReference
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Resource
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
 properties:
   _citation:
     $ref: FHIRPrimitiveExtension.yaml
@@ -88,6 +104,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Short label
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   publicationDate:
     description: The date of publication of the artifact being referred to.
     element_property: true

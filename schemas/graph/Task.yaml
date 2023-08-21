@@ -1,6 +1,674 @@
 $id: Task
 additionalProperties: false
 description: A task to be performed. [See https://hl7.org/fhir/R5/Task.html]
+links:
+- href: Resource/{id}
+  rel: basedOn
+  targetHints:
+    backref:
+    - basedOn_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Resource
+  templatePointers:
+    id: /basedOn/-/reference
+  templateRequired:
+  - id
+- href: Encounter/{id}
+  rel: encounter
+  targetHints:
+    backref:
+    - task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Encounter
+  templatePointers:
+    id: /encounter/reference
+  templateRequired:
+  - id
+- href: Resource/{id}
+  rel: focus
+  targetHints:
+    backref:
+    - focus_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Resource
+  templatePointers:
+    id: /focus/reference
+  templateRequired:
+  - id
+- href: Resource/{id}
+  rel: for_fhir
+  targetHints:
+    backref:
+    - for_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Resource
+  templatePointers:
+    id: /for_fhir/reference
+  templateRequired:
+  - id
+- href: Coverage/{id}
+  rel: insurance_Coverage
+  targetHints:
+    backref:
+    - insurance_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Coverage
+  templatePointers:
+    id: /insurance/-/reference
+  templateRequired:
+  - id
+- href: ClaimResponse/{id}
+  rel: insurance_ClaimResponse
+  targetHints:
+    backref:
+    - insurance_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: ClaimResponse
+  templatePointers:
+    id: /insurance/-/reference
+  templateRequired:
+  - id
+- href: Location/{id}
+  rel: location
+  targetHints:
+    backref:
+    - task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Location
+  templatePointers:
+    id: /location/reference
+  templateRequired:
+  - id
+- href: Practitioner/{id}
+  rel: owner_Practitioner
+  targetHints:
+    backref:
+    - owner_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner
+  templatePointers:
+    id: /owner/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: owner_PractitionerRole
+  targetHints:
+    backref:
+    - owner_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole
+  templatePointers:
+    id: /owner/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: owner_Organization
+  targetHints:
+    backref:
+    - owner_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization
+  templatePointers:
+    id: /owner/reference
+  templateRequired:
+  - id
+- href: CareTeam/{id}
+  rel: owner_CareTeam
+  targetHints:
+    backref:
+    - owner_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: CareTeam
+  templatePointers:
+    id: /owner/reference
+  templateRequired:
+  - id
+- href: Patient/{id}
+  rel: owner_Patient
+  targetHints:
+    backref:
+    - owner_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient
+  templatePointers:
+    id: /owner/reference
+  templateRequired:
+  - id
+- href: RelatedPerson/{id}
+  rel: owner_RelatedPerson
+  targetHints:
+    backref:
+    - owner_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: RelatedPerson
+  templatePointers:
+    id: /owner/reference
+  templateRequired:
+  - id
+- href: Task/{id}
+  rel: partOf
+  targetHints:
+    backref:
+    - partOf_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Task
+  templatePointers:
+    id: /partOf/-/reference
+  templateRequired:
+  - id
+- href: Provenance/{id}
+  rel: relevantHistory
+  targetHints:
+    backref:
+    - relevantHistory_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Provenance
+  templatePointers:
+    id: /relevantHistory/-/reference
+  templateRequired:
+  - id
+- href: Device/{id}
+  rel: requester_Device
+  targetHints:
+    backref:
+    - requester_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Device
+  templatePointers:
+    id: /requester/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: requester_Organization
+  targetHints:
+    backref:
+    - requester_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization
+  templatePointers:
+    id: /requester/reference
+  templateRequired:
+  - id
+- href: Patient/{id}
+  rel: requester_Patient
+  targetHints:
+    backref:
+    - requester_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient
+  templatePointers:
+    id: /requester/reference
+  templateRequired:
+  - id
+- href: Practitioner/{id}
+  rel: requester_Practitioner
+  targetHints:
+    backref:
+    - requester_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner
+  templatePointers:
+    id: /requester/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: requester_PractitionerRole
+  targetHints:
+    backref:
+    - requester_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole
+  templatePointers:
+    id: /requester/reference
+  templateRequired:
+  - id
+- href: RelatedPerson/{id}
+  rel: requester_RelatedPerson
+  targetHints:
+    backref:
+    - requester_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: RelatedPerson
+  templatePointers:
+    id: /requester/reference
+  templateRequired:
+  - id
+- $comment: From TaskInput/input
+  href: __ANY__/{id}
+  rel: input_valueReference
+  targetHints:
+    backref:
+    - task_input
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: __ANY__
+  templatePointers:
+    id: /input/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Practitioner/{id}
+  rel: note_authorReference_Practitioner
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: PractitionerRole/{id}
+  rel: note_authorReference_PractitionerRole
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Patient/{id}
+  rel: note_authorReference_Patient
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: RelatedPerson/{id}
+  rel: note_authorReference_RelatedPerson
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: RelatedPerson
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Organization/{id}
+  rel: note_authorReference_Organization
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From TaskOutput/output
+  href: __ANY__/{id}
+  rel: output_valueReference
+  targetHints:
+    backref:
+    - task_output
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: __ANY__
+  templatePointers:
+    id: /output/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From TaskPerformer/performer
+  href: Practitioner/{id}
+  rel: performer_actor_Practitioner
+  targetHints:
+    backref:
+    - task_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner
+  templatePointers:
+    id: /performer/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From TaskPerformer/performer
+  href: PractitionerRole/{id}
+  rel: performer_actor_PractitionerRole
+  targetHints:
+    backref:
+    - task_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole
+  templatePointers:
+    id: /performer/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From TaskPerformer/performer
+  href: Organization/{id}
+  rel: performer_actor_Organization
+  targetHints:
+    backref:
+    - task_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization
+  templatePointers:
+    id: /performer/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From TaskPerformer/performer
+  href: CareTeam/{id}
+  rel: performer_actor_CareTeam
+  targetHints:
+    backref:
+    - task_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: CareTeam
+  templatePointers:
+    id: /performer/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From TaskPerformer/performer
+  href: Patient/{id}
+  rel: performer_actor_Patient
+  targetHints:
+    backref:
+    - task_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient
+  templatePointers:
+    id: /performer/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From TaskPerformer/performer
+  href: RelatedPerson/{id}
+  rel: performer_actor_RelatedPerson
+  targetHints:
+    backref:
+    - task_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: RelatedPerson
+  templatePointers:
+    id: /performer/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/reason
+  href: __ANY__/{id}
+  rel: reason_reference
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: __ANY__
+  templatePointers:
+    id: /reason/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/requestedPerformer
+  href: __ANY__/{id}
+  rel: requestedPerformer_reference
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: __ANY__
+  templatePointers:
+    id: /requestedPerformer/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From TaskRestriction/restriction
+  href: Patient/{id}
+  rel: restriction_recipient_Patient
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Patient
+  templatePointers:
+    id: /restriction/recipient/-/reference
+  templateRequired:
+  - id
+- $comment: From TaskRestriction/restriction
+  href: Practitioner/{id}
+  rel: restriction_recipient_Practitioner
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Practitioner
+  templatePointers:
+    id: /restriction/recipient/-/reference
+  templateRequired:
+  - id
+- $comment: From TaskRestriction/restriction
+  href: PractitionerRole/{id}
+  rel: restriction_recipient_PractitionerRole
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: PractitionerRole
+  templatePointers:
+    id: /restriction/recipient/-/reference
+  templateRequired:
+  - id
+- $comment: From TaskRestriction/restriction
+  href: RelatedPerson/{id}
+  rel: restriction_recipient_RelatedPerson
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: RelatedPerson
+  templatePointers:
+    id: /restriction/recipient/-/reference
+  templateRequired:
+  - id
+- $comment: From TaskRestriction/restriction
+  href: Group/{id}
+  rel: restriction_recipient_Group
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Group
+  templatePointers:
+    id: /restriction/recipient/-/reference
+  templateRequired:
+  - id
+- $comment: From TaskRestriction/restriction
+  href: Organization/{id}
+  rel: restriction_recipient_Organization
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Organization
+  templatePointers:
+    id: /restriction/recipient/-/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/statusReason
+  href: __ANY__/{id}
+  rel: statusReason_reference
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: __ANY__
+  templatePointers:
+    id: /statusReason/reference/reference
+  templateRequired:
+  - id
 properties:
   _authoredOn:
     $ref: FHIRPrimitiveExtension.yaml
@@ -259,6 +927,10 @@ properties:
     format: date-time
     title: Task Last Modified Date
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   location:
     $ref: Reference.yaml
     backref: task

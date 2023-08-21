@@ -2,6 +2,7 @@ $id: DataRequirementSort
 additionalProperties: false
 description: Order of the results. Specifies the order of the results to be returned.
   [See https://hl7.org/fhir/R5/DataRequirementSort.html]
+links: []
 properties:
   _direction:
     $ref: FHIRPrimitiveExtension.yaml
@@ -49,6 +50,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   path:
     description: The attribute of the sort. The specified path must be resolvable
       from the type of the required data. The path is allowed to contain qualifiers

@@ -6,13 +6,7 @@ description: Definition of a Medication. This resource is primarily used for the
   dispensing, and administering a medication as well as for making statements about
   medication use. [See https://hl7.org/fhir/R5/Medication.html]
 id: medication
-links:
-- backref: medication
-  label: Medication_marketingAuthorizationHolder_Organization_medication
-  multiplicity: many_to_many
-  name: marketingAuthorizationHolder
-  required: false
-  target_type: organization
+links: []
 program: '*'
 project: '*'
 properties:

@@ -3,6 +3,7 @@ additionalProperties: false
 description: Concept - reference to a terminology or just  text. A concept that may
   be defined by a formal reference to a terminology or ontology or may be provided
   by text. [See https://hl7.org/fhir/R5/CodeableConcept.html]
+links: []
 properties:
   _text:
     $ref: FHIRPrimitiveExtension.yaml
@@ -40,6 +41,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   resourceType:
     const: CodeableConcept
     default: CodeableConcept

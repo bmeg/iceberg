@@ -5,6 +5,22 @@ description: Component results. Some observations have multiple component observ
   same attributes.  Examples include systolic and diastolic component observations
   for blood pressure measurement and multiple component observations for genetics
   observations. [See https://hl7.org/fhir/R5/ObservationComponent.html]
+links:
+- href: MolecularSequence/{id}
+  rel: valueReference
+  targetHints:
+    backref:
+    - observation_component
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: MolecularSequence
+  templatePointers:
+    id: /valueReference/reference
+  templateRequired:
+  - id
 properties:
   _valueBoolean:
     $ref: FHIRPrimitiveExtension.yaml
@@ -79,6 +95,10 @@ properties:
     items:
       $ref: CodeableConcept.yaml
     title: High, low, normal, etc
+    type: array
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
     type: array
   modifierExtension:
     description: May be used to represent additional information that is not part

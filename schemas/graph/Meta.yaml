@@ -3,6 +3,7 @@ additionalProperties: false
 description: Metadata about a resource. The metadata about a resource. This is content
   in the resource that is maintained by the infrastructure. Changes to the content
   might not always be associated with version changes to the resource. [See https://hl7.org/fhir/R5/Meta.html]
+links: []
 properties:
   _lastUpdated:
     $ref: FHIRPrimitiveExtension.yaml
@@ -50,6 +51,10 @@ properties:
     format: date-time
     title: When the resource version last changed
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   profile:
     description: A list of profiles (references to [StructureDefinition](structuredefinition.html#)
       resources) that this resource claims to conform to. The URL is a reference to

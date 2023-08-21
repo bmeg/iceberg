@@ -1518,30 +1518,6 @@
         "target_type": "research_study"
       },
       {
-        "backref": "result_research_study",
-        "label": "ResearchStudy_result_DiagnosticReport_result_research_study",
-        "multiplicity": "many_to_many",
-        "name": "result_DiagnosticReport",
-        "required": false,
-        "target_type": "diagnostic_report"
-      },
-      {
-        "backref": "site_research_study",
-        "label": "ResearchStudy_site_Location_site_research_study",
-        "multiplicity": "many_to_many",
-        "name": "site_Location",
-        "required": false,
-        "target_type": "location"
-      },
-      {
-        "backref": "site_research_study",
-        "label": "ResearchStudy_site_Organization_site_research_study",
-        "multiplicity": "many_to_many",
-        "name": "site_Organization",
-        "required": false,
-        "target_type": "organization"
-      },
-      {
         "backref": "research_study",
         "label": "ResearchStudy_gen3_project_Project_research_study",
         "multiplicity": "many_to_many",
@@ -2434,32 +2410,7 @@
     "category": "Administrative",
     "description": "Information about an individual or animal receiving health care services. Demographics and other administrative information about an individual or animal receiving care or other health-related services. [See https://hl7.org/fhir/R5/Patient.html]",
     "id": "patient",
-    "links": [
-      {
-        "backref": "generalPractitioner_patient",
-        "label": "Patient_generalPractitioner_Organization_generalPractitioner_patient",
-        "multiplicity": "many_to_many",
-        "name": "generalPractitioner_Organization",
-        "required": false,
-        "target_type": "organization"
-      },
-      {
-        "backref": "generalPractitioner_patient",
-        "label": "Patient_generalPractitioner_Practitioner_generalPractitioner_patient",
-        "multiplicity": "many_to_many",
-        "name": "generalPractitioner_Practitioner",
-        "required": false,
-        "target_type": "practitioner"
-      },
-      {
-        "backref": "generalPractitioner_patient",
-        "label": "Patient_generalPractitioner_PractitionerRole_generalPractitioner_patient",
-        "multiplicity": "many_to_many",
-        "name": "generalPractitioner_PractitionerRole",
-        "required": false,
-        "target_type": "practitioner_role"
-      }
-    ],
+    "links": [],
     "program": "*",
     "project": "*",
     "properties": {
@@ -5780,46 +5731,6 @@
     "id": "task",
     "links": [
       {
-        "backref": "task",
-        "label": "Task_encounter_Encounter_task",
-        "multiplicity": "many_to_many",
-        "name": "encounter",
-        "required": false,
-        "target_type": "encounter"
-      },
-      {
-        "backref": "task",
-        "label": "Task_location_Location_task",
-        "multiplicity": "many_to_many",
-        "name": "location",
-        "required": false,
-        "target_type": "location"
-      },
-      {
-        "backref": "owner_task",
-        "label": "Task_owner_Practitioner_owner_task",
-        "multiplicity": "many_to_many",
-        "name": "owner_Practitioner",
-        "required": false,
-        "target_type": "practitioner"
-      },
-      {
-        "backref": "owner_task",
-        "label": "Task_owner_PractitionerRole_owner_task",
-        "multiplicity": "many_to_many",
-        "name": "owner_PractitionerRole",
-        "required": false,
-        "target_type": "practitioner_role"
-      },
-      {
-        "backref": "owner_task",
-        "label": "Task_owner_Organization_owner_task",
-        "multiplicity": "many_to_many",
-        "name": "owner_Organization",
-        "required": false,
-        "target_type": "organization"
-      },
-      {
         "backref": "owner_task",
         "label": "Task_owner_Patient_owner_task",
         "multiplicity": "many_to_many",
@@ -6517,14 +6428,6 @@
         "name": "subject_Patient",
         "required": false,
         "target_type": "patient"
-      },
-      {
-        "backref": "condition",
-        "label": "Condition_encounter_Encounter_condition",
-        "multiplicity": "many_to_many",
-        "name": "encounter",
-        "required": false,
-        "target_type": "encounter"
       }
     ],
     "program": "*",
@@ -11483,14 +11386,6 @@
       },
       {
         "backref": "reason_family_member_history",
-        "label": "FamilyMemberHistory_reason_DiagnosticReport_reason_family_member_history",
-        "multiplicity": "many_to_many",
-        "name": "reason_DiagnosticReport",
-        "required": false,
-        "target_type": "diagnostic_report"
-      },
-      {
-        "backref": "reason_family_member_history",
         "label": "FamilyMemberHistory_reason_DocumentReference_reason_family_member_history",
         "multiplicity": "many_to_many",
         "name": "reason_DocumentReference",
@@ -12273,28 +12168,12 @@
         "target_type": "substance"
       },
       {
-        "backref": "specimen",
-        "label": "Specimen_subject_Location_specimen",
-        "multiplicity": "many_to_many",
-        "name": "subject_Location",
-        "required": false,
-        "target_type": "location"
-      },
-      {
         "backref": "parent_specimen",
         "label": "Specimen_parent_Specimen_parent_specimen",
         "multiplicity": "many_to_many",
         "name": "parent",
         "required": false,
         "target_type": "specimen"
-      },
-      {
-        "backref": "specimen",
-        "label": "Specimen_bodySite_BodyStructure_specimen",
-        "multiplicity": "many_to_many",
-        "name": "bodySite",
-        "required": false,
-        "target_type": "body_structure"
       }
     ],
     "program": "*",
@@ -12593,48 +12472,6 @@
         "title": "Indicates the treatment step  applied to the specimen",
         "type": "string"
       },
-      "processing_method_coding": {
-        "binding_description": "Type indicating the technique used to process the specimen.",
-        "binding_strength": "example",
-        "binding_uri": "http://hl7.org/fhir/ValueSet/specimen-processing-method",
-        "binding_version": null,
-        "description": "[system#code representation.] [Plucked from Specimen.processing] A coded value specifying the method used to process the specimen.",
-        "element_property": true,
-        "term": {
-          "description": "Type indicating the technique used to process the specimen.",
-          "termDef": {
-            "cde_id": "http://hl7.org/fhir/ValueSet/specimen-processing-method",
-            "cde_version": null,
-            "source": "fhir",
-            "strength": "example",
-            "term": "http://hl7.org/fhir/ValueSet/specimen-processing-method",
-            "term_url": "http://hl7.org/fhir/ValueSet/specimen-processing-method"
-          }
-        },
-        "title": "Indicates the treatment step  applied to the specimen",
-        "type": "string"
-      },
-      "processing_method_text": {
-        "binding_description": "Type indicating the technique used to process the specimen.",
-        "binding_strength": "example",
-        "binding_uri": "http://hl7.org/fhir/ValueSet/specimen-processing-method",
-        "binding_version": null,
-        "description": "[system#code representation.] [Plucked from Specimen.processing] A coded value specifying the method used to process the specimen.",
-        "element_property": true,
-        "term": {
-          "description": "Type indicating the technique used to process the specimen.",
-          "termDef": {
-            "cde_id": "http://hl7.org/fhir/ValueSet/specimen-processing-method",
-            "cde_version": null,
-            "source": "fhir",
-            "strength": "example",
-            "term": "http://hl7.org/fhir/ValueSet/specimen-processing-method",
-            "term_url": "http://hl7.org/fhir/ValueSet/specimen-processing-method"
-          }
-        },
-        "title": "Indicates the treatment step  applied to the specimen",
-        "type": "string"
-      },
       "project_id": {
         "term": {
           "$ref": "_terms.yaml#/project_id"
@@ -12856,14 +12693,6 @@
       },
       {
         "backref": "medication_administration",
-        "label": "MedicationAdministration_encounter_Encounter_medication_administration",
-        "multiplicity": "many_to_many",
-        "name": "encounter",
-        "required": false,
-        "target_type": "encounter"
-      },
-      {
-        "backref": "medication_administration",
         "label": "MedicationAdministration_medication_Medication_medication_administration",
         "multiplicity": "many_to_many",
         "name": "medication",
@@ -12877,14 +12706,6 @@
         "name": "partOf_MedicationAdministration",
         "required": false,
         "target_type": "medication_administration"
-      },
-      {
-        "backref": "partOf_medication_administration",
-        "label": "MedicationAdministration_partOf_Procedure_partOf_medication_administration",
-        "multiplicity": "many_to_many",
-        "name": "partOf_Procedure",
-        "required": false,
-        "target_type": "procedure"
       },
       {
         "backref": "reason_medication_administration",
@@ -12901,14 +12722,6 @@
         "name": "reason_Observation",
         "required": false,
         "target_type": "observation"
-      },
-      {
-        "backref": "reason_medication_administration",
-        "label": "MedicationAdministration_reason_DiagnosticReport_reason_medication_administration",
-        "multiplicity": "many_to_many",
-        "name": "reason_DiagnosticReport",
-        "required": false,
-        "target_type": "diagnostic_report"
       }
     ],
     "program": "*",
@@ -13570,16 +13383,7 @@
     "category": "Clinical",
     "description": "Definition of a Medication. This resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use. [See https://hl7.org/fhir/R5/Medication.html]",
     "id": "medication",
-    "links": [
-      {
-        "backref": "medication",
-        "label": "Medication_marketingAuthorizationHolder_Organization_medication",
-        "multiplicity": "many_to_many",
-        "name": "marketingAuthorizationHolder",
-        "required": false,
-        "target_type": "organization"
-      }
-    ],
+    "links": [],
     "program": "*",
     "project": "*",
     "properties": {

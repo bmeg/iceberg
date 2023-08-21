@@ -4,6 +4,37 @@ description: Definition of a Medication. This resource is primarily used for the
   and definition of a medication, including ingredients, for the purposes of prescribing,
   dispensing, and administering a medication as well as for making statements about
   medication use. [See https://hl7.org/fhir/R5/Medication.html]
+links:
+- href: MedicationKnowledge/{id}
+  rel: definition
+  targetHints:
+    backref:
+    - medication
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: MedicationKnowledge
+  templatePointers:
+    id: /definition/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: marketingAuthorizationHolder
+  targetHints:
+    backref:
+    - medication
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization
+  templatePointers:
+    id: /marketingAuthorizationHolder/reference
+  templateRequired:
+  - id
 properties:
   _implicitRules:
     $ref: FHIRPrimitiveExtension.yaml
@@ -120,6 +151,10 @@ properties:
     pattern: ^[^\s]+(\s[^\s]+)*$
     title: Language of the resource content
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   marketingAuthorizationHolder:
     $ref: Reference.yaml
     backref: medication

@@ -2,6 +2,22 @@ $id: SpecimenProcessing
 additionalProperties: false
 description: Processing and processing step details. Details concerning processing
   and processing steps for the specimen. [See https://hl7.org/fhir/R5/SpecimenProcessing.html]
+links:
+- href: Substance/{id}
+  rel: additive
+  targetHints:
+    backref:
+    - additive_specimen_processing
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Substance
+  templatePointers:
+    id: /additive/-/reference
+  templateRequired:
+  - id
 properties:
   _description:
     $ref: FHIRPrimitiveExtension.yaml
@@ -49,6 +65,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   method:
     $ref: CodeableConcept.yaml
     binding_description: Type indicating the technique used to process the specimen.

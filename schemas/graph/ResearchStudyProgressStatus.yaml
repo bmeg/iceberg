@@ -1,6 +1,7 @@
 $id: ResearchStudyProgressStatus
 additionalProperties: false
 description: Status of study with time for that status. [See https://hl7.org/fhir/R5/ResearchStudyProgressStatus.html]
+links: []
 properties:
   _actual:
     $ref: FHIRPrimitiveExtension.yaml
@@ -38,6 +39,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

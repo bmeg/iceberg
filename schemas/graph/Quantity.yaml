@@ -4,6 +4,7 @@ description: A measured or measurable amount. A measured amount (or an amount th
   can potentially be measured). Note that measured amounts include amounts that are
   not precisely quantified, including amounts involving arbitrary units and floating
   currencies. [See https://hl7.org/fhir/R5/Quantity.html]
+links: []
 properties:
   _code:
     $ref: FHIRPrimitiveExtension.yaml
@@ -71,6 +72,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   resourceType:
     const: Quantity
     default: Quantity

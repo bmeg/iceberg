@@ -3,6 +3,22 @@ additionalProperties: false
 description: Reference to a resource or a concept. A reference to a resource (by instance),
   or instead, a reference to a concept defined in a terminology or ontology (by class).
   [See https://hl7.org/fhir/R5/CodeableReference.html]
+links:
+- href: __ANY__/{id}
+  rel: reference
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: __ANY__
+  templatePointers:
+    id: /reference/reference
+  templateRequired:
+  - id
 properties:
   concept:
     $ref: CodeableConcept.yaml
@@ -36,12 +52,18 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   reference:
     $ref: Reference.yaml
     backref: codeable_reference
     description: A reference to a resource the provides exact details about the information
       being referenced.
     element_property: true
+    enum_reference_types:
+    - __ANY__
     title: Reference to a resource (by instance)
   resourceType:
     const: CodeableReference
