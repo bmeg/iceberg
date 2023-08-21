@@ -2,7 +2,6 @@ $id: RelatedArtifact
 additionalProperties: false
 description: Related artifacts for a knowledge resource. Related artifacts such as
   additional documentation, justification, or bibliographic references. [See https://hl7.org/fhir/R5/RelatedArtifact.html]
-  [See https://hl7.org/fhir/R5/RelatedArtifact.html]
 links:
 - href: Resource/{id}
   rel: resourceReference

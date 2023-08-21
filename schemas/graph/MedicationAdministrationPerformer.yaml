@@ -5,7 +5,7 @@ description: Who or what performed the medication administration and what type o
   is the device that performed the administration of the medication.  An IV Pump would
   be an example of a device that is performing the administration. Both the IV Pump
   and the practitioner that set the rate or bolus on the pump can be listed as performers.
-  [See https://hl7.org/fhir/R5/MedicationAdministrationPerformer.html] [See https://hl7.org/fhir/R5/MedicationAdministrationPerformer.html]
+  [See https://hl7.org/fhir/R5/MedicationAdministrationPerformer.html]
 links:
 - $comment: From CodeableReference/actor
   href: __ANY__/{id}

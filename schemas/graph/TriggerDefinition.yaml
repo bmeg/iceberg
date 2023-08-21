@@ -2,8 +2,7 @@ $id: TriggerDefinition
 additionalProperties: false
 description: Defines an expected trigger for a module. A description of a triggering
   event. Triggering events can be named events, data events, or periodic, as determined
-  by the type element. [See https://hl7.org/fhir/R5/TriggerDefinition.html] [See https://hl7.org/fhir/R5/TriggerDefinition.html]
-  [See https://hl7.org/fhir/R5/TriggerDefinition.html]
+  by the type element. [See https://hl7.org/fhir/R5/TriggerDefinition.html]
 links:
 - href: Schedule/{id}
   rel: timingReference

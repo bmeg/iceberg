@@ -2,7 +2,6 @@ $id: ObservationTriggeredBy
 additionalProperties: false
 description: Triggering observation(s). Identifies the observation(s) that triggered
   the performance of this observation. [See https://hl7.org/fhir/R5/ObservationTriggeredBy.html]
-  [See https://hl7.org/fhir/R5/ObservationTriggeredBy.html]
 links:
 - href: Observation/{id}
   rel: observation

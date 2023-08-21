@@ -2,22 +2,6 @@ $id: Period
 additionalProperties: false
 description: Time range defined by start and end date/time. A time period defined
   by a start and end date and optionally time. [See https://hl7.org/fhir/R5/Period.html]
-  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
-  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
-  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
-  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
-  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
-  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
-  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
-  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
-  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
-  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
-  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
-  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
-  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
-  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
-  [See https://hl7.org/fhir/R5/Period.html] [See https://hl7.org/fhir/R5/Period.html]
-  [See https://hl7.org/fhir/R5/Period.html]
 links: []
 properties:
   _end:

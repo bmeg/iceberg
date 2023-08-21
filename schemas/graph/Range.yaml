@@ -1,8 +1,7 @@
 $id: Range
 additionalProperties: false
 description: Set of values bounded by low and high. A set of ordered Quantities defined
-  by a low and high limit. [See https://hl7.org/fhir/R5/Range.html] [See https://hl7.org/fhir/R5/Range.html]
-  [See https://hl7.org/fhir/R5/Range.html]
+  by a low and high limit. [See https://hl7.org/fhir/R5/Range.html]
 links: []
 properties:
   extension:

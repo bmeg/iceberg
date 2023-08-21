@@ -2,13 +2,6 @@ $id: CodeableReference
 additionalProperties: false
 description: Reference to a resource or a concept. A reference to a resource (by instance),
   or instead, a reference to a concept defined in a terminology or ontology (by class).
-  [See https://hl7.org/fhir/R5/CodeableReference.html] [See https://hl7.org/fhir/R5/CodeableReference.html]
-  [See https://hl7.org/fhir/R5/CodeableReference.html] [See https://hl7.org/fhir/R5/CodeableReference.html]
-  [See https://hl7.org/fhir/R5/CodeableReference.html] [See https://hl7.org/fhir/R5/CodeableReference.html]
-  [See https://hl7.org/fhir/R5/CodeableReference.html] [See https://hl7.org/fhir/R5/CodeableReference.html]
-  [See https://hl7.org/fhir/R5/CodeableReference.html] [See https://hl7.org/fhir/R5/CodeableReference.html]
-  [See https://hl7.org/fhir/R5/CodeableReference.html] [See https://hl7.org/fhir/R5/CodeableReference.html]
-  [See https://hl7.org/fhir/R5/CodeableReference.html] [See https://hl7.org/fhir/R5/CodeableReference.html]
   [See https://hl7.org/fhir/R5/CodeableReference.html]
 links:
 - href: __ANY__/{id}

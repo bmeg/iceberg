@@ -2,10 +2,6 @@ $id: Identifier
 additionalProperties: false
 description: An identifier intended for computation. An identifier - identifies some
   entity uniquely and unambiguously. Typically this is used for business identifiers.
-  [See https://hl7.org/fhir/R5/Identifier.html] [See https://hl7.org/fhir/R5/Identifier.html]
-  [See https://hl7.org/fhir/R5/Identifier.html] [See https://hl7.org/fhir/R5/Identifier.html]
-  [See https://hl7.org/fhir/R5/Identifier.html] [See https://hl7.org/fhir/R5/Identifier.html]
-  [See https://hl7.org/fhir/R5/Identifier.html] [See https://hl7.org/fhir/R5/Identifier.html]
   [See https://hl7.org/fhir/R5/Identifier.html]
 links:
 - href: Organization/{id}

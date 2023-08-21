@@ -1,10 +1,7 @@
 $id: Attachment
 additionalProperties: false
 description: Content in a format defined elsewhere. For referring to data content
-  defined in other formats. [See https://hl7.org/fhir/R5/Attachment.html] [See https://hl7.org/fhir/R5/Attachment.html]
-  [See https://hl7.org/fhir/R5/Attachment.html] [See https://hl7.org/fhir/R5/Attachment.html]
-  [See https://hl7.org/fhir/R5/Attachment.html] [See https://hl7.org/fhir/R5/Attachment.html]
-  [See https://hl7.org/fhir/R5/Attachment.html] [See https://hl7.org/fhir/R5/Attachment.html]
+  defined in other formats. [See https://hl7.org/fhir/R5/Attachment.html]
 links: []
 properties:
   _contentType:

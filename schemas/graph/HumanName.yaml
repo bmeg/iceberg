@@ -3,9 +3,7 @@ additionalProperties: false
 description: Name of a human or other living entity - parts and usage. A name, normally
   of a human, that can be used for other living entities (e.g. animals but not organizations)
   that have been assigned names by a human and may need the use of name parts or the
-  need for usage information. [See https://hl7.org/fhir/R5/HumanName.html] [See https://hl7.org/fhir/R5/HumanName.html]
-  [See https://hl7.org/fhir/R5/HumanName.html] [See https://hl7.org/fhir/R5/HumanName.html]
-  [See https://hl7.org/fhir/R5/HumanName.html]
+  need for usage information. [See https://hl7.org/fhir/R5/HumanName.html]
 links: []
 properties:
   _family:

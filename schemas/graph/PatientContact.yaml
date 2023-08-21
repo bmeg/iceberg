@@ -1,7 +1,7 @@
 $id: PatientContact
 additionalProperties: false
 description: A contact party (e.g. guardian, partner, friend) for the patient. [See
-  https://hl7.org/fhir/R5/PatientContact.html] [See https://hl7.org/fhir/R5/PatientContact.html]
+  https://hl7.org/fhir/R5/PatientContact.html]
 links:
 - href: Organization/{id}
   rel: organization

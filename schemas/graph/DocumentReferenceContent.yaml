@@ -3,7 +3,6 @@ additionalProperties: false
 description: Document referenced. The document and format referenced.  If there are
   multiple content element repetitions, these must all represent the same document
   in different format, or attachment metadata. [See https://hl7.org/fhir/R5/DocumentReferenceContent.html]
-  [See https://hl7.org/fhir/R5/DocumentReferenceContent.html]
 links: []
 properties:
   attachment:

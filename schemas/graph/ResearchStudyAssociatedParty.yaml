@@ -1,7 +1,6 @@
 $id: ResearchStudyAssociatedParty
 additionalProperties: false
 description: Sponsors, collaborators, and other parties. [See https://hl7.org/fhir/R5/ResearchStudyAssociatedParty.html]
-  [See https://hl7.org/fhir/R5/ResearchStudyAssociatedParty.html]
 links:
 - href: Practitioner/{id}
   rel: party_Practitioner

@@ -3,7 +3,6 @@ additionalProperties: false
 description: Details of a Technology mediated contact point (phone, fax, email, etc.).
   Details for all kinds of technology mediated contact points for a person or organization,
   including telephone, email, etc. [See https://hl7.org/fhir/R5/ContactPoint.html]
-  [See https://hl7.org/fhir/R5/ContactPoint.html]
 links: []
 properties:
   _rank:

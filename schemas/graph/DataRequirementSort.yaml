@@ -1,7 +1,7 @@
 $id: DataRequirementSort
 additionalProperties: false
 description: Order of the results. Specifies the order of the results to be returned.
-  [See https://hl7.org/fhir/R5/DataRequirementSort.html] [See https://hl7.org/fhir/R5/DataRequirementSort.html]
+  [See https://hl7.org/fhir/R5/DataRequirementSort.html]
 links: []
 properties:
   _direction:

@@ -2,7 +2,7 @@ $id: DataRequirement
 additionalProperties: false
 description: Describes a required data item. Describes a required data item for evaluation
   in terms of the type of data, and optional code or date-based filters of the data.
-  [See https://hl7.org/fhir/R5/DataRequirement.html] [See https://hl7.org/fhir/R5/DataRequirement.html]
+  [See https://hl7.org/fhir/R5/DataRequirement.html]
 links:
 - href: Group/{id}
   rel: subjectReference

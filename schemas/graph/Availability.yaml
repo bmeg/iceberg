@@ -1,7 +1,6 @@
 $id: Availability
 additionalProperties: false
 description: Availability data for an {item}. [See https://hl7.org/fhir/R5/Availability.html]
-  [See https://hl7.org/fhir/R5/Availability.html] [See https://hl7.org/fhir/R5/Availability.html]
 links: []
 properties:
   availableTime:

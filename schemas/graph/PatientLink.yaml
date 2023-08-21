@@ -1,7 +1,7 @@
 $id: PatientLink
 additionalProperties: false
 description: Link to a Patient or RelatedPerson resource that concerns the same actual
-  individual. [See https://hl7.org/fhir/R5/PatientLink.html] [See https://hl7.org/fhir/R5/PatientLink.html]
+  individual. [See https://hl7.org/fhir/R5/PatientLink.html]
 links:
 - href: Patient/{id}
   rel: other_Patient

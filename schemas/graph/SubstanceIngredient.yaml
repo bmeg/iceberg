@@ -1,8 +1,7 @@
 $id: SubstanceIngredient
 additionalProperties: false
 description: Composition information about the substance. A substance can be composed
-  of other substances. [See https://hl7.org/fhir/R5/SubstanceIngredient.html] [See
-  https://hl7.org/fhir/R5/SubstanceIngredient.html]
+  of other substances. [See https://hl7.org/fhir/R5/SubstanceIngredient.html]
 links:
 - href: Substance/{id}
   rel: substanceReference

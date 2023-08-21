@@ -1,8 +1,7 @@
 $id: MedicationBatch
 additionalProperties: false
 description: Details about packaged medications. Information that only applies to
-  packages (not products). [See https://hl7.org/fhir/R5/MedicationBatch.html] [See
-  https://hl7.org/fhir/R5/MedicationBatch.html]
+  packages (not products). [See https://hl7.org/fhir/R5/MedicationBatch.html]
 links: []
 properties:
   _expirationDate:

@@ -1,8 +1,7 @@
 $id: Extension
 additionalProperties: false
 description: Optional Extensions Element. Optional Extension Element - found in all
-  resources. [See https://hl7.org/fhir/R5/Extension.html] [See https://hl7.org/fhir/R5/Extension.html]
-  [See https://hl7.org/fhir/R5/Extension.html] [See https://hl7.org/fhir/R5/Extension.html]
+  resources. [See https://hl7.org/fhir/R5/Extension.html]
 links:
 - href: __ANY__/{id}
   rel: valueReference

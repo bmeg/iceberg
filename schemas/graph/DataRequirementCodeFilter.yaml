@@ -4,7 +4,6 @@ description: What codes are expected. Code filters specify additional constraint
   on the data, specifying the value set of interest for a particular element of the
   data. Each code filter defines an additional constraint on the data, i.e. code filters
   are AND'ed, not OR'ed. [See https://hl7.org/fhir/R5/DataRequirementCodeFilter.html]
-  [See https://hl7.org/fhir/R5/DataRequirementCodeFilter.html]
 links: []
 properties:
   _path:

@@ -5,8 +5,7 @@ description: A Signature - XML DigSig, JWS, Graphical image of signature, etc.. 
   that is cryptographic in nature, or some other signature acceptable to the domain.
   This other signature may be as simple as a graphical image representing a hand-written
   signature, or a signature ceremony Different signature approaches have different
-  utilities. [See https://hl7.org/fhir/R5/Signature.html] [See https://hl7.org/fhir/R5/Signature.html]
-  [See https://hl7.org/fhir/R5/Signature.html]
+  utilities. [See https://hl7.org/fhir/R5/Signature.html]
 links:
 - href: Practitioner/{id}
   rel: onBehalfOf_Practitioner
