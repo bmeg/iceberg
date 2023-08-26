@@ -12,12 +12,24 @@ description: "A reference to a document. A reference to a document of any kind f
   \ by direct reference. [See https://hl7.org/fhir/R5/DocumentReference.html]"
 id: document_reference
 links:
-- backref: author_document_reference
-  label: DocumentReference_author_Patient_author_document_reference
+- backref: subject_DocumentReference
+  label: DocumentReference_subject_ResearchStudy_subject_DocumentReference
   multiplicity: many_to_many
-  name: author_Patient
+  name: subject_ResearchStudy
+  required: false
+  target_type: research_study
+- backref: subject_DocumentReference
+  label: DocumentReference_subject_Patient_subject_DocumentReference
+  multiplicity: many_to_many
+  name: subject_Patient
   required: false
   target_type: patient
+- backref: subject_DocumentReference
+  label: DocumentReference_subject_Specimen_subject_DocumentReference
+  multiplicity: many_to_many
+  name: subject_Specimen
+  required: false
+  target_type: specimen
 program: '*'
 project: '*'
 properties:
@@ -596,15 +608,14 @@ properties:
     title: current | superseded | entered-in-error
     type: string
   subject:
-    backref: document_reference
-    description: '[Text representation of Reference] Who or what the document is about.
-      The document can be about a person, (patient or healthcare practitioner), a
-      device (e.g. a machine) or even a group of subjects (such as a document about
-      a herd of farm animals, or a set of patients that share a common exposure).'
-    element_property: true
+    backref: subject_DocumentReference
+    description: '[Text representation of Reference] Who/what is the subject of the
+      document.'
     enum_reference_types:
-    - Resource
-    title: Who/what is the subject of the document
+    - ResearchStudy
+    - Patient
+    - Specimen
+    title: The item that this DocumentReference is about.
     type: string
   type:
     binding_description: Precise type of clinical document.
