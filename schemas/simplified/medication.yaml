@@ -217,5 +217,9 @@ properties:
       product code does not infer a package size, this is the specific amount of drug
       in the product
     type: number
+systemProperties:
+- id
 title: Medication
 type: object
+uniqueKeys:
+- - id

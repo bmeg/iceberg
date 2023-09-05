@@ -177,5 +177,9 @@ properties:
     - BiologicallyDerivedProduct
     title: Who or what is part of study
     type: string
+systemProperties:
+- id
 title: ResearchSubject
 type: object
+uniqueKeys:
+- - id

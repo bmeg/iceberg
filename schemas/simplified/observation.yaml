@@ -738,5 +738,9 @@ properties:
     one_of_many_required: false
     title: Actual result
     type: string
+systemProperties:
+- id
 title: Observation
 type: object
+uniqueKeys:
+- - id

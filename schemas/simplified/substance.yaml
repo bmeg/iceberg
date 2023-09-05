@@ -208,5 +208,9 @@ properties:
     pattern: ^[^\s]+(\s[^\s]+)*$
     title: active | inactive | entered-in-error
     type: string
+systemProperties:
+- id
 title: Substance
 type: object
+uniqueKeys:
+- - id

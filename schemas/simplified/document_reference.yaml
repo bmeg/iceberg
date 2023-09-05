@@ -30,6 +30,12 @@ links:
   name: subject_Specimen
   required: false
   target_type: specimen
+- backref: subject_DocumentReference
+  label: DocumentReference_subject_Observation_subject_DocumentReference
+  multiplicity: many_to_many
+  name: subject_Observation
+  required: false
+  target_type: observation
 program: '*'
 project: '*'
 properties:
@@ -615,6 +621,7 @@ properties:
     - ResearchStudy
     - Patient
     - Specimen
+    - Observation
     title: The item that this DocumentReference is about.
     type: string
   type:
@@ -665,5 +672,9 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: An explicitly assigned identifer of a variation of the content in the DocumentReference
     type: string
+systemProperties:
+- id
 title: DocumentReference
 type: object
+uniqueKeys:
+- - id

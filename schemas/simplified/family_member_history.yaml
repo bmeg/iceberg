@@ -478,5 +478,9 @@ properties:
     pattern: ^[^\s]+(\s[^\s]+)*$
     title: partial | completed | entered-in-error | health-unknown
     type: string
+systemProperties:
+- id
 title: FamilyMemberHistory
 type: object
+uniqueKeys:
+- - id

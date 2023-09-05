@@ -523,5 +523,9 @@ properties:
     title: unconfirmed | provisional | differential | confirmed | refuted | entered-in-error
     type: string
   verificationStatus_text: *id007
+systemProperties:
+- id
 title: Condition
 type: object
+uniqueKeys:
+- - id

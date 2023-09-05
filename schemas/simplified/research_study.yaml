@@ -682,5 +682,9 @@ properties:
       | temporarily-closed-per-study-design
     type: string
   whyStopped_text: *id009
+systemProperties:
+- id
 title: ResearchStudy
 type: object
+uniqueKeys:
+- - id
