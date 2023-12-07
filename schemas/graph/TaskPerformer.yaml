@@ -3,66 +3,6 @@ additionalProperties: false
 description: Who or what performed the task. The entity who performed the requested
   task. [See https://hl7.org/fhir/R5/TaskPerformer.html]
 links:
-- href: Practitioner/{id}
-  rel: actor_Practitioner
-  targetHints:
-    backref:
-    - task_performer
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Practitioner
-  templatePointers:
-    id: /actor/reference
-  templateRequired:
-  - id
-- href: PractitionerRole/{id}
-  rel: actor_PractitionerRole
-  targetHints:
-    backref:
-    - task_performer
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: PractitionerRole
-  templatePointers:
-    id: /actor/reference
-  templateRequired:
-  - id
-- href: Organization/{id}
-  rel: actor_Organization
-  targetHints:
-    backref:
-    - task_performer
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Organization
-  templatePointers:
-    id: /actor/reference
-  templateRequired:
-  - id
-- href: CareTeam/{id}
-  rel: actor_CareTeam
-  targetHints:
-    backref:
-    - task_performer
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: CareTeam
-  templatePointers:
-    id: /actor/reference
-  templateRequired:
-  - id
 - href: Patient/{id}
   rel: actor_Patient
   targetHints:
@@ -73,22 +13,7 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Patient
-  templatePointers:
-    id: /actor/reference
-  templateRequired:
-  - id
-- href: RelatedPerson/{id}
-  rel: actor_RelatedPerson
-  targetHints:
-    backref:
-    - task_performer
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: RelatedPerson
+    $ref: Patient.yaml
   templatePointers:
     id: /actor/reference
   templateRequired:

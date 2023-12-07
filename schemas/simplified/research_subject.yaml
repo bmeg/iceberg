@@ -132,7 +132,6 @@ properties:
     type: string
   resourceType:
     const: ResearchSubject
-    default: ResearchSubject
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string

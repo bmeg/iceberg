@@ -14,41 +14,9 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Patient
+    $ref: Patient.yaml
   templatePointers:
     id: /patient/reference
-  templateRequired:
-  - id
-- $comment: From Annotation/note
-  href: Practitioner/{id}
-  rel: note_authorReference_Practitioner
-  targetHints:
-    backref:
-    - annotation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Practitioner
-  templatePointers:
-    id: /note/-/authorReference/reference
-  templateRequired:
-  - id
-- $comment: From Annotation/note
-  href: PractitionerRole/{id}
-  rel: note_authorReference_PractitionerRole
-  targetHints:
-    backref:
-    - annotation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: PractitionerRole
-  templatePointers:
-    id: /note/-/authorReference/reference
   templateRequired:
   - id
 - $comment: From Annotation/note
@@ -62,73 +30,9 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Patient
+    $ref: Patient.yaml
   templatePointers:
     id: /note/-/authorReference/reference
-  templateRequired:
-  - id
-- $comment: From Annotation/note
-  href: RelatedPerson/{id}
-  rel: note_authorReference_RelatedPerson
-  targetHints:
-    backref:
-    - annotation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: RelatedPerson
-  templatePointers:
-    id: /note/-/authorReference/reference
-  templateRequired:
-  - id
-- $comment: From Annotation/note
-  href: Organization/{id}
-  rel: note_authorReference_Organization
-  targetHints:
-    backref:
-    - annotation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Organization
-  templatePointers:
-    id: /note/-/authorReference/reference
-  templateRequired:
-  - id
-- $comment: From FamilyMemberHistoryParticipant/participant
-  href: Practitioner/{id}
-  rel: participant_actor_Practitioner
-  targetHints:
-    backref:
-    - family_member_history_participant
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Practitioner
-  templatePointers:
-    id: /participant/-/actor/reference
-  templateRequired:
-  - id
-- $comment: From FamilyMemberHistoryParticipant/participant
-  href: PractitionerRole/{id}
-  rel: participant_actor_PractitionerRole
-  targetHints:
-    backref:
-    - family_member_history_participant
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: PractitionerRole
-  templatePointers:
-    id: /participant/-/actor/reference
   templateRequired:
   - id
 - $comment: From FamilyMemberHistoryParticipant/participant
@@ -142,89 +46,9 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Patient
+    $ref: Patient.yaml
   templatePointers:
     id: /participant/-/actor/reference
-  templateRequired:
-  - id
-- $comment: From FamilyMemberHistoryParticipant/participant
-  href: RelatedPerson/{id}
-  rel: participant_actor_RelatedPerson
-  targetHints:
-    backref:
-    - family_member_history_participant
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: RelatedPerson
-  templatePointers:
-    id: /participant/-/actor/reference
-  templateRequired:
-  - id
-- $comment: From FamilyMemberHistoryParticipant/participant
-  href: Device/{id}
-  rel: participant_actor_Device
-  targetHints:
-    backref:
-    - family_member_history_participant
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Device
-  templatePointers:
-    id: /participant/-/actor/reference
-  templateRequired:
-  - id
-- $comment: From FamilyMemberHistoryParticipant/participant
-  href: Organization/{id}
-  rel: participant_actor_Organization
-  targetHints:
-    backref:
-    - family_member_history_participant
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Organization
-  templatePointers:
-    id: /participant/-/actor/reference
-  templateRequired:
-  - id
-- $comment: From FamilyMemberHistoryParticipant/participant
-  href: CareTeam/{id}
-  rel: participant_actor_CareTeam
-  targetHints:
-    backref:
-    - family_member_history_participant
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: CareTeam
-  templatePointers:
-    id: /participant/-/actor/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/reason
-  href: __ANY__/{id}
-  rel: reason_reference
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: __ANY__
-  templatePointers:
-    id: /reason/-/reference/reference
   templateRequired:
   - id
 properties:

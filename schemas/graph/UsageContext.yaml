@@ -6,21 +6,6 @@ description: Describes the context of use for a conformance or knowledge resourc
   (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting,
   provider of care). [See https://hl7.org/fhir/R5/UsageContext.html]
 links:
-- href: PlanDefinition/{id}
-  rel: valueReference_PlanDefinition
-  targetHints:
-    backref:
-    - usage_context
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: PlanDefinition
-  templatePointers:
-    id: /valueReference/reference
-  templateRequired:
-  - id
 - href: ResearchStudy/{id}
   rel: valueReference_ResearchStudy
   targetHints:
@@ -31,82 +16,7 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: ResearchStudy
-  templatePointers:
-    id: /valueReference/reference
-  templateRequired:
-  - id
-- href: InsurancePlan/{id}
-  rel: valueReference_InsurancePlan
-  targetHints:
-    backref:
-    - usage_context
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: InsurancePlan
-  templatePointers:
-    id: /valueReference/reference
-  templateRequired:
-  - id
-- href: HealthcareService/{id}
-  rel: valueReference_HealthcareService
-  targetHints:
-    backref:
-    - usage_context
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: HealthcareService
-  templatePointers:
-    id: /valueReference/reference
-  templateRequired:
-  - id
-- href: Group/{id}
-  rel: valueReference_Group
-  targetHints:
-    backref:
-    - usage_context
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Group
-  templatePointers:
-    id: /valueReference/reference
-  templateRequired:
-  - id
-- href: Location/{id}
-  rel: valueReference_Location
-  targetHints:
-    backref:
-    - usage_context
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Location
-  templatePointers:
-    id: /valueReference/reference
-  templateRequired:
-  - id
-- href: Organization/{id}
-  rel: valueReference_Organization
-  targetHints:
-    backref:
-    - usage_context
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Organization
+    $ref: ResearchStudy.yaml
   templatePointers:
     id: /valueReference/reference
   templateRequired:

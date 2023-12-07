@@ -13,7 +13,7 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Resource
+    $ref: Resource.yaml
   templatePointers:
     id: /resourceReference/reference
   templateRequired:

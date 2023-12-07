@@ -3,36 +3,6 @@ additionalProperties: false
 description: Collection details. Details concerning the specimen collection. [See
   https://hl7.org/fhir/R5/SpecimenCollection.html]
 links:
-- href: Practitioner/{id}
-  rel: collector_Practitioner
-  targetHints:
-    backref:
-    - specimen_collection
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Practitioner
-  templatePointers:
-    id: /collector/reference
-  templateRequired:
-  - id
-- href: PractitionerRole/{id}
-  rel: collector_PractitionerRole
-  targetHints:
-    backref:
-    - specimen_collection
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: PractitionerRole
-  templatePointers:
-    id: /collector/reference
-  templateRequired:
-  - id
 - href: Patient/{id}
   rel: collector_Patient
   targetHints:
@@ -43,71 +13,9 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Patient
+    $ref: Patient.yaml
   templatePointers:
     id: /collector/reference
-  templateRequired:
-  - id
-- href: RelatedPerson/{id}
-  rel: collector_RelatedPerson
-  targetHints:
-    backref:
-    - specimen_collection
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: RelatedPerson
-  templatePointers:
-    id: /collector/reference
-  templateRequired:
-  - id
-- href: Procedure/{id}
-  rel: procedure
-  targetHints:
-    backref:
-    - specimen_collection
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Procedure
-  templatePointers:
-    id: /procedure/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/bodySite
-  href: __ANY__/{id}
-  rel: bodySite_reference
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: __ANY__
-  templatePointers:
-    id: /bodySite/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: __ANY__/{id}
-  rel: device_reference
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: __ANY__
-  templatePointers:
-    id: /device/reference/reference
   templateRequired:
   - id
 properties:

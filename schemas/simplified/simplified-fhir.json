@@ -108,6 +108,522 @@
     ],
     "validators": null
   },
+  "medication_statement.yaml": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": true,
+    "category": "Clinical",
+    "description": "Record of medication being taken by a patient. A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. The primary difference between a medicationstatement and a medicationadministration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medicationstatement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the Medication Statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information. The MedicationStatement resource was previously called MedicationStatement. [See https://hl7.org/fhir/R5/MedicationStatement.html]",
+    "id": "medication_statement",
+    "links": [
+      {
+        "backref": "subject_medication_statement",
+        "label": "MedicationStatement_subject_Patient_subject_medication_statement",
+        "multiplicity": "many_to_many",
+        "name": "subject_Patient",
+        "required": false,
+        "target_type": "patient"
+      },
+      {
+        "backref": "medication_statement",
+        "label": "MedicationStatement_medication_Medication_medication_statement",
+        "multiplicity": "many_to_many",
+        "name": "medication",
+        "required": false,
+        "target_type": "medication"
+      },
+      {
+        "backref": "partOf_medication_statement",
+        "label": "MedicationStatement_partOf_MedicationStatement_partOf_medication_statement",
+        "multiplicity": "many_to_many",
+        "name": "partOf_MedicationStatement",
+        "required": false,
+        "target_type": "medication_statement"
+      },
+      {
+        "backref": "reason_medication_statement",
+        "label": "MedicationStatement_reason_Condition_reason_medication_statement",
+        "multiplicity": "many_to_many",
+        "name": "reason_Condition",
+        "required": false,
+        "target_type": "condition"
+      },
+      {
+        "backref": "reason_medication_statement",
+        "label": "MedicationStatement_reason_Observation_reason_medication_statement",
+        "multiplicity": "many_to_many",
+        "name": "reason_Observation",
+        "required": false,
+        "target_type": "observation"
+      }
+    ],
+    "program": "*",
+    "project": "*",
+    "properties": {
+      "adherence": {
+        "description": "[Text representation of MedicationStatementAdherence] Indicates whether the medication is or is not being consumed or administered",
+        "element_property": true,
+        "title": "Indicates whether the medication is or is not being consumed or administered",
+        "type": "string"
+      },
+      "category": {
+        "binding_description": "A coded concept identifying where the medication included in the MedicationStatement is expected to be consumed or administered.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location",
+        "binding_version": null,
+        "description": "text representation. Type of medication statement (for example, drug classification like ATC, where meds would be administered, legal category of the medication.).",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A coded concept identifying where the medication included in the MedicationStatement is expected to be consumed or administered.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location",
+            "term_url": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location"
+          }
+        },
+        "title": "Type of medication statement",
+        "type": "array"
+      },
+      "category_coding": {
+        "binding_description": "A coded concept identifying where the medication included in the MedicationStatement is expected to be consumed or administered.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location",
+        "binding_version": null,
+        "description": "[system#code representation.] Type of medication statement (for example, drug classification like ATC, where meds would be administered, legal category of the medication.).",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A coded concept identifying where the medication included in the MedicationStatement is expected to be consumed or administered.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location",
+            "term_url": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location"
+          }
+        },
+        "title": "Type of medication statement",
+        "type": "array"
+      },
+      "category_text": {
+        "binding_description": "A coded concept identifying where the medication included in the MedicationStatement is expected to be consumed or administered.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location",
+        "binding_version": null,
+        "description": "[system#code representation.] Type of medication statement (for example, drug classification like ATC, where meds would be administered, legal category of the medication.).",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A coded concept identifying where the medication included in the MedicationStatement is expected to be consumed or administered.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location",
+            "term_url": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location"
+          }
+        },
+        "title": "Type of medication statement",
+        "type": "array"
+      },
+      "dateAsserted": {
+        "description": "The date when the Medication Statement was asserted by the information source.",
+        "element_property": true,
+        "format": "date-time",
+        "title": "When the usage was asserted?",
+        "type": "string"
+      },
+      "derivedFrom": {
+        "backref": "derivedFrom_medication_statement",
+        "description": "[Text representation of Reference] Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Resource"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Link to information used to derive the MedicationStatement",
+        "type": "array"
+      },
+      "dosage": {
+        "description": "[Text representation of Dosage] Indicates how the medication is/was or should be taken by the patient.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Details of how medication is/was taken or should be taken",
+        "type": "array"
+      },
+      "effectiveDateTime": {
+        "description": "The interval of time during which it is being asserted that the patient is/was/will be taking the medication (or was not taking, when the MedicationStatement.adherence element is Not Taking).",
+        "element_property": true,
+        "format": "date-time",
+        "one_of_many": "effective",
+        "one_of_many_required": false,
+        "title": "The date/time or interval when the medication is/was/will be taken",
+        "type": "string"
+      },
+      "effectivePeriod": {
+        "description": "[Text representation of Period] The interval of time during which it is being asserted that the patient is/was/will be taking the medication (or was not taking, when the MedicationStatement.adherence element is Not Taking).",
+        "element_property": true,
+        "one_of_many": "effective",
+        "one_of_many_required": false,
+        "title": "The date/time or interval when the medication is/was/will be taken",
+        "type": "string"
+      },
+      "effectiveTiming": {
+        "description": "[Text representation of Timing] The interval of time during which it is being asserted that the patient is/was/will be taking the medication (or was not taking, when the MedicationStatement.adherence element is Not Taking).",
+        "element_property": true,
+        "one_of_many": "effective",
+        "one_of_many_required": false,
+        "title": "The date/time or interval when the medication is/was/will be taken",
+        "type": "string"
+      },
+      "encounter": {
+        "backref": "medication_statement",
+        "description": "[Text representation of Reference] The encounter that establishes the context for this MedicationStatement.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Encounter"
+        ],
+        "title": "Encounter associated with MedicationStatement",
+        "type": "string"
+      },
+      "extension": {
+        "description": "[Text representation of Extension] May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Additional content defined by implementations",
+        "type": "array"
+      },
+      "id": {
+        "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+        "element_property": true,
+        "maxLength": 64,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9\\-.]+$",
+        "title": "Logical id of this artifact",
+        "type": "string"
+      },
+      "identifier": {
+        "description": "Identifiers associated with this Medication Statement that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "External identifier",
+        "type": "array"
+      },
+      "identifier_coding": {
+        "description": "[system#code representation of identifier] Identifiers associated with this Medication Statement that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "External identifier",
+        "type": "array"
+      },
+      "identifier_text_coding": {
+        "description": "[system#code representation of identifier.text] Identifiers associated with this Medication Statement that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "External identifier",
+        "type": "array"
+      },
+      "informationSource": {
+        "backref": "informationSource_medication_statement",
+        "description": "[Text representation of Reference] The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g. Claim or MedicationRequest.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Patient",
+          "Practitioner",
+          "PractitionerRole",
+          "RelatedPerson",
+          "Organization"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Person or organization that provided the information about the taking of this medication",
+        "type": "array"
+      },
+      "medication": {
+        "backref": "medication_statement",
+        "binding_description": "A coded concept identifying the substance or product being taken.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medication-codes",
+        "binding_version": null,
+        "description": "text representation. Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Medication"
+        ],
+        "term": {
+          "description": "A coded concept identifying the substance or product being taken.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medication-codes",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/medication-codes",
+            "term_url": "http://hl7.org/fhir/ValueSet/medication-codes"
+          }
+        },
+        "title": "What medication was taken",
+        "type": "string"
+      },
+      "medication_coding": {
+        "backref": "medication_statement",
+        "binding_description": "A coded concept identifying the substance or product being taken.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medication-codes",
+        "binding_version": null,
+        "description": "[system#code representation.] Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Medication"
+        ],
+        "term": {
+          "description": "A coded concept identifying the substance or product being taken.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medication-codes",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/medication-codes",
+            "term_url": "http://hl7.org/fhir/ValueSet/medication-codes"
+          }
+        },
+        "title": "What medication was taken",
+        "type": "string"
+      },
+      "medication_text": {
+        "backref": "medication_statement",
+        "binding_description": "A coded concept identifying the substance or product being taken.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medication-codes",
+        "binding_version": null,
+        "description": "[system#code representation.] Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Medication"
+        ],
+        "term": {
+          "description": "A coded concept identifying the substance or product being taken.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medication-codes",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/medication-codes",
+            "term_url": "http://hl7.org/fhir/ValueSet/medication-codes"
+          }
+        },
+        "title": "What medication was taken",
+        "type": "string"
+      },
+      "note": {
+        "description": "[Text representation of Annotation] Provides extra information about the Medication Statement that is not conveyed by the other attributes.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Further information about the usage",
+        "type": "array"
+      },
+      "partOf": {
+        "backref": "partOf_medication_statement",
+        "description": "[Text representation of Reference] A larger event of which this particular MedicationStatement is a component or step.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Procedure",
+          "MedicationStatement"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Part of referenced event",
+        "type": "array"
+      },
+      "project_id": {
+        "term": {
+          "$ref": "_terms.yaml#/project_id"
+        },
+        "type": "string"
+      },
+      "reason": {
+        "backref": "reason_medication_statement",
+        "binding_description": "A coded concept identifying why the medication is being taken.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/condition-code",
+        "binding_version": null,
+        "description": "text representation. A concept, Condition or observation that supports why the medication is being/was taken.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Condition",
+          "Observation",
+          "DiagnosticReport"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A coded concept identifying why the medication is being taken.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/condition-code",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/condition-code",
+            "term_url": "http://hl7.org/fhir/ValueSet/condition-code"
+          }
+        },
+        "title": "Reason for why the medication is being/was taken",
+        "type": "array"
+      },
+      "reason_coding": {
+        "backref": "reason_medication_statement",
+        "binding_description": "A coded concept identifying why the medication is being taken.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/condition-code",
+        "binding_version": null,
+        "description": "[system#code representation.] A concept, Condition or observation that supports why the medication is being/was taken.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Condition",
+          "Observation",
+          "DiagnosticReport"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A coded concept identifying why the medication is being taken.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/condition-code",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/condition-code",
+            "term_url": "http://hl7.org/fhir/ValueSet/condition-code"
+          }
+        },
+        "title": "Reason for why the medication is being/was taken",
+        "type": "array"
+      },
+      "reason_text": {
+        "backref": "reason_medication_statement",
+        "binding_description": "A coded concept identifying why the medication is being taken.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/condition-code",
+        "binding_version": null,
+        "description": "[system#code representation.] A concept, Condition or observation that supports why the medication is being/was taken.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Condition",
+          "Observation",
+          "DiagnosticReport"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A coded concept identifying why the medication is being taken.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/condition-code",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/condition-code",
+            "term_url": "http://hl7.org/fhir/ValueSet/condition-code"
+          }
+        },
+        "title": "Reason for why the medication is being/was taken",
+        "type": "array"
+      },
+      "relatedClinicalInformation": {
+        "backref": "relatedClinicalInformation_medication_statement",
+        "description": "[Text representation of Reference] Link to information that is relevant to a medication statement, for example, illicit drug use, gestational age, etc.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Observation",
+          "Condition"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Link to information relevant to the usage of a medication",
+        "type": "array"
+      },
+      "renderedDosageInstruction": {
+        "description": "The full representation of the dose of the medication included in all dosage instructions.  To be used when multiple dosage instructions are included to represent complex dosing such as increasing or tapering doses.",
+        "element_property": true,
+        "pattern": "\\s*(\\S|\\s)*",
+        "title": "Full representation of the dosage instructions",
+        "type": "string"
+      },
+      "resourceType": {
+        "const": "MedicationStatement",
+        "description": "One of the resource types defined as part of FHIR",
+        "title": "Resource Type",
+        "type": "string"
+      },
+      "status": {
+        "binding_description": "A coded concept indicating the current status of a MedicationStatement.",
+        "binding_strength": "required",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medication-statement-status",
+        "binding_version": "5.0.0",
+        "description": "A code representing the status of recording the medication statement.",
+        "element_property": true,
+        "element_required": true,
+        "enum_values": [
+          "recorded",
+          "entered-in-error",
+          "draft"
+        ],
+        "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+        "title": "recorded | entered-in-error | draft",
+        "type": "string"
+      },
+      "subject": {
+        "backref": "subject_medication_statement",
+        "description": "[Text representation of Reference] The person, animal or group who is/was taking the medication.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Patient",
+          "Group"
+        ],
+        "title": "Who is/was taking  the medication",
+        "type": "string"
+      }
+    },
+    "systemProperties": [
+      "id"
+    ],
+    "title": "MedicationStatement",
+    "type": "object",
+    "uniqueKeys": [
+      [
+        "id"
+      ]
+    ]
+  },
   "observation.yaml": {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": true,
@@ -817,7 +1333,6 @@
       },
       "resourceType": {
         "const": "Observation",
-        "default": "Observation",
         "description": "One of the resource types defined as part of FHIR",
         "title": "Resource Type",
         "type": "string"
@@ -1725,7 +2240,6 @@
       },
       "resourceType": {
         "const": "ResearchStudy",
-        "default": "ResearchStudy",
         "description": "One of the resource types defined as part of FHIR",
         "title": "Resource Type",
         "type": "string"
@@ -2228,7 +2742,6 @@
       },
       "resourceType": {
         "const": "Patient",
-        "default": "Patient",
         "description": "One of the resource types defined as part of FHIR",
         "title": "Resource Type",
         "type": "string"
@@ -2729,7 +3242,6 @@
       },
       "resourceType": {
         "const": "Substance",
-        "default": "Substance",
         "description": "One of the resource types defined as part of FHIR",
         "title": "Resource Type",
         "type": "string"
@@ -3996,7 +4508,6 @@
       },
       "resourceType": {
         "const": "DocumentReference",
-        "default": "DocumentReference",
         "description": "One of the resource types defined as part of FHIR",
         "title": "Resource Type",
         "type": "string"
@@ -4772,7 +5283,6 @@
       },
       "resourceType": {
         "const": "Task",
-        "default": "Task",
         "description": "One of the resource types defined as part of FHIR",
         "title": "Resource Type",
         "type": "string"
@@ -5434,7 +5944,6 @@
       },
       "resourceType": {
         "const": "Condition",
-        "default": "Condition",
         "description": "One of the resource types defined as part of FHIR",
         "title": "Resource Type",
         "type": "string"
@@ -5597,6 +6106,875 @@
       ]
     ]
   },
+  "medication_request.yaml": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": true,
+    "category": "Clinical",
+    "description": "Ordering of medication for patient or group. An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationRequest\" rather than \"MedicationPrescription\" or \"MedicationOrder\" to generalize the use across inpatient and outpatient settings, including care plans, etc., and to harmonize with workflow patterns. [See https://hl7.org/fhir/R5/MedicationRequest.html]",
+    "id": "medication_request",
+    "links": [
+      {
+        "backref": "subject_medication_request",
+        "label": "MedicationRequest_subject_Patient_subject_medication_request",
+        "multiplicity": "many_to_many",
+        "name": "subject_Patient",
+        "required": false,
+        "target_type": "patient"
+      },
+      {
+        "backref": "basedOn_medication_request",
+        "label": "MedicationRequest_basedOn_MedicationRequest_basedOn_medication_request",
+        "multiplicity": "many_to_many",
+        "name": "basedOn_MedicationRequest",
+        "required": false,
+        "target_type": "medication_request"
+      },
+      {
+        "backref": "medication_request",
+        "label": "MedicationRequest_medication_Medication_medication_request",
+        "multiplicity": "many_to_many",
+        "name": "medication",
+        "required": false,
+        "target_type": "medication"
+      },
+      {
+        "backref": "reason_medication_request",
+        "label": "MedicationRequest_reason_Condition_reason_medication_request",
+        "multiplicity": "many_to_many",
+        "name": "reason_Condition",
+        "required": false,
+        "target_type": "condition"
+      },
+      {
+        "backref": "reason_medication_request",
+        "label": "MedicationRequest_reason_Observation_reason_medication_request",
+        "multiplicity": "many_to_many",
+        "name": "reason_Observation",
+        "required": false,
+        "target_type": "observation"
+      }
+    ],
+    "program": "*",
+    "project": "*",
+    "properties": {
+      "authoredOn": {
+        "description": "The date (and perhaps time) when the prescription was initially written or authored on.",
+        "element_property": true,
+        "format": "date-time",
+        "title": "When request was initially authored",
+        "type": "string"
+      },
+      "basedOn": {
+        "backref": "basedOn_medication_request",
+        "description": "[Text representation of Reference] A plan or request that is fulfilled in whole or in part by this medication request",
+        "element_property": true,
+        "enum_reference_types": [
+          "CarePlan",
+          "MedicationRequest",
+          "ServiceRequest",
+          "ImmunizationRecommendation"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "A plan or request that is fulfilled in whole or in part by this medication request",
+        "type": "array"
+      },
+      "category": {
+        "binding_description": "A coded concept identifying where the medication is to be consumed or administered.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location",
+        "binding_version": null,
+        "description": "text representation. An arbitrary categorization or grouping of the medication request.  It could be used for indicating where meds are intended to be administered, eg. in an inpatient setting or in a patient's home, or a legal category of the medication.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A coded concept identifying where the medication is to be consumed or administered.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location",
+            "term_url": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location"
+          }
+        },
+        "title": "Grouping or category of medication request",
+        "type": "array"
+      },
+      "category_coding": {
+        "binding_description": "A coded concept identifying where the medication is to be consumed or administered.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location",
+        "binding_version": null,
+        "description": "[system#code representation.] An arbitrary categorization or grouping of the medication request.  It could be used for indicating where meds are intended to be administered, eg. in an inpatient setting or in a patient's home, or a legal category of the medication.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A coded concept identifying where the medication is to be consumed or administered.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location",
+            "term_url": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location"
+          }
+        },
+        "title": "Grouping or category of medication request",
+        "type": "array"
+      },
+      "category_text": {
+        "binding_description": "A coded concept identifying where the medication is to be consumed or administered.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location",
+        "binding_version": null,
+        "description": "[system#code representation.] An arbitrary categorization or grouping of the medication request.  It could be used for indicating where meds are intended to be administered, eg. in an inpatient setting or in a patient's home, or a legal category of the medication.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A coded concept identifying where the medication is to be consumed or administered.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location",
+            "term_url": "http://hl7.org/fhir/ValueSet/medicationrequest-admin-location"
+          }
+        },
+        "title": "Grouping or category of medication request",
+        "type": "array"
+      },
+      "courseOfTherapyType": {
+        "binding_description": "Identifies the overall pattern of medication administratio.",
+        "binding_strength": "extensible",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medicationrequest-course-of-therapy",
+        "binding_version": null,
+        "description": "text representation. The description of the overall pattern of the administration of the medication to the patient.",
+        "element_property": true,
+        "term": {
+          "description": "Identifies the overall pattern of medication administratio.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medicationrequest-course-of-therapy",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "extensible",
+            "term": "http://hl7.org/fhir/ValueSet/medicationrequest-course-of-therapy",
+            "term_url": "http://hl7.org/fhir/ValueSet/medicationrequest-course-of-therapy"
+          }
+        },
+        "title": "Overall pattern of medication administration",
+        "type": "string"
+      },
+      "courseOfTherapyType_coding": {
+        "binding_description": "Identifies the overall pattern of medication administratio.",
+        "binding_strength": "extensible",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medicationrequest-course-of-therapy",
+        "binding_version": null,
+        "description": "[system#code representation.] The description of the overall pattern of the administration of the medication to the patient.",
+        "element_property": true,
+        "term": {
+          "description": "Identifies the overall pattern of medication administratio.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medicationrequest-course-of-therapy",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "extensible",
+            "term": "http://hl7.org/fhir/ValueSet/medicationrequest-course-of-therapy",
+            "term_url": "http://hl7.org/fhir/ValueSet/medicationrequest-course-of-therapy"
+          }
+        },
+        "title": "Overall pattern of medication administration",
+        "type": "string"
+      },
+      "courseOfTherapyType_text": {
+        "binding_description": "Identifies the overall pattern of medication administratio.",
+        "binding_strength": "extensible",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medicationrequest-course-of-therapy",
+        "binding_version": null,
+        "description": "[system#code representation.] The description of the overall pattern of the administration of the medication to the patient.",
+        "element_property": true,
+        "term": {
+          "description": "Identifies the overall pattern of medication administratio.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medicationrequest-course-of-therapy",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "extensible",
+            "term": "http://hl7.org/fhir/ValueSet/medicationrequest-course-of-therapy",
+            "term_url": "http://hl7.org/fhir/ValueSet/medicationrequest-course-of-therapy"
+          }
+        },
+        "title": "Overall pattern of medication administration",
+        "type": "string"
+      },
+      "device": {
+        "backref": "device_medication_request",
+        "description": "text representation. The intended type of device that is to be used for the administration of the medication (for example, PCA Pump).",
+        "element_property": true,
+        "enum_reference_types": [
+          "DeviceDefinition"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Intended type of device for the administration",
+        "type": "array"
+      },
+      "device_coding": {
+        "backref": "device_medication_request",
+        "description": "[system#code representation.] The intended type of device that is to be used for the administration of the medication (for example, PCA Pump).",
+        "element_property": true,
+        "enum_reference_types": [
+          "DeviceDefinition"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Intended type of device for the administration",
+        "type": "array"
+      },
+      "device_text": {
+        "backref": "device_medication_request",
+        "description": "[system#code representation.] The intended type of device that is to be used for the administration of the medication (for example, PCA Pump).",
+        "element_property": true,
+        "enum_reference_types": [
+          "DeviceDefinition"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Intended type of device for the administration",
+        "type": "array"
+      },
+      "dispenseRequest": {
+        "description": "[Text representation of MedicationRequestDispenseRequest] Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Order).  Note that this information is not always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.",
+        "element_property": true,
+        "title": "Medication supply authorization",
+        "type": "string"
+      },
+      "doNotPerform": {
+        "description": "If true, indicates that the provider is asking for the patient to either stop taking or to not start taking the specified medication. For example, the patient is taking an existing medication and the provider is changing their medication. They want to create two seperate requests: one to stop using the current medication and another to start the new medication.",
+        "element_property": true,
+        "title": "True if patient is to stop taking or not to start taking the medication",
+        "type": "boolean"
+      },
+      "dosageInstruction": {
+        "description": "[Text representation of Dosage] Specific instructions for how the medication is to be used by the patient.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Specific instructions for how the medication should be taken",
+        "type": "array"
+      },
+      "effectiveDosePeriod": {
+        "description": "[Text representation of Period] The period over which the medication is to be taken.  Where there are multiple dosageInstruction lines (for example, tapering doses), this is the earliest date and the latest end date of the dosageInstructions.",
+        "element_property": true,
+        "title": "Period over which the medication is to be taken",
+        "type": "string"
+      },
+      "encounter": {
+        "backref": "medication_request",
+        "description": "[Text representation of Reference] The Encounter during which this [x] was created or to which the creation of this record is tightly associated.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Encounter"
+        ],
+        "title": "Encounter created as part of encounter/admission/stay",
+        "type": "string"
+      },
+      "eventHistory": {
+        "backref": "eventHistory_medication_request",
+        "description": "[Text representation of Reference] Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Provenance"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "A list of events of interest in the lifecycle",
+        "type": "array"
+      },
+      "extension": {
+        "description": "[Text representation of Extension] May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Additional content defined by implementations",
+        "type": "array"
+      },
+      "groupIdentifier": {
+        "description": "[Text representation of Identifier] A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time.",
+        "element_property": true,
+        "title": "Composite request this is part of",
+        "type": "string"
+      },
+      "id": {
+        "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+        "element_property": true,
+        "maxLength": 64,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9\\-.]+$",
+        "title": "Logical id of this artifact",
+        "type": "string"
+      },
+      "identifier": {
+        "description": "Identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "External ids for this request",
+        "type": "array"
+      },
+      "identifier_coding": {
+        "description": "[system#code representation of identifier] Identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "External ids for this request",
+        "type": "array"
+      },
+      "identifier_text_coding": {
+        "description": "[system#code representation of identifier.text] Identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "External ids for this request",
+        "type": "array"
+      },
+      "informationSource": {
+        "backref": "informationSource_medication_request",
+        "description": "[Text representation of Reference] The person or organization who provided the information about this request, if the source is someone other than the requestor.  This is often used when the MedicationRequest is reported by another person.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Patient",
+          "Practitioner",
+          "PractitionerRole",
+          "RelatedPerson",
+          "Organization"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "The person or organization who provided the information about this request, if the source is someone other than the requestor",
+        "type": "array"
+      },
+      "insurance": {
+        "backref": "insurance_medication_request",
+        "description": "[Text representation of Reference] Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Coverage",
+          "ClaimResponse"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Associated insurance coverage",
+        "type": "array"
+      },
+      "intent": {
+        "binding_description": "The kind of medication order.",
+        "binding_strength": "required",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medicationrequest-intent",
+        "binding_version": "5.0.0",
+        "description": "Whether the request is a proposal, plan, or an original order.",
+        "element_property": true,
+        "element_required": true,
+        "enum_values": [
+          "proposal",
+          "plan",
+          "order",
+          "original-order",
+          "reflex-order",
+          "filler-order",
+          "instance-order",
+          "option"
+        ],
+        "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+        "title": "proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option",
+        "type": "string"
+      },
+      "medication": {
+        "backref": "medication_request",
+        "binding_description": "A coded concept identifying substance or product that can be ordered.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medication-codes",
+        "binding_version": null,
+        "description": "text representation. Identifies the medication being requested. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Medication"
+        ],
+        "term": {
+          "description": "A coded concept identifying substance or product that can be ordered.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medication-codes",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/medication-codes",
+            "term_url": "http://hl7.org/fhir/ValueSet/medication-codes"
+          }
+        },
+        "title": "Medication to be taken",
+        "type": "string"
+      },
+      "medication_coding": {
+        "backref": "medication_request",
+        "binding_description": "A coded concept identifying substance or product that can be ordered.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medication-codes",
+        "binding_version": null,
+        "description": "[system#code representation.] Identifies the medication being requested. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Medication"
+        ],
+        "term": {
+          "description": "A coded concept identifying substance or product that can be ordered.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medication-codes",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/medication-codes",
+            "term_url": "http://hl7.org/fhir/ValueSet/medication-codes"
+          }
+        },
+        "title": "Medication to be taken",
+        "type": "string"
+      },
+      "medication_text": {
+        "backref": "medication_request",
+        "binding_description": "A coded concept identifying substance or product that can be ordered.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medication-codes",
+        "binding_version": null,
+        "description": "[system#code representation.] Identifies the medication being requested. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Medication"
+        ],
+        "term": {
+          "description": "A coded concept identifying substance or product that can be ordered.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medication-codes",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/medication-codes",
+            "term_url": "http://hl7.org/fhir/ValueSet/medication-codes"
+          }
+        },
+        "title": "Medication to be taken",
+        "type": "string"
+      },
+      "note": {
+        "description": "[Text representation of Annotation] Extra information about the prescription that could not be conveyed by the other attributes.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Information about the prescription",
+        "type": "array"
+      },
+      "performer": {
+        "backref": "performer_medication_request",
+        "description": "[Text representation of Reference] The specified desired performer of the medication treatment (e.g. the performer of the medication administration).  For devices, this is the device that is intended to perform the administration of the medication.  An IV Pump would be an example of a device that is performing the administration.  Both the IV Pump and the practitioner that set the rate or bolus on the pump can be listed as performers.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Practitioner",
+          "PractitionerRole",
+          "Organization",
+          "Patient",
+          "DeviceDefinition",
+          "RelatedPerson",
+          "CareTeam",
+          "HealthcareService"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Intended performer of administration",
+        "type": "array"
+      },
+      "performerType": {
+        "binding_description": "Identifies the type of individual that is desired to administer the medication.",
+        "binding_strength": "extensible",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medication-intended-performer-role",
+        "binding_version": null,
+        "description": "text representation. Indicates the type of performer of the administration of the medication.",
+        "element_property": true,
+        "term": {
+          "description": "Identifies the type of individual that is desired to administer the medication.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medication-intended-performer-role",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "extensible",
+            "term": "http://hl7.org/fhir/ValueSet/medication-intended-performer-role",
+            "term_url": "http://hl7.org/fhir/ValueSet/medication-intended-performer-role"
+          }
+        },
+        "title": "Desired kind of performer of the medication administration",
+        "type": "string"
+      },
+      "performerType_coding": {
+        "binding_description": "Identifies the type of individual that is desired to administer the medication.",
+        "binding_strength": "extensible",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medication-intended-performer-role",
+        "binding_version": null,
+        "description": "[system#code representation.] Indicates the type of performer of the administration of the medication.",
+        "element_property": true,
+        "term": {
+          "description": "Identifies the type of individual that is desired to administer the medication.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medication-intended-performer-role",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "extensible",
+            "term": "http://hl7.org/fhir/ValueSet/medication-intended-performer-role",
+            "term_url": "http://hl7.org/fhir/ValueSet/medication-intended-performer-role"
+          }
+        },
+        "title": "Desired kind of performer of the medication administration",
+        "type": "string"
+      },
+      "performerType_text": {
+        "binding_description": "Identifies the type of individual that is desired to administer the medication.",
+        "binding_strength": "extensible",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medication-intended-performer-role",
+        "binding_version": null,
+        "description": "[system#code representation.] Indicates the type of performer of the administration of the medication.",
+        "element_property": true,
+        "term": {
+          "description": "Identifies the type of individual that is desired to administer the medication.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medication-intended-performer-role",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "extensible",
+            "term": "http://hl7.org/fhir/ValueSet/medication-intended-performer-role",
+            "term_url": "http://hl7.org/fhir/ValueSet/medication-intended-performer-role"
+          }
+        },
+        "title": "Desired kind of performer of the medication administration",
+        "type": "string"
+      },
+      "priorPrescription": {
+        "backref": "priorPrescription_medication_request",
+        "description": "[Text representation of Reference] Reference to an order/prescription that is being replaced by this MedicationRequest",
+        "element_property": true,
+        "enum_reference_types": [
+          "MedicationRequest"
+        ],
+        "title": "Reference to an order/prescription that is being replaced by this MedicationRequest",
+        "type": "string"
+      },
+      "priority": {
+        "binding_description": "Identifies the level of importance to be assigned to actioning the request.",
+        "binding_strength": "required",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/request-priority",
+        "binding_version": "5.0.0",
+        "description": "Indicates how quickly the Medication Request should be addressed with respect to other requests.",
+        "element_property": true,
+        "enum_values": [
+          "routine",
+          "urgent",
+          "asap",
+          "stat"
+        ],
+        "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+        "title": "routine | urgent | asap | stat",
+        "type": "string"
+      },
+      "project_id": {
+        "term": {
+          "$ref": "_terms.yaml#/project_id"
+        },
+        "type": "string"
+      },
+      "reason": {
+        "backref": "reason_medication_request",
+        "binding_description": "A coded concept indicating why the medication was ordered.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/condition-code",
+        "binding_version": null,
+        "description": "text representation. The reason or the indication for ordering or not ordering the medication.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Condition",
+          "Observation"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A coded concept indicating why the medication was ordered.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/condition-code",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/condition-code",
+            "term_url": "http://hl7.org/fhir/ValueSet/condition-code"
+          }
+        },
+        "title": "Reason or indication for ordering or not ordering the medication",
+        "type": "array"
+      },
+      "reason_coding": {
+        "backref": "reason_medication_request",
+        "binding_description": "A coded concept indicating why the medication was ordered.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/condition-code",
+        "binding_version": null,
+        "description": "[system#code representation.] The reason or the indication for ordering or not ordering the medication.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Condition",
+          "Observation"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A coded concept indicating why the medication was ordered.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/condition-code",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/condition-code",
+            "term_url": "http://hl7.org/fhir/ValueSet/condition-code"
+          }
+        },
+        "title": "Reason or indication for ordering or not ordering the medication",
+        "type": "array"
+      },
+      "reason_text": {
+        "backref": "reason_medication_request",
+        "binding_description": "A coded concept indicating why the medication was ordered.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/condition-code",
+        "binding_version": null,
+        "description": "[system#code representation.] The reason or the indication for ordering or not ordering the medication.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Condition",
+          "Observation"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A coded concept indicating why the medication was ordered.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/condition-code",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/condition-code",
+            "term_url": "http://hl7.org/fhir/ValueSet/condition-code"
+          }
+        },
+        "title": "Reason or indication for ordering or not ordering the medication",
+        "type": "array"
+      },
+      "recorder": {
+        "backref": "recorder_medication_request",
+        "description": "[Text representation of Reference] The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Practitioner",
+          "PractitionerRole"
+        ],
+        "title": "Person who entered the request",
+        "type": "string"
+      },
+      "renderedDosageInstruction": {
+        "description": "The full representation of the dose of the medication included in all dosage instructions.  To be used when multiple dosage instructions are included to represent complex dosing such as increasing or tapering doses.",
+        "element_property": true,
+        "pattern": "\\s*(\\S|\\s)*",
+        "title": "Full representation of the dosage instructions",
+        "type": "string"
+      },
+      "reported": {
+        "description": "Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report.",
+        "element_property": true,
+        "title": "Reported rather than primary record",
+        "type": "boolean"
+      },
+      "requester": {
+        "backref": "requester_medication_request",
+        "description": "[Text representation of Reference] The individual, organization, or device that initiated the request and has responsibility for its activation.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Practitioner",
+          "PractitionerRole",
+          "Organization",
+          "Patient",
+          "RelatedPerson",
+          "Device"
+        ],
+        "title": "Who/What requested the Request",
+        "type": "string"
+      },
+      "resourceType": {
+        "const": "MedicationRequest",
+        "description": "One of the resource types defined as part of FHIR",
+        "title": "Resource Type",
+        "type": "string"
+      },
+      "status": {
+        "binding_description": "A coded concept specifying the state of the prescribing event. Describes the lifecycle of the prescription.",
+        "binding_strength": "required",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medicationrequest-status",
+        "binding_version": "5.0.0",
+        "description": "A code specifying the current state of the order.  Generally, this will be active or completed state.",
+        "element_property": true,
+        "element_required": true,
+        "enum_values": [
+          "active",
+          "on-hold",
+          "ended",
+          "stopped",
+          "completed",
+          "cancelled",
+          "entered-in-error",
+          "draft",
+          "unknown"
+        ],
+        "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+        "title": "active | on-hold | ended | stopped | completed | cancelled | entered-in-error | draft | unknown",
+        "type": "string"
+      },
+      "statusChanged": {
+        "description": "The date (and perhaps time) when the status was changed.",
+        "element_property": true,
+        "format": "date-time",
+        "title": "When the status was changed",
+        "type": "string"
+      },
+      "statusReason": {
+        "binding_description": "Identifies the reasons for a given status.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medicationrequest-status-reason",
+        "binding_version": null,
+        "description": "text representation. Captures the reason for the current state of the MedicationRequest.",
+        "element_property": true,
+        "term": {
+          "description": "Identifies the reasons for a given status.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medicationrequest-status-reason",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/medicationrequest-status-reason",
+            "term_url": "http://hl7.org/fhir/ValueSet/medicationrequest-status-reason"
+          }
+        },
+        "title": "Reason for current status",
+        "type": "string"
+      },
+      "statusReason_coding": {
+        "binding_description": "Identifies the reasons for a given status.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medicationrequest-status-reason",
+        "binding_version": null,
+        "description": "[system#code representation.] Captures the reason for the current state of the MedicationRequest.",
+        "element_property": true,
+        "term": {
+          "description": "Identifies the reasons for a given status.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medicationrequest-status-reason",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/medicationrequest-status-reason",
+            "term_url": "http://hl7.org/fhir/ValueSet/medicationrequest-status-reason"
+          }
+        },
+        "title": "Reason for current status",
+        "type": "string"
+      },
+      "statusReason_text": {
+        "binding_description": "Identifies the reasons for a given status.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medicationrequest-status-reason",
+        "binding_version": null,
+        "description": "[system#code representation.] Captures the reason for the current state of the MedicationRequest.",
+        "element_property": true,
+        "term": {
+          "description": "Identifies the reasons for a given status.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medicationrequest-status-reason",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/medicationrequest-status-reason",
+            "term_url": "http://hl7.org/fhir/ValueSet/medicationrequest-status-reason"
+          }
+        },
+        "title": "Reason for current status",
+        "type": "string"
+      },
+      "subject": {
+        "backref": "subject_medication_request",
+        "description": "[Text representation of Reference] The individual or group for whom the medication has been requested.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Patient",
+          "Group"
+        ],
+        "title": "Individual or group for whom the medication has been requested",
+        "type": "string"
+      },
+      "substitution": {
+        "description": "[Text representation of MedicationRequestSubstitution] Indicates whether or not substitution can or should be part of the dispense. In some cases, substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done.",
+        "element_property": true,
+        "title": "Any restrictions on medication substitution",
+        "type": "string"
+      },
+      "supportingInformation": {
+        "backref": "supportingInformation_medication_request",
+        "description": "[Text representation of Reference] Information to support fulfilling (i.e. dispensing or administering) of the medication, for example, patient height and weight, a MedicationStatement for the patient).",
+        "element_property": true,
+        "enum_reference_types": [
+          "Resource"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Information to support fulfilling of the medication",
+        "type": "array"
+      }
+    },
+    "systemProperties": [
+      "id"
+    ],
+    "title": "MedicationRequest",
+    "type": "object",
+    "uniqueKeys": [
+      [
+        "id"
+      ]
+    ]
+  },
   "research_subject.yaml": {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": true,
@@ -5747,7 +7125,6 @@
       },
       "resourceType": {
         "const": "ResearchSubject",
-        "default": "ResearchSubject",
         "description": "One of the resource types defined as part of FHIR",
         "title": "Resource Type",
         "type": "string"
@@ -7115,7 +8492,6 @@
       },
       "resourceType": {
         "const": "FamilyMemberHistory",
-        "default": "FamilyMemberHistory",
         "description": "One of the resource types defined as part of FHIR",
         "title": "Resource Type",
         "type": "string"
@@ -7611,7 +8987,6 @@
       },
       "resourceType": {
         "const": "Specimen",
-        "default": "Specimen",
         "description": "One of the resource types defined as part of FHIR",
         "title": "Resource Type",
         "type": "string"
@@ -7841,6 +9216,14 @@
         "name": "reason_Observation",
         "required": false,
         "target_type": "observation"
+      },
+      {
+        "backref": "medication_administration",
+        "label": "MedicationAdministration_request_MedicationRequest_medication_administration",
+        "multiplicity": "many_to_many",
+        "name": "request",
+        "required": false,
+        "target_type": "medication_request"
       }
     ],
     "program": "*",
@@ -8298,7 +9681,6 @@
       },
       "resourceType": {
         "const": "MedicationAdministration",
-        "default": "MedicationAdministration",
         "description": "One of the resource types defined as part of FHIR",
         "title": "Resource Type",
         "type": "string"
@@ -8728,7 +10110,6 @@
       },
       "resourceType": {
         "const": "Medication",
-        "default": "Medication",
         "description": "One of the resource types defined as part of FHIR",
         "title": "Resource Type",
         "type": "string"

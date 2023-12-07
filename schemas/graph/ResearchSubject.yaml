@@ -4,21 +4,6 @@ description: Participant or object which is the recipient of investigative activ
   in a study. A ResearchSubject is a participant or object which is the recipient
   of investigative activities in a research study. [See https://hl7.org/fhir/R5/ResearchSubject.html]
 links:
-- href: Consent/{id}
-  rel: consent
-  targetHints:
-    backref:
-    - consent_research_subject
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: Consent
-  templatePointers:
-    id: /consent/-/reference
-  templateRequired:
-  - id
 - href: ResearchStudy/{id}
   rel: study
   targetHints:
@@ -29,7 +14,7 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: ResearchStudy
+    $ref: ResearchStudy.yaml
   templatePointers:
     id: /study/reference
   templateRequired:
@@ -44,22 +29,7 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Patient
-  templatePointers:
-    id: /subject/reference
-  templateRequired:
-  - id
-- href: Group/{id}
-  rel: subject_Group
-  targetHints:
-    backref:
-    - research_subject
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Group
+    $ref: Patient.yaml
   templatePointers:
     id: /subject/reference
   templateRequired:
@@ -74,22 +44,7 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Specimen
-  templatePointers:
-    id: /subject/reference
-  templateRequired:
-  - id
-- href: Device/{id}
-  rel: subject_Device
-  targetHints:
-    backref:
-    - research_subject
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Device
+    $ref: Specimen.yaml
   templatePointers:
     id: /subject/reference
   templateRequired:
@@ -104,7 +59,7 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Medication
+    $ref: Medication.yaml
   templatePointers:
     id: /subject/reference
   templateRequired:
@@ -119,22 +74,7 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Substance
-  templatePointers:
-    id: /subject/reference
-  templateRequired:
-  - id
-- href: BiologicallyDerivedProduct/{id}
-  rel: subject_BiologicallyDerivedProduct
-  targetHints:
-    backref:
-    - research_subject
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: BiologicallyDerivedProduct
+    $ref: Substance.yaml
   templatePointers:
     id: /subject/reference
   templateRequired:
