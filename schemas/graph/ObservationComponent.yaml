@@ -5,22 +5,7 @@ description: Component results. Some observations have multiple component observ
   same attributes.  Examples include systolic and diastolic component observations
   for blood pressure measurement and multiple component observations for genetics
   observations. [See https://hl7.org/fhir/R5/ObservationComponent.html]
-links:
-- href: MolecularSequence/{id}
-  rel: valueReference
-  targetHints:
-    backref:
-    - observation_component
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: MolecularSequence
-  templatePointers:
-    id: /valueReference/reference
-  templateRequired:
-  - id
+links: []
 properties:
   _valueBoolean:
     $ref: FHIRPrimitiveExtension.yaml

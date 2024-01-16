@@ -1,0 +1,435 @@
+$schema: http://json-schema.org/draft-04/schema#
+additionalProperties: true
+category: Clinical
+description: Record of medication being taken by a patient. A record of a medication
+  that is being consumed by a patient.   A MedicationStatement may indicate that the
+  patient may be taking the medication now or has taken the medication in the past
+  or will be taking the medication in the future.  The source of this information
+  can be the patient, significant other (such as a family member or spouse), or a
+  clinician.  A common scenario where this information is captured is during the history
+  taking process during a patient visit or stay.   The medication information may
+  come from sources such as the patient's memory, from a prescription bottle,  or
+  from a list of medications the patient, clinician or other party maintains. The
+  primary difference between a medicationstatement and a medicationadministration
+  is that the medication administration has complete administration information and
+  is based on actual administration information from the person who administered the
+  medication.  A medicationstatement is often, if not always, less specific.  There
+  is no required date/time when the medication was administered, in fact we only know
+  that a source has reported the patient is taking this medication, where details
+  such as time, quantity, or rate or even medication product may be incomplete or
+  missing or less precise.  As stated earlier, the Medication Statement information
+  may come from the patient's memory, from a prescription bottle or from a list of
+  medications the patient, clinician or other party maintains.  Medication administration
+  is more formal and is not missing detailed information. The MedicationStatement
+  resource was previously called MedicationStatement. [See https://hl7.org/fhir/R5/MedicationStatement.html]
+id: medication_statement
+links:
+- backref: subject_medication_statement
+  label: MedicationStatement_subject_Patient_subject_medication_statement
+  multiplicity: many_to_many
+  name: subject_Patient
+  required: false
+  target_type: patient
+- backref: medication_statement
+  label: MedicationStatement_medication_Medication_medication_statement
+  multiplicity: many_to_many
+  name: medication
+  required: false
+  target_type: medication
+- backref: partOf_medication_statement
+  label: MedicationStatement_partOf_MedicationStatement_partOf_medication_statement
+  multiplicity: many_to_many
+  name: partOf_MedicationStatement
+  required: false
+  target_type: medication_statement
+- backref: reason_medication_statement
+  label: MedicationStatement_reason_Condition_reason_medication_statement
+  multiplicity: many_to_many
+  name: reason_Condition
+  required: false
+  target_type: condition
+- backref: reason_medication_statement
+  label: MedicationStatement_reason_Observation_reason_medication_statement
+  multiplicity: many_to_many
+  name: reason_Observation
+  required: false
+  target_type: observation
+program: '*'
+project: '*'
+properties:
+  adherence:
+    description: '[Text representation of MedicationStatementAdherence] Indicates
+      whether the medication is or is not being consumed or administered'
+    element_property: true
+    title: Indicates whether the medication is or is not being consumed or administered
+    type: string
+  category:
+    binding_description: A coded concept identifying where the medication included
+      in the MedicationStatement is expected to be consumed or administered.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/medicationrequest-admin-location
+    binding_version: null
+    description: text representation. Type of medication statement (for example, drug
+      classification like ATC, where meds would be administered, legal category of
+      the medication.).
+    element_property: true
+    items:
+      type: string
+    term:
+      description: A coded concept identifying where the medication included in the
+        MedicationStatement is expected to be consumed or administered.
+      termDef:
+        cde_id: http://hl7.org/fhir/ValueSet/medicationrequest-admin-location
+        cde_version: null
+        source: fhir
+        strength: example
+        term: http://hl7.org/fhir/ValueSet/medicationrequest-admin-location
+        term_url: http://hl7.org/fhir/ValueSet/medicationrequest-admin-location
+    title: Type of medication statement
+    type: array
+  category_coding: &id001
+    binding_description: A coded concept identifying where the medication included
+      in the MedicationStatement is expected to be consumed or administered.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/medicationrequest-admin-location
+    binding_version: null
+    description: '[system#code representation.] Type of medication statement (for
+      example, drug classification like ATC, where meds would be administered, legal
+      category of the medication.).'
+    element_property: true
+    items:
+      type: string
+    term:
+      description: A coded concept identifying where the medication included in the
+        MedicationStatement is expected to be consumed or administered.
+      termDef:
+        cde_id: http://hl7.org/fhir/ValueSet/medicationrequest-admin-location
+        cde_version: null
+        source: fhir
+        strength: example
+        term: http://hl7.org/fhir/ValueSet/medicationrequest-admin-location
+        term_url: http://hl7.org/fhir/ValueSet/medicationrequest-admin-location
+    title: Type of medication statement
+    type: array
+  category_text: *id001
+  dateAsserted:
+    description: The date when the Medication Statement was asserted by the information
+      source.
+    element_property: true
+    format: date-time
+    title: When the usage was asserted?
+    type: string
+  derivedFrom:
+    backref: derivedFrom_medication_statement
+    description: '[Text representation of Reference] Allows linking the MedicationStatement
+      to the underlying MedicationRequest, or to other information that supports or
+      is used to derive the MedicationStatement.'
+    element_property: true
+    enum_reference_types:
+    - Resource
+    items:
+      type: string
+    title: Link to information used to derive the MedicationStatement
+    type: array
+  dosage:
+    description: '[Text representation of Dosage] Indicates how the medication is/was
+      or should be taken by the patient.'
+    element_property: true
+    items:
+      type: string
+    title: Details of how medication is/was taken or should be taken
+    type: array
+  effectiveDateTime:
+    description: The interval of time during which it is being asserted that the patient
+      is/was/will be taking the medication (or was not taking, when the MedicationStatement.adherence
+      element is Not Taking).
+    element_property: true
+    format: date-time
+    one_of_many: effective
+    one_of_many_required: false
+    title: The date/time or interval when the medication is/was/will be taken
+    type: string
+  effectivePeriod:
+    description: '[Text representation of Period] The interval of time during which
+      it is being asserted that the patient is/was/will be taking the medication (or
+      was not taking, when the MedicationStatement.adherence element is Not Taking).'
+    element_property: true
+    one_of_many: effective
+    one_of_many_required: false
+    title: The date/time or interval when the medication is/was/will be taken
+    type: string
+  effectiveTiming:
+    description: '[Text representation of Timing] The interval of time during which
+      it is being asserted that the patient is/was/will be taking the medication (or
+      was not taking, when the MedicationStatement.adherence element is Not Taking).'
+    element_property: true
+    one_of_many: effective
+    one_of_many_required: false
+    title: The date/time or interval when the medication is/was/will be taken
+    type: string
+  encounter:
+    backref: medication_statement
+    description: '[Text representation of Reference] The encounter that establishes
+      the context for this MedicationStatement.'
+    element_property: true
+    enum_reference_types:
+    - Encounter
+    title: Encounter associated with MedicationStatement
+    type: string
+  extension:
+    description: '[Text representation of Extension] May be used to represent additional
+      information that is not part of the basic definition of the resource. To make
+      the use of extensions safe and managable, there is a strict set of governance
+      applied to the definition and use of extensions. Though any implementer can
+      define an extension, there is a set of requirements that SHALL be met as part
+      of the definition of the extension.'
+    element_property: true
+    items:
+      type: string
+    title: Additional content defined by implementations
+    type: array
+  id:
+    description: The logical id of the resource, as used in the URL for the resource.
+      Once assigned, this value never changes.
+    element_property: true
+    maxLength: 64
+    minLength: 1
+    pattern: ^[A-Za-z0-9\-.]+$
+    title: Logical id of this artifact
+    type: string
+  identifier:
+    description: Identifiers associated with this Medication Statement that are defined
+      by business processes and/or used to refer to it when a direct URL reference
+      to the resource itself is not appropriate. They are business identifiers assigned
+      to this resource by the performer or other systems and remain constant as the
+      resource is updated and propagates from server to server.
+    element_property: true
+    items:
+      type: string
+    title: External identifier
+    type: array
+  identifier_coding:
+    description: '[system#code representation of identifier] Identifiers associated
+      with this Medication Statement that are defined by business processes and/or
+      used to refer to it when a direct URL reference to the resource itself is not
+      appropriate. They are business identifiers assigned to this resource by the
+      performer or other systems and remain constant as the resource is updated and
+      propagates from server to server.'
+    element_property: true
+    items:
+      type: string
+    title: External identifier
+    type: array
+  identifier_text_coding:
+    description: '[system#code representation of identifier.text] Identifiers associated
+      with this Medication Statement that are defined by business processes and/or
+      used to refer to it when a direct URL reference to the resource itself is not
+      appropriate. They are business identifiers assigned to this resource by the
+      performer or other systems and remain constant as the resource is updated and
+      propagates from server to server.'
+    element_property: true
+    items:
+      type: string
+    title: External identifier
+    type: array
+  informationSource:
+    backref: informationSource_medication_statement
+    description: '[Text representation of Reference] The person or organization that
+      provided the information about the taking of this medication. Note: Use derivedFrom
+      when a MedicationStatement is derived from other resources, e.g. Claim or MedicationRequest.'
+    element_property: true
+    enum_reference_types:
+    - Patient
+    - Practitioner
+    - PractitionerRole
+    - RelatedPerson
+    - Organization
+    items:
+      type: string
+    title: Person or organization that provided the information about the taking of
+      this medication
+    type: array
+  medication:
+    backref: medication_statement
+    binding_description: A coded concept identifying the substance or product being
+      taken.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/medication-codes
+    binding_version: null
+    description: text representation. Identifies the medication being administered.
+      This is either a link to a resource representing the details of the medication
+      or a simple attribute carrying a code that identifies the medication from a
+      known list of medications.
+    element_property: true
+    enum_reference_types:
+    - Medication
+    term:
+      description: A coded concept identifying the substance or product being taken.
+      termDef:
+        cde_id: http://hl7.org/fhir/ValueSet/medication-codes
+        cde_version: null
+        source: fhir
+        strength: example
+        term: http://hl7.org/fhir/ValueSet/medication-codes
+        term_url: http://hl7.org/fhir/ValueSet/medication-codes
+    title: What medication was taken
+    type: string
+  medication_coding: &id002
+    backref: medication_statement
+    binding_description: A coded concept identifying the substance or product being
+      taken.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/medication-codes
+    binding_version: null
+    description: '[system#code representation.] Identifies the medication being administered.
+      This is either a link to a resource representing the details of the medication
+      or a simple attribute carrying a code that identifies the medication from a
+      known list of medications.'
+    element_property: true
+    enum_reference_types:
+    - Medication
+    term:
+      description: A coded concept identifying the substance or product being taken.
+      termDef:
+        cde_id: http://hl7.org/fhir/ValueSet/medication-codes
+        cde_version: null
+        source: fhir
+        strength: example
+        term: http://hl7.org/fhir/ValueSet/medication-codes
+        term_url: http://hl7.org/fhir/ValueSet/medication-codes
+    title: What medication was taken
+    type: string
+  medication_text: *id002
+  note:
+    description: '[Text representation of Annotation] Provides extra information about
+      the Medication Statement that is not conveyed by the other attributes.'
+    element_property: true
+    items:
+      type: string
+    title: Further information about the usage
+    type: array
+  partOf:
+    backref: partOf_medication_statement
+    description: '[Text representation of Reference] A larger event of which this
+      particular MedicationStatement is a component or step.'
+    element_property: true
+    enum_reference_types:
+    - Procedure
+    - MedicationStatement
+    items:
+      type: string
+    title: Part of referenced event
+    type: array
+  project_id:
+    term:
+      $ref: _terms.yaml#/project_id
+    type: string
+  reason:
+    backref: reason_medication_statement
+    binding_description: A coded concept identifying why the medication is being taken.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/condition-code
+    binding_version: null
+    description: text representation. A concept, Condition or observation that supports
+      why the medication is being/was taken.
+    element_property: true
+    enum_reference_types:
+    - Condition
+    - Observation
+    - DiagnosticReport
+    items:
+      type: string
+    term:
+      description: A coded concept identifying why the medication is being taken.
+      termDef:
+        cde_id: http://hl7.org/fhir/ValueSet/condition-code
+        cde_version: null
+        source: fhir
+        strength: example
+        term: http://hl7.org/fhir/ValueSet/condition-code
+        term_url: http://hl7.org/fhir/ValueSet/condition-code
+    title: Reason for why the medication is being/was taken
+    type: array
+  reason_coding: &id003
+    backref: reason_medication_statement
+    binding_description: A coded concept identifying why the medication is being taken.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/condition-code
+    binding_version: null
+    description: '[system#code representation.] A concept, Condition or observation
+      that supports why the medication is being/was taken.'
+    element_property: true
+    enum_reference_types:
+    - Condition
+    - Observation
+    - DiagnosticReport
+    items:
+      type: string
+    term:
+      description: A coded concept identifying why the medication is being taken.
+      termDef:
+        cde_id: http://hl7.org/fhir/ValueSet/condition-code
+        cde_version: null
+        source: fhir
+        strength: example
+        term: http://hl7.org/fhir/ValueSet/condition-code
+        term_url: http://hl7.org/fhir/ValueSet/condition-code
+    title: Reason for why the medication is being/was taken
+    type: array
+  reason_text: *id003
+  relatedClinicalInformation:
+    backref: relatedClinicalInformation_medication_statement
+    description: '[Text representation of Reference] Link to information that is relevant
+      to a medication statement, for example, illicit drug use, gestational age, etc.'
+    element_property: true
+    enum_reference_types:
+    - Observation
+    - Condition
+    items:
+      type: string
+    title: Link to information relevant to the usage of a medication
+    type: array
+  renderedDosageInstruction:
+    description: The full representation of the dose of the medication included in
+      all dosage instructions.  To be used when multiple dosage instructions are included
+      to represent complex dosing such as increasing or tapering doses.
+    element_property: true
+    pattern: \s*(\S|\s)*
+    title: Full representation of the dosage instructions
+    type: string
+  resourceType:
+    const: MedicationStatement
+    description: One of the resource types defined as part of FHIR
+    title: Resource Type
+    type: string
+  status:
+    binding_description: A coded concept indicating the current status of a MedicationStatement.
+    binding_strength: required
+    binding_uri: http://hl7.org/fhir/ValueSet/medication-statement-status
+    binding_version: 5.0.0
+    description: A code representing the status of recording the medication statement.
+    element_property: true
+    element_required: true
+    enum_values:
+    - recorded
+    - entered-in-error
+    - draft
+    pattern: ^[^\s]+(\s[^\s]+)*$
+    title: recorded | entered-in-error | draft
+    type: string
+  subject:
+    backref: subject_medication_statement
+    description: '[Text representation of Reference] The person, animal or group who
+      is/was taking the medication.'
+    element_property: true
+    enum_reference_types:
+    - Patient
+    - Group
+    title: Who is/was taking  the medication
+    type: string
+systemProperties:
+- id
+title: MedicationStatement
+type: object
+uniqueKeys:
+- - id

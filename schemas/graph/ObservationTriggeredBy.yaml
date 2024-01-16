@@ -13,7 +13,7 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Observation
+    $ref: Observation.yaml
   templatePointers:
     id: /observation/reference
   templateRequired:

@@ -2,22 +2,7 @@ $id: PatientContact
 additionalProperties: false
 description: A contact party (e.g. guardian, partner, friend) for the patient. [See
   https://hl7.org/fhir/R5/PatientContact.html]
-links:
-- href: Organization/{id}
-  rel: organization
-  targetHints:
-    backref:
-    - patient_contact
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Organization
-  templatePointers:
-    id: /organization/reference
-  templateRequired:
-  - id
+links: []
 properties:
   _gender:
     $ref: FHIRPrimitiveExtension.yaml

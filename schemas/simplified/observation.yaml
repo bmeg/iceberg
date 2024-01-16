@@ -550,7 +550,6 @@ properties:
     type: array
   resourceType:
     const: Observation
-    default: Observation
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string

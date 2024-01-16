@@ -38,6 +38,12 @@ links:
   name: reason_Observation
   required: false
   target_type: observation
+- backref: medication_administration
+  label: MedicationAdministration_request_MedicationRequest_medication_administration
+  multiplicity: many_to_many
+  name: request
+  required: false
+  target_type: medication_request
 program: '*'
 project: '*'
 properties:
@@ -409,7 +415,6 @@ properties:
     type: string
   resourceType:
     const: MedicationAdministration
-    default: MedicationAdministration
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string

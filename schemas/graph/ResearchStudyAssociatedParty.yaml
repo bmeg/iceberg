@@ -1,52 +1,7 @@
 $id: ResearchStudyAssociatedParty
 additionalProperties: false
 description: Sponsors, collaborators, and other parties. [See https://hl7.org/fhir/R5/ResearchStudyAssociatedParty.html]
-links:
-- href: Practitioner/{id}
-  rel: party_Practitioner
-  targetHints:
-    backref:
-    - research_study_associated_party
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Practitioner
-  templatePointers:
-    id: /party/reference
-  templateRequired:
-  - id
-- href: PractitionerRole/{id}
-  rel: party_PractitionerRole
-  targetHints:
-    backref:
-    - research_study_associated_party
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: PractitionerRole
-  templatePointers:
-    id: /party/reference
-  templateRequired:
-  - id
-- href: Organization/{id}
-  rel: party_Organization
-  targetHints:
-    backref:
-    - research_study_associated_party
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Organization
-  templatePointers:
-    id: /party/reference
-  templateRequired:
-  - id
+links: []
 properties:
   _name:
     $ref: FHIRPrimitiveExtension.yaml
