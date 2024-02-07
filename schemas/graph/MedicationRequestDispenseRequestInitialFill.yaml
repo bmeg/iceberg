@@ -1,23 +1,14 @@
-$id: ResearchStudyOutcomeMeasure
+$id: MedicationRequestDispenseRequestInitialFill
 additionalProperties: false
-description: A variable measured during the study. An "outcome measure", "endpoint",
-  "effect measure" or "measure of effect" is a specific measurement or observation
-  used to quantify the effect of experimental variables on the participants in a study,
-  or for observational studies, to describe patterns of diseases or traits or associations
-  with exposures, risk factors or treatment. [See https://hl7.org/fhir/R5/ResearchStudyOutcomeMeasure.html]
+description: First fill details. Indicates the quantity or duration for the first
+  dispense of the medication. [See https://hl7.org/fhir/R5/MedicationRequestDispenseRequestInitialFill.html]
 links: []
 properties:
-  _description:
-    $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``description``.
-  _name:
-    $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``name``.
-  description:
+  duration:
+    $ref: Duration.yaml
+    description: The length of time that the first dispense is expected to last.
     element_property: true
-    pattern: \s*(\S|\s)*
-    title: Description of the outcome
-    type: string
+    title: First fill duration
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -65,35 +56,16 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
-  name:
+  quantity:
+    $ref: Quantity.yaml
+    description: The amount or quantity to provide as part of the first dispense.
     element_property: true
-    pattern: '[ \r\n\t\S]+'
-    title: Label for the outcome
-    type: string
-  reference:
-    $ref: Reference.yaml
-    backref: research_study_outcome_measure
-    element_property: true
-    enum_reference_types:
-    - EvidenceVariable
-    title: Structured outcome definition
+    title: First fill quantity
   resourceType:
-    const: ResearchStudyOutcomeMeasure
-    default: ResearchStudyOutcomeMeasure
+    const: MedicationRequestDispenseRequestInitialFill
+    default: MedicationRequestDispenseRequestInitialFill
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-  type:
-    binding_description: defn.
-    binding_strength: preferred
-    binding_uri: http://hl7.org/fhir/ValueSet/research-study-objective-type
-    binding_version: null
-    description: The parameter or characteristic being assessed as one of the values
-      by which the study is assessed.
-    element_property: true
-    items:
-      $ref: CodeableConcept.yaml
-    title: primary | secondary | exploratory
-    type: array
-title: ResearchStudyOutcomeMeasure
+title: MedicationRequestDispenseRequestInitialFill
 type: object

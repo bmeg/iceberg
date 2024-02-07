@@ -246,7 +246,6 @@ properties:
     type: number
   resourceType:
     const: Patient
-    default: Patient
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string

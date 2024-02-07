@@ -13,7 +13,7 @@ links:
     multiplicity:
     - has_many
   targetSchema:
-    $ref: Substance
+    $ref: Substance.yaml
   templatePointers:
     id: /additive/-/reference
   templateRequired:

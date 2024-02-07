@@ -6,51 +6,6 @@ description: Administration of medication to a patient. Describes the event of a
   this event to the authorizing prescription, and the specific encounter between patient
   and health care practitioner. [See https://hl7.org/fhir/R5/MedicationAdministration.html]
 links:
-- href: CarePlan/{id}
-  rel: basedOn
-  targetHints:
-    backref:
-    - basedOn_medication_administration
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: CarePlan
-  templatePointers:
-    id: /basedOn/-/reference
-  templateRequired:
-  - id
-- href: Encounter/{id}
-  rel: encounter
-  targetHints:
-    backref:
-    - medication_administration
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Encounter
-  templatePointers:
-    id: /encounter/reference
-  templateRequired:
-  - id
-- href: Provenance/{id}
-  rel: eventHistory
-  targetHints:
-    backref:
-    - eventHistory_medication_administration
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: Provenance
-  templatePointers:
-    id: /eventHistory/-/reference
-  templateRequired:
-  - id
 - href: MedicationAdministration/{id}
   rel: partOf_MedicationAdministration
   targetHints:
@@ -61,37 +16,7 @@ links:
     multiplicity:
     - has_many
   targetSchema:
-    $ref: MedicationAdministration
-  templatePointers:
-    id: /partOf/-/reference
-  templateRequired:
-  - id
-- href: Procedure/{id}
-  rel: partOf_Procedure
-  targetHints:
-    backref:
-    - partOf_medication_administration
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: Procedure
-  templatePointers:
-    id: /partOf/-/reference
-  templateRequired:
-  - id
-- href: MedicationDispense/{id}
-  rel: partOf_MedicationDispense
-  targetHints:
-    backref:
-    - partOf_medication_administration
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: MedicationDispense
+    $ref: MedicationAdministration.yaml
   templatePointers:
     id: /partOf/-/reference
   templateRequired:
@@ -106,7 +31,7 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: MedicationRequest
+    $ref: MedicationRequest.yaml
   templatePointers:
     id: /request/reference
   templateRequired:
@@ -121,22 +46,7 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Patient
-  templatePointers:
-    id: /subject/reference
-  templateRequired:
-  - id
-- href: Group/{id}
-  rel: subject_Group
-  targetHints:
-    backref:
-    - medication_administration
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Group
+    $ref: Patient.yaml
   templatePointers:
     id: /subject/reference
   templateRequired:
@@ -151,73 +61,9 @@ links:
     multiplicity:
     - has_many
   targetSchema:
-    $ref: Resource
+    $ref: Resource.yaml
   templatePointers:
     id: /supportingInformation/-/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: __ANY__/{id}
-  rel: device_reference
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: __ANY__
-  templatePointers:
-    id: /device/-/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/medication
-  href: __ANY__/{id}
-  rel: medication_reference
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: __ANY__
-  templatePointers:
-    id: /medication/reference/reference
-  templateRequired:
-  - id
-- $comment: From Annotation/note
-  href: Practitioner/{id}
-  rel: note_authorReference_Practitioner
-  targetHints:
-    backref:
-    - annotation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Practitioner
-  templatePointers:
-    id: /note/-/authorReference/reference
-  templateRequired:
-  - id
-- $comment: From Annotation/note
-  href: PractitionerRole/{id}
-  rel: note_authorReference_PractitionerRole
-  targetHints:
-    backref:
-    - annotation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: PractitionerRole
-  templatePointers:
-    id: /note/-/authorReference/reference
   templateRequired:
   - id
 - $comment: From Annotation/note
@@ -231,57 +77,9 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Patient
+    $ref: Patient.yaml
   templatePointers:
     id: /note/-/authorReference/reference
-  templateRequired:
-  - id
-- $comment: From Annotation/note
-  href: RelatedPerson/{id}
-  rel: note_authorReference_RelatedPerson
-  targetHints:
-    backref:
-    - annotation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: RelatedPerson
-  templatePointers:
-    id: /note/-/authorReference/reference
-  templateRequired:
-  - id
-- $comment: From Annotation/note
-  href: Organization/{id}
-  rel: note_authorReference_Organization
-  targetHints:
-    backref:
-    - annotation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Organization
-  templatePointers:
-    id: /note/-/authorReference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/reason
-  href: __ANY__/{id}
-  rel: reason_reference
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: __ANY__
-  templatePointers:
-    id: /reason/-/reference/reference
   templateRequired:
   - id
 properties:

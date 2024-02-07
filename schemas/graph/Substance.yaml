@@ -2,22 +2,6 @@ $id: Substance
 additionalProperties: false
 description: A homogeneous material with a definite composition. [See https://hl7.org/fhir/R5/Substance.html]
 links:
-- $comment: From CodeableReference/code
-  href: __ANY__/{id}
-  rel: code_reference
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: __ANY__
-  templatePointers:
-    id: /code/reference/reference
-  templateRequired:
-  - id
 - $comment: From SubstanceIngredient/ingredient
   href: Substance/{id}
   rel: ingredient_substanceReference
@@ -29,7 +13,7 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Substance
+    $ref: Substance.yaml
   templatePointers:
     id: /ingredient/-/substanceReference/reference
   templateRequired:

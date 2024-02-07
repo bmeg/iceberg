@@ -13,22 +13,7 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Patient
-  templatePointers:
-    id: /other/reference
-  templateRequired:
-  - id
-- href: RelatedPerson/{id}
-  rel: other_RelatedPerson
-  targetHints:
-    backref:
-    - patient_link
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: RelatedPerson
+    $ref: Patient.yaml
   templatePointers:
     id: /other/reference
   templateRequired:

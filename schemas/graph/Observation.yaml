@@ -3,51 +3,6 @@ additionalProperties: false
 description: Measurements and simple assertions. Measurements and simple assertions
   made about a patient, device or other subject. [See https://hl7.org/fhir/R5/Observation.html]
 links:
-- href: CarePlan/{id}
-  rel: basedOn_CarePlan
-  targetHints:
-    backref:
-    - basedOn_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: CarePlan
-  templatePointers:
-    id: /basedOn/-/reference
-  templateRequired:
-  - id
-- href: DeviceRequest/{id}
-  rel: basedOn_DeviceRequest
-  targetHints:
-    backref:
-    - basedOn_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: DeviceRequest
-  templatePointers:
-    id: /basedOn/-/reference
-  templateRequired:
-  - id
-- href: ImmunizationRecommendation/{id}
-  rel: basedOn_ImmunizationRecommendation
-  targetHints:
-    backref:
-    - basedOn_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: ImmunizationRecommendation
-  templatePointers:
-    id: /basedOn/-/reference
-  templateRequired:
-  - id
 - href: MedicationRequest/{id}
   rel: basedOn_MedicationRequest
   targetHints:
@@ -58,54 +13,9 @@ links:
     multiplicity:
     - has_many
   targetSchema:
-    $ref: MedicationRequest
+    $ref: MedicationRequest.yaml
   templatePointers:
     id: /basedOn/-/reference
-  templateRequired:
-  - id
-- href: NutritionOrder/{id}
-  rel: basedOn_NutritionOrder
-  targetHints:
-    backref:
-    - basedOn_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: NutritionOrder
-  templatePointers:
-    id: /basedOn/-/reference
-  templateRequired:
-  - id
-- href: ServiceRequest/{id}
-  rel: basedOn_ServiceRequest
-  targetHints:
-    backref:
-    - basedOn_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: ServiceRequest
-  templatePointers:
-    id: /basedOn/-/reference
-  templateRequired:
-  - id
-- href: BodyStructure/{id}
-  rel: bodyStructure
-  targetHints:
-    backref:
-    - observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: BodyStructure
-  templatePointers:
-    id: /bodyStructure/reference
   templateRequired:
   - id
 - href: DocumentReference/{id}
@@ -118,52 +28,7 @@ links:
     multiplicity:
     - has_many
   targetSchema:
-    $ref: DocumentReference
-  templatePointers:
-    id: /derivedFrom/-/reference
-  templateRequired:
-  - id
-- href: ImagingStudy/{id}
-  rel: derivedFrom_ImagingStudy
-  targetHints:
-    backref:
-    - derivedFrom_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: ImagingStudy
-  templatePointers:
-    id: /derivedFrom/-/reference
-  templateRequired:
-  - id
-- href: ImagingSelection/{id}
-  rel: derivedFrom_ImagingSelection
-  targetHints:
-    backref:
-    - derivedFrom_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: ImagingSelection
-  templatePointers:
-    id: /derivedFrom/-/reference
-  templateRequired:
-  - id
-- href: QuestionnaireResponse/{id}
-  rel: derivedFrom_QuestionnaireResponse
-  targetHints:
-    backref:
-    - derivedFrom_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: QuestionnaireResponse
+    $ref: DocumentReference.yaml
   templatePointers:
     id: /derivedFrom/-/reference
   templateRequired:
@@ -178,84 +43,9 @@ links:
     multiplicity:
     - has_many
   targetSchema:
-    $ref: Observation
+    $ref: Observation.yaml
   templatePointers:
     id: /derivedFrom/-/reference
-  templateRequired:
-  - id
-- href: MolecularSequence/{id}
-  rel: derivedFrom_MolecularSequence
-  targetHints:
-    backref:
-    - derivedFrom_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: MolecularSequence
-  templatePointers:
-    id: /derivedFrom/-/reference
-  templateRequired:
-  - id
-- href: GenomicStudy/{id}
-  rel: derivedFrom_GenomicStudy
-  targetHints:
-    backref:
-    - derivedFrom_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: GenomicStudy
-  templatePointers:
-    id: /derivedFrom/-/reference
-  templateRequired:
-  - id
-- href: Device/{id}
-  rel: device_Device
-  targetHints:
-    backref:
-    - device_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Device
-  templatePointers:
-    id: /device/reference
-  templateRequired:
-  - id
-- href: DeviceMetric/{id}
-  rel: device_DeviceMetric
-  targetHints:
-    backref:
-    - device_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: DeviceMetric
-  templatePointers:
-    id: /device/reference
-  templateRequired:
-  - id
-- href: Encounter/{id}
-  rel: encounter
-  targetHints:
-    backref:
-    - observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Encounter
-  templatePointers:
-    id: /encounter/reference
   templateRequired:
   - id
 - href: Resource/{id}
@@ -268,7 +58,7 @@ links:
     multiplicity:
     - has_many
   targetSchema:
-    $ref: Resource
+    $ref: Resource.yaml
   templatePointers:
     id: /focus/-/reference
   templateRequired:
@@ -283,54 +73,9 @@ links:
     multiplicity:
     - has_many
   targetSchema:
-    $ref: Observation
+    $ref: Observation.yaml
   templatePointers:
     id: /hasMember/-/reference
-  templateRequired:
-  - id
-- href: QuestionnaireResponse/{id}
-  rel: hasMember_QuestionnaireResponse
-  targetHints:
-    backref:
-    - hasMember_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: QuestionnaireResponse
-  templatePointers:
-    id: /hasMember/-/reference
-  templateRequired:
-  - id
-- href: MolecularSequence/{id}
-  rel: hasMember_MolecularSequence
-  targetHints:
-    backref:
-    - hasMember_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: MolecularSequence
-  templatePointers:
-    id: /hasMember/-/reference
-  templateRequired:
-  - id
-- href: ObservationDefinition/{id}
-  rel: instantiatesReference
-  targetHints:
-    backref:
-    - observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: ObservationDefinition
-  templatePointers:
-    id: /instantiatesReference/reference
   templateRequired:
   - id
 - href: MedicationAdministration/{id}
@@ -343,22 +88,7 @@ links:
     multiplicity:
     - has_many
   targetSchema:
-    $ref: MedicationAdministration
-  templatePointers:
-    id: /partOf/-/reference
-  templateRequired:
-  - id
-- href: MedicationDispense/{id}
-  rel: partOf_MedicationDispense
-  targetHints:
-    backref:
-    - partOf_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: MedicationDispense
+    $ref: MedicationAdministration.yaml
   templatePointers:
     id: /partOf/-/reference
   templateRequired:
@@ -373,129 +103,9 @@ links:
     multiplicity:
     - has_many
   targetSchema:
-    $ref: MedicationStatement
+    $ref: MedicationStatement.yaml
   templatePointers:
     id: /partOf/-/reference
-  templateRequired:
-  - id
-- href: Procedure/{id}
-  rel: partOf_Procedure
-  targetHints:
-    backref:
-    - partOf_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: Procedure
-  templatePointers:
-    id: /partOf/-/reference
-  templateRequired:
-  - id
-- href: Immunization/{id}
-  rel: partOf_Immunization
-  targetHints:
-    backref:
-    - partOf_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: Immunization
-  templatePointers:
-    id: /partOf/-/reference
-  templateRequired:
-  - id
-- href: ImagingStudy/{id}
-  rel: partOf_ImagingStudy
-  targetHints:
-    backref:
-    - partOf_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: ImagingStudy
-  templatePointers:
-    id: /partOf/-/reference
-  templateRequired:
-  - id
-- href: GenomicStudy/{id}
-  rel: partOf_GenomicStudy
-  targetHints:
-    backref:
-    - partOf_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: GenomicStudy
-  templatePointers:
-    id: /partOf/-/reference
-  templateRequired:
-  - id
-- href: Practitioner/{id}
-  rel: performer_Practitioner
-  targetHints:
-    backref:
-    - performer_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: Practitioner
-  templatePointers:
-    id: /performer/-/reference
-  templateRequired:
-  - id
-- href: PractitionerRole/{id}
-  rel: performer_PractitionerRole
-  targetHints:
-    backref:
-    - performer_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: PractitionerRole
-  templatePointers:
-    id: /performer/-/reference
-  templateRequired:
-  - id
-- href: Organization/{id}
-  rel: performer_Organization
-  targetHints:
-    backref:
-    - performer_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: Organization
-  templatePointers:
-    id: /performer/-/reference
-  templateRequired:
-  - id
-- href: CareTeam/{id}
-  rel: performer_CareTeam
-  targetHints:
-    backref:
-    - performer_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: CareTeam
-  templatePointers:
-    id: /performer/-/reference
   templateRequired:
   - id
 - href: Patient/{id}
@@ -508,22 +118,7 @@ links:
     multiplicity:
     - has_many
   targetSchema:
-    $ref: Patient
-  templatePointers:
-    id: /performer/-/reference
-  templateRequired:
-  - id
-- href: RelatedPerson/{id}
-  rel: performer_RelatedPerson
-  targetHints:
-    backref:
-    - performer_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-  targetSchema:
-    $ref: RelatedPerson
+    $ref: Patient.yaml
   templatePointers:
     id: /performer/-/reference
   templateRequired:
@@ -538,22 +133,7 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Specimen
-  templatePointers:
-    id: /specimen/reference
-  templateRequired:
-  - id
-- href: Group/{id}
-  rel: specimen_Group
-  targetHints:
-    backref:
-    - specimen_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Group
+    $ref: Specimen.yaml
   templatePointers:
     id: /specimen/reference
   templateRequired:
@@ -568,97 +148,7 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Patient
-  templatePointers:
-    id: /subject/reference
-  templateRequired:
-  - id
-- href: Group/{id}
-  rel: subject_Group
-  targetHints:
-    backref:
-    - subject_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Group
-  templatePointers:
-    id: /subject/reference
-  templateRequired:
-  - id
-- href: Device/{id}
-  rel: subject_Device
-  targetHints:
-    backref:
-    - subject_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Device
-  templatePointers:
-    id: /subject/reference
-  templateRequired:
-  - id
-- href: Location/{id}
-  rel: subject_Location
-  targetHints:
-    backref:
-    - subject_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Location
-  templatePointers:
-    id: /subject/reference
-  templateRequired:
-  - id
-- href: Organization/{id}
-  rel: subject_Organization
-  targetHints:
-    backref:
-    - subject_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Organization
-  templatePointers:
-    id: /subject/reference
-  templateRequired:
-  - id
-- href: Procedure/{id}
-  rel: subject_Procedure
-  targetHints:
-    backref:
-    - subject_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Procedure
-  templatePointers:
-    id: /subject/reference
-  templateRequired:
-  - id
-- href: Practitioner/{id}
-  rel: subject_Practitioner
-  targetHints:
-    backref:
-    - subject_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Practitioner
+    $ref: Patient.yaml
   templatePointers:
     id: /subject/reference
   templateRequired:
@@ -673,7 +163,7 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Medication
+    $ref: Medication.yaml
   templatePointers:
     id: /subject/reference
   templateRequired:
@@ -688,102 +178,9 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Substance
+    $ref: Substance.yaml
   templatePointers:
     id: /subject/reference
-  templateRequired:
-  - id
-- href: BiologicallyDerivedProduct/{id}
-  rel: subject_BiologicallyDerivedProduct
-  targetHints:
-    backref:
-    - subject_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: BiologicallyDerivedProduct
-  templatePointers:
-    id: /subject/reference
-  templateRequired:
-  - id
-- href: NutritionProduct/{id}
-  rel: subject_NutritionProduct
-  targetHints:
-    backref:
-    - subject_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: NutritionProduct
-  templatePointers:
-    id: /subject/reference
-  templateRequired:
-  - id
-- href: MolecularSequence/{id}
-  rel: valueReference
-  targetHints:
-    backref:
-    - valueReference_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: MolecularSequence
-  templatePointers:
-    id: /valueReference/reference
-  templateRequired:
-  - id
-- $comment: From ObservationComponent/component
-  href: MolecularSequence/{id}
-  rel: component_valueReference
-  targetHints:
-    backref:
-    - observation_component
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: MolecularSequence
-  templatePointers:
-    id: /component/-/valueReference/reference
-  templateRequired:
-  - id
-- $comment: From Annotation/note
-  href: Practitioner/{id}
-  rel: note_authorReference_Practitioner
-  targetHints:
-    backref:
-    - annotation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Practitioner
-  templatePointers:
-    id: /note/-/authorReference/reference
-  templateRequired:
-  - id
-- $comment: From Annotation/note
-  href: PractitionerRole/{id}
-  rel: note_authorReference_PractitionerRole
-  targetHints:
-    backref:
-    - annotation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: PractitionerRole
-  templatePointers:
-    id: /note/-/authorReference/reference
   templateRequired:
   - id
 - $comment: From Annotation/note
@@ -797,39 +194,7 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Patient
-  templatePointers:
-    id: /note/-/authorReference/reference
-  templateRequired:
-  - id
-- $comment: From Annotation/note
-  href: RelatedPerson/{id}
-  rel: note_authorReference_RelatedPerson
-  targetHints:
-    backref:
-    - annotation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: RelatedPerson
-  templatePointers:
-    id: /note/-/authorReference/reference
-  templateRequired:
-  - id
-- $comment: From Annotation/note
-  href: Organization/{id}
-  rel: note_authorReference_Organization
-  targetHints:
-    backref:
-    - annotation
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Organization
+    $ref: Patient.yaml
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
@@ -845,7 +210,7 @@ links:
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Observation
+    $ref: Observation.yaml
   templatePointers:
     id: /triggeredBy/-/observation/reference
   templateRequired:

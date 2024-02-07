@@ -533,7 +533,6 @@ properties:
     type: array
   resourceType:
     const: DocumentReference
-    default: DocumentReference
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
