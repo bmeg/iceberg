@@ -5,6 +5,12 @@ description: A task to be performed. [See https://hl7.org/fhir/R5/Task.html]
 id: task
 links:
 - backref: owner_task
+  label: Task_owner_Practitioner_owner_task
+  multiplicity: many_to_many
+  name: owner_Practitioner
+  required: false
+  target_type: practitioner
+- backref: owner_task
   label: Task_owner_Patient_owner_task
   multiplicity: many_to_many
   name: owner_Patient
