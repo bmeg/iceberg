@@ -18,6 +18,12 @@ links:
   required: false
   target_type: patient
 - backref: subject_diagnostic_report
+  label: DiagnosticReport_subject_Organization_subject_diagnostic_report
+  multiplicity: many_to_many
+  name: subject_Organization
+  required: false
+  target_type: organization
+- backref: subject_diagnostic_report
   label: DiagnosticReport_subject_Practitioner_subject_diagnostic_report
   multiplicity: many_to_many
   name: subject_Practitioner
@@ -35,6 +41,12 @@ links:
   name: subject_Substance
   required: false
   target_type: substance
+- backref: performer_diagnostic_report
+  label: DiagnosticReport_performer_PractitionerRole_performer_diagnostic_report
+  multiplicity: many_to_many
+  name: performer_PractitionerRole
+  required: false
+  target_type: practitioner_role
 - backref: result_diagnostic_report
   label: DiagnosticReport_result_Observation_result_diagnostic_report
   multiplicity: many_to_many
@@ -47,6 +59,12 @@ links:
   name: specimen
   required: false
   target_type: specimen
+- backref: study_diagnostic_report
+  label: DiagnosticReport_study_ImagingStudy_study_diagnostic_report
+  multiplicity: many_to_many
+  name: study_ImagingStudy
+  required: false
+  target_type: imaging_study
 program: '*'
 project: '*'
 properties:

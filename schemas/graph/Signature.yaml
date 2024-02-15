@@ -7,6 +7,36 @@ description: A Signature - XML DigSig, JWS, Graphical image of signature, etc.. 
   signature, or a signature ceremony Different signature approaches have different
   utilities. [See https://hl7.org/fhir/R5/Signature.html]
 links:
+- href: Practitioner/{id}
+  rel: onBehalfOf_Practitioner
+  targetHints:
+    backref:
+    - onBehalfOf_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /onBehalfOf/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: onBehalfOf_PractitionerRole
+  targetHints:
+    backref:
+    - onBehalfOf_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /onBehalfOf/reference
+  templateRequired:
+  - id
 - href: Patient/{id}
   rel: onBehalfOf_Patient
   targetHints:
@@ -22,6 +52,51 @@ links:
     id: /onBehalfOf/reference
   templateRequired:
   - id
+- href: Organization/{id}
+  rel: onBehalfOf_Organization
+  targetHints:
+    backref:
+    - onBehalfOf_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /onBehalfOf/reference
+  templateRequired:
+  - id
+- href: Practitioner/{id}
+  rel: who_Practitioner
+  targetHints:
+    backref:
+    - who_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /who/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: who_PractitionerRole
+  targetHints:
+    backref:
+    - who_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /who/reference
+  templateRequired:
+  - id
 - href: Patient/{id}
   rel: who_Patient
   targetHints:
@@ -33,6 +108,21 @@ links:
     - has_one
   targetSchema:
     $ref: Patient.yaml
+  templatePointers:
+    id: /who/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: who_Organization
+  targetHints:
+    backref:
+    - who_signature
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
   templatePointers:
     id: /who/reference
   templateRequired:

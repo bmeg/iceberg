@@ -11,6 +11,18 @@ links:
   required: false
   target_type: practitioner
 - backref: owner_task
+  label: Task_owner_PractitionerRole_owner_task
+  multiplicity: many_to_many
+  name: owner_PractitionerRole
+  required: false
+  target_type: practitioner_role
+- backref: owner_task
+  label: Task_owner_Organization_owner_task
+  multiplicity: many_to_many
+  name: owner_Organization
+  required: false
+  target_type: organization
+- backref: owner_task
   label: Task_owner_Patient_owner_task
   multiplicity: many_to_many
   name: owner_Patient

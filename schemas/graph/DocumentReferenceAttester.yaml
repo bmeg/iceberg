@@ -18,6 +18,51 @@ links:
     id: /party/reference
   templateRequired:
   - id
+- href: Practitioner/{id}
+  rel: party_Practitioner
+  targetHints:
+    backref:
+    - document_reference_attester
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /party/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: party_PractitionerRole
+  targetHints:
+    backref:
+    - document_reference_attester
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /party/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: party_Organization
+  targetHints:
+    backref:
+    - document_reference_attester
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /party/reference
+  templateRequired:
+  - id
 properties:
   _time:
     $ref: FHIRPrimitiveExtension.yaml

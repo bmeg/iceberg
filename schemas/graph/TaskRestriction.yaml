@@ -20,6 +20,51 @@ links:
     id: /recipient/-/reference
   templateRequired:
   - id
+- href: Practitioner/{id}
+  rel: recipient_Practitioner
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /recipient/-/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: recipient_PractitionerRole
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /recipient/-/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: recipient_Organization
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /recipient/-/reference
+  templateRequired:
+  - id
 properties:
   _repetitions:
     $ref: FHIRPrimitiveExtension.yaml

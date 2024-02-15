@@ -48,6 +48,38 @@ links:
   templateRequired:
   - id
 - $comment: From SpecimenCollection/collection
+  href: Practitioner/{id}
+  rel: collection_collector_Practitioner
+  targetHints:
+    backref:
+    - specimen_collection
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /collection/collector/reference
+  templateRequired:
+  - id
+- $comment: From SpecimenCollection/collection
+  href: PractitionerRole/{id}
+  rel: collection_collector_PractitionerRole
+  targetHints:
+    backref:
+    - specimen_collection
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /collection/collector/reference
+  templateRequired:
+  - id
+- $comment: From SpecimenCollection/collection
   href: Patient/{id}
   rel: collection_collector_Patient
   targetHints:
@@ -63,6 +95,54 @@ links:
     id: /collection/collector/reference
   templateRequired:
   - id
+- $comment: From SpecimenCollection/collection
+  href: Procedure/{id}
+  rel: collection_procedure
+  targetHints:
+    backref:
+    - specimen_collection
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Procedure.yaml
+  templatePointers:
+    id: /collection/procedure/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Practitioner/{id}
+  rel: note_authorReference_Practitioner
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: PractitionerRole/{id}
+  rel: note_authorReference_PractitionerRole
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
 - $comment: From Annotation/note
   href: Patient/{id}
   rel: note_authorReference_Patient
@@ -75,6 +155,22 @@ links:
     - has_one
   targetSchema:
     $ref: Patient.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Organization/{id}
+  rel: note_authorReference_Organization
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:

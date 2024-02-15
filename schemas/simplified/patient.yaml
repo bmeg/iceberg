@@ -7,11 +7,23 @@ description: Information about an individual or animal receiving health care ser
 id: patient
 links:
 - backref: generalPractitioner_patient
+  label: Patient_generalPractitioner_Organization_generalPractitioner_patient
+  multiplicity: many_to_many
+  name: generalPractitioner_Organization
+  required: false
+  target_type: organization
+- backref: generalPractitioner_patient
   label: Patient_generalPractitioner_Practitioner_generalPractitioner_patient
   multiplicity: many_to_many
   name: generalPractitioner_Practitioner
   required: false
   target_type: practitioner
+- backref: generalPractitioner_patient
+  label: Patient_generalPractitioner_PractitionerRole_generalPractitioner_patient
+  multiplicity: many_to_many
+  name: generalPractitioner_PractitionerRole
+  required: false
+  target_type: practitioner_role
 program: '*'
 project: '*'
 properties:

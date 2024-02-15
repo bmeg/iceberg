@@ -8,6 +8,345 @@ description: A Diagnostic report - a combination of request information, atomic 
   results, images, textual and coded interpretations, and formatted representation
   of diagnostic reports. The report also includes non-clinical context such as batch
   analysis and stability reporting of products and substances. [See https://hl7.org/fhir/R5/DiagnosticReport.html]
+links:
+- href: Practitioner/{id}
+  rel: performer_Practitioner
+  targetHints:
+    backref:
+    - performer_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /performer/-/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: performer_PractitionerRole
+  targetHints:
+    backref:
+    - performer_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /performer/-/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: performer_Organization
+  targetHints:
+    backref:
+    - performer_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /performer/-/reference
+  templateRequired:
+  - id
+- href: Observation/{id}
+  rel: result
+  targetHints:
+    backref:
+    - result_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Observation.yaml
+  templatePointers:
+    id: /result/-/reference
+  templateRequired:
+  - id
+- href: Practitioner/{id}
+  rel: resultsInterpreter_Practitioner
+  targetHints:
+    backref:
+    - resultsInterpreter_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /resultsInterpreter/-/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: resultsInterpreter_PractitionerRole
+  targetHints:
+    backref:
+    - resultsInterpreter_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /resultsInterpreter/-/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: resultsInterpreter_Organization
+  targetHints:
+    backref:
+    - resultsInterpreter_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /resultsInterpreter/-/reference
+  templateRequired:
+  - id
+- href: Specimen/{id}
+  rel: specimen
+  targetHints:
+    backref:
+    - specimen_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Specimen.yaml
+  templatePointers:
+    id: /specimen/-/reference
+  templateRequired:
+  - id
+- href: ImagingStudy/{id}
+  rel: study_ImagingStudy
+  targetHints:
+    backref:
+    - study_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: ImagingStudy.yaml
+  templatePointers:
+    id: /study/-/reference
+  templateRequired:
+  - id
+- href: Patient/{id}
+  rel: subject_Patient
+  targetHints:
+    backref:
+    - subject_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: subject_Organization
+  targetHints:
+    backref:
+    - subject_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: Practitioner/{id}
+  rel: subject_Practitioner
+  targetHints:
+    backref:
+    - subject_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: Medication/{id}
+  rel: subject_Medication
+  targetHints:
+    backref:
+    - subject_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Medication.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: Substance/{id}
+  rel: subject_Substance
+  targetHints:
+    backref:
+    - subject_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Substance.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- $comment: From DiagnosticReportMedia/media
+  href: DocumentReference/{id}
+  rel: media_link
+  targetHints:
+    backref:
+    - diagnostic_report_media
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: DocumentReference.yaml
+  templatePointers:
+    id: /media/-/link/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Practitioner/{id}
+  rel: note_authorReference_Practitioner
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: PractitionerRole/{id}
+  rel: note_authorReference_PractitionerRole
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Patient/{id}
+  rel: note_authorReference_Patient
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Organization/{id}
+  rel: note_authorReference_Organization
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From DiagnosticReportSupportingInfo/supportingInfo
+  href: Procedure/{id}
+  rel: supportingInfo_reference_Procedure
+  targetHints:
+    backref:
+    - diagnostic_report_supporting_info
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Procedure.yaml
+  templatePointers:
+    id: /supportingInfo/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From DiagnosticReportSupportingInfo/supportingInfo
+  href: Observation/{id}
+  rel: supportingInfo_reference_Observation
+  targetHints:
+    backref:
+    - diagnostic_report_supporting_info
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Observation.yaml
+  templatePointers:
+    id: /supportingInfo/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From DiagnosticReportSupportingInfo/supportingInfo
+  href: DiagnosticReport/{id}
+  rel: supportingInfo_reference_DiagnosticReport
+  targetHints:
+    backref:
+    - diagnostic_report_supporting_info
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: DiagnosticReport.yaml
+  templatePointers:
+    id: /supportingInfo/-/reference/reference
+  templateRequired:
+  - id
 properties:
   _conclusion:
     $ref: FHIRPrimitiveExtension.yaml
@@ -193,6 +532,10 @@ properties:
     pattern: ^[^\s]+(\s[^\s]+)*$
     title: Language of the resource content
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   media:
     description: A list of key images or data associated with this report. The images
       or data are generally created during the diagnostic process, and may be directly

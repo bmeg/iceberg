@@ -20,6 +20,38 @@ links:
   templateRequired:
   - id
 - $comment: From Annotation/note
+  href: Practitioner/{id}
+  rel: note_authorReference_Practitioner
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: PractitionerRole/{id}
+  rel: note_authorReference_PractitionerRole
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
   href: Patient/{id}
   rel: note_authorReference_Patient
   targetHints:
@@ -35,6 +67,54 @@ links:
     id: /note/-/authorReference/reference
   templateRequired:
   - id
+- $comment: From Annotation/note
+  href: Organization/{id}
+  rel: note_authorReference_Organization
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From FamilyMemberHistoryParticipant/participant
+  href: Practitioner/{id}
+  rel: participant_actor_Practitioner
+  targetHints:
+    backref:
+    - family_member_history_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /participant/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From FamilyMemberHistoryParticipant/participant
+  href: PractitionerRole/{id}
+  rel: participant_actor_PractitionerRole
+  targetHints:
+    backref:
+    - family_member_history_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /participant/-/actor/reference
+  templateRequired:
+  - id
 - $comment: From FamilyMemberHistoryParticipant/participant
   href: Patient/{id}
   rel: participant_actor_Patient
@@ -47,6 +127,22 @@ links:
     - has_one
   targetSchema:
     $ref: Patient.yaml
+  templatePointers:
+    id: /participant/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From FamilyMemberHistoryParticipant/participant
+  href: Organization/{id}
+  rel: participant_actor_Organization
+  targetHints:
+    backref:
+    - family_member_history_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
   templatePointers:
     id: /participant/-/actor/reference
   templateRequired:

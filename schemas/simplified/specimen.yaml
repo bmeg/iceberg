@@ -22,6 +22,12 @@ links:
   name: parent
   required: false
   target_type: specimen
+- backref: specimen
+  label: Specimen_bodySite_BodyStructure_specimen
+  multiplicity: many_to_many
+  name: bodySite
+  required: false
+  target_type: body_structure
 program: '*'
 project: '*'
 properties:

@@ -6,6 +6,22 @@ description: Qualifications, certifications, accreditations, licenses, training,
   that authorize or otherwise pertain to the provision of care by the practitioner.
   For example, a medical license issued by a medical board of licensure authorizing
   the practitioner to practice medicine within a certain locality. [See https://hl7.org/fhir/R5/PractitionerQualification.html]
+links:
+- href: Organization/{id}
+  rel: issuer
+  targetHints:
+    backref:
+    - practitioner_qualification
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /issuer/reference
+  templateRequired:
+  - id
 properties:
   code:
     $ref: CodeableConcept.yaml
@@ -56,6 +72,10 @@ properties:
     enum_reference_types:
     - Organization
     title: Organization that regulates and issues the qualification
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

@@ -3,6 +3,53 @@ additionalProperties: false
 description: Roles/organizations the practitioner is associated with. A specific set
   of Roles/Locations/specialties/services that a practitioner may perform at an organization
   for a period of time. [See https://hl7.org/fhir/R5/PractitionerRole.html]
+links:
+- href: Organization/{id}
+  rel: organization
+  targetHints:
+    backref:
+    - practitioner_role
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /organization/reference
+  templateRequired:
+  - id
+- href: Practitioner/{id}
+  rel: practitioner
+  targetHints:
+    backref:
+    - practitioner_role
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /practitioner/reference
+  templateRequired:
+  - id
+- $comment: From ExtendedContactDetail/contact
+  href: Organization/{id}
+  rel: contact_organization
+  targetHints:
+    backref:
+    - extended_contact_detail
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /contact/-/organization/reference
+  templateRequired:
+  - id
 properties:
   _active:
     $ref: FHIRPrimitiveExtension.yaml
@@ -162,6 +209,10 @@ properties:
     pattern: ^[^\s]+(\s[^\s]+)*$
     title: Language of the resource content
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   location:
     backref: location_practitioner_role
     description: The location(s) at which this practitioner provides care.
