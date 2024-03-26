@@ -1,58 +1,62 @@
-$id: Specimen
+$id: ImagingStudy
 additionalProperties: false
-description: Sample for analysis. A sample to be used for analysis. [See https://hl7.org/fhir/R5/Specimen.html]
+description: A set of images produced in single study (one or more series of references
+  images). Representation of the content produced in a DICOM imaging study. A study
+  comprises a set of series, each of which includes a set of Service-Object Pair Instances
+  (SOP Instances - images or other data) acquired or produced in a common context.  A
+  series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may
+  have multiple series of different modalities. [See https://hl7.org/fhir/R5/ImagingStudy.html]
 links:
-- href: Specimen/{id}
-  rel: parent
+- href: Task/{id}
+  rel: basedOn_Task
   targetHints:
     backref:
-    - parent_specimen
+    - basedOn_imaging_study
     direction:
     - outbound
     multiplicity:
     - has_many
   targetSchema:
-    $ref: Specimen.yaml
+    $ref: Task.yaml
   templatePointers:
-    id: /parent/-/reference
+    id: /basedOn/-/reference
   templateRequired:
   - id
-- href: Patient/{id}
-  rel: subject_Patient
+- href: Encounter/{id}
+  rel: encounter
   targetHints:
     backref:
-    - specimen
+    - imaging_study
     direction:
     - outbound
     multiplicity:
     - has_one
   targetSchema:
-    $ref: Patient.yaml
+    $ref: Encounter.yaml
   templatePointers:
-    id: /subject/reference
+    id: /encounter/reference
   templateRequired:
   - id
-- href: Substance/{id}
-  rel: subject_Substance
+- href: Procedure/{id}
+  rel: partOf
   targetHints:
     backref:
-    - specimen
+    - partOf_imaging_study
     direction:
     - outbound
     multiplicity:
-    - has_one
+    - has_many
   targetSchema:
-    $ref: Substance.yaml
+    $ref: Procedure.yaml
   templatePointers:
-    id: /subject/reference
+    id: /partOf/-/reference
   templateRequired:
   - id
-- $comment: From SpecimenCollection/collection
-  href: Practitioner/{id}
-  rel: collection_collector_Practitioner
+- href: Practitioner/{id}
+  rel: referrer_Practitioner
   targetHints:
     backref:
-    - specimen_collection
+    - imaging_study
     direction:
     - outbound
     multiplicity:
@@ -60,15 +64,14 @@ links:
   targetSchema:
     $ref: Practitioner.yaml
   templatePointers:
-    id: /collection/collector/reference
+    id: /referrer/reference
   templateRequired:
   - id
-- $comment: From SpecimenCollection/collection
-  href: PractitionerRole/{id}
-  rel: collection_collector_PractitionerRole
+- href: PractitionerRole/{id}
+  rel: referrer_PractitionerRole
   targetHints:
     backref:
-    - specimen_collection
+    - imaging_study
     direction:
     - outbound
     multiplicity:
@@ -76,15 +79,14 @@ links:
   targetSchema:
     $ref: PractitionerRole.yaml
   templatePointers:
-    id: /collection/collector/reference
+    id: /referrer/reference
   templateRequired:
   - id
-- $comment: From SpecimenCollection/collection
-  href: Patient/{id}
-  rel: collection_collector_Patient
+- href: Patient/{id}
+  rel: subject_Patient
   targetHints:
     backref:
-    - specimen_collection
+    - imaging_study
     direction:
     - outbound
     multiplicity:
@@ -92,23 +94,7 @@ links:
   targetSchema:
     $ref: Patient.yaml
   templatePointers:
-    id: /collection/collector/reference
-  templateRequired:
-  - id
-- $comment: From SpecimenCollection/collection
-  href: Procedure/{id}
-  rel: collection_procedure
-  targetHints:
-    backref:
-    - specimen_collection
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-  targetSchema:
-    $ref: Procedure.yaml
-  templatePointers:
-    id: /collection/procedure/reference
+    id: /subject/reference
   templateRequired:
   - id
 - $comment: From Annotation/note
@@ -175,73 +161,58 @@ links:
     id: /note/-/authorReference/reference
   templateRequired:
   - id
-- $comment: From SpecimenProcessing/processing
-  href: Substance/{id}
-  rel: processing_additive
+- $comment: From ImagingStudySeries/series
+  href: Specimen/{id}
+  rel: series_specimen
   targetHints:
     backref:
-    - additive_specimen_processing
+    - specimen_imaging_study_series
     direction:
     - outbound
     multiplicity:
     - has_many
   targetSchema:
-    $ref: Substance.yaml
+    $ref: Specimen.yaml
   templatePointers:
-    id: /processing/-/additive/-/reference
+    id: /series/-/specimen/-/reference
   templateRequired:
   - id
 properties:
-  _combined:
+  _description:
     $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``combined``.
+    title: Extension field for ``description``.
   _implicitRules:
     $ref: FHIRPrimitiveExtension.yaml
     title: Extension field for ``implicitRules``.
   _language:
     $ref: FHIRPrimitiveExtension.yaml
     title: Extension field for ``language``.
-  _receivedTime:
+  _numberOfInstances:
     $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``receivedTime``.
+    title: Extension field for ``numberOfInstances``.
+  _numberOfSeries:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``numberOfSeries``.
+  _started:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``started``.
   _status:
     $ref: FHIRPrimitiveExtension.yaml
     title: Extension field for ``status``.
-  accessionIdentifier:
-    $ref: Identifier.yaml
-    description: The identifier assigned by the lab when accessioning specimen(s).
-      This is not necessarily the same as the specimen identifier, depending on local
-      lab procedures.
+  basedOn:
+    backref: basedOn_imaging_study
+    description: A list of the diagnostic requests that resulted in this imaging study
+      being performed.
     element_property: true
-    title: Identifier assigned by the lab
-  collection:
-    $ref: SpecimenCollection.yaml
-    description: Details concerning the specimen collection.
-    element_property: true
-    title: Collection details
-  combined:
-    binding_description: Codes for the combined status of a specimen.
-    binding_strength: required
-    binding_uri: http://hl7.org/fhir/ValueSet/specimen-combined
-    binding_version: 5.0.0
-    description: This element signifies if the specimen is part of a group or pooled.
-    element_property: true
-    enum_values:
-    - grouped
-    - pooled
-    pattern: ^[^\s]+(\s[^\s]+)*$
-    title: grouped | pooled
-    type: string
-  condition:
-    binding_description: Codes describing the state of the specimen.
-    binding_strength: extensible
-    binding_uri: http://terminology.hl7.org/ValueSet/v2-0493
-    binding_version: null
-    description: A mode or state of being that describes the nature of the specimen.
-    element_property: true
+    enum_reference_types:
+    - CarePlan
+    - ServiceRequest
+    - Appointment
+    - AppointmentResponse
+    - Task
     items:
-      $ref: CodeableConcept.yaml
-    title: State of the specimen
+      $ref: Reference.yaml
+    title: Request fulfilled
     type: array
   contained:
     description: These resources do not have an independent existence apart from the
@@ -253,13 +224,34 @@ properties:
       $ref: Resource.yaml
     title: Contained, inline Resources
     type: array
-  container:
-    description: The container holding the specimen.  The recursive nature of containers;
-      i.e. blood in tube in tray in rack is not addressed here.
+  description:
+    description: The Imaging Manager description of the study. Institution-generated
+      description or classification of the Study (component) performed.
     element_property: true
+    pattern: '[ \r\n\t\S]+'
+    title: Institution-generated description
+    type: string
+  encounter:
+    $ref: Reference.yaml
+    backref: imaging_study
+    description: The healthcare event (e.g. a patient and healthcare provider interaction)
+      during which this ImagingStudy is made.
+    element_property: true
+    enum_reference_types:
+    - Encounter
+    title: Encounter with which this imaging study is associated
+  endpoint:
+    backref: endpoint_imaging_study
+    description: The network service providing access (e.g., query, view, or retrieval)
+      for the study. See implementation notes for information about using DICOM endpoints.
+      A study-level endpoint applies to each series in the study, unless overridden
+      by a series-level endpoint with the same Endpoint.connectionType.
+    element_property: true
+    enum_reference_types:
+    - Endpoint
     items:
-      $ref: SpecimenContainer.yaml
-    title: Direct container of specimen (tube/slide, etc.)
+      $ref: Reference.yaml
+    title: Study access endpoint
     type: array
   extension:
     description: May be used to represent additional information that is not part
@@ -272,17 +264,6 @@ properties:
     items:
       $ref: Extension.yaml
     title: Additional content defined by implementations
-    type: array
-  feature:
-    description: A physical feature or landmark on a specimen, highlighted for context
-      by the collector of the specimen (e.g. surgeon), that identifies the type of
-      feature as well as its meaning (e.g. the red ink indicating the resection margin
-      of the right lobe of the excised prostate tissue or wire loop at radiologically
-      suspected tumor location).
-    element_property: true
-    items:
-      $ref: SpecimenFeature.yaml
-    title: The physical feature of a specimen
     type: array
   fhir_comments:
     anyOf:
@@ -302,11 +283,11 @@ properties:
     title: Logical id of this artifact
     type: string
   identifier:
-    description: Id for specimen.
+    description: Identifiers for the ImagingStudy such as DICOM Study Instance UID.
     element_property: true
     items:
       $ref: Identifier.yaml
-    title: External Identifier
+    title: Identifiers for the whole study
     type: array
   implicitRules:
     description: A reference to a set of rules that were followed when the resource
@@ -331,6 +312,14 @@ properties:
     items:
       $ref: https://json-schema.org/draft/2020-12/links
     type: array
+  location:
+    $ref: Reference.yaml
+    backref: imaging_study
+    description: The principal physical location where the ImagingStudy was performed.
+    element_property: true
+    enum_reference_types:
+    - Location
+    title: Where ImagingStudy occurred
   meta:
     $ref: Meta.yaml
     description: The metadata about the resource. This is content that is maintained
@@ -338,6 +327,18 @@ properties:
       with version changes to the resource.
     element_property: true
     title: Metadata about the resource
+  modality:
+    binding_description: Type of acquired data in the instance.
+    binding_strength: extensible
+    binding_uri: http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html
+    binding_version: null
+    description: A list of all the distinct values of series.modality. This may include
+      both acquisition and non-acquisition modalities.
+    element_property: true
+    items:
+      $ref: CodeableConcept.yaml
+    title: All of the distinct values for series' modalities
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the resource and that modifies the understanding
@@ -356,95 +357,135 @@ properties:
     title: Extensions that cannot be ignored
     type: array
   note:
-    description: 'To communicate any details or issues about the specimen or during
-      the specimen collection. (for example: broken vial, sent with patient, frozen).'
+    description: Per the recommended DICOM mapping, this element is derived from the
+      Study Description attribute (0008,1030). Observations or findings about the
+      imaging study should be recorded in another resource, e.g. Observation, and
+      not in this element.
     element_property: true
     items:
       $ref: Annotation.yaml
-    title: Comments
+    title: User-defined comments
     type: array
-  parent:
-    backref: parent_specimen
-    description: Reference to the parent (source) specimen which is used when the
-      specimen was either derived from or a component of another specimen.
+  numberOfInstances:
+    description: Number of SOP Instances in Study. This value given may be larger
+      than the number of instance elements this resource contains due to resource
+      availability, security, or other factors. This element should be present if
+      any instance elements are present.
+    element_property: true
+    minimum: 0
+    title: Number of Study Related Instances
+    type: integer
+  numberOfSeries:
+    description: Number of Series in the Study. This value given may be larger than
+      the number of series elements this Resource contains due to resource availability,
+      security, or other factors. This element should be present if any series elements
+      are present.
+    element_property: true
+    minimum: 0
+    title: Number of Study Related Series
+    type: integer
+  partOf:
+    backref: partOf_imaging_study
+    description: A larger event of which this particular ImagingStudy is a component
+      or step.  For example,  an ImagingStudy as part of a procedure.
     element_property: true
     enum_reference_types:
-    - Specimen
+    - Procedure
     items:
       $ref: Reference.yaml
-    title: Specimen from which this specimen originated
+    title: Part of referenced event
     type: array
-  processing:
-    description: Details concerning processing and processing steps for the specimen.
-    element_property: true
-    items:
-      $ref: SpecimenProcessing.yaml
-    title: Processing and processing step details
-    type: array
-  receivedTime:
-    description: Time when specimen is received by the testing laboratory for processing
-      or testing.
-    element_property: true
-    format: date-time
-    title: The time when specimen is received by the testing laboratory
-    type: string
-  request:
-    backref: request_specimen
-    description: Details concerning a service request that required a specimen to
-      be collected.
+  procedure:
+    backref: procedure_imaging_study
+    binding_description: Use of RadLex is preferred
+    binding_strength: preferred
+    binding_uri: http://loinc.org/vs/loinc-rsna-radiology-playbook
+    binding_version: null
+    description: This field corresponds to the DICOM Procedure Code Sequence (0008,1032).
+      This is different from the FHIR Procedure resource that may include the ImagingStudy.
     element_property: true
     enum_reference_types:
-    - ServiceRequest
+    - PlanDefinition
+    - ActivityDefinition
     items:
-      $ref: Reference.yaml
-    title: Why the specimen was collected
+      $ref: CodeableReference.yaml
+    title: The performed procedure or code
     type: array
+  reason:
+    backref: reason_imaging_study
+    binding_description: The reason for the study.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/procedure-reason
+    binding_version: null
+    description: Description of clinical condition indicating why the ImagingStudy
+      was requested, and/or Indicates another resource whose existence justifies this
+      Study.
+    element_property: true
+    enum_reference_types:
+    - Condition
+    - Observation
+    - DiagnosticReport
+    - DocumentReference
+    items:
+      $ref: CodeableReference.yaml
+    title: Why the study was requested / performed
+    type: array
+  referrer:
+    $ref: Reference.yaml
+    backref: imaging_study
+    description: The requesting/referring physician.
+    element_property: true
+    enum_reference_types:
+    - Practitioner
+    - PractitionerRole
+    title: Referring physician
   resourceType:
-    const: Specimen
-    default: Specimen
+    const: ImagingStudy
+    default: ImagingStudy
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-  role:
-    binding_description: Codes describing specimen role.
-    binding_strength: preferred
-    binding_uri: http://hl7.org/fhir/ValueSet/specimen-role
-    binding_version: null
-    description: The role or reason for the specimen in the testing workflow.
+  series:
+    description: Each study has one or more series of images or other content.
     element_property: true
     items:
-      $ref: CodeableConcept.yaml
-    title: The role the specimen serves
+      $ref: ImagingStudySeries.yaml
+    title: Each study has one or more series of instances
     type: array
-  status:
-    binding_description: Codes providing the status/availability of a specimen.
-    binding_strength: required
-    binding_uri: http://hl7.org/fhir/ValueSet/specimen-status
-    binding_version: 5.0.0
-    description: The availability of the specimen.
+  started:
+    description: Date and time the study started.
     element_property: true
+    format: date-time
+    title: When the study was started
+    type: string
+  status:
+    binding_description: The status of the ImagingStudy.
+    binding_strength: required
+    binding_uri: http://hl7.org/fhir/ValueSet/imagingstudy-status
+    binding_version: 5.0.0
+    description: The current state of the ImagingStudy resource. This is not the status
+      of any ServiceRequest or Task resources associated with the ImagingStudy.
+    element_property: true
+    element_required: true
     enum_values:
+    - registered
     - available
-    - unavailable
-    - unsatisfactory
+    - cancelled
     - entered-in-error
+    - unknown
     pattern: ^[^\s]+(\s[^\s]+)*$
-    title: available | unavailable | unsatisfactory | entered-in-error
+    title: registered | available | cancelled | entered-in-error | unknown
     type: string
   subject:
     $ref: Reference.yaml
-    backref: specimen
+    backref: imaging_study
+    description: The subject, typically a patient, of the imaging study.
     element_property: true
     enum_reference_types:
     - Patient
-    - Group
     - Device
-    - BiologicallyDerivedProduct
-    - Substance
-    - Location
-    title: Where the specimen came from. This may be from patient(s), from a location
-      (e.g., the source of an environmental sample), or a sampling of a substance,
-      a biologically-derived product, or a device
+    - Group
+    title: Who or what is the subject of the study
   text:
     $ref: Narrative.yaml
     description: A human-readable narrative that contains a summary of the resource
@@ -455,14 +496,7 @@ properties:
       to ensure clinical safety.
     element_property: true
     title: Text summary of the resource, for human interpretation
-  type:
-    $ref: CodeableConcept.yaml
-    binding_description: The type of the specimen.
-    binding_strength: example
-    binding_uri: http://terminology.hl7.org/ValueSet/v2-0487
-    binding_version: null
-    description: The kind of material that forms the specimen.
-    element_property: true
-    title: Kind of material that forms the specimen
-title: Specimen
+required:
+- subject
+title: ImagingStudy
 type: object

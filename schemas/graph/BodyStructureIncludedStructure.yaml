@@ -2,6 +2,7 @@ $id: BodyStructureIncludedStructure
 additionalProperties: false
 description: Included anatomic location(s). The anatomical location(s) or region(s)
   of the specimen, lesion, or body structure. [See https://hl7.org/fhir/R5/BodyStructureIncludedStructure.html]
+links: []
 properties:
   bodyLandmarkOrientation:
     description: Body locations in relation to a specific body landmark (tatoo, scar,
@@ -45,6 +46,10 @@ properties:
     binding_version: null
     element_property: true
     title: Code that represents the included structure laterality
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

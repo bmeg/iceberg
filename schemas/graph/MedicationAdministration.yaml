@@ -6,6 +6,21 @@ description: Administration of medication to a patient. Describes the event of a
   this event to the authorizing prescription, and the specific encounter between patient
   and health care practitioner. [See https://hl7.org/fhir/R5/MedicationAdministration.html]
 links:
+- href: Encounter/{id}
+  rel: encounter
+  targetHints:
+    backref:
+    - medication_administration
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Encounter.yaml
+  templatePointers:
+    id: /encounter/reference
+  templateRequired:
+  - id
 - href: MedicationAdministration/{id}
   rel: partOf_MedicationAdministration
   targetHints:
@@ -21,19 +36,19 @@ links:
     id: /partOf/-/reference
   templateRequired:
   - id
-- href: MedicationRequest/{id}
-  rel: request
+- href: Procedure/{id}
+  rel: partOf_Procedure
   targetHints:
     backref:
-    - medication_administration
+    - partOf_medication_administration
     direction:
     - outbound
     multiplicity:
-    - has_one
+    - has_many
   targetSchema:
-    $ref: MedicationRequest.yaml
+    $ref: Procedure.yaml
   templatePointers:
-    id: /request/reference
+    id: /partOf/-/reference
   templateRequired:
   - id
 - href: Patient/{id}
@@ -67,6 +82,38 @@ links:
   templateRequired:
   - id
 - $comment: From Annotation/note
+  href: Practitioner/{id}
+  rel: note_authorReference_Practitioner
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: PractitionerRole/{id}
+  rel: note_authorReference_PractitionerRole
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
   href: Patient/{id}
   rel: note_authorReference_Patient
   targetHints:
@@ -78,6 +125,22 @@ links:
     - has_one
   targetSchema:
     $ref: Patient.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Organization/{id}
+  rel: note_authorReference_Organization
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:

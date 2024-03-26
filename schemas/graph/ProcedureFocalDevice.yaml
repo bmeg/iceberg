@@ -3,6 +3,7 @@ additionalProperties: false
 description: Manipulated, implanted, or removed device. A device that is implanted,
   removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis,
   attaching a wound-vac, etc.) as a focal portion of the Procedure. [See https://hl7.org/fhir/R5/ProcedureFocalDevice.html]
+links: []
 properties:
   action:
     $ref: CodeableConcept.yaml
@@ -39,6 +40,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   manipulated:
     $ref: Reference.yaml
     backref: procedure_focal_device

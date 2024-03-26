@@ -1,20 +1,18 @@
-$id: ImmunizationReaction
+$id: ImagingStudySeriesInstance
 additionalProperties: false
-description: Details of a reaction that follows immunization. Categorical data indicating
-  that an adverse event is associated in time to an immunization. [See https://hl7.org/fhir/R5/ImmunizationReaction.html]
+description: A single SOP instance from the series. A single SOP instance within the
+  series, e.g. an image, or presentation state. [See https://hl7.org/fhir/R5/ImagingStudySeriesInstance.html]
+links: []
 properties:
-  _date:
+  _number:
     $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``date``.
-  _reported:
+    title: Extension field for ``number``.
+  _title:
     $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``reported``.
-  date:
-    description: Date of reaction to the immunization.
-    element_property: true
-    format: date-time
-    title: When reaction started
-    type: string
+    title: Extension field for ``title``.
+  _uid:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``uid``.
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -41,14 +39,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
-  manifestation:
-    $ref: CodeableReference.yaml
-    backref: immunization_reaction
-    description: Details of the reaction.
-    element_property: true
-    enum_reference_types:
-    - Observation
-    title: Additional information on reaction
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of
@@ -66,16 +60,43 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
-  reported:
-    description: Self-reported indicator.
+  number:
+    description: The number of instance in the series.
     element_property: true
-    title: Indicates self-reported reaction
-    type: boolean
+    minimum: 0
+    title: The number of this instance in the series
+    type: integer
   resourceType:
-    const: ImmunizationReaction
-    default: ImmunizationReaction
+    const: ImagingStudySeriesInstance
+    default: ImagingStudySeriesInstance
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-title: ImmunizationReaction
+  sopClass:
+    $ref: Coding.yaml
+    binding_description: The sopClass for the instance.
+    binding_strength: extensible
+    binding_uri: http://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1
+    binding_version: null
+    description: DICOM instance  type.
+    element_property: true
+    title: DICOM class type
+  title:
+    description: The description of the instance.
+    element_property: true
+    pattern: '[ \r\n\t\S]+'
+    title: Description of instance
+    type: string
+  uid:
+    description: The DICOM SOP Instance UID for this image or other DICOM content.
+    element_property: true
+    element_required: true
+    maxLength: 64
+    minLength: 1
+    pattern: ^[A-Za-z0-9\-.]+$
+    title: DICOM SOP Instance UID
+    type: string
+required:
+- sopClass
+title: ImagingStudySeriesInstance
 type: object

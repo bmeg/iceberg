@@ -12,24 +12,6 @@ links:
   name: patient
   required: false
   target_type: patient
-- backref: reason_family_member_history
-  label: FamilyMemberHistory_reason_Condition_reason_family_member_history
-  multiplicity: many_to_many
-  name: reason_Condition
-  required: false
-  target_type: condition
-- backref: reason_family_member_history
-  label: FamilyMemberHistory_reason_Observation_reason_family_member_history
-  multiplicity: many_to_many
-  name: reason_Observation
-  required: false
-  target_type: observation
-- backref: reason_family_member_history
-  label: FamilyMemberHistory_reason_DocumentReference_reason_family_member_history
-  multiplicity: many_to_many
-  name: reason_DocumentReference
-  required: false
-  target_type: document_reference
 program: '*'
 project: '*'
 properties:

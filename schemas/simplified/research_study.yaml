@@ -9,12 +9,6 @@ description: Investigation to increase healthcare-related patient-independent kn
   at data collected in the past or future. [See https://hl7.org/fhir/R5/ResearchStudy.html]
 id: research_study
 links:
-- backref: focus_research_study
-  label: ResearchStudy_focus_Medication_focus_research_study
-  multiplicity: many_to_many
-  name: focus_Medication
-  required: false
-  target_type: medication
 - backref: partOf_research_study
   label: ResearchStudy_partOf_ResearchStudy_partOf_research_study
   multiplicity: many_to_many

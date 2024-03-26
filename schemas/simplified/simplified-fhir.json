@@ -624,6 +624,479 @@
       ]
     ]
   },
+  "practitioner_role.yaml": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": true,
+    "category": "Administrative",
+    "description": "Roles/organizations the practitioner is associated with. A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time. [See https://hl7.org/fhir/R5/PractitionerRole.html]",
+    "id": "practitioner_role",
+    "links": [
+      {
+        "backref": "practitioner_role",
+        "label": "PractitionerRole_organization_Organization_practitioner_role",
+        "multiplicity": "many_to_many",
+        "name": "organization",
+        "required": false,
+        "target_type": "organization"
+      },
+      {
+        "backref": "practitioner_role",
+        "label": "PractitionerRole_practitioner_Practitioner_practitioner_role",
+        "multiplicity": "many_to_many",
+        "name": "practitioner",
+        "required": false,
+        "target_type": "practitioner"
+      }
+    ],
+    "program": "*",
+    "project": "*",
+    "properties": {
+      "active": {
+        "description": " Whether this practitioner role record is in active use. Some systems may use this property to mark non-active practitioners, such as those that are not currently employed.",
+        "element_property": true,
+        "title": "Whether this practitioner role record is in active use",
+        "type": "boolean"
+      },
+      "availability": {
+        "description": "[Text representation of Availability] A collection of times the practitioner is available or performing this role at the location and/or healthcareservice.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Times the Practitioner is available at this location and/or healthcare service (including exceptions)",
+        "type": "array"
+      },
+      "characteristic": {
+        "binding_description": "A custom attribute that could be provided at a service (e.g. Wheelchair accessibility).",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/service-mode",
+        "binding_version": null,
+        "description": "text representation. Collection of characteristics (attributes)",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A custom attribute that could be provided at a service (e.g. Wheelchair accessibility).",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/service-mode",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/service-mode",
+            "term_url": "http://hl7.org/fhir/ValueSet/service-mode"
+          }
+        },
+        "title": "Collection of characteristics (attributes)",
+        "type": "array"
+      },
+      "characteristic_coding": {
+        "binding_description": "A custom attribute that could be provided at a service (e.g. Wheelchair accessibility).",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/service-mode",
+        "binding_version": null,
+        "description": "[system#code representation.] Collection of characteristics (attributes)",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A custom attribute that could be provided at a service (e.g. Wheelchair accessibility).",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/service-mode",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/service-mode",
+            "term_url": "http://hl7.org/fhir/ValueSet/service-mode"
+          }
+        },
+        "title": "Collection of characteristics (attributes)",
+        "type": "array"
+      },
+      "characteristic_text": {
+        "binding_description": "A custom attribute that could be provided at a service (e.g. Wheelchair accessibility).",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/service-mode",
+        "binding_version": null,
+        "description": "[system#code representation.] Collection of characteristics (attributes)",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A custom attribute that could be provided at a service (e.g. Wheelchair accessibility).",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/service-mode",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/service-mode",
+            "term_url": "http://hl7.org/fhir/ValueSet/service-mode"
+          }
+        },
+        "title": "Collection of characteristics (attributes)",
+        "type": "array"
+      },
+      "code": {
+        "binding_description": "The role a person plays representing an organization.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/practitioner-role",
+        "binding_version": null,
+        "description": "text representation. Roles which this practitioner is authorized to perform for the organization.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "The role a person plays representing an organization.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/practitioner-role",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/practitioner-role",
+            "term_url": "http://hl7.org/fhir/ValueSet/practitioner-role"
+          }
+        },
+        "title": "Roles which this practitioner may perform",
+        "type": "array"
+      },
+      "code_coding": {
+        "binding_description": "The role a person plays representing an organization.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/practitioner-role",
+        "binding_version": null,
+        "description": "[system#code representation.] Roles which this practitioner is authorized to perform for the organization.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "The role a person plays representing an organization.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/practitioner-role",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/practitioner-role",
+            "term_url": "http://hl7.org/fhir/ValueSet/practitioner-role"
+          }
+        },
+        "title": "Roles which this practitioner may perform",
+        "type": "array"
+      },
+      "code_text": {
+        "binding_description": "The role a person plays representing an organization.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/practitioner-role",
+        "binding_version": null,
+        "description": "[system#code representation.] Roles which this practitioner is authorized to perform for the organization.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "The role a person plays representing an organization.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/practitioner-role",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/practitioner-role",
+            "term_url": "http://hl7.org/fhir/ValueSet/practitioner-role"
+          }
+        },
+        "title": "Roles which this practitioner may perform",
+        "type": "array"
+      },
+      "communication": {
+        "binding_description": "IETF language tag for a human language",
+        "binding_strength": "required",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/all-languages",
+        "binding_version": "5.0.0",
+        "description": "text representation. A language the practitioner can use in patient communication. The practitioner may know several languages (listed in practitioner.communication), however these are the languages that could be advertised in a directory for a patient to search.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "IETF language tag for a human language",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/all-languages",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "required",
+            "term": "http://hl7.org/fhir/ValueSet/all-languages",
+            "term_url": "http://hl7.org/fhir/ValueSet/all-languages"
+          }
+        },
+        "title": "A language the practitioner (in this role) can use in patient communication",
+        "type": "array"
+      },
+      "communication_coding": {
+        "binding_description": "IETF language tag for a human language",
+        "binding_strength": "required",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/all-languages",
+        "binding_version": "5.0.0",
+        "description": "[system#code representation.] A language the practitioner can use in patient communication. The practitioner may know several languages (listed in practitioner.communication), however these are the languages that could be advertised in a directory for a patient to search.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "IETF language tag for a human language",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/all-languages",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "required",
+            "term": "http://hl7.org/fhir/ValueSet/all-languages",
+            "term_url": "http://hl7.org/fhir/ValueSet/all-languages"
+          }
+        },
+        "title": "A language the practitioner (in this role) can use in patient communication",
+        "type": "array"
+      },
+      "communication_text": {
+        "binding_description": "IETF language tag for a human language",
+        "binding_strength": "required",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/all-languages",
+        "binding_version": "5.0.0",
+        "description": "[system#code representation.] A language the practitioner can use in patient communication. The practitioner may know several languages (listed in practitioner.communication), however these are the languages that could be advertised in a directory for a patient to search.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "IETF language tag for a human language",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/all-languages",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "required",
+            "term": "http://hl7.org/fhir/ValueSet/all-languages",
+            "term_url": "http://hl7.org/fhir/ValueSet/all-languages"
+          }
+        },
+        "title": "A language the practitioner (in this role) can use in patient communication",
+        "type": "array"
+      },
+      "contact": {
+        "description": "[Text representation of ExtendedContactDetail] The contact details of communication devices available relevant to the specific PractitionerRole. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Official contact details relating to this PractitionerRole",
+        "type": "array"
+      },
+      "endpoint": {
+        "backref": "endpoint_practitioner_role",
+        "description": "[Text representation of Reference]  Technical endpoints providing access to services operated for the practitioner with this role. Commonly used for locating scheduling services, or identifying where to send referrals electronically.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Endpoint"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Endpoints for interacting with the practitioner in this role",
+        "type": "array"
+      },
+      "extension": {
+        "description": "[Text representation of Extension] May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Additional content defined by implementations",
+        "type": "array"
+      },
+      "healthcareService": {
+        "backref": "healthcareService_practitioner_role",
+        "description": "[Text representation of Reference] The list of healthcare services that this worker provides for this role's Organization/Location(s).",
+        "element_property": true,
+        "enum_reference_types": [
+          "HealthcareService"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Healthcare services provided for this role's Organization/Location(s)",
+        "type": "array"
+      },
+      "id": {
+        "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+        "element_property": true,
+        "maxLength": 64,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9\\-.]+$",
+        "title": "Logical id of this artifact",
+        "type": "string"
+      },
+      "identifier": {
+        "description": "Business Identifiers that are specific to a role/location.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Identifiers for a role/location",
+        "type": "array"
+      },
+      "identifier_coding": {
+        "description": "[system#code representation of identifier] Business Identifiers that are specific to a role/location.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Identifiers for a role/location",
+        "type": "array"
+      },
+      "identifier_text_coding": {
+        "description": "[system#code representation of identifier.text] Business Identifiers that are specific to a role/location.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Identifiers for a role/location",
+        "type": "array"
+      },
+      "location": {
+        "backref": "location_practitioner_role",
+        "description": "[Text representation of Reference] The location(s) at which this practitioner provides care.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Location"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Location(s) where the practitioner provides care",
+        "type": "array"
+      },
+      "organization": {
+        "backref": "practitioner_role",
+        "description": "[Text representation of Reference] The organization where the Practitioner performs the roles associated.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Organization"
+        ],
+        "title": "Organization where the roles are available",
+        "type": "string"
+      },
+      "period": {
+        "description": "[Text representation of Period] The period during which the person is authorized to act as a practitioner in these role(s) for the organization.",
+        "element_property": true,
+        "title": "The period during which the practitioner is authorized to perform in these role(s)",
+        "type": "string"
+      },
+      "practitioner": {
+        "backref": "practitioner_role",
+        "description": "[Text representation of Reference] Practitioner that is able to provide the defined services for the organization.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Practitioner"
+        ],
+        "title": "Practitioner that provides services for the organization",
+        "type": "string"
+      },
+      "project_id": {
+        "term": {
+          "$ref": "_terms.yaml#/project_id"
+        },
+        "type": "string"
+      },
+      "resourceType": {
+        "const": "PractitionerRole",
+        "description": "One of the resource types defined as part of FHIR",
+        "title": "Resource Type",
+        "type": "string"
+      },
+      "specialty": {
+        "binding_description": "Specific specialty associated with the agency.",
+        "binding_strength": "preferred",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/c80-practice-codes",
+        "binding_version": null,
+        "description": "text representation. The specialty of a practitioner that describes the functional role they are practicing at a given organization or location.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Specific specialty associated with the agency.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/c80-practice-codes",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "preferred",
+            "term": "http://hl7.org/fhir/ValueSet/c80-practice-codes",
+            "term_url": "http://hl7.org/fhir/ValueSet/c80-practice-codes"
+          }
+        },
+        "title": "Specific specialty of the practitioner",
+        "type": "array"
+      },
+      "specialty_coding": {
+        "binding_description": "Specific specialty associated with the agency.",
+        "binding_strength": "preferred",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/c80-practice-codes",
+        "binding_version": null,
+        "description": "[system#code representation.] The specialty of a practitioner that describes the functional role they are practicing at a given organization or location.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Specific specialty associated with the agency.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/c80-practice-codes",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "preferred",
+            "term": "http://hl7.org/fhir/ValueSet/c80-practice-codes",
+            "term_url": "http://hl7.org/fhir/ValueSet/c80-practice-codes"
+          }
+        },
+        "title": "Specific specialty of the practitioner",
+        "type": "array"
+      },
+      "specialty_text": {
+        "binding_description": "Specific specialty associated with the agency.",
+        "binding_strength": "preferred",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/c80-practice-codes",
+        "binding_version": null,
+        "description": "[system#code representation.] The specialty of a practitioner that describes the functional role they are practicing at a given organization or location.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Specific specialty associated with the agency.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/c80-practice-codes",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "preferred",
+            "term": "http://hl7.org/fhir/ValueSet/c80-practice-codes",
+            "term_url": "http://hl7.org/fhir/ValueSet/c80-practice-codes"
+          }
+        },
+        "title": "Specific specialty of the practitioner",
+        "type": "array"
+      }
+    },
+    "systemProperties": [
+      "id"
+    ],
+    "title": "PractitionerRole",
+    "type": "object",
+    "uniqueKeys": [
+      [
+        "id"
+      ]
+    ]
+  },
   "observation.yaml": {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": true,
@@ -892,6 +1365,13 @@
           "type": "string"
         },
         "title": "Component results",
+        "type": "array"
+      },
+      "condition_identifier": {
+        "description": "Denormalized condition identifier",
+        "items": {
+          "type": "string"
+        },
         "type": "array"
       },
       "dataAbsentReason": {
@@ -1298,6 +1778,13 @@
         "title": "Part of referenced event",
         "type": "array"
       },
+      "patient_identifier": {
+        "description": "Denormalized patient identifier",
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
       "performer": {
         "backref": "performer_observation",
         "description": "[Text representation of Reference] Who was responsible for asserting the observed value as \"true\".",
@@ -1347,6 +1834,13 @@
         ],
         "title": "Specimen used for this observation",
         "type": "string"
+      },
+      "specimen_identifier": {
+        "description": "Denormalized specimen identifier",
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
       },
       "status": {
         "binding_description": "Codes providing the status of an observation.",
@@ -1550,14 +2044,6 @@
     "description": "Investigation to increase healthcare-related patient-independent knowledge. A scientific study of nature that sometimes includes processes involved in health and disease. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future. [See https://hl7.org/fhir/R5/ResearchStudy.html]",
     "id": "research_study",
     "links": [
-      {
-        "backref": "focus_research_study",
-        "label": "ResearchStudy_focus_Medication_focus_research_study",
-        "multiplicity": "many_to_many",
-        "name": "focus_Medication",
-        "required": false,
-        "target_type": "medication"
-      },
       {
         "backref": "partOf_research_study",
         "label": "ResearchStudy_partOf_ResearchStudy_partOf_research_study",
@@ -2466,7 +2952,32 @@
     "category": "Administrative",
     "description": "Information about an individual or animal receiving health care services. Demographics and other administrative information about an individual or animal receiving care or other health-related services. [See https://hl7.org/fhir/R5/Patient.html]",
     "id": "patient",
-    "links": [],
+    "links": [
+      {
+        "backref": "generalPractitioner_patient",
+        "label": "Patient_generalPractitioner_Organization_generalPractitioner_patient",
+        "multiplicity": "many_to_many",
+        "name": "generalPractitioner_Organization",
+        "required": false,
+        "target_type": "organization"
+      },
+      {
+        "backref": "generalPractitioner_patient",
+        "label": "Patient_generalPractitioner_Practitioner_generalPractitioner_patient",
+        "multiplicity": "many_to_many",
+        "name": "generalPractitioner_Practitioner",
+        "required": false,
+        "target_type": "practitioner"
+      },
+      {
+        "backref": "generalPractitioner_patient",
+        "label": "Patient_generalPractitioner_PractitionerRole_generalPractitioner_patient",
+        "multiplicity": "many_to_many",
+        "name": "generalPractitioner_PractitionerRole",
+        "required": false,
+        "target_type": "practitioner_role"
+      }
+    ],
     "program": "*",
     "project": "*",
     "properties": {
@@ -2717,6 +3228,22 @@
         "description": "[Text representation of Address] [extension patient_birthPlace] The registered place of birth of the patient. A sytem may use the address.text if they don't store the birthPlace address in discrete elements.",
         "type": "string"
       },
+      "patient_birthPlace_city": {
+        "description": "nested",
+        "type": "string"
+      },
+      "patient_birthPlace_country": {
+        "description": "nested",
+        "type": "string"
+      },
+      "patient_birthPlace_resourceType": {
+        "description": "nested",
+        "type": "string"
+      },
+      "patient_birthPlace_state": {
+        "description": "nested",
+        "type": "string"
+      },
       "patient_mothersMaidenName": {
         "description": "[extension patient_mothersMaidenName] Mother's maiden (unmarried) name, commonly collected to help verify patient identity.",
         "type": "string"
@@ -2814,6 +3341,17 @@
             "term_url": "http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity-category"
           }
         },
+        "type": "string"
+      },
+      "us_core_ethnicity_ombCategory_coding": {
+        "description": "extension",
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "us_core_ethnicity_text": {
+        "description": "nested",
         "type": "string"
       },
       "us_core_genderIdentity": {
@@ -2915,6 +3453,17 @@
         },
         "type": "string"
       },
+      "us_core_race_ombCategory_coding": {
+        "description": "extension",
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "us_core_race_text": {
+        "description": "extension",
+        "type": "string"
+      },
       "us_core_tribal_affiliation_isEnrolled": {
         "description": "[extension us_core_tribal_affiliation] This Extension profile represents a tribe or band with which a person associates and, optionally, whether they are enrolled.",
         "type": "boolean"
@@ -2981,6 +3530,186 @@
       "id"
     ],
     "title": "Patient",
+    "type": "object",
+    "uniqueKeys": [
+      [
+        "id"
+      ]
+    ]
+  },
+  "practitioner.yaml": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": true,
+    "category": "Administrative",
+    "description": "A person with a  formal responsibility in the provisioning of healthcare or related services. A person who is directly or indirectly involved in the provisioning of healthcare or related services. [See https://hl7.org/fhir/R5/Practitioner.html]",
+    "id": "practitioner",
+    "links": [],
+    "program": "*",
+    "project": "*",
+    "properties": {
+      "active": {
+        "description": "Whether this practitioner's record is in active use",
+        "element_property": true,
+        "title": "Whether this practitioner's record is in active use",
+        "type": "boolean"
+      },
+      "address": {
+        "description": "[Text representation of Address] Address(es) of the practitioner that are not role specific (typically home address).  Work addresses are not typically entered in this property as they are usually role dependent.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Address(es) of the practitioner that are not role specific (typically home address)",
+        "type": "array"
+      },
+      "birthDate": {
+        "description": "The date of birth for the practitioner.",
+        "element_property": true,
+        "format": "date",
+        "title": "The date  on which the practitioner was born",
+        "type": "string"
+      },
+      "communication": {
+        "description": "[Text representation of PractitionerCommunication] A language which may be used to communicate with the practitioner, often for correspondence/administrative purposes.  The `PractitionerRole.communication` property should be used for publishing the languages that a practitioner is able to communicate with patients (on a per Organization/Role basis).",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "A language which may be used to communicate with the practitioner",
+        "type": "array"
+      },
+      "deceasedBoolean": {
+        "description": "Indicates if the practitioner is deceased or not",
+        "element_property": true,
+        "one_of_many": "deceased",
+        "one_of_many_required": false,
+        "title": "Indicates if the practitioner is deceased or not",
+        "type": "boolean"
+      },
+      "deceasedDateTime": {
+        "description": "Indicates if the practitioner is deceased or not",
+        "element_property": true,
+        "format": "date-time",
+        "one_of_many": "deceased",
+        "one_of_many_required": false,
+        "title": "Indicates if the practitioner is deceased or not",
+        "type": "string"
+      },
+      "extension": {
+        "description": "[Text representation of Extension] May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Additional content defined by implementations",
+        "type": "array"
+      },
+      "gender": {
+        "binding_description": "The gender of a person used for administrative purposes.",
+        "binding_strength": "required",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/administrative-gender",
+        "binding_version": "5.0.0",
+        "description": "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.",
+        "element_property": true,
+        "enum_values": [
+          "male",
+          "female",
+          "other",
+          "unknown"
+        ],
+        "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+        "title": "male | female | other | unknown",
+        "type": "string"
+      },
+      "id": {
+        "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+        "element_property": true,
+        "maxLength": 64,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9\\-.]+$",
+        "title": "Logical id of this artifact",
+        "type": "string"
+      },
+      "identifier": {
+        "description": "An identifier that applies to this person in this role.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "An identifier for the person as this agent",
+        "type": "array"
+      },
+      "identifier_coding": {
+        "description": "[system#code representation of identifier] An identifier that applies to this person in this role.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "An identifier for the person as this agent",
+        "type": "array"
+      },
+      "identifier_text_coding": {
+        "description": "[system#code representation of identifier.text] An identifier that applies to this person in this role.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "An identifier for the person as this agent",
+        "type": "array"
+      },
+      "name": {
+        "description": "[Text representation of HumanName] The name(s) associated with the practitioner",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "The name(s) associated with the practitioner",
+        "type": "array"
+      },
+      "photo": {
+        "description": "[Text representation of Attachment] Image of the person",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Image of the person",
+        "type": "array"
+      },
+      "project_id": {
+        "term": {
+          "$ref": "_terms.yaml#/project_id"
+        },
+        "type": "string"
+      },
+      "qualification": {
+        "description": "[Text representation of PractitionerQualification] The official qualifications, certifications, accreditations, training, licenses (and other types of educations/skills/capabilities) that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board of licensure authorizing the practitioner to practice medicine within a certain locality.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Qualifications, certifications, accreditations, licenses, training, etc. pertaining to the provision of care",
+        "type": "array"
+      },
+      "resourceType": {
+        "const": "Practitioner",
+        "description": "One of the resource types defined as part of FHIR",
+        "title": "Resource Type",
+        "type": "string"
+      },
+      "telecom": {
+        "description": "[Text representation of ContactPoint] A contact detail for the practitioner, e.g. a telephone number or an email address.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "A contact detail for the practitioner (that apply to all roles)",
+        "type": "array"
+      }
+    },
+    "systemProperties": [
+      "id"
+    ],
+    "title": "Practitioner",
     "type": "object",
     "uniqueKeys": [
       [
@@ -4422,6 +5151,13 @@
         "description": "Denormalized patient id",
         "type": "string"
       },
+      "patient_identifier": {
+        "description": "Denormalized patient identifier",
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
       "period": {
         "description": "[Text representation of Period] The time period over which the service that is described by the document was provided.",
         "element_property": true,
@@ -4584,6 +5320,13 @@
         "title": "Document security-tags",
         "type": "array"
       },
+      "specimen_identifier": {
+        "description": "Denormalized specimen identifier",
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
       "status": {
         "binding_description": "The status of the document reference.",
         "binding_strength": "required",
@@ -4612,6 +5355,13 @@
         ],
         "title": "The item that this DocumentReference is about.",
         "type": "string"
+      },
+      "task_identifier": {
+        "description": "Denormalized task identifier",
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
       },
       "type": {
         "binding_description": "Precise type of clinical document.",
@@ -4708,6 +5458,30 @@
     "description": "A task to be performed. [See https://hl7.org/fhir/R5/Task.html]",
     "id": "task",
     "links": [
+      {
+        "backref": "owner_task",
+        "label": "Task_owner_Practitioner_owner_task",
+        "multiplicity": "many_to_many",
+        "name": "owner_Practitioner",
+        "required": false,
+        "target_type": "practitioner"
+      },
+      {
+        "backref": "owner_task",
+        "label": "Task_owner_PractitionerRole_owner_task",
+        "multiplicity": "many_to_many",
+        "name": "owner_PractitionerRole",
+        "required": false,
+        "target_type": "practitioner_role"
+      },
+      {
+        "backref": "owner_task",
+        "label": "Task_owner_Organization_owner_task",
+        "multiplicity": "many_to_many",
+        "name": "owner_Organization",
+        "required": false,
+        "target_type": "organization"
+      },
       {
         "backref": "owner_task",
         "label": "Task_owner_Patient_owner_task",
@@ -7185,6 +7959,1876 @@
       ]
     ]
   },
+  "diagnostic_report.yaml": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": true,
+    "category": "Clinical",
+    "description": "A Diagnostic report - a combination of request information, atomic results, images, interpretation, as well as formatted reports. The findings and interpretation of diagnostic tests performed on patients, groups of patients, products, substances, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports. The report also includes non-clinical context such as batch analysis and stability reporting of products and substances. [See https://hl7.org/fhir/R5/DiagnosticReport.html]",
+    "id": "diagnostic_report",
+    "links": [
+      {
+        "backref": "subject_diagnostic_report",
+        "label": "DiagnosticReport_subject_Patient_subject_diagnostic_report",
+        "multiplicity": "many_to_many",
+        "name": "subject_Patient",
+        "required": false,
+        "target_type": "patient"
+      },
+      {
+        "backref": "subject_diagnostic_report",
+        "label": "DiagnosticReport_subject_Organization_subject_diagnostic_report",
+        "multiplicity": "many_to_many",
+        "name": "subject_Organization",
+        "required": false,
+        "target_type": "organization"
+      },
+      {
+        "backref": "subject_diagnostic_report",
+        "label": "DiagnosticReport_subject_Practitioner_subject_diagnostic_report",
+        "multiplicity": "many_to_many",
+        "name": "subject_Practitioner",
+        "required": false,
+        "target_type": "practitioner"
+      },
+      {
+        "backref": "subject_diagnostic_report",
+        "label": "DiagnosticReport_subject_Medication_subject_diagnostic_report",
+        "multiplicity": "many_to_many",
+        "name": "subject_Medication",
+        "required": false,
+        "target_type": "medication"
+      },
+      {
+        "backref": "subject_diagnostic_report",
+        "label": "DiagnosticReport_subject_Substance_subject_diagnostic_report",
+        "multiplicity": "many_to_many",
+        "name": "subject_Substance",
+        "required": false,
+        "target_type": "substance"
+      },
+      {
+        "backref": "performer_diagnostic_report",
+        "label": "DiagnosticReport_performer_PractitionerRole_performer_diagnostic_report",
+        "multiplicity": "many_to_many",
+        "name": "performer_PractitionerRole",
+        "required": false,
+        "target_type": "practitioner_role"
+      },
+      {
+        "backref": "result_diagnostic_report",
+        "label": "DiagnosticReport_result_Observation_result_diagnostic_report",
+        "multiplicity": "many_to_many",
+        "name": "result",
+        "required": false,
+        "target_type": "observation"
+      },
+      {
+        "backref": "specimen_diagnostic_report",
+        "label": "DiagnosticReport_specimen_Specimen_specimen_diagnostic_report",
+        "multiplicity": "many_to_many",
+        "name": "specimen",
+        "required": false,
+        "target_type": "specimen"
+      },
+      {
+        "backref": "study_diagnostic_report",
+        "label": "DiagnosticReport_study_ImagingStudy_study_diagnostic_report",
+        "multiplicity": "many_to_many",
+        "name": "study_ImagingStudy",
+        "required": false,
+        "target_type": "imaging_study"
+      }
+    ],
+    "program": "*",
+    "project": "*",
+    "properties": {
+      "basedOn": {
+        "backref": "basedOn_diagnostic_report",
+        "description": "[Text representation of Reference] Details concerning a service requested.",
+        "element_property": true,
+        "enum_reference_types": [
+          "CarePlan",
+          "ImmunizationRecommendation",
+          "MedicationRequest",
+          "NutritionOrder",
+          "ServiceRequest"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "What was requested",
+        "type": "array"
+      },
+      "category": {
+        "binding_description": "HL7 V2 table 0074",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections",
+        "binding_version": null,
+        "description": "text representation. A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "HL7 V2 table 0074",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections",
+            "term_url": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
+          }
+        },
+        "title": "Service category",
+        "type": "array"
+      },
+      "category_coding": {
+        "binding_description": "HL7 V2 table 0074",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections",
+        "binding_version": null,
+        "description": "[system#code representation.] A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "HL7 V2 table 0074",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections",
+            "term_url": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
+          }
+        },
+        "title": "Service category",
+        "type": "array"
+      },
+      "category_text": {
+        "binding_description": "HL7 V2 table 0074",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections",
+        "binding_version": null,
+        "description": "[system#code representation.] A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "HL7 V2 table 0074",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections",
+            "term_url": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
+          }
+        },
+        "title": "Service category",
+        "type": "array"
+      },
+      "code": {
+        "binding_description": "LOINC Codes for Diagnostic Reports",
+        "binding_strength": "preferred",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/report-codes",
+        "binding_version": null,
+        "description": "text representation. A code or name that describes this diagnostic report.",
+        "element_property": true,
+        "term": {
+          "description": "LOINC Codes for Diagnostic Reports",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/report-codes",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "preferred",
+            "term": "http://hl7.org/fhir/ValueSet/report-codes",
+            "term_url": "http://hl7.org/fhir/ValueSet/report-codes"
+          }
+        },
+        "title": "Name/Code for this diagnostic report",
+        "type": "string"
+      },
+      "code_coding": {
+        "binding_description": "LOINC Codes for Diagnostic Reports",
+        "binding_strength": "preferred",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/report-codes",
+        "binding_version": null,
+        "description": "[system#code representation.] A code or name that describes this diagnostic report.",
+        "element_property": true,
+        "term": {
+          "description": "LOINC Codes for Diagnostic Reports",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/report-codes",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "preferred",
+            "term": "http://hl7.org/fhir/ValueSet/report-codes",
+            "term_url": "http://hl7.org/fhir/ValueSet/report-codes"
+          }
+        },
+        "title": "Name/Code for this diagnostic report",
+        "type": "string"
+      },
+      "code_text": {
+        "binding_description": "LOINC Codes for Diagnostic Reports",
+        "binding_strength": "preferred",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/report-codes",
+        "binding_version": null,
+        "description": "[system#code representation.] A code or name that describes this diagnostic report.",
+        "element_property": true,
+        "term": {
+          "description": "LOINC Codes for Diagnostic Reports",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/report-codes",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "preferred",
+            "term": "http://hl7.org/fhir/ValueSet/report-codes",
+            "term_url": "http://hl7.org/fhir/ValueSet/report-codes"
+          }
+        },
+        "title": "Name/Code for this diagnostic report",
+        "type": "string"
+      },
+      "composition": {
+        "backref": "diagnostic_report",
+        "description": "[Text representation of Reference] Reference to a Composition resource instance that provides structure for organizing the contents of the DiagnosticReport.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Composition"
+        ],
+        "title": "Reference to a Composition resource for the DiagnosticReport structure",
+        "type": "string"
+      },
+      "conclusion": {
+        "description": "Concise and clinically contextualized summary conclusion (interpretation/impression) of the diagnostic report.",
+        "element_property": true,
+        "pattern": "\\s*(\\S|\\s)*",
+        "title": "Clinical conclusion (interpretation) of test results",
+        "type": "string"
+      },
+      "conclusionCode": {
+        "binding_description": "SNOMED CT Clinical Findings",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/clinical-findings",
+        "binding_version": null,
+        "description": "text representation. One or more codes that represent the summary conclusion (interpretation/impression) of the diagnostic report.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "SNOMED CT Clinical Findings",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/clinical-findings",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/clinical-findings",
+            "term_url": "http://hl7.org/fhir/ValueSet/clinical-findings"
+          }
+        },
+        "title": "Codes for the clinical conclusion of test results",
+        "type": "array"
+      },
+      "conclusionCode_coding": {
+        "binding_description": "SNOMED CT Clinical Findings",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/clinical-findings",
+        "binding_version": null,
+        "description": "[system#code representation.] One or more codes that represent the summary conclusion (interpretation/impression) of the diagnostic report.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "SNOMED CT Clinical Findings",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/clinical-findings",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/clinical-findings",
+            "term_url": "http://hl7.org/fhir/ValueSet/clinical-findings"
+          }
+        },
+        "title": "Codes for the clinical conclusion of test results",
+        "type": "array"
+      },
+      "conclusionCode_text": {
+        "binding_description": "SNOMED CT Clinical Findings",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/clinical-findings",
+        "binding_version": null,
+        "description": "[system#code representation.] One or more codes that represent the summary conclusion (interpretation/impression) of the diagnostic report.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "SNOMED CT Clinical Findings",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/clinical-findings",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/clinical-findings",
+            "term_url": "http://hl7.org/fhir/ValueSet/clinical-findings"
+          }
+        },
+        "title": "Codes for the clinical conclusion of test results",
+        "type": "array"
+      },
+      "effectiveDateTime": {
+        "description": "The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.",
+        "element_property": true,
+        "format": "date-time",
+        "one_of_many": "effective",
+        "one_of_many_required": false,
+        "title": "Clinically relevant time/time-period for report",
+        "type": "string"
+      },
+      "effectivePeriod": {
+        "description": "[Text representation of Period] The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.",
+        "element_property": true,
+        "one_of_many": "effective",
+        "one_of_many_required": false,
+        "title": "Clinically relevant time/time-period for report",
+        "type": "string"
+      },
+      "encounter": {
+        "backref": "diagnostic_report",
+        "description": "[Text representation of Reference] The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Encounter"
+        ],
+        "title": "Health care event when test ordered",
+        "type": "string"
+      },
+      "extension": {
+        "description": "[Text representation of Extension] May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Additional content defined by implementations",
+        "type": "array"
+      },
+      "id": {
+        "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+        "element_property": true,
+        "maxLength": 64,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9\\-.]+$",
+        "title": "Logical id of this artifact",
+        "type": "string"
+      },
+      "identifier": {
+        "description": "Identifiers assigned to this report by the performer or other systems.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Business identifier for report",
+        "type": "array"
+      },
+      "identifier_coding": {
+        "description": "[system#code representation of identifier] Identifiers assigned to this report by the performer or other systems.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Business identifier for report",
+        "type": "array"
+      },
+      "identifier_text_coding": {
+        "description": "[system#code representation of identifier.text] Identifiers assigned to this report by the performer or other systems.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Business identifier for report",
+        "type": "array"
+      },
+      "issued": {
+        "description": "The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.",
+        "element_property": true,
+        "format": "date-time",
+        "title": "DateTime this version was made",
+        "type": "string"
+      },
+      "media": {
+        "description": "[Text representation of DiagnosticReportMedia] A list of key images or data associated with this report. The images or data are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Key images or data associated with this report",
+        "type": "array"
+      },
+      "note": {
+        "description": "[Text representation of Annotation] Comments about the diagnostic report",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Comments about the diagnostic report",
+        "type": "array"
+      },
+      "performer": {
+        "backref": "performer_diagnostic_report",
+        "description": "[Text representation of Reference] The diagnostic service that is responsible for issuing the report.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Practitioner",
+          "PractitionerRole",
+          "Organization",
+          "CareTeam"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Responsible Diagnostic Service",
+        "type": "array"
+      },
+      "presentedForm": {
+        "description": "[Text representation of Attachment] Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Entire report as issued",
+        "type": "array"
+      },
+      "project_id": {
+        "term": {
+          "$ref": "_terms.yaml#/project_id"
+        },
+        "type": "string"
+      },
+      "resourceType": {
+        "const": "DiagnosticReport",
+        "description": "One of the resource types defined as part of FHIR",
+        "title": "Resource Type",
+        "type": "string"
+      },
+      "result": {
+        "backref": "result_diagnostic_report",
+        "description": "[Text representation of Reference] [Observations](observation.html)  that are part of this diagnostic report.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Observation"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Observations",
+        "type": "array"
+      },
+      "resultsInterpreter": {
+        "backref": "resultsInterpreter_diagnostic_report",
+        "description": "[Text representation of Reference] The practitioner or organization that is responsible for the report's conclusions and interpretations.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Practitioner",
+          "PractitionerRole",
+          "Organization",
+          "CareTeam"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Primary result interpreter",
+        "type": "array"
+      },
+      "specimen": {
+        "backref": "specimen_diagnostic_report",
+        "description": "[Text representation of Reference] Details about the specimens on which this diagnostic report is based.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Specimen"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Specimens this report is based on",
+        "type": "array"
+      },
+      "status": {
+        "binding_description": "The status of the diagnostic report.",
+        "binding_strength": "required",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/diagnostic-report-status",
+        "binding_version": "5.0.0",
+        "description": "The status of the diagnostic report.",
+        "element_property": true,
+        "element_required": true,
+        "enum_values": [
+          "registered",
+          "partial",
+          "preliminary",
+          "modified",
+          "final",
+          "amended",
+          "corrected",
+          "appended",
+          "cancelled",
+          "entered-in-error",
+          "unknown"
+        ],
+        "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+        "title": "registered | partial | preliminary | modified | final | amended | corrected | appended | cancelled | entered-in-error | unknown",
+        "type": "string"
+      },
+      "study": {
+        "backref": "study_diagnostic_report",
+        "description": "[Text representation of Reference] One or more links to full details of any study performed during the diagnostic investigation. An ImagingStudy might comprise a set of radiologic images obtained via a procedure that are analyzed as a group. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images. A GenomicStudy might comprise one or more analyses, each serving a specific purpose. These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, software, devices used, or regions targeted.",
+        "element_property": true,
+        "enum_reference_types": [
+          "GenomicStudy",
+          "ImagingStudy"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Reference to full details of an analysis associated with the diagnostic report",
+        "type": "array"
+      },
+      "subject": {
+        "backref": "subject_diagnostic_report",
+        "description": "[Text representation of Reference] The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Patient",
+          "Group",
+          "Device",
+          "Location",
+          "Organization",
+          "Practitioner",
+          "Medication",
+          "Substance",
+          "BiologicallyDerivedProduct"
+        ],
+        "title": "The subject of the report - usually, but not always, the patient",
+        "type": "string"
+      },
+      "supportingInfo": {
+        "description": "[Text representation of DiagnosticReportSupportingInfo] This backbone element contains supporting information that was used in the creation of the report not included in the results already included in the report.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Additional information supporting the diagnostic report",
+        "type": "array"
+      }
+    },
+    "systemProperties": [
+      "id"
+    ],
+    "title": "DiagnosticReport",
+    "type": "object",
+    "uniqueKeys": [
+      [
+        "id"
+      ]
+    ]
+  },
+  "procedure.yaml": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": true,
+    "category": "Clinical",
+    "description": "An action that is being or was performed on an individual or entity. An action that is or was performed on or for a patient, practitioner, device, organization, or location. For example, this can be a physical intervention on a patient like an operation, or less invasive like long term services, counseling, or hypnotherapy.  This can be a quality or safety inspection for a location, organization, or device.  This can be an accreditation procedure on a practitioner for licensing. [See https://hl7.org/fhir/R5/Procedure.html]",
+    "id": "procedure",
+    "links": [
+      {
+        "backref": "subject_procedure",
+        "label": "Procedure_subject_Patient_subject_procedure",
+        "multiplicity": "many_to_many",
+        "name": "subject_Patient",
+        "required": false,
+        "target_type": "patient"
+      },
+      {
+        "backref": "subject_procedure",
+        "label": "Procedure_subject_Practitioner_subject_procedure",
+        "multiplicity": "many_to_many",
+        "name": "subject_Practitioner",
+        "required": false,
+        "target_type": "practitioner"
+      },
+      {
+        "backref": "partOf_procedure",
+        "label": "Procedure_partOf_Procedure_partOf_procedure",
+        "multiplicity": "many_to_many",
+        "name": "partOf_Procedure",
+        "required": false,
+        "target_type": "procedure"
+      }
+    ],
+    "program": "*",
+    "project": "*",
+    "properties": {
+      "basedOn": {
+        "backref": "basedOn_procedure",
+        "description": "[Text representation of Reference] A reference to a resource that contains details of the request for this procedure.",
+        "element_property": true,
+        "enum_reference_types": [
+          "CarePlan",
+          "ServiceRequest"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "A request for this procedure",
+        "type": "array"
+      },
+      "bodySite": {
+        "binding_description": "SNOMED CT Body site concepts",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/body-site",
+        "binding_version": null,
+        "description": "text representation. Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "SNOMED CT Body site concepts",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/body-site",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/body-site",
+            "term_url": "http://hl7.org/fhir/ValueSet/body-site"
+          }
+        },
+        "title": "Target body sites",
+        "type": "array"
+      },
+      "bodySite_coding": {
+        "binding_description": "SNOMED CT Body site concepts",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/body-site",
+        "binding_version": null,
+        "description": "[system#code representation.] Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "SNOMED CT Body site concepts",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/body-site",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/body-site",
+            "term_url": "http://hl7.org/fhir/ValueSet/body-site"
+          }
+        },
+        "title": "Target body sites",
+        "type": "array"
+      },
+      "bodySite_text": {
+        "binding_description": "SNOMED CT Body site concepts",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/body-site",
+        "binding_version": null,
+        "description": "[system#code representation.] Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "SNOMED CT Body site concepts",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/body-site",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/body-site",
+            "term_url": "http://hl7.org/fhir/ValueSet/body-site"
+          }
+        },
+        "title": "Target body sites",
+        "type": "array"
+      },
+      "category": {
+        "binding_description": "A code that classifies a procedure for searching, sorting and display purposes.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-category",
+        "binding_version": null,
+        "description": "text representation. A code that classifies the procedure for searching, sorting and display purposes (e.g. \"Surgical Procedure\").",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A code that classifies a procedure for searching, sorting and display purposes.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-category",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-category",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-category"
+          }
+        },
+        "title": "Classification of the procedure",
+        "type": "array"
+      },
+      "category_coding": {
+        "binding_description": "A code that classifies a procedure for searching, sorting and display purposes.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-category",
+        "binding_version": null,
+        "description": "[system#code representation.] A code that classifies the procedure for searching, sorting and display purposes (e.g. \"Surgical Procedure\").",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A code that classifies a procedure for searching, sorting and display purposes.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-category",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-category",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-category"
+          }
+        },
+        "title": "Classification of the procedure",
+        "type": "array"
+      },
+      "category_text": {
+        "binding_description": "A code that classifies a procedure for searching, sorting and display purposes.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-category",
+        "binding_version": null,
+        "description": "[system#code representation.] A code that classifies the procedure for searching, sorting and display purposes (e.g. \"Surgical Procedure\").",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A code that classifies a procedure for searching, sorting and display purposes.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-category",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-category",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-category"
+          }
+        },
+        "title": "Classification of the procedure",
+        "type": "array"
+      },
+      "code": {
+        "binding_description": "A code to identify a specific procedure .",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-code",
+        "binding_version": null,
+        "description": "text representation. The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. \"Laparoscopic Appendectomy\").",
+        "element_property": true,
+        "term": {
+          "description": "A code to identify a specific procedure .",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-code",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-code",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-code"
+          }
+        },
+        "title": "Identification of the procedure",
+        "type": "string"
+      },
+      "code_coding": {
+        "binding_description": "A code to identify a specific procedure .",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-code",
+        "binding_version": null,
+        "description": "[system#code representation.] The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. \"Laparoscopic Appendectomy\").",
+        "element_property": true,
+        "term": {
+          "description": "A code to identify a specific procedure .",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-code",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-code",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-code"
+          }
+        },
+        "title": "Identification of the procedure",
+        "type": "string"
+      },
+      "code_text": {
+        "binding_description": "A code to identify a specific procedure .",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-code",
+        "binding_version": null,
+        "description": "[system#code representation.] The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. \"Laparoscopic Appendectomy\").",
+        "element_property": true,
+        "term": {
+          "description": "A code to identify a specific procedure .",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-code",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-code",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-code"
+          }
+        },
+        "title": "Identification of the procedure",
+        "type": "string"
+      },
+      "complication": {
+        "backref": "complication_procedure",
+        "binding_description": "Codes describing complications that resulted from a procedure.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/condition-code",
+        "binding_version": null,
+        "description": "text representation. Any complications that occurred during the procedure, or in the immediate post-performance period. These are generally tracked separately from the notes, which will typically describe the procedure itself rather than any 'post procedure' issues.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Condition"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Codes describing complications that resulted from a procedure.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/condition-code",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/condition-code",
+            "term_url": "http://hl7.org/fhir/ValueSet/condition-code"
+          }
+        },
+        "title": "Complication following the procedure",
+        "type": "array"
+      },
+      "complication_coding": {
+        "backref": "complication_procedure",
+        "binding_description": "Codes describing complications that resulted from a procedure.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/condition-code",
+        "binding_version": null,
+        "description": "[system#code representation.] Any complications that occurred during the procedure, or in the immediate post-performance period. These are generally tracked separately from the notes, which will typically describe the procedure itself rather than any 'post procedure' issues.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Condition"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Codes describing complications that resulted from a procedure.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/condition-code",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/condition-code",
+            "term_url": "http://hl7.org/fhir/ValueSet/condition-code"
+          }
+        },
+        "title": "Complication following the procedure",
+        "type": "array"
+      },
+      "complication_text": {
+        "backref": "complication_procedure",
+        "binding_description": "Codes describing complications that resulted from a procedure.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/condition-code",
+        "binding_version": null,
+        "description": "[system#code representation.] Any complications that occurred during the procedure, or in the immediate post-performance period. These are generally tracked separately from the notes, which will typically describe the procedure itself rather than any 'post procedure' issues.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Condition"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Codes describing complications that resulted from a procedure.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/condition-code",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/condition-code",
+            "term_url": "http://hl7.org/fhir/ValueSet/condition-code"
+          }
+        },
+        "title": "Complication following the procedure",
+        "type": "array"
+      },
+      "encounter": {
+        "backref": "procedure",
+        "description": "[Text representation of Reference] The Encounter during which this Procedure was created or performed or to which the creation of this record is tightly associated.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Encounter"
+        ],
+        "title": "The Encounter during which this Procedure was created",
+        "type": "string"
+      },
+      "extension": {
+        "description": "[Text representation of Extension] May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Additional content defined by implementations",
+        "type": "array"
+      },
+      "focalDevice": {
+        "description": "[Text representation of ProcedureFocalDevice] A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Manipulated, implanted, or removed device",
+        "type": "array"
+      },
+      "focus": {
+        "backref": "focus_procedure",
+        "description": "[Text representation of Reference] Who is the target of the procedure when it is not the subject of record only.  If focus is not present, then subject is the focus.  If focus is present and the subject is one of the targets of the procedure, include subject as a focus as well. If focus is present and the subject is not included in focus, it implies that the procedure was only targeted on the focus. For example, when a caregiver is given education for a patient, the caregiver would be the focus and the procedure record is associated with the subject (e.g. patient).  For example, use focus when recording the target of the education, training, or counseling is the parent or relative of a patient.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Patient",
+          "Group",
+          "RelatedPerson",
+          "Practitioner",
+          "Organization",
+          "CareTeam",
+          "PractitionerRole",
+          "Specimen"
+        ],
+        "title": "Who is the target of the procedure when it is not the subject of record only",
+        "type": "string"
+      },
+      "followUp": {
+        "binding_description": "Specific follow up required for a procedure e.g. removal of sutures.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-followup",
+        "binding_version": null,
+        "description": "text representation. If the procedure required specific follow up - e.g. removal of sutures. The follow up may be represented as a simple note or could potentially be more complex, in which case the CarePlan resource can be used.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Specific follow up required for a procedure e.g. removal of sutures.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-followup",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-followup",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-followup"
+          }
+        },
+        "title": "Instructions for follow up",
+        "type": "array"
+      },
+      "followUp_coding": {
+        "binding_description": "Specific follow up required for a procedure e.g. removal of sutures.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-followup",
+        "binding_version": null,
+        "description": "[system#code representation.] If the procedure required specific follow up - e.g. removal of sutures. The follow up may be represented as a simple note or could potentially be more complex, in which case the CarePlan resource can be used.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Specific follow up required for a procedure e.g. removal of sutures.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-followup",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-followup",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-followup"
+          }
+        },
+        "title": "Instructions for follow up",
+        "type": "array"
+      },
+      "followUp_text": {
+        "binding_description": "Specific follow up required for a procedure e.g. removal of sutures.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-followup",
+        "binding_version": null,
+        "description": "[system#code representation.] If the procedure required specific follow up - e.g. removal of sutures. The follow up may be represented as a simple note or could potentially be more complex, in which case the CarePlan resource can be used.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Specific follow up required for a procedure e.g. removal of sutures.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-followup",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-followup",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-followup"
+          }
+        },
+        "title": "Instructions for follow up",
+        "type": "array"
+      },
+      "id": {
+        "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+        "element_property": true,
+        "maxLength": 64,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9\\-.]+$",
+        "title": "Logical id of this artifact",
+        "type": "string"
+      },
+      "identifier": {
+        "description": "Business identifiers assigned to this procedure by the performer or other systems which remain constant as the resource is updated and is propagated from server to server.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "External Identifiers for this procedure",
+        "type": "array"
+      },
+      "identifier_coding": {
+        "description": "[system#code representation of identifier] Business identifiers assigned to this procedure by the performer or other systems which remain constant as the resource is updated and is propagated from server to server.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "External Identifiers for this procedure",
+        "type": "array"
+      },
+      "identifier_text_coding": {
+        "description": "[system#code representation of identifier.text] Business identifiers assigned to this procedure by the performer or other systems which remain constant as the resource is updated and is propagated from server to server.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "External Identifiers for this procedure",
+        "type": "array"
+      },
+      "instantiatesCanonical": {
+        "description": "The URL pointing to a FHIR-defined protocol, guideline, order set or other definition that is adhered to in whole or in part by this Procedure.",
+        "element_property": true,
+        "enum_reference_types": [
+          "PlanDefinition",
+          "ActivityDefinition",
+          "Measure",
+          "OperationDefinition",
+          "Questionnaire"
+        ],
+        "items": {
+          "pattern": "\\S*",
+          "type": "string"
+        },
+        "title": "Instantiates FHIR protocol or definition",
+        "type": "array"
+      },
+      "instantiatesUri": {
+        "description": "The URL pointing to an externally maintained protocol, guideline, order set or other definition that is adhered to in whole or in part by this Procedure.",
+        "element_property": true,
+        "items": {
+          "pattern": "\\S*",
+          "type": "string"
+        },
+        "title": "Instantiates external protocol or definition",
+        "type": "array"
+      },
+      "location": {
+        "backref": "location_procedure",
+        "description": "[Text representation of Reference] The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Location"
+        ],
+        "title": "Where the procedure happened",
+        "type": "string"
+      },
+      "note": {
+        "description": "[Text representation of Annotation] Any other notes and comments about the procedure.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Additional information about the procedure",
+        "type": "array"
+      },
+      "occurrenceAge": {
+        "description": "[Text representation of Age] Estimated or actual date, date-time, period, or age when the procedure did occur or is occurring.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.",
+        "element_property": true,
+        "one_of_many": "occurrence",
+        "one_of_many_required": false,
+        "title": "When the procedure occurred or is occurring",
+        "type": "string"
+      },
+      "occurrenceDateTime": {
+        "description": "Estimated or actual date, date-time, period, or age when the procedure did occur or is occurring.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.",
+        "element_property": true,
+        "format": "date-time",
+        "one_of_many": "occurrence",
+        "one_of_many_required": false,
+        "title": "When the procedure occurred or is occurring",
+        "type": "string"
+      },
+      "occurrencePeriod": {
+        "description": "[Text representation of Period] Estimated or actual date, date-time, period, or age when the procedure did occur or is occurring.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.",
+        "element_property": true,
+        "one_of_many": "occurrence",
+        "one_of_many_required": false,
+        "title": "When the procedure occurred or is occurring",
+        "type": "string"
+      },
+      "occurrenceRange": {
+        "description": "[Text representation of Range] Estimated or actual date, date-time, period, or age when the procedure did occur or is occurring.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.",
+        "element_property": true,
+        "one_of_many": "occurrence",
+        "one_of_many_required": false,
+        "title": "When the procedure occurred or is occurring",
+        "type": "string"
+      },
+      "occurrenceString": {
+        "description": "Estimated or actual date, date-time, period, or age when the procedure did occur or is occurring.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.",
+        "element_property": true,
+        "one_of_many": "occurrence",
+        "one_of_many_required": false,
+        "pattern": "[ \\r\\n\\t\\S]+",
+        "title": "When the procedure occurred or is occurring",
+        "type": "string"
+      },
+      "occurrenceTiming": {
+        "description": "[Text representation of Timing] Estimated or actual date, date-time, period, or age when the procedure did occur or is occurring.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.",
+        "element_property": true,
+        "one_of_many": "occurrence",
+        "one_of_many_required": false,
+        "title": "When the procedure occurred or is occurring",
+        "type": "string"
+      },
+      "outcome": {
+        "binding_description": "An outcome of a procedure - whether it was resolved or otherwise.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-outcome",
+        "binding_version": null,
+        "description": "text representation. The outcome of the procedure - did it resolve the reasons for the procedure being performed?",
+        "element_property": true,
+        "term": {
+          "description": "An outcome of a procedure - whether it was resolved or otherwise.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-outcome",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-outcome",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-outcome"
+          }
+        },
+        "title": "The result of procedure",
+        "type": "string"
+      },
+      "outcome_coding": {
+        "binding_description": "An outcome of a procedure - whether it was resolved or otherwise.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-outcome",
+        "binding_version": null,
+        "description": "[system#code representation.] The outcome of the procedure - did it resolve the reasons for the procedure being performed?",
+        "element_property": true,
+        "term": {
+          "description": "An outcome of a procedure - whether it was resolved or otherwise.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-outcome",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-outcome",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-outcome"
+          }
+        },
+        "title": "The result of procedure",
+        "type": "string"
+      },
+      "outcome_text": {
+        "binding_description": "An outcome of a procedure - whether it was resolved or otherwise.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-outcome",
+        "binding_version": null,
+        "description": "[system#code representation.] The outcome of the procedure - did it resolve the reasons for the procedure being performed?",
+        "element_property": true,
+        "term": {
+          "description": "An outcome of a procedure - whether it was resolved or otherwise.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-outcome",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-outcome",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-outcome"
+          }
+        },
+        "title": "The result of procedure",
+        "type": "string"
+      },
+      "partOf": {
+        "backref": "partOf_procedure",
+        "description": "[Text representation of Reference] A larger event of which this particular procedure is a component or step.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Procedure",
+          "Observation",
+          "MedicationAdministration"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Part of referenced event",
+        "type": "array"
+      },
+      "performer": {
+        "description": "[Text representation of ProcedurePerformer] Indicates who or what performed the procedure and how they were involved.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Who performed the procedure and what they did",
+        "type": "array"
+      },
+      "project_id": {
+        "term": {
+          "$ref": "_terms.yaml#/project_id"
+        },
+        "type": "string"
+      },
+      "reason": {
+        "backref": "reason_procedure",
+        "binding_description": "A code that identifies the reason a procedure is  required.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-reason",
+        "binding_version": null,
+        "description": "text representation. The coded reason or reference why the procedure was performed. This may be a coded entity of some type, be present as text, or be a reference to one of several resources that justify the procedure.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Condition",
+          "Observation",
+          "Procedure",
+          "DiagnosticReport",
+          "DocumentReference"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A code that identifies the reason a procedure is  required.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-reason",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-reason",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-reason"
+          }
+        },
+        "title": "The justification that the procedure was performed",
+        "type": "array"
+      },
+      "reason_coding": {
+        "backref": "reason_procedure",
+        "binding_description": "A code that identifies the reason a procedure is  required.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-reason",
+        "binding_version": null,
+        "description": "[system#code representation.] The coded reason or reference why the procedure was performed. This may be a coded entity of some type, be present as text, or be a reference to one of several resources that justify the procedure.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Condition",
+          "Observation",
+          "Procedure",
+          "DiagnosticReport",
+          "DocumentReference"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A code that identifies the reason a procedure is  required.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-reason",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-reason",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-reason"
+          }
+        },
+        "title": "The justification that the procedure was performed",
+        "type": "array"
+      },
+      "reason_text": {
+        "backref": "reason_procedure",
+        "binding_description": "A code that identifies the reason a procedure is  required.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-reason",
+        "binding_version": null,
+        "description": "[system#code representation.] The coded reason or reference why the procedure was performed. This may be a coded entity of some type, be present as text, or be a reference to one of several resources that justify the procedure.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Condition",
+          "Observation",
+          "Procedure",
+          "DiagnosticReport",
+          "DocumentReference"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "A code that identifies the reason a procedure is  required.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-reason",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-reason",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-reason"
+          }
+        },
+        "title": "The justification that the procedure was performed",
+        "type": "array"
+      },
+      "recorded": {
+        "description": "The date the occurrence of the procedure was first captured in the record regardless of Procedure.status (potentially after the occurrence of the event).",
+        "element_property": true,
+        "format": "date-time",
+        "title": "When the procedure was first captured in the subject's record",
+        "type": "string"
+      },
+      "recorder": {
+        "backref": "recorder_procedure",
+        "description": "[Text representation of Reference] Individual who recorded the record and takes responsibility for its content.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Patient",
+          "RelatedPerson",
+          "Practitioner",
+          "PractitionerRole"
+        ],
+        "title": "Who recorded the procedure",
+        "type": "string"
+      },
+      "report": {
+        "backref": "report_procedure",
+        "description": "[Text representation of Reference] This could be a histology result, pathology report, surgical report, etc.",
+        "element_property": true,
+        "enum_reference_types": [
+          "DiagnosticReport",
+          "DocumentReference",
+          "Composition"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Any report resulting from the procedure",
+        "type": "array"
+      },
+      "reportedBoolean": {
+        "description": "Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report.",
+        "element_property": true,
+        "one_of_many": "reported",
+        "one_of_many_required": false,
+        "title": "Reported rather than primary record",
+        "type": "boolean"
+      },
+      "reportedReference": {
+        "backref": "reportedReference_procedure",
+        "description": "[Text representation of Reference] Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Patient",
+          "RelatedPerson",
+          "Practitioner",
+          "PractitionerRole",
+          "Organization"
+        ],
+        "one_of_many": "reported",
+        "one_of_many_required": false,
+        "title": "Reported rather than primary record",
+        "type": "string"
+      },
+      "resourceType": {
+        "const": "Procedure",
+        "description": "One of the resource types defined as part of FHIR",
+        "title": "Resource Type",
+        "type": "string"
+      },
+      "status": {
+        "binding_description": "A code specifying the state of the procedure.",
+        "binding_strength": "required",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/event-status",
+        "binding_version": "5.0.0",
+        "description": "A code specifying the state of the procedure. Generally, this will be the in-progress or completed state.",
+        "element_property": true,
+        "element_required": true,
+        "enum_values": [
+          "preparation",
+          "in-progress",
+          "not-done",
+          "on-hold",
+          "stopped",
+          "completed",
+          "entered-in-error",
+          "unknown"
+        ],
+        "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+        "title": "preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown",
+        "type": "string"
+      },
+      "statusReason": {
+        "binding_description": "A code that identifies the reason a procedure was not performed.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-not-performed-reason",
+        "binding_version": null,
+        "description": "text representation. Captures the reason for the current state of the procedure.",
+        "element_property": true,
+        "term": {
+          "description": "A code that identifies the reason a procedure was not performed.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-not-performed-reason",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-not-performed-reason",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-not-performed-reason"
+          }
+        },
+        "title": "Reason for current status",
+        "type": "string"
+      },
+      "statusReason_coding": {
+        "binding_description": "A code that identifies the reason a procedure was not performed.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-not-performed-reason",
+        "binding_version": null,
+        "description": "[system#code representation.] Captures the reason for the current state of the procedure.",
+        "element_property": true,
+        "term": {
+          "description": "A code that identifies the reason a procedure was not performed.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-not-performed-reason",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-not-performed-reason",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-not-performed-reason"
+          }
+        },
+        "title": "Reason for current status",
+        "type": "string"
+      },
+      "statusReason_text": {
+        "binding_description": "A code that identifies the reason a procedure was not performed.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-not-performed-reason",
+        "binding_version": null,
+        "description": "[system#code representation.] Captures the reason for the current state of the procedure.",
+        "element_property": true,
+        "term": {
+          "description": "A code that identifies the reason a procedure was not performed.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-not-performed-reason",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-not-performed-reason",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-not-performed-reason"
+          }
+        },
+        "title": "Reason for current status",
+        "type": "string"
+      },
+      "subject": {
+        "backref": "subject_procedure",
+        "description": "[Text representation of Reference] On whom or on what the procedure was performed. This is usually an individual human, but can also be performed on animals, groups of humans or animals, organizations or practitioners (for licensing), locations or devices (for safety inspections or regulatory authorizations).  If the actual focus of the procedure is different from the subject, the focus element specifies the actual focus of the procedure.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Patient",
+          "Group",
+          "Device",
+          "Practitioner",
+          "Organization",
+          "Location"
+        ],
+        "title": "Individual or entity the procedure was performed on",
+        "type": "string"
+      },
+      "supportingInfo": {
+        "backref": "supportingInfo_procedure",
+        "description": "[Text representation of Reference] Other resources from the patient record that may be relevant to the procedure.  The information from these resources was either used to create the instance or is provided to help with its interpretation. This extension should not be used if more specific inline elements or extensions are available.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Resource"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Extra information relevant to the procedure",
+        "type": "array"
+      },
+      "used": {
+        "backref": "used_procedure",
+        "binding_description": "Codes describing items used during a procedure.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/device-type",
+        "binding_version": null,
+        "description": "text representation. Identifies medications, devices and any other substance used as part of the procedure.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Device",
+          "Medication",
+          "Substance",
+          "BiologicallyDerivedProduct"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Codes describing items used during a procedure.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/device-type",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/device-type",
+            "term_url": "http://hl7.org/fhir/ValueSet/device-type"
+          }
+        },
+        "title": "Items used during procedure",
+        "type": "array"
+      },
+      "used_coding": {
+        "backref": "used_procedure",
+        "binding_description": "Codes describing items used during a procedure.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/device-type",
+        "binding_version": null,
+        "description": "[system#code representation.] Identifies medications, devices and any other substance used as part of the procedure.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Device",
+          "Medication",
+          "Substance",
+          "BiologicallyDerivedProduct"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Codes describing items used during a procedure.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/device-type",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/device-type",
+            "term_url": "http://hl7.org/fhir/ValueSet/device-type"
+          }
+        },
+        "title": "Items used during procedure",
+        "type": "array"
+      },
+      "used_text": {
+        "backref": "used_procedure",
+        "binding_description": "Codes describing items used during a procedure.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/device-type",
+        "binding_version": null,
+        "description": "[system#code representation.] Identifies medications, devices and any other substance used as part of the procedure.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Device",
+          "Medication",
+          "Substance",
+          "BiologicallyDerivedProduct"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Codes describing items used during a procedure.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/device-type",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/device-type",
+            "term_url": "http://hl7.org/fhir/ValueSet/device-type"
+          }
+        },
+        "title": "Items used during procedure",
+        "type": "array"
+      }
+    },
+    "systemProperties": [
+      "id"
+    ],
+    "title": "Procedure",
+    "type": "object",
+    "uniqueKeys": [
+      [
+        "id"
+      ]
+    ]
+  },
+  "organization.yaml": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": true,
+    "category": "Administrative",
+    "description": "A grouping of people or organizations with a common purpose. A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action. Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc. [See https://hl7.org/fhir/R5/Organization.html]",
+    "id": "organization",
+    "links": [
+      {
+        "backref": "organization",
+        "label": "Organization_partOf_Organization_organization",
+        "multiplicity": "many_to_many",
+        "name": "partOf",
+        "required": false,
+        "target_type": "organization"
+      }
+    ],
+    "program": "*",
+    "project": "*",
+    "properties": {
+      "active": {
+        "description": "Whether the organization's record is still in active use",
+        "element_property": true,
+        "title": "Whether the organization's record is still in active use",
+        "type": "boolean"
+      },
+      "alias": {
+        "description": "A list of alternate names that the organization is known as, or was known as in the past",
+        "element_property": true,
+        "items": {
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "title": "A list of alternate names that the organization is known as, or was known as in the past",
+        "type": "array"
+      },
+      "contact": {
+        "description": "[Text representation of ExtendedContactDetail] The contact details of communication devices available relevant to the specific Organization. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Official contact details for the Organization",
+        "type": "array"
+      },
+      "description": {
+        "description": "Description of the organization, which helps provide additional general context on the organization to ensure that the correct organization is selected.",
+        "element_property": true,
+        "pattern": "\\s*(\\S|\\s)*",
+        "title": "Additional details about the Organization that could be displayed as further information to identify the Organization beyond its name",
+        "type": "string"
+      },
+      "endpoint": {
+        "backref": "endpoint_organization",
+        "description": "[Text representation of Reference] Technical endpoints providing access to services operated for the organization",
+        "element_property": true,
+        "enum_reference_types": [
+          "Endpoint"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Technical endpoints providing access to services operated for the organization",
+        "type": "array"
+      },
+      "extension": {
+        "description": "[Text representation of Extension] May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Additional content defined by implementations",
+        "type": "array"
+      },
+      "id": {
+        "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+        "element_property": true,
+        "maxLength": 64,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9\\-.]+$",
+        "title": "Logical id of this artifact",
+        "type": "string"
+      },
+      "identifier": {
+        "description": "Identifier for the organization that is used to identify the organization across multiple disparate systems.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Identifies this organization  across multiple systems",
+        "type": "array"
+      },
+      "identifier_coding": {
+        "description": "[system#code representation of identifier] Identifier for the organization that is used to identify the organization across multiple disparate systems.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Identifies this organization  across multiple systems",
+        "type": "array"
+      },
+      "identifier_text_coding": {
+        "description": "[system#code representation of identifier.text] Identifier for the organization that is used to identify the organization across multiple disparate systems.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Identifies this organization  across multiple systems",
+        "type": "array"
+      },
+      "name": {
+        "description": "A name associated with the organization.",
+        "element_property": true,
+        "pattern": "[ \\r\\n\\t\\S]+",
+        "title": "Name used for the organization",
+        "type": "string"
+      },
+      "partOf": {
+        "backref": "organization",
+        "description": "[Text representation of Reference] The organization of which this organization forms a part",
+        "element_property": true,
+        "enum_reference_types": [
+          "Organization"
+        ],
+        "title": "The organization of which this organization forms a part",
+        "type": "string"
+      },
+      "project_id": {
+        "term": {
+          "$ref": "_terms.yaml#/project_id"
+        },
+        "type": "string"
+      },
+      "qualification": {
+        "description": "[Text representation of OrganizationQualification] The official certifications, accreditations, training, designations and licenses that authorize and/or otherwise endorse the provision of care by the organization.  For example, an approval to provide a type of services issued by a certifying body (such as the US Joint Commission) to an organization.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Qualifications, certifications, accreditations, licenses, training, etc. pertaining to the provision of care",
+        "type": "array"
+      },
+      "resourceType": {
+        "const": "Organization",
+        "description": "One of the resource types defined as part of FHIR",
+        "title": "Resource Type",
+        "type": "string"
+      },
+      "type": {
+        "binding_description": "Used to categorize the organization.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/organization-type",
+        "binding_version": null,
+        "description": "text representation. The kind(s) of organization that this is.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Used to categorize the organization.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/organization-type",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/organization-type",
+            "term_url": "http://hl7.org/fhir/ValueSet/organization-type"
+          }
+        },
+        "title": "Kind of organization",
+        "type": "array"
+      },
+      "type_coding": {
+        "binding_description": "Used to categorize the organization.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/organization-type",
+        "binding_version": null,
+        "description": "[system#code representation.] The kind(s) of organization that this is.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Used to categorize the organization.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/organization-type",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/organization-type",
+            "term_url": "http://hl7.org/fhir/ValueSet/organization-type"
+          }
+        },
+        "title": "Kind of organization",
+        "type": "array"
+      },
+      "type_text": {
+        "binding_description": "Used to categorize the organization.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/organization-type",
+        "binding_version": null,
+        "description": "[system#code representation.] The kind(s) of organization that this is.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Used to categorize the organization.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/organization-type",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/organization-type",
+            "term_url": "http://hl7.org/fhir/ValueSet/organization-type"
+          }
+        },
+        "title": "Kind of organization",
+        "type": "array"
+      }
+    },
+    "systemProperties": [
+      "id"
+    ],
+    "title": "Organization",
+    "type": "object",
+    "uniqueKeys": [
+      [
+        "id"
+      ]
+    ]
+  },
   "_terms.yaml": {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "RIN": {
@@ -7999,30 +10643,6 @@
         "name": "patient",
         "required": false,
         "target_type": "patient"
-      },
-      {
-        "backref": "reason_family_member_history",
-        "label": "FamilyMemberHistory_reason_Condition_reason_family_member_history",
-        "multiplicity": "many_to_many",
-        "name": "reason_Condition",
-        "required": false,
-        "target_type": "condition"
-      },
-      {
-        "backref": "reason_family_member_history",
-        "label": "FamilyMemberHistory_reason_Observation_reason_family_member_history",
-        "multiplicity": "many_to_many",
-        "name": "reason_Observation",
-        "required": false,
-        "target_type": "observation"
-      },
-      {
-        "backref": "reason_family_member_history",
-        "label": "FamilyMemberHistory_reason_DocumentReference_reason_family_member_history",
-        "multiplicity": "many_to_many",
-        "name": "reason_DocumentReference",
-        "required": false,
-        "target_type": "document_reference"
       }
     ],
     "program": "*",
@@ -8589,6 +11209,207 @@
       ]
     ]
   },
+  "body_structure.yaml": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": true,
+    "category": "Clinical",
+    "description": "Specific and identified anatomical structure. Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case. [See https://hl7.org/fhir/R5/BodyStructure.html]",
+    "id": "body_structure",
+    "links": [
+      {
+        "backref": "body_structure",
+        "label": "BodyStructure_patient_Patient_body_structure",
+        "multiplicity": "many_to_many",
+        "name": "patient",
+        "required": false,
+        "target_type": "patient"
+      }
+    ],
+    "program": "*",
+    "project": "*",
+    "properties": {
+      "active": {
+        "description": "Whether this body site is in active use.",
+        "element_property": true,
+        "title": "Whether this record is in active use",
+        "type": "boolean"
+      },
+      "description": {
+        "description": "A summary, characterization or explanation of the body structure.",
+        "element_property": true,
+        "pattern": "\\s*(\\S|\\s)*",
+        "title": "Text description",
+        "type": "string"
+      },
+      "excludedStructure": {
+        "description": "[Text representation of BodyStructureIncludedStructure] The anatomical location(s) or region(s) not occupied or represented by the specimen, lesion, or body structure.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Excluded anatomic locations(s)",
+        "type": "array"
+      },
+      "extension": {
+        "description": "[Text representation of Extension] May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Additional content defined by implementations",
+        "type": "array"
+      },
+      "id": {
+        "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+        "element_property": true,
+        "maxLength": 64,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9\\-.]+$",
+        "title": "Logical id of this artifact",
+        "type": "string"
+      },
+      "identifier": {
+        "description": "Identifier for this instance of the anatomical structure.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Bodystructure identifier",
+        "type": "array"
+      },
+      "identifier_coding": {
+        "description": "[system#code representation of identifier] Identifier for this instance of the anatomical structure.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Bodystructure identifier",
+        "type": "array"
+      },
+      "identifier_text_coding": {
+        "description": "[system#code representation of identifier.text] Identifier for this instance of the anatomical structure.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Bodystructure identifier",
+        "type": "array"
+      },
+      "image": {
+        "description": "[Text representation of Attachment] Image or images used to identify a location.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Attached images",
+        "type": "array"
+      },
+      "includedStructure": {
+        "description": "[Text representation of BodyStructureIncludedStructure] The anatomical location(s) or region(s) of the specimen, lesion, or body structure.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Included anatomic location(s)",
+        "type": "array"
+      },
+      "morphology": {
+        "binding_description": "Codes describing anatomic morphology.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/bodystructure-code",
+        "binding_version": null,
+        "description": "text representation. The kind of structure being represented by the body structure at `BodyStructure.location`.  This can define both normal and abnormal morphologies.",
+        "element_property": true,
+        "term": {
+          "description": "Codes describing anatomic morphology.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/bodystructure-code",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/bodystructure-code",
+            "term_url": "http://hl7.org/fhir/ValueSet/bodystructure-code"
+          }
+        },
+        "title": "Kind of Structure",
+        "type": "string"
+      },
+      "morphology_coding": {
+        "binding_description": "Codes describing anatomic morphology.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/bodystructure-code",
+        "binding_version": null,
+        "description": "[system#code representation.] The kind of structure being represented by the body structure at `BodyStructure.location`.  This can define both normal and abnormal morphologies.",
+        "element_property": true,
+        "term": {
+          "description": "Codes describing anatomic morphology.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/bodystructure-code",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/bodystructure-code",
+            "term_url": "http://hl7.org/fhir/ValueSet/bodystructure-code"
+          }
+        },
+        "title": "Kind of Structure",
+        "type": "string"
+      },
+      "morphology_text": {
+        "binding_description": "Codes describing anatomic morphology.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/bodystructure-code",
+        "binding_version": null,
+        "description": "[system#code representation.] The kind of structure being represented by the body structure at `BodyStructure.location`.  This can define both normal and abnormal morphologies.",
+        "element_property": true,
+        "term": {
+          "description": "Codes describing anatomic morphology.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/bodystructure-code",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/bodystructure-code",
+            "term_url": "http://hl7.org/fhir/ValueSet/bodystructure-code"
+          }
+        },
+        "title": "Kind of Structure",
+        "type": "string"
+      },
+      "patient": {
+        "backref": "body_structure",
+        "description": "[Text representation of Reference] The person to which the body site belongs.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Patient"
+        ],
+        "title": "Who this is about",
+        "type": "string"
+      },
+      "project_id": {
+        "term": {
+          "$ref": "_terms.yaml#/project_id"
+        },
+        "type": "string"
+      },
+      "resourceType": {
+        "const": "BodyStructure",
+        "description": "One of the resource types defined as part of FHIR",
+        "title": "Resource Type",
+        "type": "string"
+      }
+    },
+    "systemProperties": [
+      "id"
+    ],
+    "title": "BodyStructure",
+    "type": "object",
+    "uniqueKeys": [
+      [
+        "id"
+      ]
+    ]
+  },
   "specimen.yaml": {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "additionalProperties": true,
@@ -8619,6 +11440,14 @@
         "name": "parent",
         "required": false,
         "target_type": "specimen"
+      },
+      {
+        "backref": "specimen",
+        "label": "Specimen_bodySite_BodyStructure_specimen",
+        "multiplicity": "many_to_many",
+        "name": "bodySite",
+        "required": false,
+        "target_type": "body_structure"
       }
     ],
     "program": "*",
@@ -8881,6 +11710,13 @@
           "type": "string"
         },
         "title": "Specimen from which this specimen originated",
+        "type": "array"
+      },
+      "patient_identifier": {
+        "description": "Denormalized patient identifier",
+        "items": {
+          "type": "string"
+        },
         "type": "array"
       },
       "processing_additive": {
@@ -9150,38 +11986,6 @@
         "name": "medication",
         "required": false,
         "target_type": "medication"
-      },
-      {
-        "backref": "partOf_medication_administration",
-        "label": "MedicationAdministration_partOf_MedicationAdministration_partOf_medication_administration",
-        "multiplicity": "many_to_many",
-        "name": "partOf_MedicationAdministration",
-        "required": false,
-        "target_type": "medication_administration"
-      },
-      {
-        "backref": "reason_medication_administration",
-        "label": "MedicationAdministration_reason_Condition_reason_medication_administration",
-        "multiplicity": "many_to_many",
-        "name": "reason_Condition",
-        "required": false,
-        "target_type": "condition"
-      },
-      {
-        "backref": "reason_medication_administration",
-        "label": "MedicationAdministration_reason_Observation_reason_medication_administration",
-        "multiplicity": "many_to_many",
-        "name": "reason_Observation",
-        "required": false,
-        "target_type": "observation"
-      },
-      {
-        "backref": "medication_administration",
-        "label": "MedicationAdministration_request_MedicationRequest_medication_administration",
-        "multiplicity": "many_to_many",
-        "name": "request",
-        "required": false,
-        "target_type": "medication_request"
       }
     ],
     "program": "*",
@@ -9850,7 +12654,32 @@
     "category": "Clinical",
     "description": "Definition of a Medication. This resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use. [See https://hl7.org/fhir/R5/Medication.html]",
     "id": "medication",
-    "links": [],
+    "links": [
+      {
+        "backref": "medication",
+        "label": "Medication_marketingAuthorizationHolder_Organization_medication",
+        "multiplicity": "many_to_many",
+        "name": "marketingAuthorizationHolder",
+        "required": false,
+        "target_type": "organization"
+      },
+      {
+        "backref": "medication_ingredient",
+        "label": "Medication_ingredient_item_Substance_medication_ingredient",
+        "multiplicity": "many_to_many",
+        "name": "ingredient_item_Substance",
+        "required": false,
+        "target_type": "substance"
+      },
+      {
+        "backref": "medication_ingredient",
+        "label": "Medication_ingredient_item_Medication_medication_ingredient",
+        "multiplicity": "many_to_many",
+        "name": "ingredient_item_Medication",
+        "required": false,
+        "target_type": "medication"
+      }
+    ],
     "program": "*",
     "project": "*",
     "properties": {
@@ -10041,14 +12870,31 @@
         "title": "Business identifier for this medication",
         "type": "array"
       },
-      "ingredient": {
-        "description": "[Text representation of MedicationIngredient] Identifies a particular constituent of interest in the product.",
+      "ingredient_item": {
+        "backref": "medication_ingredient",
+        "binding_description": null,
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/medication-codes",
+        "binding_version": null,
+        "description": "text representation. [Plucked from Medication.ingredient] The ingredient (substance or medication) that the ingredient.strength relates to.  This is represented as a concept from a code system or described in another resource (Substance or Medication).",
         "element_property": true,
-        "items": {
-          "type": "string"
+        "enum_reference_types": [
+          "Substance",
+          "Medication"
+        ],
+        "term": {
+          "description": null,
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/medication-codes",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/medication-codes",
+            "term_url": "http://hl7.org/fhir/ValueSet/medication-codes"
+          }
         },
-        "title": "Active or inactive ingredient",
-        "type": "array"
+        "title": "The ingredient (substance or medication) that the ingredient.strength relates to",
+        "type": "string"
       },
       "marketingAuthorizationHolder": {
         "backref": "medication",
@@ -10107,6 +12953,561 @@
       "id"
     ],
     "title": "Medication",
+    "type": "object",
+    "uniqueKeys": [
+      [
+        "id"
+      ]
+    ]
+  },
+  "imaging_study.yaml": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": true,
+    "category": "Clinical",
+    "description": "A set of images produced in single study (one or more series of references images). Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities. [See https://hl7.org/fhir/R5/ImagingStudy.html]",
+    "id": "imaging_study",
+    "links": [
+      {
+        "backref": "imaging_study",
+        "label": "ImagingStudy_subject_Patient_imaging_study",
+        "multiplicity": "many_to_many",
+        "name": "subject_Patient",
+        "required": false,
+        "target_type": "patient"
+      },
+      {
+        "backref": "basedOn_imaging_study",
+        "label": "ImagingStudy_basedOn_Task_basedOn_imaging_study",
+        "multiplicity": "many_to_many",
+        "name": "basedOn_Task",
+        "required": false,
+        "target_type": "task"
+      },
+      {
+        "backref": "partOf_imaging_study",
+        "label": "ImagingStudy_partOf_Procedure_partOf_imaging_study",
+        "multiplicity": "many_to_many",
+        "name": "partOf",
+        "required": false,
+        "target_type": "procedure"
+      },
+      {
+        "backref": "reason_imaging_study",
+        "label": "ImagingStudy_reason_Condition_reason_imaging_study",
+        "multiplicity": "many_to_many",
+        "name": "reason_Condition",
+        "required": false,
+        "target_type": "condition"
+      },
+      {
+        "backref": "reason_imaging_study",
+        "label": "ImagingStudy_reason_Observation_reason_imaging_study",
+        "multiplicity": "many_to_many",
+        "name": "reason_Observation",
+        "required": false,
+        "target_type": "observation"
+      },
+      {
+        "backref": "reason_imaging_study",
+        "label": "ImagingStudy_reason_DiagnosticReport_reason_imaging_study",
+        "multiplicity": "many_to_many",
+        "name": "reason_DiagnosticReport",
+        "required": false,
+        "target_type": "diagnostic_report"
+      },
+      {
+        "backref": "reason_imaging_study",
+        "label": "ImagingStudy_reason_DocumentReference_reason_imaging_study",
+        "multiplicity": "many_to_many",
+        "name": "reason_DocumentReference",
+        "required": false,
+        "target_type": "document_reference"
+      },
+      {
+        "backref": "imaging_study",
+        "label": "ImagingStudy_referrer_Practitioner_imaging_study",
+        "multiplicity": "many_to_many",
+        "name": "referrer_Practitioner",
+        "required": false,
+        "target_type": "practitioner"
+      },
+      {
+        "backref": "imaging_study",
+        "label": "ImagingStudy_referrer_PractitionerRole_imaging_study",
+        "multiplicity": "many_to_many",
+        "name": "referrer_PractitionerRole",
+        "required": false,
+        "target_type": "practitioner_role"
+      }
+    ],
+    "program": "*",
+    "project": "*",
+    "properties": {
+      "basedOn": {
+        "backref": "basedOn_imaging_study",
+        "description": "[Text representation of Reference] A list of the diagnostic requests that resulted in this imaging study being performed.",
+        "element_property": true,
+        "enum_reference_types": [
+          "CarePlan",
+          "ServiceRequest",
+          "Appointment",
+          "AppointmentResponse",
+          "Task"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Request fulfilled",
+        "type": "array"
+      },
+      "description": {
+        "description": "The Imaging Manager description of the study. Institution-generated description or classification of the Study (component) performed.",
+        "element_property": true,
+        "pattern": "[ \\r\\n\\t\\S]+",
+        "title": "Institution-generated description",
+        "type": "string"
+      },
+      "encounter": {
+        "backref": "imaging_study",
+        "description": "[Text representation of Reference] The healthcare event (e.g. a patient and healthcare provider interaction) during which this ImagingStudy is made.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Encounter"
+        ],
+        "title": "Encounter with which this imaging study is associated",
+        "type": "string"
+      },
+      "endpoint": {
+        "backref": "endpoint_imaging_study",
+        "description": "[Text representation of Reference] The network service providing access (e.g., query, view, or retrieval) for the study. See implementation notes for information about using DICOM endpoints. A study-level endpoint applies to each series in the study, unless overridden by a series-level endpoint with the same Endpoint.connectionType.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Endpoint"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Study access endpoint",
+        "type": "array"
+      },
+      "extension": {
+        "description": "[Text representation of Extension] May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Additional content defined by implementations",
+        "type": "array"
+      },
+      "id": {
+        "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+        "element_property": true,
+        "maxLength": 64,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9\\-.]+$",
+        "title": "Logical id of this artifact",
+        "type": "string"
+      },
+      "identifier": {
+        "description": "Identifiers for the ImagingStudy such as DICOM Study Instance UID.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Identifiers for the whole study",
+        "type": "array"
+      },
+      "identifier_coding": {
+        "description": "[system#code representation of identifier] Identifiers for the ImagingStudy such as DICOM Study Instance UID.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Identifiers for the whole study",
+        "type": "array"
+      },
+      "identifier_text_coding": {
+        "description": "[system#code representation of identifier.text] Identifiers for the ImagingStudy such as DICOM Study Instance UID.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Identifiers for the whole study",
+        "type": "array"
+      },
+      "location": {
+        "backref": "imaging_study",
+        "description": "[Text representation of Reference] The principal physical location where the ImagingStudy was performed.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Location"
+        ],
+        "title": "Where ImagingStudy occurred",
+        "type": "string"
+      },
+      "modality": {
+        "binding_description": "Type of acquired data in the instance.",
+        "binding_strength": "extensible",
+        "binding_uri": "http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html",
+        "binding_version": null,
+        "description": "text representation. A list of all the distinct values of series.modality. This may include both acquisition and non-acquisition modalities.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Type of acquired data in the instance.",
+          "termDef": {
+            "cde_id": "http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "extensible",
+            "term": "http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html",
+            "term_url": "http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html"
+          }
+        },
+        "title": "All of the distinct values for series' modalities",
+        "type": "array"
+      },
+      "modality_coding": {
+        "binding_description": "Type of acquired data in the instance.",
+        "binding_strength": "extensible",
+        "binding_uri": "http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html",
+        "binding_version": null,
+        "description": "[system#code representation.] A list of all the distinct values of series.modality. This may include both acquisition and non-acquisition modalities.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Type of acquired data in the instance.",
+          "termDef": {
+            "cde_id": "http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "extensible",
+            "term": "http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html",
+            "term_url": "http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html"
+          }
+        },
+        "title": "All of the distinct values for series' modalities",
+        "type": "array"
+      },
+      "modality_text": {
+        "binding_description": "Type of acquired data in the instance.",
+        "binding_strength": "extensible",
+        "binding_uri": "http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html",
+        "binding_version": null,
+        "description": "[system#code representation.] A list of all the distinct values of series.modality. This may include both acquisition and non-acquisition modalities.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Type of acquired data in the instance.",
+          "termDef": {
+            "cde_id": "http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "extensible",
+            "term": "http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html",
+            "term_url": "http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html"
+          }
+        },
+        "title": "All of the distinct values for series' modalities",
+        "type": "array"
+      },
+      "note": {
+        "description": "[Text representation of Annotation] Per the recommended DICOM mapping, this element is derived from the Study Description attribute (0008,1030). Observations or findings about the imaging study should be recorded in another resource, e.g. Observation, and not in this element.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "User-defined comments",
+        "type": "array"
+      },
+      "numberOfInstances": {
+        "description": "Number of SOP Instances in Study. This value given may be larger than the number of instance elements this resource contains due to resource availability, security, or other factors. This element should be present if any instance elements are present.",
+        "element_property": true,
+        "minimum": 0,
+        "title": "Number of Study Related Instances",
+        "type": "integer"
+      },
+      "numberOfSeries": {
+        "description": "Number of Series in the Study. This value given may be larger than the number of series elements this Resource contains due to resource availability, security, or other factors. This element should be present if any series elements are present.",
+        "element_property": true,
+        "minimum": 0,
+        "title": "Number of Study Related Series",
+        "type": "integer"
+      },
+      "partOf": {
+        "backref": "partOf_imaging_study",
+        "description": "[Text representation of Reference] A larger event of which this particular ImagingStudy is a component or step.  For example,  an ImagingStudy as part of a procedure.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Procedure"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Part of referenced event",
+        "type": "array"
+      },
+      "procedure": {
+        "backref": "procedure_imaging_study",
+        "binding_description": "Use of RadLex is preferred",
+        "binding_strength": "preferred",
+        "binding_uri": "http://loinc.org/vs/loinc-rsna-radiology-playbook",
+        "binding_version": null,
+        "description": "text representation. This field corresponds to the DICOM Procedure Code Sequence (0008,1032). This is different from the FHIR Procedure resource that may include the ImagingStudy.",
+        "element_property": true,
+        "enum_reference_types": [
+          "PlanDefinition",
+          "ActivityDefinition"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Use of RadLex is preferred",
+          "termDef": {
+            "cde_id": "http://loinc.org/vs/loinc-rsna-radiology-playbook",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "preferred",
+            "term": "http://loinc.org/vs/loinc-rsna-radiology-playbook",
+            "term_url": "http://loinc.org/vs/loinc-rsna-radiology-playbook"
+          }
+        },
+        "title": "The performed procedure or code",
+        "type": "array"
+      },
+      "procedure_coding": {
+        "backref": "procedure_imaging_study",
+        "binding_description": "Use of RadLex is preferred",
+        "binding_strength": "preferred",
+        "binding_uri": "http://loinc.org/vs/loinc-rsna-radiology-playbook",
+        "binding_version": null,
+        "description": "[system#code representation.] This field corresponds to the DICOM Procedure Code Sequence (0008,1032). This is different from the FHIR Procedure resource that may include the ImagingStudy.",
+        "element_property": true,
+        "enum_reference_types": [
+          "PlanDefinition",
+          "ActivityDefinition"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Use of RadLex is preferred",
+          "termDef": {
+            "cde_id": "http://loinc.org/vs/loinc-rsna-radiology-playbook",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "preferred",
+            "term": "http://loinc.org/vs/loinc-rsna-radiology-playbook",
+            "term_url": "http://loinc.org/vs/loinc-rsna-radiology-playbook"
+          }
+        },
+        "title": "The performed procedure or code",
+        "type": "array"
+      },
+      "procedure_text": {
+        "backref": "procedure_imaging_study",
+        "binding_description": "Use of RadLex is preferred",
+        "binding_strength": "preferred",
+        "binding_uri": "http://loinc.org/vs/loinc-rsna-radiology-playbook",
+        "binding_version": null,
+        "description": "[system#code representation.] This field corresponds to the DICOM Procedure Code Sequence (0008,1032). This is different from the FHIR Procedure resource that may include the ImagingStudy.",
+        "element_property": true,
+        "enum_reference_types": [
+          "PlanDefinition",
+          "ActivityDefinition"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "Use of RadLex is preferred",
+          "termDef": {
+            "cde_id": "http://loinc.org/vs/loinc-rsna-radiology-playbook",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "preferred",
+            "term": "http://loinc.org/vs/loinc-rsna-radiology-playbook",
+            "term_url": "http://loinc.org/vs/loinc-rsna-radiology-playbook"
+          }
+        },
+        "title": "The performed procedure or code",
+        "type": "array"
+      },
+      "project_id": {
+        "term": {
+          "$ref": "_terms.yaml#/project_id"
+        },
+        "type": "string"
+      },
+      "reason": {
+        "backref": "reason_imaging_study",
+        "binding_description": "The reason for the study.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-reason",
+        "binding_version": null,
+        "description": "text representation. Description of clinical condition indicating why the ImagingStudy was requested, and/or Indicates another resource whose existence justifies this Study.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Condition",
+          "Observation",
+          "DiagnosticReport",
+          "DocumentReference"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "The reason for the study.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-reason",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-reason",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-reason"
+          }
+        },
+        "title": "Why the study was requested / performed",
+        "type": "array"
+      },
+      "reason_coding": {
+        "backref": "reason_imaging_study",
+        "binding_description": "The reason for the study.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-reason",
+        "binding_version": null,
+        "description": "[system#code representation.] Description of clinical condition indicating why the ImagingStudy was requested, and/or Indicates another resource whose existence justifies this Study.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Condition",
+          "Observation",
+          "DiagnosticReport",
+          "DocumentReference"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "The reason for the study.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-reason",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-reason",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-reason"
+          }
+        },
+        "title": "Why the study was requested / performed",
+        "type": "array"
+      },
+      "reason_text": {
+        "backref": "reason_imaging_study",
+        "binding_description": "The reason for the study.",
+        "binding_strength": "example",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/procedure-reason",
+        "binding_version": null,
+        "description": "[system#code representation.] Description of clinical condition indicating why the ImagingStudy was requested, and/or Indicates another resource whose existence justifies this Study.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Condition",
+          "Observation",
+          "DiagnosticReport",
+          "DocumentReference"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "term": {
+          "description": "The reason for the study.",
+          "termDef": {
+            "cde_id": "http://hl7.org/fhir/ValueSet/procedure-reason",
+            "cde_version": null,
+            "source": "fhir",
+            "strength": "example",
+            "term": "http://hl7.org/fhir/ValueSet/procedure-reason",
+            "term_url": "http://hl7.org/fhir/ValueSet/procedure-reason"
+          }
+        },
+        "title": "Why the study was requested / performed",
+        "type": "array"
+      },
+      "referrer": {
+        "backref": "imaging_study",
+        "description": "[Text representation of Reference] The requesting/referring physician.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Practitioner",
+          "PractitionerRole"
+        ],
+        "title": "Referring physician",
+        "type": "string"
+      },
+      "resourceType": {
+        "const": "ImagingStudy",
+        "description": "One of the resource types defined as part of FHIR",
+        "title": "Resource Type",
+        "type": "string"
+      },
+      "series": {
+        "description": "[Text representation of ImagingStudySeries] Each study has one or more series of images or other content.",
+        "element_property": true,
+        "items": {
+          "type": "string"
+        },
+        "title": "Each study has one or more series of instances",
+        "type": "array"
+      },
+      "started": {
+        "description": "Date and time the study started.",
+        "element_property": true,
+        "format": "date-time",
+        "title": "When the study was started",
+        "type": "string"
+      },
+      "status": {
+        "binding_description": "The status of the ImagingStudy.",
+        "binding_strength": "required",
+        "binding_uri": "http://hl7.org/fhir/ValueSet/imagingstudy-status",
+        "binding_version": "5.0.0",
+        "description": "The current state of the ImagingStudy resource. This is not the status of any ServiceRequest or Task resources associated with the ImagingStudy.",
+        "element_property": true,
+        "element_required": true,
+        "enum_values": [
+          "registered",
+          "available",
+          "cancelled",
+          "entered-in-error",
+          "unknown"
+        ],
+        "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+        "title": "registered | available | cancelled | entered-in-error | unknown",
+        "type": "string"
+      },
+      "subject": {
+        "backref": "imaging_study",
+        "description": "[Text representation of Reference] The subject, typically a patient, of the imaging study.",
+        "element_property": true,
+        "enum_reference_types": [
+          "Patient",
+          "Device",
+          "Group"
+        ],
+        "title": "Who or what is the subject of the study",
+        "type": "string"
+      }
+    },
+    "systemProperties": [
+      "id"
+    ],
+    "title": "ImagingStudy",
     "type": "object",
     "uniqueKeys": [
       [

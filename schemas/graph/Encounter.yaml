@@ -5,6 +5,132 @@ description: An interaction during which services are provided to the patient. A
   healthcare service(s) or assessing the health status of a patient.  Encounter is
   primarily used to record information about the actual activities that occurred,
   where Appointment is used to record planned activities. [See https://hl7.org/fhir/R5/Encounter.html]
+links:
+- href: Encounter/{id}
+  rel: partOf
+  targetHints:
+    backref:
+    - encounter
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Encounter.yaml
+  templatePointers:
+    id: /partOf/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: serviceProvider
+  targetHints:
+    backref:
+    - encounter
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /serviceProvider/reference
+  templateRequired:
+  - id
+- href: Patient/{id}
+  rel: subject_Patient
+  targetHints:
+    backref:
+    - encounter
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- $comment: From EncounterAdmission/admission
+  href: Organization/{id}
+  rel: admission_destination_Organization
+  targetHints:
+    backref:
+    - destination_encounter_admission
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /admission/destination/reference
+  templateRequired:
+  - id
+- $comment: From EncounterAdmission/admission
+  href: Organization/{id}
+  rel: admission_origin_Organization
+  targetHints:
+    backref:
+    - origin_encounter_admission
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /admission/origin/reference
+  templateRequired:
+  - id
+- $comment: From EncounterParticipant/participant
+  href: Patient/{id}
+  rel: participant_actor_Patient
+  targetHints:
+    backref:
+    - encounter_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /participant/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From EncounterParticipant/participant
+  href: Practitioner/{id}
+  rel: participant_actor_Practitioner
+  targetHints:
+    backref:
+    - encounter_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /participant/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From EncounterParticipant/participant
+  href: PractitionerRole/{id}
+  rel: participant_actor_PractitionerRole
+  targetHints:
+    backref:
+    - encounter_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /participant/-/actor/reference
+  templateRequired:
+  - id
 properties:
   _implicitRules:
     $ref: FHIRPrimitiveExtension.yaml
@@ -193,6 +319,10 @@ properties:
       and end values.
     element_property: true
     title: Actual quantity of time the encounter lasted (less time absent)
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   location:
     description: List of locations where  the patient has been during this encounter.
     element_property: true

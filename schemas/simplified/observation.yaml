@@ -184,6 +184,11 @@ properties:
       type: string
     title: Component results
     type: array
+  condition_identifier:
+    description: Denormalized condition identifier
+    items:
+      type: string
+    type: array
   dataAbsentReason:
     binding_description: Codes specifying why the result (`Observation.value[x]`)
       is missing.
@@ -518,6 +523,11 @@ properties:
       type: string
     title: Part of referenced event
     type: array
+  patient_identifier:
+    description: Denormalized patient identifier
+    items:
+      type: string
+    type: array
   performer:
     backref: performer_observation
     description: '[Text representation of Reference] Who was responsible for asserting
@@ -563,6 +573,11 @@ properties:
     - Group
     title: Specimen used for this observation
     type: string
+  specimen_identifier:
+    description: Denormalized specimen identifier
+    items:
+      type: string
+    type: array
   status:
     binding_description: Codes providing the status of an observation.
     binding_strength: required

@@ -6,6 +6,481 @@ description: An action that is being or was performed on an individual or entity
   an operation, or less invasive like long term services, counseling, or hypnotherapy.  This
   can be a quality or safety inspection for a location, organization, or device.  This
   can be an accreditation procedure on a practitioner for licensing. [See https://hl7.org/fhir/R5/Procedure.html]
+links:
+- href: Encounter/{id}
+  rel: encounter
+  targetHints:
+    backref:
+    - procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Encounter.yaml
+  templatePointers:
+    id: /encounter/reference
+  templateRequired:
+  - id
+- href: Patient/{id}
+  rel: focus_Patient
+  targetHints:
+    backref:
+    - focus_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /focus/reference
+  templateRequired:
+  - id
+- href: Practitioner/{id}
+  rel: focus_Practitioner
+  targetHints:
+    backref:
+    - focus_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /focus/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: focus_Organization
+  targetHints:
+    backref:
+    - focus_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /focus/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: focus_PractitionerRole
+  targetHints:
+    backref:
+    - focus_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /focus/reference
+  templateRequired:
+  - id
+- href: Specimen/{id}
+  rel: focus_Specimen
+  targetHints:
+    backref:
+    - focus_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Specimen.yaml
+  templatePointers:
+    id: /focus/reference
+  templateRequired:
+  - id
+- href: Procedure/{id}
+  rel: partOf_Procedure
+  targetHints:
+    backref:
+    - partOf_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Procedure.yaml
+  templatePointers:
+    id: /partOf/-/reference
+  templateRequired:
+  - id
+- href: Observation/{id}
+  rel: partOf_Observation
+  targetHints:
+    backref:
+    - partOf_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Observation.yaml
+  templatePointers:
+    id: /partOf/-/reference
+  templateRequired:
+  - id
+- href: MedicationAdministration/{id}
+  rel: partOf_MedicationAdministration
+  targetHints:
+    backref:
+    - partOf_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: MedicationAdministration.yaml
+  templatePointers:
+    id: /partOf/-/reference
+  templateRequired:
+  - id
+- href: Patient/{id}
+  rel: recorder_Patient
+  targetHints:
+    backref:
+    - recorder_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /recorder/reference
+  templateRequired:
+  - id
+- href: Practitioner/{id}
+  rel: recorder_Practitioner
+  targetHints:
+    backref:
+    - recorder_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /recorder/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: recorder_PractitionerRole
+  targetHints:
+    backref:
+    - recorder_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /recorder/reference
+  templateRequired:
+  - id
+- href: DiagnosticReport/{id}
+  rel: report_DiagnosticReport
+  targetHints:
+    backref:
+    - report_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: DiagnosticReport.yaml
+  templatePointers:
+    id: /report/-/reference
+  templateRequired:
+  - id
+- href: DocumentReference/{id}
+  rel: report_DocumentReference
+  targetHints:
+    backref:
+    - report_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: DocumentReference.yaml
+  templatePointers:
+    id: /report/-/reference
+  templateRequired:
+  - id
+- href: Patient/{id}
+  rel: reportedReference_Patient
+  targetHints:
+    backref:
+    - reportedReference_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /reportedReference/reference
+  templateRequired:
+  - id
+- href: Practitioner/{id}
+  rel: reportedReference_Practitioner
+  targetHints:
+    backref:
+    - reportedReference_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /reportedReference/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: reportedReference_PractitionerRole
+  targetHints:
+    backref:
+    - reportedReference_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /reportedReference/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: reportedReference_Organization
+  targetHints:
+    backref:
+    - reportedReference_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /reportedReference/reference
+  templateRequired:
+  - id
+- href: Patient/{id}
+  rel: subject_Patient
+  targetHints:
+    backref:
+    - subject_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: Practitioner/{id}
+  rel: subject_Practitioner
+  targetHints:
+    backref:
+    - subject_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: subject_Organization
+  targetHints:
+    backref:
+    - subject_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: Resource/{id}
+  rel: supportingInfo
+  targetHints:
+    backref:
+    - supportingInfo_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Resource.yaml
+  templatePointers:
+    id: /supportingInfo/-/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Practitioner/{id}
+  rel: note_authorReference_Practitioner
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: PractitionerRole/{id}
+  rel: note_authorReference_PractitionerRole
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Patient/{id}
+  rel: note_authorReference_Patient
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Organization/{id}
+  rel: note_authorReference_Organization
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From ProcedurePerformer/performer
+  href: Practitioner/{id}
+  rel: performer_actor_Practitioner
+  targetHints:
+    backref:
+    - actor_procedure_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /performer/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From ProcedurePerformer/performer
+  href: PractitionerRole/{id}
+  rel: performer_actor_PractitionerRole
+  targetHints:
+    backref:
+    - actor_procedure_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /performer/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From ProcedurePerformer/performer
+  href: Organization/{id}
+  rel: performer_actor_Organization
+  targetHints:
+    backref:
+    - actor_procedure_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /performer/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From ProcedurePerformer/performer
+  href: Patient/{id}
+  rel: performer_actor_Patient
+  targetHints:
+    backref:
+    - actor_procedure_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /performer/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From ProcedurePerformer/performer
+  href: Organization/{id}
+  rel: performer_onBehalfOf
+  targetHints:
+    backref:
+    - onBehalfOf_procedure_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /performer/-/onBehalfOf/reference
+  templateRequired:
+  - id
 properties:
   _implicitRules:
     $ref: FHIRPrimitiveExtension.yaml
@@ -250,6 +725,10 @@ properties:
     pattern: ^[^\s]+(\s[^\s]+)*$
     title: Language of the resource content
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   location:
     $ref: Reference.yaml
     backref: location_procedure

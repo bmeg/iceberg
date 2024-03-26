@@ -4,6 +4,21 @@ description: Detailed information about conditions, problems or diagnoses. A cli
   condition, problem, diagnosis, or other event, situation, issue, or clinical concept
   that has risen to a level of concern. [See https://hl7.org/fhir/R5/Condition.html]
 links:
+- href: Encounter/{id}
+  rel: encounter
+  targetHints:
+    backref:
+    - condition
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Encounter.yaml
+  templatePointers:
+    id: /encounter/reference
+  templateRequired:
+  - id
 - href: Patient/{id}
   rel: subject_Patient
   targetHints:
@@ -17,6 +32,38 @@ links:
     $ref: Patient.yaml
   templatePointers:
     id: /subject/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Practitioner/{id}
+  rel: note_authorReference_Practitioner
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: PractitionerRole/{id}
+  rel: note_authorReference_PractitionerRole
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
   templateRequired:
   - id
 - $comment: From Annotation/note
@@ -35,6 +82,54 @@ links:
     id: /note/-/authorReference/reference
   templateRequired:
   - id
+- $comment: From Annotation/note
+  href: Organization/{id}
+  rel: note_authorReference_Organization
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From ConditionParticipant/participant
+  href: Practitioner/{id}
+  rel: participant_actor_Practitioner
+  targetHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /participant/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From ConditionParticipant/participant
+  href: PractitionerRole/{id}
+  rel: participant_actor_PractitionerRole
+  targetHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /participant/-/actor/reference
+  templateRequired:
+  - id
 - $comment: From ConditionParticipant/participant
   href: Patient/{id}
   rel: participant_actor_Patient
@@ -49,6 +144,38 @@ links:
     $ref: Patient.yaml
   templatePointers:
     id: /participant/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From ConditionParticipant/participant
+  href: Organization/{id}
+  rel: participant_actor_Organization
+  targetHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /participant/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From ConditionStage/stage
+  href: DiagnosticReport/{id}
+  rel: stage_assessment_DiagnosticReport
+  targetHints:
+    backref:
+    - assessment_condition_stage
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: DiagnosticReport.yaml
+  templatePointers:
+    id: /stage/-/assessment/-/reference
   templateRequired:
   - id
 - $comment: From ConditionStage/stage
