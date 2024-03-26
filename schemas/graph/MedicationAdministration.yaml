@@ -6,6 +6,21 @@ description: Administration of medication to a patient. Describes the event of a
   this event to the authorizing prescription, and the specific encounter between patient
   and health care practitioner. [See https://hl7.org/fhir/R5/MedicationAdministration.html]
 links:
+- href: Encounter/{id}
+  rel: encounter
+  targetHints:
+    backref:
+    - medication_administration
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Encounter.yaml
+  templatePointers:
+    id: /encounter/reference
+  templateRequired:
+  - id
 - href: MedicationAdministration/{id}
   rel: partOf_MedicationAdministration
   targetHints:

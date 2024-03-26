@@ -21,6 +21,21 @@ links:
     id: /basedOn/-/reference
   templateRequired:
   - id
+- href: Encounter/{id}
+  rel: encounter
+  targetHints:
+    backref:
+    - medication_request
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Encounter.yaml
+  templatePointers:
+    id: /encounter/reference
+  templateRequired:
+  - id
 - href: Patient/{id}
   rel: informationSource_Patient
   targetHints:

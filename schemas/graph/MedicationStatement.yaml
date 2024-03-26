@@ -37,6 +37,21 @@ links:
     id: /derivedFrom/-/reference
   templateRequired:
   - id
+- href: Encounter/{id}
+  rel: encounter
+  targetHints:
+    backref:
+    - medication_statement
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Encounter.yaml
+  templatePointers:
+    id: /encounter/reference
+  templateRequired:
+  - id
 - href: Patient/{id}
   rel: informationSource_Patient
   targetHints:
@@ -50,6 +65,21 @@ links:
     $ref: Patient.yaml
   templatePointers:
     id: /informationSource/-/reference
+  templateRequired:
+  - id
+- href: Procedure/{id}
+  rel: partOf_Procedure
+  targetHints:
+    backref:
+    - partOf_medication_statement
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Procedure.yaml
+  templatePointers:
+    id: /partOf/-/reference
   templateRequired:
   - id
 - href: MedicationStatement/{id}

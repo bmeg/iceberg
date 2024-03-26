@@ -7,6 +7,21 @@ description: An action that is being or was performed on an individual or entity
   can be a quality or safety inspection for a location, organization, or device.  This
   can be an accreditation procedure on a practitioner for licensing. [See https://hl7.org/fhir/R5/Procedure.html]
 links:
+- href: Encounter/{id}
+  rel: encounter
+  targetHints:
+    backref:
+    - procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Encounter.yaml
+  templatePointers:
+    id: /encounter/reference
+  templateRequired:
+  - id
 - href: Patient/{id}
   rel: focus_Patient
   targetHints:

@@ -22,6 +22,21 @@ links:
     id: /basedOn/-/reference
   templateRequired:
   - id
+- href: Encounter/{id}
+  rel: encounter
+  targetHints:
+    backref:
+    - imaging_study
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Encounter.yaml
+  templatePointers:
+    id: /encounter/reference
+  templateRequired:
+  - id
 - href: Procedure/{id}
   rel: partOf
   targetHints:

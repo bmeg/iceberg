@@ -4,6 +4,21 @@ description: Detailed information about conditions, problems or diagnoses. A cli
   condition, problem, diagnosis, or other event, situation, issue, or clinical concept
   that has risen to a level of concern. [See https://hl7.org/fhir/R5/Condition.html]
 links:
+- href: Encounter/{id}
+  rel: encounter
+  targetHints:
+    backref:
+    - condition
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Encounter.yaml
+  templatePointers:
+    id: /encounter/reference
+  templateRequired:
+  - id
 - href: Patient/{id}
   rel: subject_Patient
   targetHints:

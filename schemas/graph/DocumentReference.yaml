@@ -70,6 +70,21 @@ links:
     id: /author/-/reference
   templateRequired:
   - id
+- href: Encounter/{id}
+  rel: context_Encounter
+  targetHints:
+    backref:
+    - context_document_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Encounter.yaml
+  templatePointers:
+    id: /context/-/reference
+  templateRequired:
+  - id
 - href: Organization/{id}
   rel: custodian
   targetHints:

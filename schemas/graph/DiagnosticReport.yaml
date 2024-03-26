@@ -9,6 +9,21 @@ description: A Diagnostic report - a combination of request information, atomic 
   of diagnostic reports. The report also includes non-clinical context such as batch
   analysis and stability reporting of products and substances. [See https://hl7.org/fhir/R5/DiagnosticReport.html]
 links:
+- href: Encounter/{id}
+  rel: encounter
+  targetHints:
+    backref:
+    - diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Encounter.yaml
+  templatePointers:
+    id: /encounter/reference
+  templateRequired:
+  - id
 - href: Practitioner/{id}
   rel: performer_Practitioner
   targetHints:
