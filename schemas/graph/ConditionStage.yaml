@@ -5,6 +5,21 @@ description: Stage/grade, usually assessed formally. A simple summary of the sta
   such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer's, or Parkinson
   disease. [See https://hl7.org/fhir/R5/ConditionStage.html]
 links:
+- href: DiagnosticReport/{id}
+  rel: assessment_DiagnosticReport
+  targetHints:
+    backref:
+    - assessment_condition_stage
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: DiagnosticReport.yaml
+  templatePointers:
+    id: /assessment/-/reference
+  templateRequired:
+  - id
 - href: Observation/{id}
   rel: assessment_Observation
   targetHints:

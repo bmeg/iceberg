@@ -2,6 +2,7 @@ $id: BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark
 additionalProperties: false
 description: Landmark relative location. The distance in centimeters a certain observation
   is made from a body landmark. [See https://hl7.org/fhir/R5/BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark.html]
+links: []
 properties:
   device:
     backref: device_body_structure_included_structure_body_landmark_orientation_distance_from_landmark
@@ -43,6 +44,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

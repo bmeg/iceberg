@@ -1,20 +1,84 @@
-$id: ImmunizationPerformer
+$id: ImagingStudySeriesPerformer
 additionalProperties: false
-description: Who performed event. Indicates who performed the immunization event.
-  [See https://hl7.org/fhir/R5/ImmunizationPerformer.html]
+description: Who performed the series. Indicates who or what performed the series
+  and how they were involved. [See https://hl7.org/fhir/R5/ImagingStudySeriesPerformer.html]
+links:
+- href: Practitioner/{id}
+  rel: actor_Practitioner
+  targetHints:
+    backref:
+    - imaging_study_series_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: actor_PractitionerRole
+  targetHints:
+    backref:
+    - imaging_study_series_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: actor_Organization
+  targetHints:
+    backref:
+    - imaging_study_series_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: Patient/{id}
+  rel: actor_Patient
+  targetHints:
+    backref:
+    - imaging_study_series_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
 properties:
   actor:
     $ref: Reference.yaml
-    backref: immunization_performer
-    description: The practitioner or organization who performed the action.
+    backref: imaging_study_series_performer
+    description: Indicates who or what performed the series.
     element_property: true
     enum_reference_types:
     - Practitioner
     - PractitionerRole
     - Organization
+    - CareTeam
     - Patient
+    - Device
     - RelatedPerson
-    title: Individual or organization who was performing
+    - HealthcareService
+    title: Who performed the series
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -36,14 +100,13 @@ properties:
     title: Fhir Comments
   function:
     $ref: CodeableConcept.yaml
-    binding_description: x
+    binding_description: The type of involvement of the performer.
     binding_strength: extensible
-    binding_uri: http://hl7.org/fhir/ValueSet/immunization-function
+    binding_uri: http://hl7.org/fhir/ValueSet/series-performer-function
     binding_version: null
-    description: Describes the type of performance (e.g. ordering provider, administering
-      provider, etc.).
+    description: Distinguishes the type of involvement of the performer in the series.
     element_property: true
-    title: What type of performance was done
+    title: Type of performance
   id:
     description: Unique id for the element within a resource (for internal references).
       This may be any string value that does not contain spaces.
@@ -51,6 +114,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of
@@ -69,12 +136,12 @@ properties:
     title: Extensions that cannot be ignored even if unrecognized
     type: array
   resourceType:
-    const: ImmunizationPerformer
-    default: ImmunizationPerformer
+    const: ImagingStudySeriesPerformer
+    default: ImagingStudySeriesPerformer
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
 required:
 - actor
-title: ImmunizationPerformer
+title: ImagingStudySeriesPerformer
 type: object

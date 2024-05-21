@@ -20,30 +20,6 @@ links:
   name: medication
   required: false
   target_type: medication
-- backref: partOf_medication_administration
-  label: MedicationAdministration_partOf_MedicationAdministration_partOf_medication_administration
-  multiplicity: many_to_many
-  name: partOf_MedicationAdministration
-  required: false
-  target_type: medication_administration
-- backref: reason_medication_administration
-  label: MedicationAdministration_reason_Condition_reason_medication_administration
-  multiplicity: many_to_many
-  name: reason_Condition
-  required: false
-  target_type: condition
-- backref: reason_medication_administration
-  label: MedicationAdministration_reason_Observation_reason_medication_administration
-  multiplicity: many_to_many
-  name: reason_Observation
-  required: false
-  target_type: observation
-- backref: medication_administration
-  label: MedicationAdministration_request_MedicationRequest_medication_administration
-  multiplicity: many_to_many
-  name: request
-  required: false
-  target_type: medication_request
 program: '*'
 project: '*'
 properties:

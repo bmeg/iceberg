@@ -22,6 +22,21 @@ links:
     id: /partOf/-/reference
   templateRequired:
   - id
+- href: DiagnosticReport/{id}
+  rel: result_DiagnosticReport
+  targetHints:
+    backref:
+    - result_research_study
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: DiagnosticReport.yaml
+  templatePointers:
+    id: /result/-/reference
+  templateRequired:
+  - id
 - href: ResearchStudy/{id}
   rel: site_ResearchStudy
   targetHints:
@@ -37,6 +52,101 @@ links:
     id: /site/-/reference
   templateRequired:
   - id
+- href: Organization/{id}
+  rel: site_Organization
+  targetHints:
+    backref:
+    - site_research_study
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /site/-/reference
+  templateRequired:
+  - id
+- $comment: From ResearchStudyAssociatedParty/associatedParty
+  href: Practitioner/{id}
+  rel: associatedParty_party_Practitioner
+  targetHints:
+    backref:
+    - research_study_associated_party
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /associatedParty/-/party/reference
+  templateRequired:
+  - id
+- $comment: From ResearchStudyAssociatedParty/associatedParty
+  href: PractitionerRole/{id}
+  rel: associatedParty_party_PractitionerRole
+  targetHints:
+    backref:
+    - research_study_associated_party
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /associatedParty/-/party/reference
+  templateRequired:
+  - id
+- $comment: From ResearchStudyAssociatedParty/associatedParty
+  href: Organization/{id}
+  rel: associatedParty_party_Organization
+  targetHints:
+    backref:
+    - research_study_associated_party
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /associatedParty/-/party/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Practitioner/{id}
+  rel: note_authorReference_Practitioner
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: PractitionerRole/{id}
+  rel: note_authorReference_PractitionerRole
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
 - $comment: From Annotation/note
   href: Patient/{id}
   rel: note_authorReference_Patient
@@ -49,6 +159,22 @@ links:
     - has_one
   targetSchema:
     $ref: Patient.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: Organization/{id}
+  rel: note_authorReference_Organization
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:

@@ -5,7 +5,25 @@ description: Information about an individual or animal receiving health care ser
   Demographics and other administrative information about an individual or animal
   receiving care or other health-related services. [See https://hl7.org/fhir/R5/Patient.html]
 id: patient
-links: []
+links:
+- backref: generalPractitioner_patient
+  label: Patient_generalPractitioner_Organization_generalPractitioner_patient
+  multiplicity: many_to_many
+  name: generalPractitioner_Organization
+  required: false
+  target_type: organization
+- backref: generalPractitioner_patient
+  label: Patient_generalPractitioner_Practitioner_generalPractitioner_patient
+  multiplicity: many_to_many
+  name: generalPractitioner_Practitioner
+  required: false
+  target_type: practitioner
+- backref: generalPractitioner_patient
+  label: Patient_generalPractitioner_PractitionerRole_generalPractitioner_patient
+  multiplicity: many_to_many
+  name: generalPractitioner_PractitionerRole
+  required: false
+  target_type: practitioner_role
 program: '*'
 project: '*'
 properties:
@@ -225,6 +243,18 @@ properties:
       The registered place of birth of the patient. A sytem may use the address.text
       if they don''t store the birthPlace address in discrete elements.'
     type: string
+  patient_birthPlace_city:
+    description: nested
+    type: string
+  patient_birthPlace_country:
+    description: nested
+    type: string
+  patient_birthPlace_resourceType:
+    description: nested
+    type: string
+  patient_birthPlace_state:
+    description: nested
+    type: string
   patient_mothersMaidenName:
     description: '[extension patient_mothersMaidenName] Mother''s maiden (unmarried)
       name, commonly collected to help verify patient identity.'
@@ -330,6 +360,14 @@ properties:
         strength: required
         term: http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity-category
         term_url: http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity-category
+    type: string
+  us_core_ethnicity_ombCategory_coding:
+    description: extension
+    items:
+      type: string
+    type: array
+  us_core_ethnicity_text:
+    description: nested
     type: string
   us_core_genderIdentity:
     binding_description: null
@@ -438,6 +476,14 @@ properties:
         strength: required
         term: http://hl7.org/fhir/us/core/ValueSet/omb-race-category
         term_url: http://hl7.org/fhir/us/core/ValueSet/omb-race-category
+    type: string
+  us_core_race_ombCategory_coding:
+    description: extension
+    items:
+      type: string
+    type: array
+  us_core_race_text:
+    description: extension
     type: string
   us_core_tribal_affiliation_isEnrolled:
     description: '[extension us_core_tribal_affiliation] This Extension profile represents

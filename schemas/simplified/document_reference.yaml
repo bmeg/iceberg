@@ -468,6 +468,11 @@ properties:
   patient_id:
     description: Denormalized patient id
     type: string
+  patient_identifier:
+    description: Denormalized patient identifier
+    items:
+      type: string
+    type: array
   period:
     description: '[Text representation of Period] The time period over which the service
       that is described by the document was provided.'
@@ -597,6 +602,11 @@ properties:
     title: Document security-tags
     type: array
   securityLabel_text: *id007
+  specimen_identifier:
+    description: Denormalized specimen identifier
+    items:
+      type: string
+    type: array
   status:
     binding_description: The status of the document reference.
     binding_strength: required
@@ -623,6 +633,11 @@ properties:
     - Observation
     title: The item that this DocumentReference is about.
     type: string
+  task_identifier:
+    description: Denormalized task identifier
+    items:
+      type: string
+    type: array
   type:
     binding_description: Precise type of clinical document.
     binding_strength: preferred

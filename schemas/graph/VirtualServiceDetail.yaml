@@ -1,6 +1,23 @@
 $id: VirtualServiceDetail
 additionalProperties: false
 description: Virtual Service Contact Details. [See https://hl7.org/fhir/R5/VirtualServiceDetail.html]
+links:
+- $comment: From ExtendedContactDetail/addressExtendedContactDetail
+  href: Organization/{id}
+  rel: addressExtendedContactDetail_organization
+  targetHints:
+    backref:
+    - extended_contact_detail
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /addressExtendedContactDetail/organization/reference
+  templateRequired:
+  - id
 properties:
   _additionalInfo:
     items:
@@ -105,6 +122,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   maxParticipants:
     element_property: true
     exclusiveMinimum: 0

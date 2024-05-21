@@ -21,6 +21,21 @@ links:
     id: /valueReference/reference
   templateRequired:
   - id
+- href: Organization/{id}
+  rel: valueReference_Organization
+  targetHints:
+    backref:
+    - usage_context
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /valueReference/reference
+  templateRequired:
+  - id
 properties:
   code:
     $ref: Coding.yaml

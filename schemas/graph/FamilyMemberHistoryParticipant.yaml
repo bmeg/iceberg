@@ -4,6 +4,36 @@ description: Who or what participated in the activities related to the family me
   history and how they were involved. Indicates who or what participated in the activities
   related to the family member history and how they were involved. [See https://hl7.org/fhir/R5/FamilyMemberHistoryParticipant.html]
 links:
+- href: Practitioner/{id}
+  rel: actor_Practitioner
+  targetHints:
+    backref:
+    - family_member_history_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: PractitionerRole/{id}
+  rel: actor_PractitionerRole
+  targetHints:
+    backref:
+    - family_member_history_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
 - href: Patient/{id}
   rel: actor_Patient
   targetHints:
@@ -15,6 +45,21 @@ links:
     - has_one
   targetSchema:
     $ref: Patient.yaml
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: actor_Organization
+  targetHints:
+    backref:
+    - family_member_history_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
   templatePointers:
     id: /actor/reference
   templateRequired:

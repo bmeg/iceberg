@@ -4,6 +4,37 @@ description: Details about the admission to a healthcare service. Details about 
   stay during which a healthcare service is provided. This does not describe the event
   of admitting the patient, but rather any information that is relevant from the time
   of admittance until the time of discharge. [See https://hl7.org/fhir/R5/EncounterAdmission.html]
+links:
+- href: Organization/{id}
+  rel: destination_Organization
+  targetHints:
+    backref:
+    - destination_encounter_admission
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /destination/reference
+  templateRequired:
+  - id
+- href: Organization/{id}
+  rel: origin_Organization
+  targetHints:
+    backref:
+    - origin_encounter_admission
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /origin/reference
+  templateRequired:
+  - id
 properties:
   admitSource:
     $ref: CodeableConcept.yaml
@@ -55,6 +86,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

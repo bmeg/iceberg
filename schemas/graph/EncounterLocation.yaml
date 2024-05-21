@@ -2,6 +2,7 @@ $id: EncounterLocation
 additionalProperties: false
 description: List of locations where the patient has been. List of locations where  the
   patient has been during this encounter. [See https://hl7.org/fhir/R5/EncounterLocation.html]
+links: []
 properties:
   _status:
     $ref: FHIRPrimitiveExtension.yaml
@@ -43,6 +44,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   location:
     $ref: Reference.yaml
     backref: encounter_location

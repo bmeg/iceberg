@@ -6,7 +6,25 @@ description: Definition of a Medication. This resource is primarily used for the
   dispensing, and administering a medication as well as for making statements about
   medication use. [See https://hl7.org/fhir/R5/Medication.html]
 id: medication
-links: []
+links:
+- backref: medication
+  label: Medication_marketingAuthorizationHolder_Organization_medication
+  multiplicity: many_to_many
+  name: marketingAuthorizationHolder
+  required: false
+  target_type: organization
+- backref: medication_ingredient
+  label: Medication_ingredient_item_Substance_medication_ingredient
+  multiplicity: many_to_many
+  name: ingredient_item_Substance
+  required: false
+  target_type: substance
+- backref: medication_ingredient
+  label: Medication_ingredient_item_Medication_medication_ingredient
+  multiplicity: many_to_many
+  name: ingredient_item_Medication
+  required: false
+  target_type: medication
 program: '*'
 project: '*'
 properties:
@@ -153,14 +171,32 @@ properties:
       type: string
     title: Business identifier for this medication
     type: array
-  ingredient:
-    description: '[Text representation of MedicationIngredient] Identifies a particular
-      constituent of interest in the product.'
+  ingredient_item:
+    backref: medication_ingredient
+    binding_description: null
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/medication-codes
+    binding_version: null
+    description: text representation. [Plucked from Medication.ingredient] The ingredient
+      (substance or medication) that the ingredient.strength relates to.  This is
+      represented as a concept from a code system or described in another resource
+      (Substance or Medication).
     element_property: true
-    items:
-      type: string
-    title: Active or inactive ingredient
-    type: array
+    enum_reference_types:
+    - Substance
+    - Medication
+    term:
+      description: null
+      termDef:
+        cde_id: http://hl7.org/fhir/ValueSet/medication-codes
+        cde_version: null
+        source: fhir
+        strength: example
+        term: http://hl7.org/fhir/ValueSet/medication-codes
+        term_url: http://hl7.org/fhir/ValueSet/medication-codes
+    title: The ingredient (substance or medication) that the ingredient.strength relates
+      to
+    type: string
   marketingAuthorizationHolder:
     backref: medication
     description: '[Text representation of Reference] The company or other legal entity
