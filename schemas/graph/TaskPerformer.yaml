@@ -3,7 +3,58 @@ additionalProperties: false
 description: Who or what performed the task. The entity who performed the requested
   task. [See https://hl7.org/fhir/R5/TaskPerformer.html]
 links:
-- href: Patient/{id}
+- href: '{id}'
+  rel: actor_Practitioner
+  targetHints:
+    backref:
+    - task_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: actor_PractitionerRole
+  targetHints:
+    backref:
+    - task_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: actor_Organization
+  targetHints:
+    backref:
+    - task_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: actor_Patient
   targetHints:
     backref:
@@ -12,6 +63,8 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
   templatePointers:

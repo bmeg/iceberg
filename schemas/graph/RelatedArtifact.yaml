@@ -3,7 +3,7 @@ additionalProperties: false
 description: Related artifacts for a knowledge resource. Related artifacts such as
   additional documentation, justification, or bibliographic references. [See https://hl7.org/fhir/R5/RelatedArtifact.html]
 links:
-- href: Resource/{id}
+- href: '{id}'
   rel: resourceReference
   targetHints:
     backref:
@@ -12,6 +12,8 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Resource/*
   targetSchema:
     $ref: Resource.yaml
   templatePointers:

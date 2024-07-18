@@ -3,6 +3,24 @@ additionalProperties: false
 description: Specific and identified anatomical structure. Record details about an
   anatomical structure.  This resource may be used when a coded concept does not provide
   the necessary detail needed for the use case. [See https://hl7.org/fhir/R5/BodyStructure.html]
+links:
+- href: '{id}'
+  rel: patient
+  targetHints:
+    backref:
+    - body_structure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Patient/*
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /patient/reference
+  templateRequired:
+  - id
 properties:
   _active:
     $ref: FHIRPrimitiveExtension.yaml
@@ -115,6 +133,10 @@ properties:
     pattern: ^[^\s]+(\s[^\s]+)*$
     title: Language of the resource content
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   meta:
     $ref: Meta.yaml
     description: The metadata about the resource. This is content that is maintained

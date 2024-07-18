@@ -3,7 +3,7 @@ additionalProperties: false
 description: Link to a Patient or RelatedPerson resource that concerns the same actual
   individual. [See https://hl7.org/fhir/R5/PatientLink.html]
 links:
-- href: Patient/{id}
+- href: '{id}'
   rel: other_Patient
   targetHints:
     backref:
@@ -12,6 +12,8 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
   templatePointers:

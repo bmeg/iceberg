@@ -2,7 +2,7 @@ $id: Task
 additionalProperties: false
 description: A task to be performed. [See https://hl7.org/fhir/R5/Task.html]
 links:
-- href: Resource/{id}
+- href: '{id}'
   rel: basedOn
   targetHints:
     backref:
@@ -11,13 +11,15 @@ links:
     - outbound
     multiplicity:
     - has_many
+    regex_match:
+    - Resource/*
   targetSchema:
     $ref: Resource.yaml
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
-- href: Resource/{id}
+- href: '{id}'
   rel: focus
   targetHints:
     backref:
@@ -26,13 +28,15 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Resource/*
   targetSchema:
     $ref: Resource.yaml
   templatePointers:
     id: /focus/reference
   templateRequired:
   - id
-- href: Resource/{id}
+- href: '{id}'
   rel: for_fhir
   targetHints:
     backref:
@@ -41,13 +45,66 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Resource/*
   targetSchema:
     $ref: Resource.yaml
   templatePointers:
     id: /for_fhir/reference
   templateRequired:
   - id
-- href: Patient/{id}
+- href: '{id}'
+  rel: owner_Practitioner
+  targetHints:
+    backref:
+    - owner_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /owner/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: owner_PractitionerRole
+  targetHints:
+    backref:
+    - owner_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /owner/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: owner_Organization
+  targetHints:
+    backref:
+    - owner_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /owner/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: owner_Patient
   targetHints:
     backref:
@@ -56,13 +113,15 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
   templatePointers:
     id: /owner/reference
   templateRequired:
   - id
-- href: Task/{id}
+- href: '{id}'
   rel: partOf
   targetHints:
     backref:
@@ -71,13 +130,32 @@ links:
     - outbound
     multiplicity:
     - has_many
+    regex_match:
+    - Task/*
   targetSchema:
     $ref: Task.yaml
   templatePointers:
     id: /partOf/-/reference
   templateRequired:
   - id
-- href: Patient/{id}
+- href: '{id}'
+  rel: requester_Organization
+  targetHints:
+    backref:
+    - requester_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /requester/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: requester_Patient
   targetHints:
     backref:
@@ -86,14 +164,86 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
   templatePointers:
     id: /requester/reference
   templateRequired:
   - id
+- href: '{id}'
+  rel: requester_Practitioner
+  targetHints:
+    backref:
+    - requester_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /requester/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: requester_PractitionerRole
+  targetHints:
+    backref:
+    - requester_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /requester/reference
+  templateRequired:
+  - id
 - $comment: From Annotation/note
-  href: Patient/{id}
+  href: '{id}'
+  rel: note_authorReference_Practitioner
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_PractitionerRole
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: '{id}'
   rel: note_authorReference_Patient
   targetHints:
     backref:
@@ -102,14 +252,88 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
   - id
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_Organization
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
 - $comment: From TaskPerformer/performer
-  href: Patient/{id}
+  href: '{id}'
+  rel: performer_actor_Practitioner
+  targetHints:
+    backref:
+    - task_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /performer/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From TaskPerformer/performer
+  href: '{id}'
+  rel: performer_actor_PractitionerRole
+  targetHints:
+    backref:
+    - task_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /performer/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From TaskPerformer/performer
+  href: '{id}'
+  rel: performer_actor_Organization
+  targetHints:
+    backref:
+    - task_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /performer/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From TaskPerformer/performer
+  href: '{id}'
   rel: performer_actor_Patient
   targetHints:
     backref:
@@ -118,6 +342,8 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
   templatePointers:
@@ -125,7 +351,7 @@ links:
   templateRequired:
   - id
 - $comment: From TaskRestriction/restriction
-  href: Patient/{id}
+  href: '{id}'
   rel: restriction_recipient_Patient
   targetHints:
     backref:
@@ -134,8 +360,64 @@ links:
     - outbound
     multiplicity:
     - has_many
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
+  templatePointers:
+    id: /restriction/recipient/-/reference
+  templateRequired:
+  - id
+- $comment: From TaskRestriction/restriction
+  href: '{id}'
+  rel: restriction_recipient_Practitioner
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /restriction/recipient/-/reference
+  templateRequired:
+  - id
+- $comment: From TaskRestriction/restriction
+  href: '{id}'
+  rel: restriction_recipient_PractitionerRole
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /restriction/recipient/-/reference
+  templateRequired:
+  - id
+- $comment: From TaskRestriction/restriction
+  href: '{id}'
+  rel: restriction_recipient_Organization
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
   templatePointers:
     id: /restriction/recipient/-/reference
   templateRequired:

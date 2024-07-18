@@ -3,7 +3,7 @@ additionalProperties: false
 description: A homogeneous material with a definite composition. [See https://hl7.org/fhir/R5/Substance.html]
 links:
 - $comment: From SubstanceIngredient/ingredient
-  href: Substance/{id}
+  href: '{id}'
   rel: ingredient_substanceReference
   targetHints:
     backref:
@@ -12,6 +12,8 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Substance/*
   targetSchema:
     $ref: Substance.yaml
   templatePointers:

@@ -3,7 +3,41 @@ additionalProperties: false
 description: Text node with attribution. A  text note which also  contains information
   about who made the statement and when. [See https://hl7.org/fhir/R5/Annotation.html]
 links:
-- href: Patient/{id}
+- href: '{id}'
+  rel: authorReference_Practitioner
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /authorReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: authorReference_PractitionerRole
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /authorReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: authorReference_Patient
   targetHints:
     backref:
@@ -12,8 +46,27 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
+  templatePointers:
+    id: /authorReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: authorReference_Organization
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
   templatePointers:
     id: /authorReference/reference
   templateRequired:

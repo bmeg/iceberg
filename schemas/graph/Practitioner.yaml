@@ -3,6 +3,25 @@ additionalProperties: false
 description: A person with a  formal responsibility in the provisioning of healthcare
   or related services. A person who is directly or indirectly involved in the provisioning
   of healthcare or related services. [See https://hl7.org/fhir/R5/Practitioner.html]
+links:
+- $comment: From PractitionerQualification/qualification
+  href: '{id}'
+  rel: qualification_issuer
+  targetHints:
+    backref:
+    - practitioner_qualification
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /qualification/-/issuer/reference
+  templateRequired:
+  - id
 properties:
   _active:
     $ref: FHIRPrimitiveExtension.yaml
@@ -149,6 +168,10 @@ properties:
     pattern: ^[^\s]+(\s[^\s]+)*$
     title: Language of the resource content
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   meta:
     $ref: Meta.yaml
     description: The metadata about the resource. This is content that is maintained

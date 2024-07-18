@@ -10,7 +10,58 @@ description: "A reference to a document. A reference to a document of any kind f
   \ and managed.  The actual content may be inline base64 encoded data or provided\
   \ by direct reference. [See https://hl7.org/fhir/R5/DocumentReference.html]"
 links:
-- href: Patient/{id}
+- href: '{id}'
+  rel: author_Practitioner
+  targetHints:
+    backref:
+    - author_document_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /author/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: author_PractitionerRole
+  targetHints:
+    backref:
+    - author_document_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /author/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: author_Organization
+  targetHints:
+    backref:
+    - author_document_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /author/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: author_Patient
   targetHints:
     backref:
@@ -19,13 +70,15 @@ links:
     - outbound
     multiplicity:
     - has_many
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
   templatePointers:
     id: /author/-/reference
   templateRequired:
   - id
-- href: MedicationRequest/{id}
+- href: '{id}'
   rel: basedOn_MedicationRequest
   targetHints:
     backref:
@@ -34,13 +87,32 @@ links:
     - outbound
     multiplicity:
     - has_many
+    regex_match:
+    - MedicationRequest/*
   targetSchema:
     $ref: MedicationRequest.yaml
   templatePointers:
     id: /basedOn/-/reference
   templateRequired:
   - id
-- href: Resource/{id}
+- href: '{id}'
+  rel: custodian
+  targetHints:
+    backref:
+    - custodian_document_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /custodian/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: subject
   targetHints:
     backref:
@@ -49,6 +121,8 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Resource/*
   targetSchema:
     $ref: Resource.yaml
   templatePointers:
@@ -56,7 +130,7 @@ links:
   templateRequired:
   - id
 - $comment: From DocumentReferenceAttester/attester
-  href: Patient/{id}
+  href: '{id}'
   rel: attester_party_Patient
   targetHints:
     backref:
@@ -65,14 +139,70 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
   templatePointers:
     id: /attester/-/party/reference
   templateRequired:
   - id
+- $comment: From DocumentReferenceAttester/attester
+  href: '{id}'
+  rel: attester_party_Practitioner
+  targetHints:
+    backref:
+    - document_reference_attester
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /attester/-/party/reference
+  templateRequired:
+  - id
+- $comment: From DocumentReferenceAttester/attester
+  href: '{id}'
+  rel: attester_party_PractitionerRole
+  targetHints:
+    backref:
+    - document_reference_attester
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /attester/-/party/reference
+  templateRequired:
+  - id
+- $comment: From DocumentReferenceAttester/attester
+  href: '{id}'
+  rel: attester_party_Organization
+  targetHints:
+    backref:
+    - document_reference_attester
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /attester/-/party/reference
+  templateRequired:
+  - id
 - $comment: From DocumentReferenceRelatesTo/relatesTo
-  href: DocumentReference/{id}
+  href: '{id}'
   rel: relatesTo_target
   targetHints:
     backref:
@@ -81,6 +211,8 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - DocumentReference/*
   targetSchema:
     $ref: DocumentReference.yaml
   templatePointers:

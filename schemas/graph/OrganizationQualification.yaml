@@ -6,6 +6,24 @@ description: Qualifications, certifications, accreditations, licenses, training,
   provision of care by the organization. For example, an approval to provide a type
   of services issued by a certifying body (such as the US Joint Commission) to an
   organization. [See https://hl7.org/fhir/R5/OrganizationQualification.html]
+links:
+- href: '{id}'
+  rel: issuer
+  targetHints:
+    backref:
+    - organization_qualification
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /issuer/reference
+  templateRequired:
+  - id
 properties:
   code:
     $ref: CodeableConcept.yaml
@@ -51,6 +69,10 @@ properties:
     enum_reference_types:
     - Organization
     title: Organization that regulates and issues the qualification
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

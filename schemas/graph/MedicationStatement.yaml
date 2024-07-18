@@ -22,7 +22,7 @@ description: Record of medication being taken by a patient. A record of a medica
   is more formal and is not missing detailed information. The MedicationStatement
   resource was previously called MedicationStatement. [See https://hl7.org/fhir/R5/MedicationStatement.html]
 links:
-- href: Resource/{id}
+- href: '{id}'
   rel: derivedFrom
   targetHints:
     backref:
@@ -31,13 +31,15 @@ links:
     - outbound
     multiplicity:
     - has_many
+    regex_match:
+    - Resource/*
   targetSchema:
     $ref: Resource.yaml
   templatePointers:
     id: /derivedFrom/-/reference
   templateRequired:
   - id
-- href: Patient/{id}
+- href: '{id}'
   rel: informationSource_Patient
   targetHints:
     backref:
@@ -46,13 +48,83 @@ links:
     - outbound
     multiplicity:
     - has_many
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
   templatePointers:
     id: /informationSource/-/reference
   templateRequired:
   - id
-- href: MedicationStatement/{id}
+- href: '{id}'
+  rel: informationSource_Practitioner
+  targetHints:
+    backref:
+    - informationSource_medication_statement
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /informationSource/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: informationSource_PractitionerRole
+  targetHints:
+    backref:
+    - informationSource_medication_statement
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /informationSource/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: informationSource_Organization
+  targetHints:
+    backref:
+    - informationSource_medication_statement
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /informationSource/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: partOf_Procedure
+  targetHints:
+    backref:
+    - partOf_medication_statement
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Procedure/*
+  targetSchema:
+    $ref: Procedure.yaml
+  templatePointers:
+    id: /partOf/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: partOf_MedicationStatement
   targetHints:
     backref:
@@ -61,13 +133,15 @@ links:
     - outbound
     multiplicity:
     - has_many
+    regex_match:
+    - MedicationStatement/*
   targetSchema:
     $ref: MedicationStatement.yaml
   templatePointers:
     id: /partOf/-/reference
   templateRequired:
   - id
-- href: Observation/{id}
+- href: '{id}'
   rel: relatedClinicalInformation_Observation
   targetHints:
     backref:
@@ -76,13 +150,15 @@ links:
     - outbound
     multiplicity:
     - has_many
+    regex_match:
+    - Observation/*
   targetSchema:
     $ref: Observation.yaml
   templatePointers:
     id: /relatedClinicalInformation/-/reference
   templateRequired:
   - id
-- href: Condition/{id}
+- href: '{id}'
   rel: relatedClinicalInformation_Condition
   targetHints:
     backref:
@@ -91,13 +167,15 @@ links:
     - outbound
     multiplicity:
     - has_many
+    regex_match:
+    - Condition/*
   targetSchema:
     $ref: Condition.yaml
   templatePointers:
     id: /relatedClinicalInformation/-/reference
   templateRequired:
   - id
-- href: Patient/{id}
+- href: '{id}'
   rel: subject_Patient
   targetHints:
     backref:
@@ -106,6 +184,8 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
   templatePointers:
@@ -113,7 +193,43 @@ links:
   templateRequired:
   - id
 - $comment: From Annotation/note
-  href: Patient/{id}
+  href: '{id}'
+  rel: note_authorReference_Practitioner
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_PractitionerRole
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: '{id}'
   rel: note_authorReference_Patient
   targetHints:
     backref:
@@ -122,8 +238,28 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_Organization
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:

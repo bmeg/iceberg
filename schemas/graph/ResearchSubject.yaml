@@ -4,7 +4,7 @@ description: Participant or object which is the recipient of investigative activ
   in a study. A ResearchSubject is a participant or object which is the recipient
   of investigative activities in a research study. [See https://hl7.org/fhir/R5/ResearchSubject.html]
 links:
-- href: ResearchStudy/{id}
+- href: '{id}'
   rel: study
   targetHints:
     backref:
@@ -13,13 +13,15 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - ResearchStudy/*
   targetSchema:
     $ref: ResearchStudy.yaml
   templatePointers:
     id: /study/reference
   templateRequired:
   - id
-- href: Patient/{id}
+- href: '{id}'
   rel: subject_Patient
   targetHints:
     backref:
@@ -28,13 +30,15 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
-- href: Specimen/{id}
+- href: '{id}'
   rel: subject_Specimen
   targetHints:
     backref:
@@ -43,13 +47,15 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Specimen/*
   targetSchema:
     $ref: Specimen.yaml
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
-- href: Medication/{id}
+- href: '{id}'
   rel: subject_Medication
   targetHints:
     backref:
@@ -58,13 +64,15 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Medication/*
   targetSchema:
     $ref: Medication.yaml
   templatePointers:
     id: /subject/reference
   templateRequired:
   - id
-- href: Substance/{id}
+- href: '{id}'
   rel: subject_Substance
   targetHints:
     backref:
@@ -73,6 +81,8 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Substance/*
   targetSchema:
     $ref: Substance.yaml
   templatePointers:

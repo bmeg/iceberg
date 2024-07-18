@@ -3,7 +3,41 @@ additionalProperties: false
 description: Collection details. Details concerning the specimen collection. [See
   https://hl7.org/fhir/R5/SpecimenCollection.html]
 links:
-- href: Patient/{id}
+- href: '{id}'
+  rel: collector_Practitioner
+  targetHints:
+    backref:
+    - specimen_collection
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /collector/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: collector_PractitionerRole
+  targetHints:
+    backref:
+    - specimen_collection
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /collector/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: collector_Patient
   targetHints:
     backref:
@@ -12,10 +46,29 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
   templatePointers:
     id: /collector/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: procedure
+  targetHints:
+    backref:
+    - specimen_collection
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Procedure/*
+  targetSchema:
+    $ref: Procedure.yaml
+  templatePointers:
+    id: /procedure/reference
   templateRequired:
   - id
 properties:

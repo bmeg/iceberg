@@ -3,7 +3,7 @@ additionalProperties: false
 description: Triggering observation(s). Identifies the observation(s) that triggered
   the performance of this observation. [See https://hl7.org/fhir/R5/ObservationTriggeredBy.html]
 links:
-- href: Observation/{id}
+- href: '{id}'
   rel: observation
   targetHints:
     backref:
@@ -12,6 +12,8 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Observation/*
   targetSchema:
     $ref: Observation.yaml
   templatePointers:

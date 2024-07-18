@@ -4,7 +4,7 @@ description: Detailed information about conditions, problems or diagnoses. A cli
   condition, problem, diagnosis, or other event, situation, issue, or clinical concept
   that has risen to a level of concern. [See https://hl7.org/fhir/R5/Condition.html]
 links:
-- href: Patient/{id}
+- href: '{id}'
   rel: subject_Patient
   targetHints:
     backref:
@@ -13,6 +13,8 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
   templatePointers:
@@ -20,7 +22,43 @@ links:
   templateRequired:
   - id
 - $comment: From Annotation/note
-  href: Patient/{id}
+  href: '{id}'
+  rel: note_authorReference_Practitioner
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_PractitionerRole
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: '{id}'
   rel: note_authorReference_Patient
   targetHints:
     backref:
@@ -29,14 +67,70 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
   - id
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_Organization
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
 - $comment: From ConditionParticipant/participant
-  href: Patient/{id}
+  href: '{id}'
+  rel: participant_actor_Practitioner
+  targetHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /participant/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From ConditionParticipant/participant
+  href: '{id}'
+  rel: participant_actor_PractitionerRole
+  targetHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /participant/-/actor/reference
+  templateRequired:
+  - id
+- $comment: From ConditionParticipant/participant
+  href: '{id}'
   rel: participant_actor_Patient
   targetHints:
     backref:
@@ -45,14 +139,52 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
   templatePointers:
     id: /participant/-/actor/reference
   templateRequired:
   - id
+- $comment: From ConditionParticipant/participant
+  href: '{id}'
+  rel: participant_actor_Organization
+  targetHints:
+    backref:
+    - condition_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /participant/-/actor/reference
+  templateRequired:
+  - id
 - $comment: From ConditionStage/stage
-  href: Observation/{id}
+  href: '{id}'
+  rel: stage_assessment_DiagnosticReport
+  targetHints:
+    backref:
+    - assessment_condition_stage
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - DiagnosticReport/*
+  targetSchema:
+    $ref: DiagnosticReport.yaml
+  templatePointers:
+    id: /stage/-/assessment/-/reference
+  templateRequired:
+  - id
+- $comment: From ConditionStage/stage
+  href: '{id}'
   rel: stage_assessment_Observation
   targetHints:
     backref:
@@ -61,6 +193,8 @@ links:
     - outbound
     multiplicity:
     - has_many
+    regex_match:
+    - Observation/*
   targetSchema:
     $ref: Observation.yaml
   templatePointers:

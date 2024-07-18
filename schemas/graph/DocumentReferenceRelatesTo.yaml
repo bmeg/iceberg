@@ -3,7 +3,7 @@ additionalProperties: false
 description: Relationships to other documents. Relationships that this document has
   with other document references that already exist. [See https://hl7.org/fhir/R5/DocumentReferenceRelatesTo.html]
 links:
-- href: DocumentReference/{id}
+- href: '{id}'
   rel: target
   targetHints:
     backref:
@@ -12,6 +12,8 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - DocumentReference/*
   targetSchema:
     $ref: DocumentReference.yaml
   templatePointers:

@@ -7,7 +7,7 @@ description: Investigation to increase healthcare-related patient-independent kn
   disease. They may also study certain outcomes and certain groups of people by looking
   at data collected in the past or future. [See https://hl7.org/fhir/R5/ResearchStudy.html]
 links:
-- href: ResearchStudy/{id}
+- href: '{id}'
   rel: partOf
   targetHints:
     backref:
@@ -16,13 +16,32 @@ links:
     - outbound
     multiplicity:
     - has_many
+    regex_match:
+    - ResearchStudy/*
   targetSchema:
     $ref: ResearchStudy.yaml
   templatePointers:
     id: /partOf/-/reference
   templateRequired:
   - id
-- href: ResearchStudy/{id}
+- href: '{id}'
+  rel: result_DiagnosticReport
+  targetHints:
+    backref:
+    - result_research_study
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - DiagnosticReport/*
+  targetSchema:
+    $ref: DiagnosticReport.yaml
+  templatePointers:
+    id: /result/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: site_ResearchStudy
   targetHints:
     backref:
@@ -31,14 +50,123 @@ links:
     - outbound
     multiplicity:
     - has_many
+    regex_match:
+    - ResearchStudy/*
   targetSchema:
     $ref: ResearchStudy.yaml
   templatePointers:
     id: /site/-/reference
   templateRequired:
   - id
+- href: '{id}'
+  rel: site_Organization
+  targetHints:
+    backref:
+    - site_research_study
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /site/-/reference
+  templateRequired:
+  - id
+- $comment: From ResearchStudyAssociatedParty/associatedParty
+  href: '{id}'
+  rel: associatedParty_party_Practitioner
+  targetHints:
+    backref:
+    - research_study_associated_party
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /associatedParty/-/party/reference
+  templateRequired:
+  - id
+- $comment: From ResearchStudyAssociatedParty/associatedParty
+  href: '{id}'
+  rel: associatedParty_party_PractitionerRole
+  targetHints:
+    backref:
+    - research_study_associated_party
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /associatedParty/-/party/reference
+  templateRequired:
+  - id
+- $comment: From ResearchStudyAssociatedParty/associatedParty
+  href: '{id}'
+  rel: associatedParty_party_Organization
+  targetHints:
+    backref:
+    - research_study_associated_party
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /associatedParty/-/party/reference
+  templateRequired:
+  - id
 - $comment: From Annotation/note
-  href: Patient/{id}
+  href: '{id}'
+  rel: note_authorReference_Practitioner
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_PractitionerRole
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: '{id}'
   rel: note_authorReference_Patient
   targetHints:
     backref:
@@ -47,14 +175,34 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
   templatePointers:
     id: /note/-/authorReference/reference
   templateRequired:
   - id
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_Organization
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
 - $comment: From RelatedArtifact/relatedArtifact
-  href: Resource/{id}
+  href: '{id}'
   rel: relatedArtifact_resourceReference
   targetHints:
     backref:
@@ -63,6 +211,8 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Resource/*
   targetSchema:
     $ref: Resource.yaml
   templatePointers:

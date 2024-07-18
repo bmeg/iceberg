@@ -2,6 +2,92 @@ $id: ProcedurePerformer
 additionalProperties: false
 description: Who performed the procedure and what they did. Indicates who or what
   performed the procedure and how they were involved. [See https://hl7.org/fhir/R5/ProcedurePerformer.html]
+links:
+- href: '{id}'
+  rel: actor_Practitioner
+  targetHints:
+    backref:
+    - actor_procedure_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: actor_PractitionerRole
+  targetHints:
+    backref:
+    - actor_procedure_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: actor_Organization
+  targetHints:
+    backref:
+    - actor_procedure_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: actor_Patient
+  targetHints:
+    backref:
+    - actor_procedure_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Patient/*
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: onBehalfOf
+  targetHints:
+    backref:
+    - onBehalfOf_procedure_performer
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /onBehalfOf/reference
+  templateRequired:
+  - id
 properties:
   actor:
     $ref: Reference.yaml
@@ -54,6 +140,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

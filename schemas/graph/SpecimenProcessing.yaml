@@ -3,7 +3,7 @@ additionalProperties: false
 description: Processing and processing step details. Details concerning processing
   and processing steps for the specimen. [See https://hl7.org/fhir/R5/SpecimenProcessing.html]
 links:
-- href: Substance/{id}
+- href: '{id}'
   rel: additive
   targetHints:
     backref:
@@ -12,6 +12,8 @@ links:
     - outbound
     multiplicity:
     - has_many
+    regex_match:
+    - Substance/*
   targetSchema:
     $ref: Substance.yaml
   templatePointers:

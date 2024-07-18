@@ -3,7 +3,24 @@ additionalProperties: false
 description: An identifier intended for computation. An identifier - identifies some
   entity uniquely and unambiguously. Typically this is used for business identifiers.
   [See https://hl7.org/fhir/R5/Identifier.html]
-links: []
+links:
+- href: '{id}'
+  rel: assigner
+  targetHints:
+    backref:
+    - identifier
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /assigner/reference
+  templateRequired:
+  - id
 properties:
   _system:
     $ref: FHIRPrimitiveExtension.yaml
