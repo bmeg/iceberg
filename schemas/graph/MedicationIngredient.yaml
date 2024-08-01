@@ -381,6 +381,24 @@ links:
     id: /item/reference/reference
   templateRequired:
   - id
+- $comment: From CodeableReference/item
+  href: '{id}'
+  rel: item_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /item/reference/reference
+  templateRequired:
+  - id
 properties:
   _isActive:
     $ref: FHIRPrimitiveExtension.yaml

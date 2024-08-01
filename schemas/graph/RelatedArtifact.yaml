@@ -360,6 +360,23 @@ links:
     id: /resourceReference/reference
   templateRequired:
   - id
+- href: '{id}'
+  rel: resourceReference_Group
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
 properties:
   _citation:
     $ref: FHIRPrimitiveExtension.yaml
@@ -508,6 +525,7 @@ properties:
     - ImagingStudy
     - FamilyMemberHistory
     - BodyStructure
+    - Group
     title: What artifact, if not a conformance resource
   resourceType:
     const: RelatedArtifact

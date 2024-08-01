@@ -75,6 +75,23 @@ links:
   templateRequired:
   - id
 - href: '{id}'
+  rel: subject_Group
+  targetHints:
+    backref:
+    - medication_administration
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: supportingInformation_Organization
   targetHints:
     backref:
@@ -427,6 +444,23 @@ links:
     - BodyStructure/*
   targetSchema:
     $ref: BodyStructure.yaml
+  templatePointers:
+    id: /supportingInformation/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: supportingInformation_Group
+  targetHints:
+    backref:
+    - supportingInformation_medication_administration
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /supportingInformation/-/reference
   templateRequired:
@@ -809,6 +843,24 @@ links:
     id: /device/-/reference/reference
   templateRequired:
   - id
+- $comment: From CodeableReference/device
+  href: '{id}'
+  rel: device_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /device/-/reference/reference
+  templateRequired:
+  - id
 - $comment: From CodeableReference/medication
   href: '{id}'
   rel: medication_reference_Organization
@@ -1183,6 +1235,24 @@ links:
     - BodyStructure/*
   targetSchema:
     $ref: BodyStructure.yaml
+  templatePointers:
+    id: /medication/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/medication
+  href: '{id}'
+  rel: medication_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /medication/reference/reference
   templateRequired:
@@ -1637,6 +1707,24 @@ links:
     id: /reason/-/reference/reference
   templateRequired:
   - id
+- $comment: From CodeableReference/reason
+  href: '{id}'
+  rel: reason_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /reason/-/reference/reference
+  templateRequired:
+  - id
 properties:
   _implicitRules:
     $ref: FHIRPrimitiveExtension.yaml
@@ -2021,6 +2109,7 @@ properties:
     - ImagingStudy
     - FamilyMemberHistory
     - BodyStructure
+    - Group
     items:
       $ref: Reference.yaml
     title: Additional information to support administration

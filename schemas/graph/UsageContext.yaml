@@ -24,6 +24,23 @@ links:
   templateRequired:
   - id
 - href: '{id}'
+  rel: valueReference_Group
+  targetHints:
+    backref:
+    - usage_context
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /valueReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: valueReference_Organization
   targetHints:
     backref:

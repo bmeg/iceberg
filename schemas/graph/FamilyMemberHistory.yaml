@@ -543,6 +543,24 @@ links:
     id: /reason/-/reference/reference
   templateRequired:
   - id
+- $comment: From CodeableReference/reason
+  href: '{id}'
+  rel: reason_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /reason/-/reference/reference
+  templateRequired:
+  - id
 properties:
   _ageString:
     $ref: FHIRPrimitiveExtension.yaml

@@ -360,6 +360,23 @@ links:
   templateRequired:
   - id
 - href: '{id}'
+  rel: basedOn_Group
+  targetHints:
+    backref:
+    - basedOn_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /basedOn/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: focus_Organization
   targetHints:
     backref:
@@ -717,6 +734,23 @@ links:
   templateRequired:
   - id
 - href: '{id}'
+  rel: focus_Group
+  targetHints:
+    backref:
+    - focus_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /focus/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: for_fhir_Organization
   targetHints:
     backref:
@@ -1069,6 +1103,23 @@ links:
     - BodyStructure/*
   targetSchema:
     $ref: BodyStructure.yaml
+  templatePointers:
+    id: /for_fhir/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: for_fhir_Group
+  targetHints:
+    backref:
+    - for_task
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /for_fhir/reference
   templateRequired:
@@ -1604,6 +1655,24 @@ links:
     id: /input/-/valueReference/reference
   templateRequired:
   - id
+- $comment: From TaskInput/input
+  href: '{id}'
+  rel: input_valueReference_Group
+  targetHints:
+    backref:
+    - task_input
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /input/-/valueReference/reference
+  templateRequired:
+  - id
 - $comment: From Annotation/note
   href: '{id}'
   rel: note_authorReference_Practitioner
@@ -2050,6 +2119,24 @@ links:
     - BodyStructure/*
   targetSchema:
     $ref: BodyStructure.yaml
+  templatePointers:
+    id: /output/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From TaskOutput/output
+  href: '{id}'
+  rel: output_valueReference_Group
+  targetHints:
+    backref:
+    - task_output
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /output/-/valueReference/reference
   templateRequired:
@@ -2504,6 +2591,24 @@ links:
     id: /reason/-/reference/reference
   templateRequired:
   - id
+- $comment: From CodeableReference/reason
+  href: '{id}'
+  rel: reason_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /reason/-/reference/reference
+  templateRequired:
+  - id
 - $comment: From CodeableReference/requestedPerformer
   href: '{id}'
   rel: requestedPerformer_reference_Organization
@@ -2882,6 +2987,24 @@ links:
     id: /requestedPerformer/-/reference/reference
   templateRequired:
   - id
+- $comment: From CodeableReference/requestedPerformer
+  href: '{id}'
+  rel: requestedPerformer_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /requestedPerformer/-/reference/reference
+  templateRequired:
+  - id
 - $comment: From TaskRestriction/restriction
   href: '{id}'
   rel: restriction_recipient_Patient
@@ -2932,6 +3055,24 @@ links:
     - PractitionerRole/*
   targetSchema:
     $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /restriction/recipient/-/reference
+  templateRequired:
+  - id
+- $comment: From TaskRestriction/restriction
+  href: '{id}'
+  rel: restriction_recipient_Group
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /restriction/recipient/-/reference
   templateRequired:
@@ -3332,6 +3473,24 @@ links:
     id: /statusReason/reference/reference
   templateRequired:
   - id
+- $comment: From CodeableReference/statusReason
+  href: '{id}'
+  rel: statusReason_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /statusReason/reference/reference
+  templateRequired:
+  - id
 properties:
   _authoredOn:
     $ref: FHIRPrimitiveExtension.yaml
@@ -3403,6 +3562,7 @@ properties:
     - ImagingStudy
     - FamilyMemberHistory
     - BodyStructure
+    - Group
     items:
       $ref: Reference.yaml
     title: Request fulfilled by this task

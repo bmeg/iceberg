@@ -380,6 +380,24 @@ links:
     id: /code/reference/reference
   templateRequired:
   - id
+- $comment: From CodeableReference/code
+  href: '{id}'
+  rel: code_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /code/reference/reference
+  templateRequired:
+  - id
 - $comment: From SubstanceIngredient/ingredient
   href: '{id}'
   rel: ingredient_substanceReference

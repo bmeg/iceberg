@@ -3,7 +3,24 @@ additionalProperties: false
 description: Describes a required data item. Describes a required data item for evaluation
   in terms of the type of data, and optional code or date-based filters of the data.
   [See https://hl7.org/fhir/R5/DataRequirement.html]
-links: []
+links:
+- href: '{id}'
+  rel: subjectReference
+  targetHints:
+    backref:
+    - data_requirement
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /subjectReference/reference
+  templateRequired:
+  - id
 properties:
   _limit:
     $ref: FHIRPrimitiveExtension.yaml

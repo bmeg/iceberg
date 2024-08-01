@@ -39,6 +39,23 @@ links:
   templateRequired:
   - id
 - href: '{id}'
+  rel: subject_Group
+  targetHints:
+    backref:
+    - research_subject
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: subject_Specimen
   targetHints:
     backref:

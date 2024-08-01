@@ -1,99 +1,134 @@
-$id: TaskRestriction
+$id: GroupMember
 additionalProperties: false
-description: Constraints on fulfillment tasks. If the Task.focus is a request resource
-  and the task is seeking fulfillment (i.e. is asking for the request to be actioned),
-  this element identifies any limitations on what parts of the referenced request
-  should be actioned. [See https://hl7.org/fhir/R5/TaskRestriction.html]
+description: Who or what is in group. Identifies the resource instances that are members
+  of the group. [See https://hl7.org/fhir/R5/GroupMember.html]
 links:
 - href: '{id}'
-  rel: recipient_Patient
+  rel: entity_Group
   targetHints:
     backref:
-    - recipient_task_restriction
+    - group_member
     direction:
     - outbound
     multiplicity:
-    - has_many
-    regex_match:
-    - Patient/*
-  targetSchema:
-    $ref: Patient.yaml
-  templatePointers:
-    id: /recipient/-/reference
-  templateRequired:
-  - id
-- href: '{id}'
-  rel: recipient_Practitioner
-  targetHints:
-    backref:
-    - recipient_task_restriction
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-    regex_match:
-    - Practitioner/*
-  targetSchema:
-    $ref: Practitioner.yaml
-  templatePointers:
-    id: /recipient/-/reference
-  templateRequired:
-  - id
-- href: '{id}'
-  rel: recipient_PractitionerRole
-  targetHints:
-    backref:
-    - recipient_task_restriction
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-    regex_match:
-    - PractitionerRole/*
-  targetSchema:
-    $ref: PractitionerRole.yaml
-  templatePointers:
-    id: /recipient/-/reference
-  templateRequired:
-  - id
-- href: '{id}'
-  rel: recipient_Group
-  targetHints:
-    backref:
-    - recipient_task_restriction
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
+    - has_one
     regex_match:
     - Group/*
   targetSchema:
     $ref: Group.yaml
   templatePointers:
-    id: /recipient/-/reference
+    id: /entity/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: recipient_Organization
+  rel: entity_Organization
   targetHints:
     backref:
-    - recipient_task_restriction
+    - group_member
     direction:
     - outbound
     multiplicity:
-    - has_many
+    - has_one
     regex_match:
     - Organization/*
   targetSchema:
     $ref: Organization.yaml
   templatePointers:
-    id: /recipient/-/reference
+    id: /entity/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: entity_Patient
+  targetHints:
+    backref:
+    - group_member
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Patient/*
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /entity/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: entity_Practitioner
+  targetHints:
+    backref:
+    - group_member
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /entity/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: entity_PractitionerRole
+  targetHints:
+    backref:
+    - group_member
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /entity/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: entity_Specimen
+  targetHints:
+    backref:
+    - group_member
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Specimen/*
+  targetSchema:
+    $ref: Specimen.yaml
+  templatePointers:
+    id: /entity/reference
   templateRequired:
   - id
 properties:
-  _repetitions:
+  _inactive:
     $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``repetitions``.
+    title: Extension field for ``inactive``.
+  entity:
+    $ref: Reference.yaml
+    backref: group_member
+    description: A reference to the entity that is a member of the group. Must be
+      consistent with Group.type. If the entity is another group, then the type must
+      be the same.
+    element_property: true
+    enum_reference_types:
+    - CareTeam
+    - Device
+    - Group
+    - HealthcareService
+    - Location
+    - Organization
+    - Patient
+    - Practitioner
+    - PractitionerRole
+    - RelatedPerson
+    - Specimen
+    title: Reference to the group member
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -120,6 +155,12 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  inactive:
+    description: A flag to indicate that the member is no longer in the group, but
+      previously may have been a member.
+    element_property: true
+    title: If member is no longer in group
+    type: boolean
   links:
     items:
       $ref: https://json-schema.org/draft/2020-12/links
@@ -143,37 +184,16 @@ properties:
     type: array
   period:
     $ref: Period.yaml
-    description: The time-period for which fulfillment is sought. This must fall within
-      the overall time period authorized in the referenced request.  E.g. ServiceRequest.occurance[x].
+    description: The period that the member was in the group, if known.
     element_property: true
-    title: When fulfillment is sought
-  recipient:
-    backref: recipient_task_restriction
-    description: For requests that are targeted to more than one potential recipient/target,
-      to identify who is fulfillment is sought for.
-    element_property: true
-    enum_reference_types:
-    - Patient
-    - Practitioner
-    - PractitionerRole
-    - RelatedPerson
-    - Group
-    - Organization
-    items:
-      $ref: Reference.yaml
-    title: For whom is fulfillment sought?
-    type: array
-  repetitions:
-    description: Indicates the number of times the requested action should occur.
-    element_property: true
-    exclusiveMinimum: 0
-    title: How many times to repeat
-    type: integer
+    title: Period member belonged to the group
   resourceType:
-    const: TaskRestriction
-    default: TaskRestriction
+    const: GroupMember
+    default: GroupMember
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-title: TaskRestriction
+required:
+- entity
+title: GroupMember
 type: object

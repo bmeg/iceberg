@@ -381,6 +381,24 @@ links:
     id: /device/-/reference/reference
   templateRequired:
   - id
+- $comment: From CodeableReference/device
+  href: '{id}'
+  rel: device_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /device/-/reference/reference
+  templateRequired:
+  - id
 properties:
   device:
     backref: device_body_structure_included_structure_body_landmark_orientation_distance_from_landmark

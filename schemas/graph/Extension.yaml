@@ -360,6 +360,23 @@ links:
     id: /valueReference/reference
   templateRequired:
   - id
+- href: '{id}'
+  rel: valueReference_Group
+  targetHints:
+    backref:
+    - extension
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /valueReference/reference
+  templateRequired:
+  - id
 - $comment: From Annotation/valueAnnotation
   href: '{id}'
   rel: valueAnnotation_authorReference_Practitioner
@@ -810,6 +827,42 @@ links:
     id: /valueCodeableReference/reference/reference
   templateRequired:
   - id
+- $comment: From CodeableReference/valueCodeableReference
+  href: '{id}'
+  rel: valueCodeableReference_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /valueCodeableReference/reference/reference
+  templateRequired:
+  - id
+- $comment: From DataRequirement/valueDataRequirement
+  href: '{id}'
+  rel: valueDataRequirement_subjectReference
+  targetHints:
+    backref:
+    - data_requirement
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /valueDataRequirement/subjectReference/reference
+  templateRequired:
+  - id
 - $comment: From ExtendedContactDetail/valueExtendedContactDetail
   href: '{id}'
   rel: valueExtendedContactDetail_organization
@@ -1206,6 +1259,24 @@ links:
     id: /valueRelatedArtifact/resourceReference/reference
   templateRequired:
   - id
+- $comment: From RelatedArtifact/valueRelatedArtifact
+  href: '{id}'
+  rel: valueRelatedArtifact_resourceReference_Group
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /valueRelatedArtifact/resourceReference/reference
+  templateRequired:
+  - id
 - $comment: From Signature/valueSignature
   href: '{id}'
   rel: valueSignature_onBehalfOf_Practitioner
@@ -1364,6 +1435,24 @@ links:
     - ResearchStudy/*
   targetSchema:
     $ref: ResearchStudy.yaml
+  templatePointers:
+    id: /valueUsageContext/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From UsageContext/valueUsageContext
+  href: '{id}'
+  rel: valueUsageContext_valueReference_Group
+  targetHints:
+    backref:
+    - usage_context
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /valueUsageContext/valueReference/reference
   templateRequired:
@@ -1800,6 +1889,7 @@ properties:
     - ImagingStudy
     - FamilyMemberHistory
     - BodyStructure
+    - Group
     one_of_many: value
     one_of_many_required: false
     title: Value of extension

@@ -446,6 +446,23 @@ links:
   templateRequired:
   - id
 - href: '{id}'
+  rel: focus_Group
+  targetHints:
+    backref:
+    - focus_observation
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /focus/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: hasMember_Observation
   targetHints:
     backref:
@@ -616,6 +633,23 @@ links:
   templateRequired:
   - id
 - href: '{id}'
+  rel: specimen_Group
+  targetHints:
+    backref:
+    - specimen_observation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /specimen/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: subject_Patient
   targetHints:
     backref:
@@ -628,6 +662,23 @@ links:
     - Patient/*
   targetSchema:
     $ref: Patient.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: subject_Group
+  targetHints:
+    backref:
+    - subject_observation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /subject/reference
   templateRequired:
@@ -1069,6 +1120,7 @@ properties:
     - ImagingStudy
     - FamilyMemberHistory
     - BodyStructure
+    - Group
     items:
       $ref: Reference.yaml
     title: What the observation is about, when it is not about the subject of record

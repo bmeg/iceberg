@@ -129,6 +129,24 @@ links:
     id: /associatedParty/-/party/reference
   templateRequired:
   - id
+- $comment: From ResearchStudyComparisonGroup/comparisonGroup
+  href: '{id}'
+  rel: comparisonGroup_observedGroup
+  targetHints:
+    backref:
+    - research_study_comparison_group
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /comparisonGroup/-/observedGroup/reference
+  templateRequired:
+  - id
 - $comment: From CodeableReference/focus
   href: '{id}'
   rel: focus_reference_Organization
@@ -507,6 +525,24 @@ links:
     id: /focus/-/reference/reference
   templateRequired:
   - id
+- $comment: From CodeableReference/focus
+  href: '{id}'
+  rel: focus_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /focus/-/reference/reference
+  templateRequired:
+  - id
 - $comment: From Annotation/note
   href: '{id}'
   rel: note_authorReference_Practitioner
@@ -577,6 +613,42 @@ links:
     $ref: Organization.yaml
   templatePointers:
     id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From ResearchStudyRecruitment/recruitment
+  href: '{id}'
+  rel: recruitment_actualGroup
+  targetHints:
+    backref:
+    - actualGroup_research_study_recruitment
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /recruitment/actualGroup/reference
+  templateRequired:
+  - id
+- $comment: From ResearchStudyRecruitment/recruitment
+  href: '{id}'
+  rel: recruitment_eligibility_Group
+  targetHints:
+    backref:
+    - eligibility_research_study_recruitment
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /recruitment/eligibility/reference
   templateRequired:
   - id
 - $comment: From RelatedArtifact/relatedArtifact
@@ -953,6 +1025,24 @@ links:
     - BodyStructure/*
   targetSchema:
     $ref: BodyStructure.yaml
+  templatePointers:
+    id: /relatedArtifact/-/resourceReference/reference
+  templateRequired:
+  - id
+- $comment: From RelatedArtifact/relatedArtifact
+  href: '{id}'
+  rel: relatedArtifact_resourceReference_Group
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /relatedArtifact/-/resourceReference/reference
   templateRequired:

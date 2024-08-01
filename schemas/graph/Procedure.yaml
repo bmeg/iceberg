@@ -25,6 +25,23 @@ links:
   templateRequired:
   - id
 - href: '{id}'
+  rel: focus_Group
+  targetHints:
+    backref:
+    - focus_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /focus/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: focus_Practitioner
   targetHints:
     backref:
@@ -309,6 +326,23 @@ links:
     - Patient/*
   targetSchema:
     $ref: Patient.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: subject_Group
+  targetHints:
+    backref:
+    - subject_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /subject/reference
   templateRequired:
@@ -704,6 +738,23 @@ links:
     id: /supportingInfo/-/reference
   templateRequired:
   - id
+- href: '{id}'
+  rel: supportingInfo_Group
+  targetHints:
+    backref:
+    - supportingInfo_procedure
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /supportingInfo/-/reference
+  templateRequired:
+  - id
 - $comment: From CodeableReference/complication
   href: '{id}'
   rel: complication_reference_Organization
@@ -1078,6 +1129,24 @@ links:
     - BodyStructure/*
   targetSchema:
     $ref: BodyStructure.yaml
+  templatePointers:
+    id: /complication/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/complication
+  href: '{id}'
+  rel: complication_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /complication/-/reference/reference
   templateRequired:
@@ -1622,6 +1691,24 @@ links:
     id: /reason/-/reference/reference
   templateRequired:
   - id
+- $comment: From CodeableReference/reason
+  href: '{id}'
+  rel: reason_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /reason/-/reference/reference
+  templateRequired:
+  - id
 - $comment: From CodeableReference/used
   href: '{id}'
   rel: used_reference_Organization
@@ -1996,6 +2083,24 @@ links:
     - BodyStructure/*
   targetSchema:
     $ref: BodyStructure.yaml
+  templatePointers:
+    id: /used/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/used
+  href: '{id}'
+  rel: used_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /used/-/reference/reference
   templateRequired:
@@ -2542,6 +2647,7 @@ properties:
     - ImagingStudy
     - FamilyMemberHistory
     - BodyStructure
+    - Group
     items:
       $ref: Reference.yaml
     title: Extra information relevant to the procedure

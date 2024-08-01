@@ -385,6 +385,24 @@ links:
     id: /actor/reference/reference
   templateRequired:
   - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
 properties:
   actor:
     $ref: CodeableReference.yaml

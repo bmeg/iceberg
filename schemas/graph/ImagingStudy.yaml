@@ -92,6 +92,23 @@ links:
     id: /subject/reference
   templateRequired:
   - id
+- href: '{id}'
+  rel: subject_Group
+  targetHints:
+    backref:
+    - imaging_study
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
 - $comment: From Annotation/note
   href: '{id}'
   rel: note_authorReference_Practitioner
@@ -542,6 +559,24 @@ links:
     id: /procedure/-/reference/reference
   templateRequired:
   - id
+- $comment: From CodeableReference/procedure
+  href: '{id}'
+  rel: procedure_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /procedure/-/reference/reference
+  templateRequired:
+  - id
 - $comment: From CodeableReference/reason
   href: '{id}'
   rel: reason_reference_Organization
@@ -916,6 +951,24 @@ links:
     - BodyStructure/*
   targetSchema:
     $ref: BodyStructure.yaml
+  templatePointers:
+    id: /reason/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/reason
+  href: '{id}'
+  rel: reason_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /reason/-/reference/reference
   templateRequired:

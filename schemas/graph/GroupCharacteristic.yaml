@@ -1,14 +1,13 @@
-$id: CodeableReference
+$id: GroupCharacteristic
 additionalProperties: false
-description: Reference to a resource or a concept. A reference to a resource (by instance),
-  or instead, a reference to a concept defined in a terminology or ontology (by class).
-  [See https://hl7.org/fhir/R5/CodeableReference.html]
+description: Include / Exclude group members by Trait. Identifies traits whose presence
+  r absence is shared by members of the group. [See https://hl7.org/fhir/R5/GroupCharacteristic.html]
 links:
 - href: '{id}'
-  rel: reference_Organization
+  rel: valueReference_Organization
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -18,14 +17,14 @@ links:
   targetSchema:
     $ref: Organization.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_Practitioner
+  rel: valueReference_Practitioner
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -35,14 +34,14 @@ links:
   targetSchema:
     $ref: Practitioner.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_PractitionerRole
+  rel: valueReference_PractitionerRole
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -52,14 +51,14 @@ links:
   targetSchema:
     $ref: PractitionerRole.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_ResearchStudy
+  rel: valueReference_ResearchStudy
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -69,14 +68,14 @@ links:
   targetSchema:
     $ref: ResearchStudy.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_Patient
+  rel: valueReference_Patient
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -86,14 +85,14 @@ links:
   targetSchema:
     $ref: Patient.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_ResearchSubject
+  rel: valueReference_ResearchSubject
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -103,14 +102,14 @@ links:
   targetSchema:
     $ref: ResearchSubject.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_Substance
+  rel: valueReference_Substance
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -120,14 +119,14 @@ links:
   targetSchema:
     $ref: Substance.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_Specimen
+  rel: valueReference_Specimen
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -137,14 +136,14 @@ links:
   targetSchema:
     $ref: Specimen.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_Observation
+  rel: valueReference_Observation
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -154,14 +153,14 @@ links:
   targetSchema:
     $ref: Observation.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_DiagnosticReport
+  rel: valueReference_DiagnosticReport
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -171,14 +170,14 @@ links:
   targetSchema:
     $ref: DiagnosticReport.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_Condition
+  rel: valueReference_Condition
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -188,14 +187,14 @@ links:
   targetSchema:
     $ref: Condition.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_Medication
+  rel: valueReference_Medication
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -205,14 +204,14 @@ links:
   targetSchema:
     $ref: Medication.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_MedicationAdministration
+  rel: valueReference_MedicationAdministration
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -222,14 +221,14 @@ links:
   targetSchema:
     $ref: MedicationAdministration.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_MedicationStatement
+  rel: valueReference_MedicationStatement
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -239,14 +238,14 @@ links:
   targetSchema:
     $ref: MedicationStatement.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_MedicationRequest
+  rel: valueReference_MedicationRequest
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -256,14 +255,14 @@ links:
   targetSchema:
     $ref: MedicationRequest.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_Procedure
+  rel: valueReference_Procedure
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -273,14 +272,14 @@ links:
   targetSchema:
     $ref: Procedure.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_DocumentReference
+  rel: valueReference_DocumentReference
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -290,14 +289,14 @@ links:
   targetSchema:
     $ref: DocumentReference.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_Task
+  rel: valueReference_Task
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -307,14 +306,14 @@ links:
   targetSchema:
     $ref: Task.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_ImagingStudy
+  rel: valueReference_ImagingStudy
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -324,14 +323,14 @@ links:
   targetSchema:
     $ref: ImagingStudy.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_FamilyMemberHistory
+  rel: valueReference_FamilyMemberHistory
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -341,14 +340,14 @@ links:
   targetSchema:
     $ref: FamilyMemberHistory.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_BodyStructure
+  rel: valueReference_BodyStructure
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -358,14 +357,14 @@ links:
   targetSchema:
     $ref: BodyStructure.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: reference_Group
+  rel: valueReference_Group
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -375,16 +374,28 @@ links:
   targetSchema:
     $ref: Group.yaml
   templatePointers:
-    id: /reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 properties:
-  concept:
+  _exclude:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``exclude``.
+  _valueBoolean:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``valueBoolean``.
+  code:
     $ref: CodeableConcept.yaml
-    description: A reference to a concept - e.g. the information is identified by
-      its general class to the degree of precision found in the terminology.
+    description: A code that identifies the kind of trait being asserted.
     element_property: true
-    title: Reference to a concept (by class)
+    title: Kind of characteristic
+  exclude:
+    description: If true, indicates the characteristic is one that is NOT held by
+      members of the group.
+    element_property: true
+    element_required: true
+    title: Group includes or excludes
+    type: boolean
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -415,11 +426,72 @@ properties:
     items:
       $ref: https://json-schema.org/draft/2020-12/links
     type: array
-  reference:
+  modifierExtension:
+    description: May be used to represent additional information that is not part
+      of the basic definition of the element and that modifies the understanding of
+      the element in which it is contained and/or the understanding of the containing
+      element's descendants. Usually modifier elements provide negation or qualification.
+      To make the use of extensions safe and managable, there is a strict set of governance
+      applied to the definition and use of extensions. Though any implementer can
+      define an extension, there is a set of requirements that SHALL be met as part
+      of the definition of the extension. Applications processing a resource are required
+      to check for modifier extensions.  Modifier extensions SHALL NOT change the
+      meaning of any elements on Resource or DomainResource (including cannot change
+      the meaning of modifierExtension itself).
+    element_property: true
+    items:
+      $ref: Extension.yaml
+    title: Extensions that cannot be ignored even if unrecognized
+    type: array
+  period:
+    $ref: Period.yaml
+    description: The period over which the characteristic is tested; e.g. the patient
+      had an operation during the month of June.
+    element_property: true
+    title: Period over which characteristic is tested
+  resourceType:
+    const: GroupCharacteristic
+    default: GroupCharacteristic
+    description: One of the resource types defined as part of FHIR
+    title: Resource Type
+    type: string
+  valueBoolean:
+    description: The value of the trait that holds (or does not hold - see 'exclude')
+      for members of the group.
+    element_property: true
+    one_of_many: value
+    one_of_many_required: true
+    title: Value held by characteristic
+    type: boolean
+  valueCodeableConcept:
+    $ref: CodeableConcept.yaml
+    description: The value of the trait that holds (or does not hold - see 'exclude')
+      for members of the group.
+    element_property: true
+    one_of_many: value
+    one_of_many_required: true
+    title: Value held by characteristic
+  valueQuantity:
+    $ref: Quantity.yaml
+    description: The value of the trait that holds (or does not hold - see 'exclude')
+      for members of the group.
+    element_property: true
+    one_of_many: value
+    one_of_many_required: true
+    title: Value held by characteristic
+  valueRange:
+    $ref: Range.yaml
+    description: The value of the trait that holds (or does not hold - see 'exclude')
+      for members of the group.
+    element_property: true
+    one_of_many: value
+    one_of_many_required: true
+    title: Value held by characteristic
+  valueReference:
     $ref: Reference.yaml
-    backref: codeable_reference
-    description: A reference to a resource the provides exact details about the information
-      being referenced.
+    backref: group_characteristic
+    description: The value of the trait that holds (or does not hold - see 'exclude')
+      for members of the group.
     element_property: true
     enum_reference_types:
     - Organization
@@ -444,12 +516,10 @@ properties:
     - FamilyMemberHistory
     - BodyStructure
     - Group
-    title: Reference to a resource (by instance)
-  resourceType:
-    const: CodeableReference
-    default: CodeableReference
-    description: One of the resource types defined as part of FHIR
-    title: Resource Type
-    type: string
-title: CodeableReference
+    one_of_many: value
+    one_of_many_required: true
+    title: Value held by characteristic
+required:
+- code
+title: GroupCharacteristic
 type: object

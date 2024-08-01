@@ -1,7 +1,41 @@
 $id: ResearchStudyRecruitment
 additionalProperties: false
 description: Target or actual group of participants enrolled in study. [See https://hl7.org/fhir/R5/ResearchStudyRecruitment.html]
-links: []
+links:
+- href: '{id}'
+  rel: actualGroup
+  targetHints:
+    backref:
+    - actualGroup_research_study_recruitment
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /actualGroup/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: eligibility_Group
+  targetHints:
+    backref:
+    - eligibility_research_study_recruitment
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /eligibility/reference
+  templateRequired:
+  - id
 properties:
   _actualNumber:
     $ref: FHIRPrimitiveExtension.yaml

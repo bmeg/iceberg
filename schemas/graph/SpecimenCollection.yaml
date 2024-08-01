@@ -449,6 +449,24 @@ links:
     id: /bodySite/reference/reference
   templateRequired:
   - id
+- $comment: From CodeableReference/bodySite
+  href: '{id}'
+  rel: bodySite_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /bodySite/reference/reference
+  templateRequired:
+  - id
 - $comment: From CodeableReference/device
   href: '{id}'
   rel: device_reference_Organization
@@ -823,6 +841,24 @@ links:
     - BodyStructure/*
   targetSchema:
     $ref: BodyStructure.yaml
+  templatePointers:
+    id: /device/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/device
+  href: '{id}'
+  rel: device_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /device/reference/reference
   templateRequired:

@@ -21,6 +21,23 @@ links:
     id: /subject/reference
   templateRequired:
   - id
+- href: '{id}'
+  rel: subject_Group
+  targetHints:
+    backref:
+    - condition
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
 - $comment: From CodeableReference/evidence
   href: '{id}'
   rel: evidence_reference_Organization
@@ -395,6 +412,24 @@ links:
     - BodyStructure/*
   targetSchema:
     $ref: BodyStructure.yaml
+  templatePointers:
+    id: /evidence/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/evidence
+  href: '{id}'
+  rel: evidence_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /evidence/-/reference/reference
   templateRequired:
