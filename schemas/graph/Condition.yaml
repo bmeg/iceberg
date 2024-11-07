@@ -58,6 +58,24 @@ links:
   - id
 - $comment: From CodeableReference/evidence
   href: '{id}'
+  rel: evidence_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /evidence/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/evidence
+  href: '{id}'
   rel: evidence_reference_Practitioner
   targetHints:
     backref:
@@ -160,6 +178,24 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /evidence/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/evidence
+  href: '{id}'
+  rel: evidence_reference_SubstanceDefinition
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /evidence/-/reference/reference
   templateRequired:
@@ -412,24 +448,6 @@ links:
     - BodyStructure/*
   targetSchema:
     $ref: BodyStructure.yaml
-  templatePointers:
-    id: /evidence/-/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/evidence
-  href: '{id}'
-  rel: evidence_reference_Group
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
   templatePointers:
     id: /evidence/-/reference/reference
   templateRequired:

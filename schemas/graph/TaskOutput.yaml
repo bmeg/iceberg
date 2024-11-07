@@ -21,6 +21,23 @@ links:
   templateRequired:
   - id
 - href: '{id}'
+  rel: valueReference_Group
+  targetHints:
+    backref:
+    - task_output
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /valueReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: valueReference_Practitioner
   targetHints:
     backref:
@@ -118,6 +135,23 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /valueReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: valueReference_SubstanceDefinition
+  targetHints:
+    backref:
+    - task_output
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /valueReference/reference
   templateRequired:
@@ -360,23 +394,6 @@ links:
     id: /valueReference/reference
   templateRequired:
   - id
-- href: '{id}'
-  rel: valueReference_Group
-  targetHints:
-    backref:
-    - task_output
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
-  templatePointers:
-    id: /valueReference/reference
-  templateRequired:
-  - id
 - $comment: From Annotation/valueAnnotation
   href: '{id}'
   rel: valueAnnotation_authorReference_Practitioner
@@ -463,6 +480,24 @@ links:
     - Organization/*
   targetSchema:
     $ref: Organization.yaml
+  templatePointers:
+    id: /valueCodeableReference/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/valueCodeableReference
+  href: '{id}'
+  rel: valueCodeableReference_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /valueCodeableReference/reference/reference
   templateRequired:
@@ -571,6 +606,24 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /valueCodeableReference/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/valueCodeableReference
+  href: '{id}'
+  rel: valueCodeableReference_reference_SubstanceDefinition
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /valueCodeableReference/reference/reference
   templateRequired:
@@ -827,24 +880,6 @@ links:
     id: /valueCodeableReference/reference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/valueCodeableReference
-  href: '{id}'
-  rel: valueCodeableReference_reference_Group
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
-  templatePointers:
-    id: /valueCodeableReference/reference/reference
-  templateRequired:
-  - id
 - $comment: From DataRequirement/valueDataRequirement
   href: '{id}'
   rel: valueDataRequirement_subjectReference
@@ -895,6 +930,24 @@ links:
     - Organization/*
   targetSchema:
     $ref: Organization.yaml
+  templatePointers:
+    id: /valueRelatedArtifact/resourceReference/reference
+  templateRequired:
+  - id
+- $comment: From RelatedArtifact/valueRelatedArtifact
+  href: '{id}'
+  rel: valueRelatedArtifact_resourceReference_Group
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /valueRelatedArtifact/resourceReference/reference
   templateRequired:
@@ -1003,6 +1056,24 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /valueRelatedArtifact/resourceReference/reference
+  templateRequired:
+  - id
+- $comment: From RelatedArtifact/valueRelatedArtifact
+  href: '{id}'
+  rel: valueRelatedArtifact_resourceReference_SubstanceDefinition
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /valueRelatedArtifact/resourceReference/reference
   templateRequired:
@@ -1255,24 +1326,6 @@ links:
     - BodyStructure/*
   targetSchema:
     $ref: BodyStructure.yaml
-  templatePointers:
-    id: /valueRelatedArtifact/resourceReference/reference
-  templateRequired:
-  - id
-- $comment: From RelatedArtifact/valueRelatedArtifact
-  href: '{id}'
-  rel: valueRelatedArtifact_resourceReference_Group
-  targetHints:
-    backref:
-    - related_artifact
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
   templatePointers:
     id: /valueRelatedArtifact/resourceReference/reference
   templateRequired:
@@ -1901,12 +1954,14 @@ properties:
     element_property: true
     enum_reference_types:
     - Organization
+    - Group
     - Practitioner
     - PractitionerRole
     - ResearchStudy
     - Patient
     - ResearchSubject
     - Substance
+    - SubstanceDefinition
     - Specimen
     - Observation
     - DiagnosticReport
@@ -1921,7 +1976,6 @@ properties:
     - ImagingStudy
     - FamilyMemberHistory
     - BodyStructure
-    - Group
     one_of_many: value
     one_of_many_required: true
     title: Result of output

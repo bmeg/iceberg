@@ -22,6 +22,23 @@ links:
   templateRequired:
   - id
 - href: '{id}'
+  rel: reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /reference/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: reference_Practitioner
   targetHints:
     backref:
@@ -119,6 +136,23 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /reference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: reference_SubstanceDefinition
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /reference/reference
   templateRequired:
@@ -361,23 +395,6 @@ links:
     id: /reference/reference
   templateRequired:
   - id
-- href: '{id}'
-  rel: reference_Group
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
-  templatePointers:
-    id: /reference/reference
-  templateRequired:
-  - id
 properties:
   concept:
     $ref: CodeableConcept.yaml
@@ -423,12 +440,14 @@ properties:
     element_property: true
     enum_reference_types:
     - Organization
+    - Group
     - Practitioner
     - PractitionerRole
     - ResearchStudy
     - Patient
     - ResearchSubject
     - Substance
+    - SubstanceDefinition
     - Specimen
     - Observation
     - DiagnosticReport
@@ -443,7 +462,6 @@ properties:
     - ImagingStudy
     - FamilyMemberHistory
     - BodyStructure
-    - Group
     title: Reference to a resource (by instance)
   resourceType:
     const: CodeableReference

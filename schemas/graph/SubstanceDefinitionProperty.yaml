@@ -1,20 +1,14 @@
-$id: ImmunizationReaction
+$id: SubstanceDefinitionProperty
 additionalProperties: false
-description: Details of a reaction that follows immunization. Categorical data indicating
-  that an adverse event is associated in time to an immunization. [See https://hl7.org/fhir/R5/ImmunizationReaction.html]
+description: General specifications for this substance. [See https://hl7.org/fhir/R5/SubstanceDefinitionProperty.html]
+links: []
 properties:
-  _date:
+  _valueBoolean:
     $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``date``.
-  _reported:
+    title: Extension field for ``valueBoolean``.
+  _valueDate:
     $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``reported``.
-  date:
-    description: Date of reaction to the immunization.
-    element_property: true
-    format: date-time
-    title: When reaction started
-    type: string
+    title: Extension field for ``valueDate``.
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -41,14 +35,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
-  manifestation:
-    $ref: CodeableReference.yaml
-    backref: immunization_reaction
-    description: Details of the reaction.
-    element_property: true
-    enum_reference_types:
-    - Observation
-    title: Additional information on reaction
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of
@@ -66,16 +56,53 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
-  reported:
-    description: Self-reported indicator.
-    element_property: true
-    title: Indicates self-reported reaction
-    type: boolean
   resourceType:
-    const: ImmunizationReaction
-    default: ImmunizationReaction
+    const: SubstanceDefinitionProperty
+    default: SubstanceDefinitionProperty
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-title: ImmunizationReaction
+  type:
+    $ref: CodeableConcept.yaml
+    binding_description: This value set includes all observable entity codes from
+      SNOMED CT - provided as an exemplar value set.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/product-characteristic-codes
+    binding_version: null
+    element_property: true
+    title: A code expressing the type of property
+  valueAttachment:
+    $ref: Attachment.yaml
+    element_property: true
+    one_of_many: value
+    one_of_many_required: false
+    title: A value for the property
+  valueBoolean:
+    element_property: true
+    one_of_many: value
+    one_of_many_required: false
+    title: A value for the property
+    type: boolean
+  valueCodeableConcept:
+    $ref: CodeableConcept.yaml
+    element_property: true
+    one_of_many: value
+    one_of_many_required: false
+    title: A value for the property
+  valueDate:
+    element_property: true
+    format: date
+    one_of_many: value
+    one_of_many_required: false
+    title: A value for the property
+    type: string
+  valueQuantity:
+    $ref: Quantity.yaml
+    element_property: true
+    one_of_many: value
+    one_of_many_required: false
+    title: A value for the property
+required:
+- type
+title: SubstanceDefinitionProperty
 type: object

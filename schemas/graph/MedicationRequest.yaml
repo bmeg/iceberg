@@ -330,6 +330,23 @@ links:
   templateRequired:
   - id
 - href: '{id}'
+  rel: supportingInformation_Group
+  targetHints:
+    backref:
+    - supportingInformation_medication_request
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /supportingInformation/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: supportingInformation_Practitioner
   targetHints:
     backref:
@@ -427,6 +444,23 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /supportingInformation/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: supportingInformation_SubstanceDefinition
+  targetHints:
+    backref:
+    - supportingInformation_medication_request
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /supportingInformation/-/reference
   templateRequired:
@@ -669,23 +703,6 @@ links:
     id: /supportingInformation/-/reference
   templateRequired:
   - id
-- href: '{id}'
-  rel: supportingInformation_Group
-  targetHints:
-    backref:
-    - supportingInformation_medication_request
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
-  templatePointers:
-    id: /supportingInformation/-/reference
-  templateRequired:
-  - id
 - $comment: From CodeableReference/device
   href: '{id}'
   rel: device_reference_Organization
@@ -700,6 +717,24 @@ links:
     - Organization/*
   targetSchema:
     $ref: Organization.yaml
+  templatePointers:
+    id: /device/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/device
+  href: '{id}'
+  rel: device_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /device/-/reference/reference
   templateRequired:
@@ -808,6 +843,24 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /device/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/device
+  href: '{id}'
+  rel: device_reference_SubstanceDefinition
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /device/-/reference/reference
   templateRequired:
@@ -1064,24 +1117,6 @@ links:
     id: /device/-/reference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Group
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
-  templatePointers:
-    id: /device/-/reference/reference
-  templateRequired:
-  - id
 - $comment: From MedicationRequestDispenseRequest/dispenseRequest
   href: '{id}'
   rel: dispenseRequest_dispenser
@@ -1114,6 +1149,24 @@ links:
     - Organization/*
   targetSchema:
     $ref: Organization.yaml
+  templatePointers:
+    id: /medication/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/medication
+  href: '{id}'
+  rel: medication_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /medication/reference/reference
   templateRequired:
@@ -1222,6 +1275,24 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /medication/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/medication
+  href: '{id}'
+  rel: medication_reference_SubstanceDefinition
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /medication/reference/reference
   templateRequired:
@@ -1478,24 +1549,6 @@ links:
     id: /medication/reference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/medication
-  href: '{id}'
-  rel: medication_reference_Group
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
-  templatePointers:
-    id: /medication/reference/reference
-  templateRequired:
-  - id
 - $comment: From Annotation/note
   href: '{id}'
   rel: note_authorReference_Practitioner
@@ -1582,6 +1635,24 @@ links:
     - Organization/*
   targetSchema:
     $ref: Organization.yaml
+  templatePointers:
+    id: /reason/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/reason
+  href: '{id}'
+  rel: reason_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /reason/-/reference/reference
   templateRequired:
@@ -1690,6 +1761,24 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /reason/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/reason
+  href: '{id}'
+  rel: reason_reference_SubstanceDefinition
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /reason/-/reference/reference
   templateRequired:
@@ -1942,24 +2031,6 @@ links:
     - BodyStructure/*
   targetSchema:
     $ref: BodyStructure.yaml
-  templatePointers:
-    id: /reason/-/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/reason
-  href: '{id}'
-  rel: reason_reference_Group
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
   templatePointers:
     id: /reason/-/reference/reference
   templateRequired:
@@ -2466,12 +2537,14 @@ properties:
     element_property: true
     enum_reference_types:
     - Organization
+    - Group
     - Practitioner
     - PractitionerRole
     - ResearchStudy
     - Patient
     - ResearchSubject
     - Substance
+    - SubstanceDefinition
     - Specimen
     - Observation
     - DiagnosticReport
@@ -2486,7 +2559,6 @@ properties:
     - ImagingStudy
     - FamilyMemberHistory
     - BodyStructure
-    - Group
     items:
       $ref: Reference.yaml
     title: Information to support fulfilling of the medication

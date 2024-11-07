@@ -106,6 +106,23 @@ links:
   templateRequired:
   - id
 - href: '{id}'
+  rel: focus_Group
+  targetHints:
+    backref:
+    - focus_observation
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /focus/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: focus_Practitioner
   targetHints:
     backref:
@@ -203,6 +220,23 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /focus/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: focus_SubstanceDefinition
+  targetHints:
+    backref:
+    - focus_observation
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /focus/-/reference
   templateRequired:
@@ -441,23 +475,6 @@ links:
     - BodyStructure/*
   targetSchema:
     $ref: BodyStructure.yaml
-  templatePointers:
-    id: /focus/-/reference
-  templateRequired:
-  - id
-- href: '{id}'
-  rel: focus_Group
-  targetHints:
-    backref:
-    - focus_observation
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
   templatePointers:
     id: /focus/-/reference
   templateRequired:
@@ -1100,12 +1117,14 @@ properties:
     element_property: true
     enum_reference_types:
     - Organization
+    - Group
     - Practitioner
     - PractitionerRole
     - ResearchStudy
     - Patient
     - ResearchSubject
     - Substance
+    - SubstanceDefinition
     - Specimen
     - Observation
     - DiagnosticReport
@@ -1120,7 +1139,6 @@ properties:
     - ImagingStudy
     - FamilyMemberHistory
     - BodyStructure
-    - Group
     items:
       $ref: Reference.yaml
     title: What the observation is about, when it is not about the subject of record

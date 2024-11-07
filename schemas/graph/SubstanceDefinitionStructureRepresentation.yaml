@@ -1,25 +1,38 @@
-$id: EncounterParticipant
+$id: SubstanceDefinitionStructureRepresentation
 additionalProperties: false
-description: List of participants involved in the encounter. The list of people responsible
-  for providing the service. [See https://hl7.org/fhir/R5/EncounterParticipant.html]
+description: A depiction of the structure of the substance. [See https://hl7.org/fhir/R5/SubstanceDefinitionStructureRepresentation.html]
+links:
+- href: '{id}'
+  rel: document
+  targetHints:
+    backref:
+    - substance_definition_structure_representation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - DocumentReference/*
+  targetSchema:
+    $ref: DocumentReference.yaml
+  templatePointers:
+    id: /document/reference
+  templateRequired:
+  - id
 properties:
-  actor:
+  _representation:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``representation``.
+  document:
     $ref: Reference.yaml
-    backref: encounter_participant
-    description: Person involved in the encounter, the patient/group is also included
-      here to indicate that the patient was actually participating in the encounter.
-      Not including the patient here covers use cases such as a case meeting between
-      practitioners about a patient - non contact times.
+    backref: substance_definition_structure_representation
+    description: An attached file with the structural representation e.g. a molecular
+      structure graphic of the substance, a JCAMP or AnIML file.
     element_property: true
     enum_reference_types:
-    - Patient
-    - Group
-    - RelatedPerson
-    - Practitioner
-    - PractitionerRole
-    - Device
-    - HealthcareService
-    title: The individual, device, or service participating in the encounter
+    - DocumentReference
+    title: An attachment with the structural representation e.g. a structure graphic
+      or AnIML file
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -39,6 +52,18 @@ properties:
       type: array
     element_property: false
     title: Fhir Comments
+  format:
+    $ref: CodeableConcept.yaml
+    binding_description: A format of a substance representation.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/substance-representation-format
+    binding_version: null
+    description: The format of the representation e.g. InChI, SMILES, MOLFILE, CDX,
+      SDF, PDB, mmCIF. The logical content type rather than the physical file format
+      of a document.
+    element_property: true
+    title: 'The format of the representation e.g. InChI, SMILES, MOLFILE (note: not
+      the physical file format)'
   id:
     description: Unique id for the element within a resource (for internal references).
       This may be any string value that does not contain spaces.
@@ -46,6 +71,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of
@@ -63,27 +92,24 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
-  period:
-    $ref: Period.yaml
-    description: The period of time that the specified participant participated in
-      the encounter. These can overlap or be sub-sets of the overall encounter's period.
+  representation:
     element_property: true
-    title: Period of time during the encounter that the participant participated
+    pattern: '[ \r\n\t\S]+'
+    title: The structural representation as a text string in a standard format
+    type: string
   resourceType:
-    const: EncounterParticipant
-    default: EncounterParticipant
+    const: SubstanceDefinitionStructureRepresentation
+    default: SubstanceDefinitionStructureRepresentation
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
   type:
-    binding_description: Role of participant in encounter.
-    binding_strength: extensible
-    binding_uri: http://hl7.org/fhir/ValueSet/encounter-participant-type
+    $ref: CodeableConcept.yaml
+    binding_description: A format of a substance representation.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/substance-representation-type
     binding_version: null
     element_property: true
-    items:
-      $ref: CodeableConcept.yaml
-    title: Role of participant in encounter
-    type: array
-title: EncounterParticipant
+    title: The kind of structural representation (e.g. full, partial)
+title: SubstanceDefinitionStructureRepresentation
 type: object

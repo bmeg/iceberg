@@ -21,6 +21,23 @@ links:
   templateRequired:
   - id
 - href: '{id}'
+  rel: valueReference_Group
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /valueReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: valueReference_Practitioner
   targetHints:
     backref:
@@ -118,6 +135,23 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /valueReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: valueReference_SubstanceDefinition
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /valueReference/reference
   templateRequired:
@@ -360,23 +394,6 @@ links:
     id: /valueReference/reference
   templateRequired:
   - id
-- href: '{id}'
-  rel: valueReference_Group
-  targetHints:
-    backref:
-    - group_characteristic
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
-  templatePointers:
-    id: /valueReference/reference
-  templateRequired:
-  - id
 properties:
   _exclude:
     $ref: FHIRPrimitiveExtension.yaml
@@ -495,12 +512,14 @@ properties:
     element_property: true
     enum_reference_types:
     - Organization
+    - Group
     - Practitioner
     - PractitionerRole
     - ResearchStudy
     - Patient
     - ResearchSubject
     - Substance
+    - SubstanceDefinition
     - Specimen
     - Observation
     - DiagnosticReport
@@ -515,7 +534,6 @@ properties:
     - ImagingStudy
     - FamilyMemberHistory
     - BodyStructure
-    - Group
     one_of_many: value
     one_of_many_required: true
     title: Value held by characteristic

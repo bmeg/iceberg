@@ -201,6 +201,24 @@ links:
   - id
 - $comment: From CodeableReference/procedure
   href: '{id}'
+  rel: procedure_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /procedure/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/procedure
+  href: '{id}'
   rel: procedure_reference_Practitioner
   targetHints:
     backref:
@@ -303,6 +321,24 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /procedure/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/procedure
+  href: '{id}'
+  rel: procedure_reference_SubstanceDefinition
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /procedure/-/reference/reference
   templateRequired:
@@ -559,24 +595,6 @@ links:
     id: /procedure/-/reference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/procedure
-  href: '{id}'
-  rel: procedure_reference_Group
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
-  templatePointers:
-    id: /procedure/-/reference/reference
-  templateRequired:
-  - id
 - $comment: From CodeableReference/reason
   href: '{id}'
   rel: reason_reference_Organization
@@ -591,6 +609,24 @@ links:
     - Organization/*
   targetSchema:
     $ref: Organization.yaml
+  templatePointers:
+    id: /reason/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/reason
+  href: '{id}'
+  rel: reason_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /reason/-/reference/reference
   templateRequired:
@@ -699,6 +735,24 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /reason/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/reason
+  href: '{id}'
+  rel: reason_reference_SubstanceDefinition
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /reason/-/reference/reference
   templateRequired:
@@ -951,24 +1005,6 @@ links:
     - BodyStructure/*
   targetSchema:
     $ref: BodyStructure.yaml
-  templatePointers:
-    id: /reason/-/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/reason
-  href: '{id}'
-  rel: reason_reference_Group
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
   templatePointers:
     id: /reason/-/reference/reference
   templateRequired:

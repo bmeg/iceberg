@@ -22,6 +22,24 @@ links:
   - id
 - $comment: From CodeableReference/code
   href: '{id}'
+  rel: code_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /code/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/code
+  href: '{id}'
   rel: code_reference_Practitioner
   targetHints:
     backref:
@@ -124,6 +142,24 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /code/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/code
+  href: '{id}'
+  rel: code_reference_SubstanceDefinition
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /code/reference/reference
   templateRequired:
@@ -376,24 +412,6 @@ links:
     - BodyStructure/*
   targetSchema:
     $ref: BodyStructure.yaml
-  templatePointers:
-    id: /code/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/code
-  href: '{id}'
-  rel: code_reference_Group
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
   templatePointers:
     id: /code/reference/reference
   templateRequired:

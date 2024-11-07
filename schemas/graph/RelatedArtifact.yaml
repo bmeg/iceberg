@@ -21,6 +21,23 @@ links:
   templateRequired:
   - id
 - href: '{id}'
+  rel: resourceReference_Group
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: resourceReference_Practitioner
   targetHints:
     backref:
@@ -118,6 +135,23 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_SubstanceDefinition
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /resourceReference/reference
   templateRequired:
@@ -360,23 +394,6 @@ links:
     id: /resourceReference/reference
   templateRequired:
   - id
-- href: '{id}'
-  rel: resourceReference_Group
-  targetHints:
-    backref:
-    - related_artifact
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
-  templatePointers:
-    id: /resourceReference/reference
-  templateRequired:
-  - id
 properties:
   _citation:
     $ref: FHIRPrimitiveExtension.yaml
@@ -505,12 +522,14 @@ properties:
     element_property: true
     enum_reference_types:
     - Organization
+    - Group
     - Practitioner
     - PractitionerRole
     - ResearchStudy
     - Patient
     - ResearchSubject
     - Substance
+    - SubstanceDefinition
     - Specimen
     - Observation
     - DiagnosticReport
@@ -525,7 +544,6 @@ properties:
     - ImagingStudy
     - FamilyMemberHistory
     - BodyStructure
-    - Group
     title: What artifact, if not a conformance resource
   resourceType:
     const: RelatedArtifact

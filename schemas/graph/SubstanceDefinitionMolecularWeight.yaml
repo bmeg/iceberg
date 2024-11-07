@@ -1,24 +1,17 @@
-$id: LocationPosition
+$id: SubstanceDefinitionMolecularWeight
 additionalProperties: false
-description: The absolute geographic location. The absolute geographic location of
-  the Location, expressed using the WGS84 datum (This is the same co-ordinate system
-  used in KML). [See https://hl7.org/fhir/R5/LocationPosition.html]
+description: The average mass of a molecule of a compound. The average mass of a molecule
+  of a compound compared to 1/12 the mass of carbon 12 and calculated as the sum of
+  the atomic weights of the constituent atoms. [See https://hl7.org/fhir/R5/SubstanceDefinitionMolecularWeight.html]
+links: []
 properties:
-  _altitude:
-    $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``altitude``.
-  _latitude:
-    $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``latitude``.
-  _longitude:
-    $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``longitude``.
-  altitude:
-    description: Altitude. The value domain and the interpretation are the same as
-      for the text of the altitude element in KML (see notes on Location main page).
+  amount:
+    $ref: Quantity.yaml
+    description: Used to capture quantitative values for a variety of elements. If
+      only limits are given, the arithmetic mean would be the average. If only a single
+      definite value for a given element is given, it would be captured in this field.
     element_property: true
-    title: Altitude with WGS84 datum
-    type: number
+    title: Used to capture quantitative values for a variety of elements
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -45,20 +38,19 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
-  latitude:
-    description: Latitude. The value domain and the interpretation are the same as
-      for the text of the latitude element in KML (see notes on Location main page).
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
+  method:
+    $ref: CodeableConcept.yaml
+    binding_description: The method by which the substance weight was measured.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/substance-weight-method
+    binding_version: null
+    description: The method by which the molecular weight was determined.
     element_property: true
-    element_required: true
-    title: Latitude with WGS84 datum
-    type: number
-  longitude:
-    description: Longitude. The value domain and the interpretation are the same as
-      for the text of the longitude element in KML (see notes on Location main page).
-    element_property: true
-    element_required: true
-    title: Longitude with WGS84 datum
-    type: number
+    title: The method by which the weight was determined
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of
@@ -77,10 +69,22 @@ properties:
     title: Extensions that cannot be ignored even if unrecognized
     type: array
   resourceType:
-    const: LocationPosition
-    default: LocationPosition
+    const: SubstanceDefinitionMolecularWeight
+    default: SubstanceDefinitionMolecularWeight
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-title: LocationPosition
+  type:
+    $ref: CodeableConcept.yaml
+    binding_description: The type of substance weight measurement.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/substance-weight-type
+    binding_version: null
+    description: Type of molecular weight such as exact, average (also known as. number
+      average), weight average.
+    element_property: true
+    title: Type of molecular weight e.g. exact, average, weight average
+required:
+- amount
+title: SubstanceDefinitionMolecularWeight
 type: object

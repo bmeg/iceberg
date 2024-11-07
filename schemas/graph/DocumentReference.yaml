@@ -130,6 +130,23 @@ links:
   templateRequired:
   - id
 - href: '{id}'
+  rel: subject_Group
+  targetHints:
+    backref:
+    - document_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: subject_Practitioner
   targetHints:
     backref:
@@ -227,6 +244,23 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: subject_SubstanceDefinition
+  targetHints:
+    backref:
+    - document_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /subject/reference
   templateRequired:
@@ -469,23 +503,6 @@ links:
     id: /subject/reference
   templateRequired:
   - id
-- href: '{id}'
-  rel: subject_Group
-  targetHints:
-    backref:
-    - document_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
-  templatePointers:
-    id: /subject/reference
-  templateRequired:
-  - id
 - $comment: From DocumentReferenceAttester/attester
   href: '{id}'
   rel: attester_party_Patient
@@ -572,6 +589,24 @@ links:
     - Organization/*
   targetSchema:
     $ref: Organization.yaml
+  templatePointers:
+    id: /bodySite/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/bodySite
+  href: '{id}'
+  rel: bodySite_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /bodySite/-/reference/reference
   templateRequired:
@@ -680,6 +715,24 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /bodySite/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/bodySite
+  href: '{id}'
+  rel: bodySite_reference_SubstanceDefinition
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /bodySite/-/reference/reference
   templateRequired:
@@ -936,24 +989,6 @@ links:
     id: /bodySite/-/reference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/bodySite
-  href: '{id}'
-  rel: bodySite_reference_Group
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
-  templatePointers:
-    id: /bodySite/-/reference/reference
-  templateRequired:
-  - id
 - $comment: From CodeableReference/event
   href: '{id}'
   rel: event_reference_Organization
@@ -968,6 +1003,24 @@ links:
     - Organization/*
   targetSchema:
     $ref: Organization.yaml
+  templatePointers:
+    id: /event/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/event
+  href: '{id}'
+  rel: event_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
   templatePointers:
     id: /event/-/reference/reference
   templateRequired:
@@ -1076,6 +1129,24 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /event/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/event
+  href: '{id}'
+  rel: event_reference_SubstanceDefinition
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /event/-/reference/reference
   templateRequired:
@@ -1328,24 +1399,6 @@ links:
     - BodyStructure/*
   targetSchema:
     $ref: BodyStructure.yaml
-  templatePointers:
-    id: /event/-/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/event
-  href: '{id}'
-  rel: event_reference_Group
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
   templatePointers:
     id: /event/-/reference/reference
   templateRequired:
@@ -1739,12 +1792,14 @@ properties:
     element_property: true
     enum_reference_types:
     - Organization
+    - Group
     - Practitioner
     - PractitionerRole
     - ResearchStudy
     - Patient
     - ResearchSubject
     - Substance
+    - SubstanceDefinition
     - Specimen
     - Observation
     - DiagnosticReport
@@ -1759,7 +1814,6 @@ properties:
     - ImagingStudy
     - FamilyMemberHistory
     - BodyStructure
-    - Group
     title: Who/what is the subject of the document
   text:
     $ref: Narrative.yaml

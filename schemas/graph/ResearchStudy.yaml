@@ -167,6 +167,24 @@ links:
   - id
 - $comment: From CodeableReference/focus
   href: '{id}'
+  rel: focus_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /focus/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/focus
+  href: '{id}'
   rel: focus_reference_Practitioner
   targetHints:
     backref:
@@ -269,6 +287,24 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /focus/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/focus
+  href: '{id}'
+  rel: focus_reference_SubstanceDefinition
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /focus/-/reference/reference
   templateRequired:
@@ -525,24 +561,6 @@ links:
     id: /focus/-/reference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/focus
-  href: '{id}'
-  rel: focus_reference_Group
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
-  templatePointers:
-    id: /focus/-/reference/reference
-  templateRequired:
-  - id
 - $comment: From Annotation/note
   href: '{id}'
   rel: note_authorReference_Practitioner
@@ -671,6 +689,24 @@ links:
   - id
 - $comment: From RelatedArtifact/relatedArtifact
   href: '{id}'
+  rel: relatedArtifact_resourceReference_Group
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /relatedArtifact/-/resourceReference/reference
+  templateRequired:
+  - id
+- $comment: From RelatedArtifact/relatedArtifact
+  href: '{id}'
   rel: relatedArtifact_resourceReference_Practitioner
   targetHints:
     backref:
@@ -773,6 +809,24 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /relatedArtifact/-/resourceReference/reference
+  templateRequired:
+  - id
+- $comment: From RelatedArtifact/relatedArtifact
+  href: '{id}'
+  rel: relatedArtifact_resourceReference_SubstanceDefinition
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /relatedArtifact/-/resourceReference/reference
   templateRequired:
@@ -1025,24 +1079,6 @@ links:
     - BodyStructure/*
   targetSchema:
     $ref: BodyStructure.yaml
-  templatePointers:
-    id: /relatedArtifact/-/resourceReference/reference
-  templateRequired:
-  - id
-- $comment: From RelatedArtifact/relatedArtifact
-  href: '{id}'
-  rel: relatedArtifact_resourceReference_Group
-  targetHints:
-    backref:
-    - related_artifact
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
   templatePointers:
     id: /relatedArtifact/-/resourceReference/reference
   templateRequired:

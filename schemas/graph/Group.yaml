@@ -76,6 +76,24 @@ links:
   - id
 - $comment: From GroupCharacteristic/characteristic
   href: '{id}'
+  rel: characteristic_valueReference_Group
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
   rel: characteristic_valueReference_Practitioner
   targetHints:
     backref:
@@ -178,6 +196,24 @@ links:
     - Substance/*
   targetSchema:
     $ref: Substance.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_SubstanceDefinition
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
   templatePointers:
     id: /characteristic/-/valueReference/reference
   templateRequired:
@@ -430,24 +466,6 @@ links:
     - BodyStructure/*
   targetSchema:
     $ref: BodyStructure.yaml
-  templatePointers:
-    id: /characteristic/-/valueReference/reference
-  templateRequired:
-  - id
-- $comment: From GroupCharacteristic/characteristic
-  href: '{id}'
-  rel: characteristic_valueReference_Group
-  targetHints:
-    backref:
-    - group_characteristic
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
   templatePointers:
     id: /characteristic/-/valueReference/reference
   templateRequired:
