@@ -1,64 +1,30 @@
-$id: DocumentReferenceAttester
+$id: GroupMember
 additionalProperties: false
-description: Attests to accuracy of the document. A participant who has authenticated
-  the accuracy of the document. [See https://hl7.org/fhir/R5/DocumentReferenceAttester.html]
+description: Who or what is in group. Identifies the resource instances that are members
+  of the group. [See https://hl7.org/fhir/R5/GroupMember.html]
 links:
 - href: '{id}'
-  rel: party_Patient
+  rel: entity_Group
   targetHints:
     backref:
-    - document_reference_attester
+    - group_member
     direction:
     - outbound
     multiplicity:
     - has_one
     regex_match:
-    - Patient/*
+    - Group/*
   targetSchema:
-    $ref: Patient.yaml
+    $ref: Group.yaml
   templatePointers:
-    id: /party/reference
+    id: /entity/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: party_Practitioner
+  rel: entity_Organization
   targetHints:
     backref:
-    - document_reference_attester
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Practitioner/*
-  targetSchema:
-    $ref: Practitioner.yaml
-  templatePointers:
-    id: /party/reference
-  templateRequired:
-  - id
-- href: '{id}'
-  rel: party_PractitionerRole
-  targetHints:
-    backref:
-    - document_reference_attester
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - PractitionerRole/*
-  targetSchema:
-    $ref: PractitionerRole.yaml
-  templatePointers:
-    id: /party/reference
-  templateRequired:
-  - id
-- href: '{id}'
-  rel: party_Organization
-  targetHints:
-    backref:
-    - document_reference_attester
+    - group_member
     direction:
     - outbound
     multiplicity:
@@ -68,13 +34,101 @@ links:
   targetSchema:
     $ref: Organization.yaml
   templatePointers:
-    id: /party/reference
+    id: /entity/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: entity_Patient
+  targetHints:
+    backref:
+    - group_member
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Patient/*
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /entity/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: entity_Practitioner
+  targetHints:
+    backref:
+    - group_member
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /entity/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: entity_PractitionerRole
+  targetHints:
+    backref:
+    - group_member
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /entity/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: entity_Specimen
+  targetHints:
+    backref:
+    - group_member
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Specimen/*
+  targetSchema:
+    $ref: Specimen.yaml
+  templatePointers:
+    id: /entity/reference
   templateRequired:
   - id
 properties:
-  _time:
+  _inactive:
     $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``time``.
+    title: Extension field for ``inactive``.
+  entity:
+    $ref: Reference.yaml
+    backref: group_member
+    description: A reference to the entity that is a member of the group. Must be
+      consistent with Group.type. If the entity is another group, then the type must
+      be the same.
+    element_property: true
+    enum_reference_types:
+    - CareTeam
+    - Device
+    - Group
+    - HealthcareService
+    - Location
+    - Organization
+    - Patient
+    - Practitioner
+    - PractitionerRole
+    - RelatedPerson
+    - Specimen
+    title: Reference to the group member
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -101,19 +155,16 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  inactive:
+    description: A flag to indicate that the member is no longer in the group, but
+      previously may have been a member.
+    element_property: true
+    title: If member is no longer in group
+    type: boolean
   links:
     items:
       $ref: https://json-schema.org/draft/2020-12/links
     type: array
-  mode:
-    $ref: CodeableConcept.yaml
-    binding_description: The way in which a person authenticated a document.
-    binding_strength: preferred
-    binding_uri: http://hl7.org/fhir/ValueSet/composition-attestation-mode
-    binding_version: null
-    description: The type of attestation the authenticator offers.
-    element_property: true
-    title: personal | professional | legal | official
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of
@@ -131,31 +182,18 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
-  party:
-    $ref: Reference.yaml
-    backref: document_reference_attester
-    description: Who attested the document in the specified way.
+  period:
+    $ref: Period.yaml
+    description: The period that the member was in the group, if known.
     element_property: true
-    enum_reference_types:
-    - Patient
-    - RelatedPerson
-    - Practitioner
-    - PractitionerRole
-    - Organization
-    title: Who attested the document
+    title: Period member belonged to the group
   resourceType:
-    const: DocumentReferenceAttester
-    default: DocumentReferenceAttester
+    const: GroupMember
+    default: GroupMember
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-  time:
-    description: When the document was attested by the party.
-    element_property: true
-    format: date-time
-    title: When the document was attested
-    type: string
 required:
-- mode
-title: DocumentReferenceAttester
+- entity
+title: GroupMember
 type: object

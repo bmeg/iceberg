@@ -1,0 +1,822 @@
+$id: Group
+additionalProperties: false
+description: Group of multiple entities. Represents a defined collection of entities
+  that may be discussed or acted upon collectively but which are not expected to act
+  collectively, and are not formally or legally recognized; i.e. a collection of entities
+  that isn't an Organization. [See https://hl7.org/fhir/R5/Group.html]
+links:
+- href: '{id}'
+  rel: managingEntity_Organization
+  targetHints:
+    backref:
+    - group
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /managingEntity/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: managingEntity_Practitioner
+  targetHints:
+    backref:
+    - group
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /managingEntity/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: managingEntity_PractitionerRole
+  targetHints:
+    backref:
+    - group
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /managingEntity/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_Organization
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_Group
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_Practitioner
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_PractitionerRole
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_ResearchStudy
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - ResearchStudy/*
+  targetSchema:
+    $ref: ResearchStudy.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_Patient
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Patient/*
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_ResearchSubject
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - ResearchSubject/*
+  targetSchema:
+    $ref: ResearchSubject.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_Substance
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Substance/*
+  targetSchema:
+    $ref: Substance.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_SubstanceDefinition
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_Specimen
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Specimen/*
+  targetSchema:
+    $ref: Specimen.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_Observation
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Observation/*
+  targetSchema:
+    $ref: Observation.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_DiagnosticReport
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - DiagnosticReport/*
+  targetSchema:
+    $ref: DiagnosticReport.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_Condition
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Condition/*
+  targetSchema:
+    $ref: Condition.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_Medication
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Medication/*
+  targetSchema:
+    $ref: Medication.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_MedicationAdministration
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - MedicationAdministration/*
+  targetSchema:
+    $ref: MedicationAdministration.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_MedicationStatement
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - MedicationStatement/*
+  targetSchema:
+    $ref: MedicationStatement.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_MedicationRequest
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - MedicationRequest/*
+  targetSchema:
+    $ref: MedicationRequest.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_Procedure
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Procedure/*
+  targetSchema:
+    $ref: Procedure.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_DocumentReference
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - DocumentReference/*
+  targetSchema:
+    $ref: DocumentReference.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_Task
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Task/*
+  targetSchema:
+    $ref: Task.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_ImagingStudy
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - ImagingStudy/*
+  targetSchema:
+    $ref: ImagingStudy.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_FamilyMemberHistory
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - FamilyMemberHistory/*
+  targetSchema:
+    $ref: FamilyMemberHistory.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupCharacteristic/characteristic
+  href: '{id}'
+  rel: characteristic_valueReference_BodyStructure
+  targetHints:
+    backref:
+    - group_characteristic
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - BodyStructure/*
+  targetSchema:
+    $ref: BodyStructure.yaml
+  templatePointers:
+    id: /characteristic/-/valueReference/reference
+  templateRequired:
+  - id
+- $comment: From GroupMember/member
+  href: '{id}'
+  rel: member_entity_Group
+  targetHints:
+    backref:
+    - group_member
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /member/-/entity/reference
+  templateRequired:
+  - id
+- $comment: From GroupMember/member
+  href: '{id}'
+  rel: member_entity_Organization
+  targetHints:
+    backref:
+    - group_member
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /member/-/entity/reference
+  templateRequired:
+  - id
+- $comment: From GroupMember/member
+  href: '{id}'
+  rel: member_entity_Patient
+  targetHints:
+    backref:
+    - group_member
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Patient/*
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /member/-/entity/reference
+  templateRequired:
+  - id
+- $comment: From GroupMember/member
+  href: '{id}'
+  rel: member_entity_Practitioner
+  targetHints:
+    backref:
+    - group_member
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /member/-/entity/reference
+  templateRequired:
+  - id
+- $comment: From GroupMember/member
+  href: '{id}'
+  rel: member_entity_PractitionerRole
+  targetHints:
+    backref:
+    - group_member
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /member/-/entity/reference
+  templateRequired:
+  - id
+- $comment: From GroupMember/member
+  href: '{id}'
+  rel: member_entity_Specimen
+  targetHints:
+    backref:
+    - group_member
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Specimen/*
+  targetSchema:
+    $ref: Specimen.yaml
+  templatePointers:
+    id: /member/-/entity/reference
+  templateRequired:
+  - id
+properties:
+  _active:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``active``.
+  _description:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``description``.
+  _implicitRules:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``implicitRules``.
+  _language:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``language``.
+  _membership:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``membership``.
+  _name:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``name``.
+  _quantity:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``quantity``.
+  _type:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``type``.
+  active:
+    description: Indicates whether the record for the group is available for use or
+      is merely being retained for historical purposes.
+    element_property: true
+    title: Whether this group's record is in active use
+    type: boolean
+  characteristic:
+    description: Identifies traits whose presence r absence is shared by members of
+      the group.
+    element_property: true
+    items:
+      $ref: GroupCharacteristic.yaml
+    title: Include / Exclude group members by Trait
+    type: array
+  code:
+    $ref: CodeableConcept.yaml
+    description: Provides a specific type of resource the group includes; e.g. "cow",
+      "syringe", etc.
+    element_property: true
+    title: Kind of Group members
+  contained:
+    description: These resources do not have an independent existence apart from the
+      resource that contains them - they cannot be identified independently, nor can
+      they have their own independent transaction scope. This is allowed to be a Parameters
+      resource if and only if it is referenced by a resource that provides context/meaning.
+    element_property: true
+    items:
+      $ref: Resource.yaml
+    title: Contained, inline Resources
+    type: array
+  description:
+    description: Explanation of what the group represents and how it is intended to
+      be used.
+    element_property: true
+    pattern: \s*(\S|\s)*
+    title: Natural language description of the group
+    type: string
+  extension:
+    description: May be used to represent additional information that is not part
+      of the basic definition of the resource. To make the use of extensions safe
+      and managable, there is a strict set of governance applied to the definition
+      and use of extensions. Though any implementer can define an extension, there
+      is a set of requirements that SHALL be met as part of the definition of the
+      extension.
+    element_property: true
+    items:
+      $ref: Extension.yaml
+    title: Additional content defined by implementations
+    type: array
+  fhir_comments:
+    anyOf:
+    - type: string
+    - items:
+        type: string
+      type: array
+    element_property: false
+    title: Fhir Comments
+  id:
+    description: The logical id of the resource, as used in the URL for the resource.
+      Once assigned, this value never changes.
+    element_property: true
+    maxLength: 64
+    minLength: 1
+    pattern: ^[A-Za-z0-9\-.]+$
+    title: Logical id of this artifact
+    type: string
+  identifier:
+    description: Business identifiers assigned to this participant by one of the applications
+      involved.  These identifiers remain constant as the resource is updated and
+      propagates from server to server.
+    element_property: true
+    items:
+      $ref: Identifier.yaml
+    title: Business Identifier for this Group
+    type: array
+  implicitRules:
+    description: A reference to a set of rules that were followed when the resource
+      was constructed, and which must be understood when processing the content. Often,
+      this is a reference to an implementation guide that defines the special rules
+      along with other profiles etc.
+    element_property: true
+    pattern: \S*
+    title: A set of rules under which this content was created
+    type: string
+  language:
+    binding_description: IETF language tag for a human language
+    binding_strength: required
+    binding_uri: http://hl7.org/fhir/ValueSet/all-languages
+    binding_version: 5.0.0
+    description: The base language in which the resource is written.
+    element_property: true
+    pattern: ^[^\s]+(\s[^\s]+)*$
+    title: Language of the resource content
+    type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
+  managingEntity:
+    $ref: Reference.yaml
+    backref: group
+    description: Entity responsible for defining and maintaining Group characteristics
+      and/or registered members.
+    element_property: true
+    enum_reference_types:
+    - Organization
+    - RelatedPerson
+    - Practitioner
+    - PractitionerRole
+    title: Entity that is the custodian of the Group's definition
+  member:
+    description: Identifies the resource instances that are members of the group.
+    element_property: true
+    items:
+      $ref: GroupMember.yaml
+    title: Who or what is in group
+    type: array
+  membership:
+    binding_description: The basis for membership in a group
+    binding_strength: required
+    binding_uri: http://hl7.org/fhir/ValueSet/group-membership-basis
+    binding_version: 5.0.0
+    description: 'Basis for membership in the Group:  * ''definitional'': The Group.characteristics
+      specified are both necessary and sufficient to determine membership. All entities
+      that meet the criteria are considered to be members of the group, whether referenced
+      by the group or not. If members are present, they are individuals that happen
+      to be known as meeting the Group.characteristics. The list cannot be presumed
+      to be complete. * ''enumerated'': The Group.characteristics are necessary but
+      not sufficient to determine membership. Membership is determined by being listed
+      as one of the Group.member.'
+    element_property: true
+    element_required: true
+    enum_values:
+    - definitional
+    - enumerated
+    pattern: ^[^\s]+(\s[^\s]+)*$
+    title: definitional | enumerated
+    type: string
+  meta:
+    $ref: Meta.yaml
+    description: The metadata about the resource. This is content that is maintained
+      by the infrastructure. Changes to the content might not always be associated
+      with version changes to the resource.
+    element_property: true
+    title: Metadata about the resource
+  modifierExtension:
+    description: May be used to represent additional information that is not part
+      of the basic definition of the resource and that modifies the understanding
+      of the element that contains it and/or the understanding of the containing element's
+      descendants. Usually modifier elements provide negation or qualification. To
+      make the use of extensions safe and managable, there is a strict set of governance
+      applied to the definition and use of extensions. Though any implementer is allowed
+      to define an extension, there is a set of requirements that SHALL be met as
+      part of the definition of the extension. Applications processing a resource
+      are required to check for modifier extensions.  Modifier extensions SHALL NOT
+      change the meaning of any elements on Resource or DomainResource (including
+      cannot change the meaning of modifierExtension itself).
+    element_property: true
+    items:
+      $ref: Extension.yaml
+    title: Extensions that cannot be ignored
+    type: array
+  name:
+    description: A label assigned to the group for human identification and communication.
+    element_property: true
+    pattern: '[ \r\n\t\S]+'
+    title: Label for Group
+    type: string
+  quantity:
+    description: A count of the number of resource instances that are part of the
+      group.
+    element_property: true
+    minimum: 0
+    title: Number of members
+    type: integer
+  resourceType:
+    const: Group
+    default: Group
+    description: One of the resource types defined as part of FHIR
+    title: Resource Type
+    type: string
+  text:
+    $ref: Narrative.yaml
+    description: A human-readable narrative that contains a summary of the resource
+      and can be used to represent the content of the resource to a human. The narrative
+      need not encode all the structured data, but is required to contain sufficient
+      detail to make it "clinically safe" for a human to just read the narrative.
+      Resource definitions may define what content should be represented in the narrative
+      to ensure clinical safety.
+    element_property: true
+    title: Text summary of the resource, for human interpretation
+  type:
+    binding_description: Types of resources that are part of group.
+    binding_strength: required
+    binding_uri: http://hl7.org/fhir/ValueSet/group-type
+    binding_version: 5.0.0
+    description: Identifies the broad classification of the kind of resources the
+      group includes.
+    element_property: true
+    element_required: true
+    enum_values:
+    - person
+    - animal
+    - practitioner
+    - device
+    - careteam
+    - healthcareservice
+    - location
+    - organization
+    - relatedperson
+    - specimen
+    pattern: ^[^\s]+(\s[^\s]+)*$
+    title: person | animal | practitioner | device | careteam | healthcareservice
+      | location | organization | relatedperson | specimen
+    type: string
+title: Group
+type: object

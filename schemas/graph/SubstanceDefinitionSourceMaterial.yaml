@@ -1,16 +1,18 @@
-$id: BodyStructureIncludedStructure
+$id: SubstanceDefinitionSourceMaterial
 additionalProperties: false
-description: Included anatomic location(s). The anatomical location(s) or region(s)
-  of the specimen, lesion, or body structure. [See https://hl7.org/fhir/R5/BodyStructureIncludedStructure.html]
+description: Material or taxonomic/anatomical source. Material or taxonomic/anatomical
+  source for the substance. [See https://hl7.org/fhir/R5/SubstanceDefinitionSourceMaterial.html]
 links: []
 properties:
-  bodyLandmarkOrientation:
-    description: Body locations in relation to a specific body landmark (tatoo, scar,
-      other body structure).
+  countryOfOrigin:
+    binding_description: Jurisdiction codes
+    binding_strength: required
+    binding_uri: http://hl7.org/fhir/ValueSet/country
+    binding_version: 5.0.0
     element_property: true
     items:
-      $ref: BodyStructureIncludedStructureBodyLandmarkOrientation.yaml
-    title: Landmark relative location
+      $ref: CodeableConcept.yaml
+    title: The country or countries where the material is harvested
     type: array
   extension:
     description: May be used to represent additional information that is not part
@@ -31,6 +33,18 @@ properties:
       type: array
     element_property: false
     title: Fhir Comments
+  genus:
+    $ref: CodeableConcept.yaml
+    binding_description: The genus of an organism, typically referring to the Latin
+      epithet of the genus element of the plant/animal scientific name.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/substance-source-material-genus
+    binding_version: null
+    description: The genus of an organism, typically referring to the Latin epithet
+      of the genus element of the plant/animal scientific name.
+    element_property: true
+    title: The genus of an organism e.g. the Latin epithet of the plant/animal scientific
+      name
   id:
     description: Unique id for the element within a resource (for internal references).
       This may be any string value that does not contain spaces.
@@ -38,14 +52,6 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
-  laterality:
-    $ref: CodeableConcept.yaml
-    binding_description: Concepts modifying the anatomic location.
-    binding_strength: example
-    binding_uri: http://hl7.org/fhir/ValueSet/bodystructure-relative-location
-    binding_version: null
-    element_property: true
-    title: Code that represents the included structure laterality
   links:
     items:
       $ref: https://json-schema.org/draft/2020-12/links
@@ -67,41 +73,42 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
-  qualifier:
-    binding_description: Concepts modifying the anatomic location.
+  part:
+    $ref: CodeableConcept.yaml
+    binding_description: An anatomical origin of the source material within an organism.
     binding_strength: example
-    binding_uri: http://hl7.org/fhir/ValueSet/bodystructure-relative-location
+    binding_uri: http://hl7.org/fhir/ValueSet/substance-source-material-part
     binding_version: null
     element_property: true
-    items:
-      $ref: CodeableConcept.yaml
-    title: Code that represents the included structure qualifier
-    type: array
+    title: An anatomical origin of the source material within an organism
   resourceType:
-    const: BodyStructureIncludedStructure
-    default: BodyStructureIncludedStructure
+    const: SubstanceDefinitionSourceMaterial
+    default: SubstanceDefinitionSourceMaterial
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-  spatialReference:
-    backref: spatialReference_body_structure_included_structure
-    description: XY or XYZ-coordinate orientation for structure.
-    element_property: true
-    enum_reference_types:
-    - ImagingSelection
-    items:
-      $ref: Reference.yaml
-    title: Cartesian reference for structure
-    type: array
-  structure:
+  species:
     $ref: CodeableConcept.yaml
-    binding_description: SNOMED CT Body site concepts
+    binding_description: A species of origin a substance raw material.
     binding_strength: example
-    binding_uri: http://hl7.org/fhir/ValueSet/body-site
+    binding_uri: http://hl7.org/fhir/ValueSet/substance-source-material-species
     binding_version: null
+    description: The species of an organism, typically referring to the Latin epithet
+      of the species of the plant/animal.
     element_property: true
-    title: Code that represents the included structure
-required:
-- structure
-title: BodyStructureIncludedStructure
+    title: The species of an organism e.g. the Latin epithet of the species of the
+      plant/animal
+  type:
+    $ref: CodeableConcept.yaml
+    binding_description: A classification that provides the origin of the substance
+      raw material.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/substance-source-material-type
+    binding_version: null
+    description: 'A classification that provides the origin of the raw material. Example:
+      cat hair would be an Animal source type.'
+    element_property: true
+    title: Classification of the origin of the raw material. e.g. cat hair is an Animal
+      source type
+title: SubstanceDefinitionSourceMaterial
 type: object

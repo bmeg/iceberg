@@ -3,7 +3,24 @@ additionalProperties: false
 description: Contact information. Specifies contact information for a specific purpose
   over a period of time, might be handled/monitored by a specific named person or
   organization. [See https://hl7.org/fhir/R5/ExtendedContactDetail.html]
-links: []
+links:
+- href: '{id}'
+  rel: organization
+  targetHints:
+    backref:
+    - extended_contact_detail
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /organization/reference
+  templateRequired:
+  - id
 properties:
   address:
     $ref: Address.yaml

@@ -4,6 +4,24 @@ description: Key images or data associated with this report. A list of key image
   or data associated with this report. The images or data are generally created during
   the diagnostic process, and may be directly of the patient, or of treated specimens
   (i.e. slides of interest). [See https://hl7.org/fhir/R5/DiagnosticReportMedia.html]
+links:
+- href: '{id}'
+  rel: link
+  targetHints:
+    backref:
+    - diagnostic_report_media
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - DocumentReference/*
+  targetSchema:
+    $ref: DocumentReference.yaml
+  templatePointers:
+    id: /link/reference
+  templateRequired:
+  - id
 properties:
   _comment:
     $ref: FHIRPrimitiveExtension.yaml
@@ -49,6 +67,10 @@ properties:
     enum_reference_types:
     - DocumentReference
     title: Reference to the image or data source
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

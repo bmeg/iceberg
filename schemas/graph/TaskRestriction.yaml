@@ -5,7 +5,7 @@ description: Constraints on fulfillment tasks. If the Task.focus is a request re
   this element identifies any limitations on what parts of the referenced request
   should be actioned. [See https://hl7.org/fhir/R5/TaskRestriction.html]
 links:
-- href: Patient/{id}
+- href: '{id}'
   rel: recipient_Patient
   targetHints:
     backref:
@@ -14,8 +14,78 @@ links:
     - outbound
     multiplicity:
     - has_many
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
+  templatePointers:
+    id: /recipient/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: recipient_Practitioner
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /recipient/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: recipient_PractitionerRole
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /recipient/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: recipient_Group
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /recipient/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: recipient_Organization
+  targetHints:
+    backref:
+    - recipient_task_restriction
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
   templatePointers:
     id: /recipient/-/reference
   templateRequired:

@@ -6,7 +6,421 @@ description: Who or what performed the medication administration and what type o
   be an example of a device that is performing the administration. Both the IV Pump
   and the practitioner that set the rate or bolus on the pump can be listed as performers.
   [See https://hl7.org/fhir/R5/MedicationAdministrationPerformer.html]
-links: []
+links:
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_Organization
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_Group
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_Practitioner
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_PractitionerRole
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_ResearchStudy
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - ResearchStudy/*
+  targetSchema:
+    $ref: ResearchStudy.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_Patient
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Patient/*
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_ResearchSubject
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - ResearchSubject/*
+  targetSchema:
+    $ref: ResearchSubject.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_Substance
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Substance/*
+  targetSchema:
+    $ref: Substance.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_SubstanceDefinition
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_Specimen
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Specimen/*
+  targetSchema:
+    $ref: Specimen.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_Observation
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Observation/*
+  targetSchema:
+    $ref: Observation.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_DiagnosticReport
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - DiagnosticReport/*
+  targetSchema:
+    $ref: DiagnosticReport.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_Condition
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Condition/*
+  targetSchema:
+    $ref: Condition.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_Medication
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Medication/*
+  targetSchema:
+    $ref: Medication.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_MedicationAdministration
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - MedicationAdministration/*
+  targetSchema:
+    $ref: MedicationAdministration.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_MedicationStatement
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - MedicationStatement/*
+  targetSchema:
+    $ref: MedicationStatement.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_MedicationRequest
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - MedicationRequest/*
+  targetSchema:
+    $ref: MedicationRequest.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_Procedure
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Procedure/*
+  targetSchema:
+    $ref: Procedure.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_DocumentReference
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - DocumentReference/*
+  targetSchema:
+    $ref: DocumentReference.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_Task
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Task/*
+  targetSchema:
+    $ref: Task.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_ImagingStudy
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - ImagingStudy/*
+  targetSchema:
+    $ref: ImagingStudy.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_FamilyMemberHistory
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - FamilyMemberHistory/*
+  targetSchema:
+    $ref: FamilyMemberHistory.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
+- $comment: From CodeableReference/actor
+  href: '{id}'
+  rel: actor_reference_BodyStructure
+  targetHints:
+    backref:
+    - codeable_reference
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - BodyStructure/*
+  targetSchema:
+    $ref: BodyStructure.yaml
+  templatePointers:
+    id: /actor/reference/reference
+  templateRequired:
+  - id
 properties:
   actor:
     $ref: CodeableReference.yaml

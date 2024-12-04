@@ -1,74 +1,23 @@
-$id: SpecimenCollection
+$id: ImagingStudySeries
 additionalProperties: false
-description: Collection details. Details concerning the specimen collection. [See
-  https://hl7.org/fhir/R5/SpecimenCollection.html]
+description: Each study has one or more series of instances. Each study has one or
+  more series of images or other content. [See https://hl7.org/fhir/R5/ImagingStudySeries.html]
 links:
 - href: '{id}'
-  rel: collector_Practitioner
+  rel: specimen
   targetHints:
     backref:
-    - specimen_collection
+    - specimen_imaging_study_series
     direction:
     - outbound
     multiplicity:
-    - has_one
+    - has_many
     regex_match:
-    - Practitioner/*
+    - Specimen/*
   targetSchema:
-    $ref: Practitioner.yaml
+    $ref: Specimen.yaml
   templatePointers:
-    id: /collector/reference
-  templateRequired:
-  - id
-- href: '{id}'
-  rel: collector_PractitionerRole
-  targetHints:
-    backref:
-    - specimen_collection
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - PractitionerRole/*
-  targetSchema:
-    $ref: PractitionerRole.yaml
-  templatePointers:
-    id: /collector/reference
-  templateRequired:
-  - id
-- href: '{id}'
-  rel: collector_Patient
-  targetHints:
-    backref:
-    - specimen_collection
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Patient/*
-  targetSchema:
-    $ref: Patient.yaml
-  templatePointers:
-    id: /collector/reference
-  templateRequired:
-  - id
-- href: '{id}'
-  rel: procedure
-  targetHints:
-    backref:
-    - specimen_collection
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Procedure/*
-  targetSchema:
-    $ref: Procedure.yaml
-  templatePointers:
-    id: /procedure/reference
+    id: /specimen/-/reference
   templateRequired:
   - id
 - $comment: From CodeableReference/bodySite
@@ -485,48 +434,12 @@ links:
     id: /bodySite/reference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
+- $comment: From ImagingStudySeriesPerformer/performer
   href: '{id}'
-  rel: device_reference_Organization
+  rel: performer_actor_Practitioner
   targetHints:
     backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Organization/*
-  targetSchema:
-    $ref: Organization.yaml
-  templatePointers:
-    id: /device/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Group
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
-  templatePointers:
-    id: /device/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Practitioner
-  targetHints:
-    backref:
-    - codeable_reference
+    - imaging_study_series_performer
     direction:
     - outbound
     multiplicity:
@@ -536,15 +449,15 @@ links:
   targetSchema:
     $ref: Practitioner.yaml
   templatePointers:
-    id: /device/reference/reference
+    id: /performer/-/actor/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
+- $comment: From ImagingStudySeriesPerformer/performer
   href: '{id}'
-  rel: device_reference_PractitionerRole
+  rel: performer_actor_PractitionerRole
   targetHints:
     backref:
-    - codeable_reference
+    - imaging_study_series_performer
     direction:
     - outbound
     multiplicity:
@@ -554,33 +467,33 @@ links:
   targetSchema:
     $ref: PractitionerRole.yaml
   templatePointers:
-    id: /device/reference/reference
+    id: /performer/-/actor/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
+- $comment: From ImagingStudySeriesPerformer/performer
   href: '{id}'
-  rel: device_reference_ResearchStudy
+  rel: performer_actor_Organization
   targetHints:
     backref:
-    - codeable_reference
+    - imaging_study_series_performer
     direction:
     - outbound
     multiplicity:
     - has_one
     regex_match:
-    - ResearchStudy/*
+    - Organization/*
   targetSchema:
-    $ref: ResearchStudy.yaml
+    $ref: Organization.yaml
   templatePointers:
-    id: /device/reference/reference
+    id: /performer/-/actor/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
+- $comment: From ImagingStudySeriesPerformer/performer
   href: '{id}'
-  rel: device_reference_Patient
+  rel: performer_actor_Patient
   targetHints:
     backref:
-    - codeable_reference
+    - imaging_study_series_performer
     direction:
     - outbound
     multiplicity:
@@ -590,375 +503,58 @@ links:
   targetSchema:
     $ref: Patient.yaml
   templatePointers:
-    id: /device/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_ResearchSubject
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - ResearchSubject/*
-  targetSchema:
-    $ref: ResearchSubject.yaml
-  templatePointers:
-    id: /device/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Substance
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Substance/*
-  targetSchema:
-    $ref: Substance.yaml
-  templatePointers:
-    id: /device/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_SubstanceDefinition
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - SubstanceDefinition/*
-  targetSchema:
-    $ref: SubstanceDefinition.yaml
-  templatePointers:
-    id: /device/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Specimen
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Specimen/*
-  targetSchema:
-    $ref: Specimen.yaml
-  templatePointers:
-    id: /device/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Observation
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Observation/*
-  targetSchema:
-    $ref: Observation.yaml
-  templatePointers:
-    id: /device/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_DiagnosticReport
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - DiagnosticReport/*
-  targetSchema:
-    $ref: DiagnosticReport.yaml
-  templatePointers:
-    id: /device/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Condition
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Condition/*
-  targetSchema:
-    $ref: Condition.yaml
-  templatePointers:
-    id: /device/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Medication
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Medication/*
-  targetSchema:
-    $ref: Medication.yaml
-  templatePointers:
-    id: /device/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_MedicationAdministration
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - MedicationAdministration/*
-  targetSchema:
-    $ref: MedicationAdministration.yaml
-  templatePointers:
-    id: /device/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_MedicationStatement
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - MedicationStatement/*
-  targetSchema:
-    $ref: MedicationStatement.yaml
-  templatePointers:
-    id: /device/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_MedicationRequest
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - MedicationRequest/*
-  targetSchema:
-    $ref: MedicationRequest.yaml
-  templatePointers:
-    id: /device/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Procedure
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Procedure/*
-  targetSchema:
-    $ref: Procedure.yaml
-  templatePointers:
-    id: /device/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_DocumentReference
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - DocumentReference/*
-  targetSchema:
-    $ref: DocumentReference.yaml
-  templatePointers:
-    id: /device/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Task
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Task/*
-  targetSchema:
-    $ref: Task.yaml
-  templatePointers:
-    id: /device/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_ImagingStudy
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - ImagingStudy/*
-  targetSchema:
-    $ref: ImagingStudy.yaml
-  templatePointers:
-    id: /device/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_FamilyMemberHistory
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - FamilyMemberHistory/*
-  targetSchema:
-    $ref: FamilyMemberHistory.yaml
-  templatePointers:
-    id: /device/reference/reference
-  templateRequired:
-  - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_BodyStructure
-  targetHints:
-    backref:
-    - codeable_reference
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - BodyStructure/*
-  targetSchema:
-    $ref: BodyStructure.yaml
-  templatePointers:
-    id: /device/reference/reference
+    id: /performer/-/actor/reference
   templateRequired:
   - id
 properties:
-  _collectedDateTime:
+  _description:
     $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``collectedDateTime``.
+    title: Extension field for ``description``.
+  _number:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``number``.
+  _numberOfInstances:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``numberOfInstances``.
+  _started:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``started``.
+  _uid:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``uid``.
   bodySite:
     $ref: CodeableReference.yaml
-    backref: specimen_collection
+    backref: imaging_study_series
     binding_description: SNOMED CT Body site concepts
     binding_strength: example
     binding_uri: http://hl7.org/fhir/ValueSet/body-site
     binding_version: null
-    description: Anatomical location from which the specimen was collected (if subject
-      is a patient). This is the target site.  This element is not used for environmental
-      specimens.
+    description: The anatomic structures examined. See DICOM Part 16 Annex L (http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html)
+      for DICOM to SNOMED-CT mappings. The bodySite may indicate the laterality of
+      body part imaged; if so, it shall be consistent with any content of ImagingStudy.series.laterality.
     element_property: true
     enum_reference_types:
     - BodyStructure
-    title: Anatomical collection site
-  collectedDateTime:
-    description: Time when specimen was collected from subject - the physiologically
-      relevant time.
+    title: Body part examined
+  description:
+    description: A description of the series.
     element_property: true
-    format: date-time
-    one_of_many: collected
-    one_of_many_required: false
-    title: Collection time
+    pattern: '[ \r\n\t\S]+'
+    title: A short human readable summary of the series
     type: string
-  collectedPeriod:
-    $ref: Period.yaml
-    description: Time when specimen was collected from subject - the physiologically
-      relevant time.
-    element_property: true
-    one_of_many: collected
-    one_of_many_required: false
-    title: Collection time
-  collector:
-    $ref: Reference.yaml
-    backref: specimen_collection
-    description: Person who collected the specimen.
+  endpoint:
+    backref: endpoint_imaging_study_series
+    description: The network service providing access (e.g., query, view, or retrieval)
+      for this series. See implementation notes for information about using DICOM
+      endpoints. A series-level endpoint, if present, has precedence over a study-level
+      endpoint with the same Endpoint.connectionType.
     element_property: true
     enum_reference_types:
-    - Practitioner
-    - PractitionerRole
-    - Patient
-    - RelatedPerson
-    title: Who collected the specimen
-  device:
-    $ref: CodeableReference.yaml
-    backref: specimen_collection
-    description: A coded value specifying the technique that is used to perform the
-      procedure.
-    element_property: true
-    enum_reference_types:
-    - Device
-    title: Device used to perform collection
-  duration:
-    $ref: Duration.yaml
-    description: The span of time over which the collection of a specimen occurred.
-    element_property: true
-    title: How long it took to collect specimen
+    - Endpoint
+    items:
+      $ref: Reference.yaml
+    title: Series access endpoint
+    type: array
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -970,22 +566,6 @@ properties:
       $ref: Extension.yaml
     title: Additional content defined by implementations
     type: array
-  fastingStatusCodeableConcept:
-    $ref: CodeableConcept.yaml
-    description: Abstinence or reduction from some or all food, drink, or both, for
-      a period of time prior to sample collection.
-    element_property: true
-    one_of_many: fastingStatus
-    one_of_many_required: false
-    title: Whether or how long patient abstained from food and/or drink
-  fastingStatusDuration:
-    $ref: Duration.yaml
-    description: Abstinence or reduction from some or all food, drink, or both, for
-      a period of time prior to sample collection.
-    element_property: true
-    one_of_many: fastingStatus
-    one_of_many_required: false
-    title: Whether or how long patient abstained from food and/or drink
   fhir_comments:
     anyOf:
     - type: string
@@ -1001,20 +581,39 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  instance:
+    description: A single SOP instance within the series, e.g. an image, or presentation
+      state.
+    element_property: true
+    items:
+      $ref: ImagingStudySeriesInstance.yaml
+    title: A single SOP instance from the series
+    type: array
+  laterality:
+    $ref: CodeableConcept.yaml
+    binding_description: Codes describing body site laterality (left, right, etc.).
+    binding_strength: example
+    binding_uri: http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_244.html
+    binding_version: null
+    description: The laterality of the (possibly paired) anatomic structures examined.
+      E.g., the left knee, both lungs, or unpaired abdomen. If present, shall be consistent
+      with any laterality information indicated in ImagingStudy.series.bodySite.
+    element_property: true
+    title: Body part laterality
   links:
     items:
       $ref: https://json-schema.org/draft/2020-12/links
     type: array
-  method:
+  modality:
     $ref: CodeableConcept.yaml
-    binding_description: The  technique that is used to perform the procedure.
-    binding_strength: example
-    binding_uri: http://hl7.org/fhir/ValueSet/specimen-collection-method
+    binding_description: Type of acquired data in the instance.
+    binding_strength: extensible
+    binding_uri: http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html
     binding_version: null
-    description: A coded value specifying the technique that is used to perform the
-      procedure.
+    description: The distinct modality for this series. This may include both acquisition
+      and non-acquisition modalities.
     element_property: true
-    title: Technique used to perform collection
+    title: The modality used for this series
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of
@@ -1032,26 +631,60 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
-  procedure:
-    $ref: Reference.yaml
-    backref: specimen_collection
-    description: The procedure event during which the specimen was collected (e.g.
-      the surgery leading to the collection of a pathology sample).
+  number:
+    description: The numeric identifier of this series in the study.
     element_property: true
-    enum_reference_types:
-    - Procedure
-    title: The procedure that collects the specimen
-  quantity:
-    $ref: Quantity.yaml
-    description: The quantity of specimen collected; for instance the volume of a
-      blood sample, or the physical measurement of an anatomic pathology sample.
+    minimum: 0
+    title: Numeric identifier of this series
+    type: integer
+  numberOfInstances:
+    description: Number of SOP Instances in the Study. The value given may be larger
+      than the number of instance elements this resource contains due to resource
+      availability, security, or other factors. This element should be present if
+      any instance elements are present.
     element_property: true
-    title: The quantity of specimen collected
+    minimum: 0
+    title: Number of Series Related Instances
+    type: integer
+  performer:
+    description: Indicates who or what performed the series and how they were involved.
+    element_property: true
+    items:
+      $ref: ImagingStudySeriesPerformer.yaml
+    title: Who performed the series
+    type: array
   resourceType:
-    const: SpecimenCollection
-    default: SpecimenCollection
+    const: ImagingStudySeries
+    default: ImagingStudySeries
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-title: SpecimenCollection
+  specimen:
+    backref: specimen_imaging_study_series
+    description: The specimen imaged, e.g., for whole slide imaging of a biopsy.
+    element_property: true
+    enum_reference_types:
+    - Specimen
+    items:
+      $ref: Reference.yaml
+    title: Specimen imaged
+    type: array
+  started:
+    description: The date and time the series was started.
+    element_property: true
+    format: date-time
+    title: When the series started
+    type: string
+  uid:
+    description: The DICOM Series Instance UID for the series.
+    element_property: true
+    element_required: true
+    maxLength: 64
+    minLength: 1
+    pattern: ^[A-Za-z0-9\-.]+$
+    title: DICOM Series Instance UID for the series
+    type: string
+required:
+- modality
+title: ImagingStudySeries
 type: object

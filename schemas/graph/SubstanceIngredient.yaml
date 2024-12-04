@@ -3,7 +3,7 @@ additionalProperties: false
 description: Composition information about the substance. A substance can be composed
   of other substances. [See https://hl7.org/fhir/R5/SubstanceIngredient.html]
 links:
-- href: Substance/{id}
+- href: '{id}'
   rel: substanceReference
   targetHints:
     backref:
@@ -12,6 +12,8 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Substance/*
   targetSchema:
     $ref: Substance.yaml
   templatePointers:

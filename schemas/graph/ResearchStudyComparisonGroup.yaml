@@ -5,7 +5,24 @@ description: 'Defined path through the study for a subject. Describes an expecte
   subject: exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up.
   E.g. for a stability study: {store sample from lot A at 25 degrees for 1 month},
   {store sample from lot A at 40 degrees for 1 month}. [See https://hl7.org/fhir/R5/ResearchStudyComparisonGroup.html]'
-links: []
+links:
+- href: '{id}'
+  rel: observedGroup
+  targetHints:
+    backref:
+    - research_study_comparison_group
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /observedGroup/reference
+  templateRequired:
+  - id
 properties:
   _description:
     $ref: FHIRPrimitiveExtension.yaml

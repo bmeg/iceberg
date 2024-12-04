@@ -5,6 +5,60 @@ description: A grouping of people or organizations with a common purpose. A form
   of achieving some form of collective action. Includes companies, institutions, corporations,
   departments, community groups, healthcare practice groups, payer/insurer, etc. [See
   https://hl7.org/fhir/R5/Organization.html]
+links:
+- href: '{id}'
+  rel: partOf
+  targetHints:
+    backref:
+    - organization
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /partOf/reference
+  templateRequired:
+  - id
+- $comment: From ExtendedContactDetail/contact
+  href: '{id}'
+  rel: contact_organization
+  targetHints:
+    backref:
+    - extended_contact_detail
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /contact/-/organization/reference
+  templateRequired:
+  - id
+- $comment: From OrganizationQualification/qualification
+  href: '{id}'
+  rel: qualification_issuer
+  targetHints:
+    backref:
+    - organization_qualification
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /qualification/-/issuer/reference
+  templateRequired:
+  - id
 properties:
   _active:
     $ref: FHIRPrimitiveExtension.yaml
@@ -130,6 +184,10 @@ properties:
     pattern: ^[^\s]+(\s[^\s]+)*$
     title: Language of the resource content
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   meta:
     $ref: Meta.yaml
     description: The metadata about the resource. This is content that is maintained

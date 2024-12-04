@@ -1,20 +1,14 @@
-$id: ImmunizationPerformer
+$id: SubstanceDefinitionProperty
 additionalProperties: false
-description: Who performed event. Indicates who performed the immunization event.
-  [See https://hl7.org/fhir/R5/ImmunizationPerformer.html]
+description: General specifications for this substance. [See https://hl7.org/fhir/R5/SubstanceDefinitionProperty.html]
+links: []
 properties:
-  actor:
-    $ref: Reference.yaml
-    backref: immunization_performer
-    description: The practitioner or organization who performed the action.
-    element_property: true
-    enum_reference_types:
-    - Practitioner
-    - PractitionerRole
-    - Organization
-    - Patient
-    - RelatedPerson
-    title: Individual or organization who was performing
+  _valueBoolean:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``valueBoolean``.
+  _valueDate:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``valueDate``.
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -34,16 +28,6 @@ properties:
       type: array
     element_property: false
     title: Fhir Comments
-  function:
-    $ref: CodeableConcept.yaml
-    binding_description: x
-    binding_strength: extensible
-    binding_uri: http://hl7.org/fhir/ValueSet/immunization-function
-    binding_version: null
-    description: Describes the type of performance (e.g. ordering provider, administering
-      provider, etc.).
-    element_property: true
-    title: What type of performance was done
   id:
     description: Unique id for the element within a resource (for internal references).
       This may be any string value that does not contain spaces.
@@ -51,6 +35,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of
@@ -69,12 +57,52 @@ properties:
     title: Extensions that cannot be ignored even if unrecognized
     type: array
   resourceType:
-    const: ImmunizationPerformer
-    default: ImmunizationPerformer
+    const: SubstanceDefinitionProperty
+    default: SubstanceDefinitionProperty
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
+  type:
+    $ref: CodeableConcept.yaml
+    binding_description: This value set includes all observable entity codes from
+      SNOMED CT - provided as an exemplar value set.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/product-characteristic-codes
+    binding_version: null
+    element_property: true
+    title: A code expressing the type of property
+  valueAttachment:
+    $ref: Attachment.yaml
+    element_property: true
+    one_of_many: value
+    one_of_many_required: false
+    title: A value for the property
+  valueBoolean:
+    element_property: true
+    one_of_many: value
+    one_of_many_required: false
+    title: A value for the property
+    type: boolean
+  valueCodeableConcept:
+    $ref: CodeableConcept.yaml
+    element_property: true
+    one_of_many: value
+    one_of_many_required: false
+    title: A value for the property
+  valueDate:
+    element_property: true
+    format: date
+    one_of_many: value
+    one_of_many_required: false
+    title: A value for the property
+    type: string
+  valueQuantity:
+    $ref: Quantity.yaml
+    element_property: true
+    one_of_many: value
+    one_of_many_required: false
+    title: A value for the property
 required:
-- actor
-title: ImmunizationPerformer
+- type
+title: SubstanceDefinitionProperty
 type: object

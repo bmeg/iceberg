@@ -4,8 +4,94 @@ description: Information about an individual or animal receiving health care ser
   Demographics and other administrative information about an individual or animal
   receiving care or other health-related services. [See https://hl7.org/fhir/R5/Patient.html]
 links:
+- href: '{id}'
+  rel: generalPractitioner_Organization
+  targetHints:
+    backref:
+    - generalPractitioner_patient
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /generalPractitioner/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: generalPractitioner_Practitioner
+  targetHints:
+    backref:
+    - generalPractitioner_patient
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /generalPractitioner/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: generalPractitioner_PractitionerRole
+  targetHints:
+    backref:
+    - generalPractitioner_patient
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /generalPractitioner/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: managingOrganization
+  targetHints:
+    backref:
+    - managingOrganization_patient
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /managingOrganization/reference
+  templateRequired:
+  - id
+- $comment: From PatientContact/contact
+  href: '{id}'
+  rel: contact_organization
+  targetHints:
+    backref:
+    - patient_contact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /contact/-/organization/reference
+  templateRequired:
+  - id
 - $comment: From PatientLink/link
-  href: Patient/{id}
+  href: '{id}'
   rel: link_other_Patient
   targetHints:
     backref:
@@ -14,6 +100,8 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
   templatePointers:

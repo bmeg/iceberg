@@ -1,145 +1,76 @@
-$id: Specimen
+$id: SubstanceDefinition
 additionalProperties: false
-description: Sample for analysis. A sample to be used for analysis. [See https://hl7.org/fhir/R5/Specimen.html]
+description: The detailed description of a substance, typically at a level beyond
+  what is used for prescribing. [See https://hl7.org/fhir/R5/SubstanceDefinition.html]
 links:
 - href: '{id}'
-  rel: parent
+  rel: manufacturer
   targetHints:
     backref:
-    - parent_specimen
+    - manufacturer_substance_definition
     direction:
     - outbound
     multiplicity:
     - has_many
     regex_match:
-    - Specimen/*
+    - Organization/*
   targetSchema:
-    $ref: Specimen.yaml
+    $ref: Organization.yaml
   templatePointers:
-    id: /parent/-/reference
+    id: /manufacturer/-/reference
   templateRequired:
   - id
 - href: '{id}'
-  rel: subject_Patient
+  rel: supplier
   targetHints:
     backref:
-    - specimen
+    - supplier_substance_definition
     direction:
     - outbound
     multiplicity:
-    - has_one
+    - has_many
     regex_match:
-    - Patient/*
+    - Organization/*
   targetSchema:
-    $ref: Patient.yaml
+    $ref: Organization.yaml
   templatePointers:
-    id: /subject/reference
+    id: /supplier/-/reference
   templateRequired:
   - id
-- href: '{id}'
-  rel: subject_Group
-  targetHints:
-    backref:
-    - specimen
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
-  templatePointers:
-    id: /subject/reference
-  templateRequired:
-  - id
-- href: '{id}'
-  rel: subject_Substance
-  targetHints:
-    backref:
-    - specimen
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Substance/*
-  targetSchema:
-    $ref: Substance.yaml
-  templatePointers:
-    id: /subject/reference
-  templateRequired:
-  - id
-- $comment: From SpecimenCollection/collection
+- $comment: From SubstanceDefinitionCode/code
   href: '{id}'
-  rel: collection_collector_Practitioner
+  rel: code_source
   targetHints:
     backref:
-    - specimen_collection
+    - source_substance_definition_code
     direction:
     - outbound
     multiplicity:
-    - has_one
+    - has_many
     regex_match:
-    - Practitioner/*
+    - DocumentReference/*
   targetSchema:
-    $ref: Practitioner.yaml
+    $ref: DocumentReference.yaml
   templatePointers:
-    id: /collection/collector/reference
+    id: /code/-/source/-/reference
   templateRequired:
   - id
-- $comment: From SpecimenCollection/collection
+- $comment: From SubstanceDefinitionName/name
   href: '{id}'
-  rel: collection_collector_PractitionerRole
+  rel: name_source
   targetHints:
     backref:
-    - specimen_collection
+    - source_substance_definition_name
     direction:
     - outbound
     multiplicity:
-    - has_one
+    - has_many
     regex_match:
-    - PractitionerRole/*
+    - DocumentReference/*
   targetSchema:
-    $ref: PractitionerRole.yaml
+    $ref: DocumentReference.yaml
   templatePointers:
-    id: /collection/collector/reference
-  templateRequired:
-  - id
-- $comment: From SpecimenCollection/collection
-  href: '{id}'
-  rel: collection_collector_Patient
-  targetHints:
-    backref:
-    - specimen_collection
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Patient/*
-  targetSchema:
-    $ref: Patient.yaml
-  templatePointers:
-    id: /collection/collector/reference
-  templateRequired:
-  - id
-- $comment: From SpecimenCollection/collection
-  href: '{id}'
-  rel: collection_procedure
-  targetHints:
-    backref:
-    - specimen_collection
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Procedure/*
-  targetSchema:
-    $ref: Procedure.yaml
-  templatePointers:
-    id: /collection/procedure/reference
+    id: /name/-/source/-/reference
   templateRequired:
   - id
 - $comment: From Annotation/note
@@ -214,75 +145,94 @@ links:
     id: /note/-/authorReference/reference
   templateRequired:
   - id
-- $comment: From SpecimenProcessing/processing
+- $comment: From SubstanceDefinitionRelationship/relationship
   href: '{id}'
-  rel: processing_additive
+  rel: relationship_source
   targetHints:
     backref:
-    - additive_specimen_processing
+    - source_substance_definition_relationship
     direction:
     - outbound
     multiplicity:
     - has_many
     regex_match:
-    - Substance/*
+    - DocumentReference/*
   targetSchema:
-    $ref: Substance.yaml
+    $ref: DocumentReference.yaml
   templatePointers:
-    id: /processing/-/additive/-/reference
+    id: /relationship/-/source/-/reference
+  templateRequired:
+  - id
+- $comment: From SubstanceDefinitionRelationship/relationship
+  href: '{id}'
+  rel: relationship_substanceDefinitionReference
+  targetHints:
+    backref:
+    - substance_definition_relationship
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
+  templatePointers:
+    id: /relationship/-/substanceDefinitionReference/reference
+  templateRequired:
+  - id
+- $comment: From SubstanceDefinitionStructure/structure
+  href: '{id}'
+  rel: structure_sourceDocument
+  targetHints:
+    backref:
+    - sourceDocument_substance_definition_structure
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - DocumentReference/*
+  targetSchema:
+    $ref: DocumentReference.yaml
+  templatePointers:
+    id: /structure/sourceDocument/-/reference
   templateRequired:
   - id
 properties:
-  _combined:
+  _description:
     $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``combined``.
+    title: Extension field for ``description``.
   _implicitRules:
     $ref: FHIRPrimitiveExtension.yaml
     title: Extension field for ``implicitRules``.
   _language:
     $ref: FHIRPrimitiveExtension.yaml
     title: Extension field for ``language``.
-  _receivedTime:
+  _version:
     $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``receivedTime``.
-  _status:
-    $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``status``.
-  accessionIdentifier:
-    $ref: Identifier.yaml
-    description: The identifier assigned by the lab when accessioning specimen(s).
-      This is not necessarily the same as the specimen identifier, depending on local
-      lab procedures.
+    title: Extension field for ``version``.
+  characterization:
     element_property: true
-    title: Identifier assigned by the lab
-  collection:
-    $ref: SpecimenCollection.yaml
-    description: Details concerning the specimen collection.
-    element_property: true
-    title: Collection details
-  combined:
-    binding_description: Codes for the combined status of a specimen.
-    binding_strength: required
-    binding_uri: http://hl7.org/fhir/ValueSet/specimen-combined
-    binding_version: 5.0.0
-    description: This element signifies if the specimen is part of a group or pooled.
-    element_property: true
-    enum_values:
-    - grouped
-    - pooled
-    pattern: ^[^\s]+(\s[^\s]+)*$
-    title: grouped | pooled
-    type: string
-  condition:
-    binding_description: Codes describing the state of the specimen.
-    binding_strength: extensible
-    binding_uri: http://terminology.hl7.org/ValueSet/v2-0493
-    binding_version: null
-    description: A mode or state of being that describes the nature of the specimen.
+    items:
+      $ref: SubstanceDefinitionCharacterization.yaml
+    title: General specifications for this substance
+    type: array
+  classification:
+    description: A high level categorization, e.g. polymer or nucleic acid, or food,
+      chemical, biological, or a lower level such as the general types of polymer
+      (linear or branch chain) or type of impurity (process related or contaminant).
     element_property: true
     items:
       $ref: CodeableConcept.yaml
-    title: State of the specimen
+    title: A categorization, high level e.g. polymer or nucleic acid, or food, chemical,
+      biological, or lower e.g. polymer linear or branch chain, or type of impurity
+    type: array
+  code:
+    element_property: true
+    items:
+      $ref: SubstanceDefinitionCode.yaml
+    title: Codes associated with the substance
     type: array
   contained:
     description: These resources do not have an independent existence apart from the
@@ -294,14 +244,19 @@ properties:
       $ref: Resource.yaml
     title: Contained, inline Resources
     type: array
-  container:
-    description: The container holding the specimen.  The recursive nature of containers;
-      i.e. blood in tube in tray in rack is not addressed here.
+  description:
     element_property: true
-    items:
-      $ref: SpecimenContainer.yaml
-    title: Direct container of specimen (tube/slide, etc.)
-    type: array
+    pattern: \s*(\S|\s)*
+    title: Textual description of the substance
+    type: string
+  domain:
+    $ref: CodeableConcept.yaml
+    binding_description: Applicable domain for this product (e.g. human, veterinary).
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/medicinal-product-domain
+    binding_version: null
+    element_property: true
+    title: If the substance applies to human or veterinary use
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the resource. To make the use of extensions safe
@@ -314,17 +269,6 @@ properties:
       $ref: Extension.yaml
     title: Additional content defined by implementations
     type: array
-  feature:
-    description: A physical feature or landmark on a specimen, highlighted for context
-      by the collector of the specimen (e.g. surgeon), that identifies the type of
-      feature as well as its meaning (e.g. the red ink indicating the resection margin
-      of the right lobe of the excised prostate tissue or wire loop at radiologically
-      suspected tumor location).
-    element_property: true
-    items:
-      $ref: SpecimenFeature.yaml
-    title: The physical feature of a specimen
-    type: array
   fhir_comments:
     anyOf:
     - type: string
@@ -333,6 +277,20 @@ properties:
       type: array
     element_property: false
     title: Fhir Comments
+  grade:
+    binding_description: The quality standard, established benchmark, to which a substance
+      complies
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/substance-grade
+    binding_version: null
+    description: The quality standard, established benchmark, to which substance complies
+      (e.g. USP/NF, Ph. Eur, JP, BP, Company Standard).
+    element_property: true
+    items:
+      $ref: CodeableConcept.yaml
+    title: The quality standard, established benchmark, to which substance complies
+      (e.g. USP/NF, BP)
+    type: array
   id:
     description: The logical id of the resource, as used in the URL for the resource.
       Once assigned, this value never changes.
@@ -343,11 +301,10 @@ properties:
     title: Logical id of this artifact
     type: string
   identifier:
-    description: Id for specimen.
     element_property: true
     items:
       $ref: Identifier.yaml
-    title: External Identifier
+    title: Identifier by which this substance is known
     type: array
   implicitRules:
     description: A reference to a set of rules that were followed when the resource
@@ -358,6 +315,15 @@ properties:
     pattern: \S*
     title: A set of rules under which this content was created
     type: string
+  informationSource:
+    backref: informationSource_substance_definition
+    element_property: true
+    enum_reference_types:
+    - Citation
+    items:
+      $ref: Reference.yaml
+    title: Supporting literature
+    type: array
   language:
     binding_description: IETF language tag for a human language
     binding_strength: required
@@ -371,6 +337,17 @@ properties:
   links:
     items:
       $ref: https://json-schema.org/draft/2020-12/links
+    type: array
+  manufacturer:
+    backref: manufacturer_substance_definition
+    description: The entity that creates, makes, produces or fabricates the substance.
+      This is a set of potential manufacturers but is not necessarily comprehensive.
+    element_property: true
+    enum_reference_types:
+    - Organization
+    items:
+      $ref: Reference.yaml
+    title: The entity that creates, makes, produces or fabricates the substance
     type: array
   meta:
     $ref: Meta.yaml
@@ -396,96 +373,109 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored
     type: array
+  moiety:
+    element_property: true
+    items:
+      $ref: SubstanceDefinitionMoiety.yaml
+    title: Moiety, for structural modifications
+    type: array
+  molecularWeight:
+    description: The average mass of a molecule of a compound compared to 1/12 the
+      mass of carbon 12 and calculated as the sum of the atomic weights of the constituent
+      atoms.
+    element_property: true
+    items:
+      $ref: SubstanceDefinitionMolecularWeight.yaml
+    title: The average mass of a molecule of a compound
+    type: array
+  name:
+    element_property: true
+    items:
+      $ref: SubstanceDefinitionName.yaml
+    title: Names applicable to this substance
+    type: array
   note:
-    description: 'To communicate any details or issues about the specimen or during
-      the specimen collection. (for example: broken vial, sent with patient, frozen).'
     element_property: true
     items:
       $ref: Annotation.yaml
-    title: Comments
+    title: Textual comment about the substance's catalogue or registry record
     type: array
-  parent:
-    backref: parent_specimen
-    description: Reference to the parent (source) specimen which is used when the
-      specimen was either derived from or a component of another specimen.
+  nucleicAcid:
+    $ref: Reference.yaml
+    backref: substance_definition
     element_property: true
     enum_reference_types:
-    - Specimen
-    items:
-      $ref: Reference.yaml
-    title: Specimen from which this specimen originated
-    type: array
-  processing:
-    description: Details concerning processing and processing steps for the specimen.
-    element_property: true
-    items:
-      $ref: SpecimenProcessing.yaml
-    title: Processing and processing step details
-    type: array
-  receivedTime:
-    description: Time when specimen is received by the testing laboratory for processing
-      or testing.
-    element_property: true
-    format: date-time
-    title: The time when specimen is received by the testing laboratory
-    type: string
-  request:
-    backref: request_specimen
-    description: Details concerning a service request that required a specimen to
-      be collected.
+    - SubstanceNucleicAcid
+    title: Data items specific to nucleic acids
+  polymer:
+    $ref: Reference.yaml
+    backref: substance_definition
     element_property: true
     enum_reference_types:
-    - ServiceRequest
+    - SubstancePolymer
+    title: Data items specific to polymers
+  property:
+    element_property: true
     items:
-      $ref: Reference.yaml
-    title: Why the specimen was collected
+      $ref: SubstanceDefinitionProperty.yaml
+    title: General specifications for this substance
+    type: array
+  protein:
+    $ref: Reference.yaml
+    backref: substance_definition
+    element_property: true
+    enum_reference_types:
+    - SubstanceProtein
+    title: Data items specific to proteins
+  referenceInformation:
+    $ref: Reference.yaml
+    backref: substance_definition
+    element_property: true
+    enum_reference_types:
+    - SubstanceReferenceInformation
+    title: General information detailing this substance
+  relationship:
+    description: A link between this substance and another, with details of the relationship.
+    element_property: true
+    items:
+      $ref: SubstanceDefinitionRelationship.yaml
+    title: A link between this substance and another
     type: array
   resourceType:
-    const: Specimen
-    default: Specimen
+    const: SubstanceDefinition
+    default: SubstanceDefinition
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-  role:
-    binding_description: Codes describing specimen role.
-    binding_strength: preferred
-    binding_uri: http://hl7.org/fhir/ValueSet/specimen-role
-    binding_version: null
-    description: The role or reason for the specimen in the testing workflow.
+  sourceMaterial:
+    $ref: SubstanceDefinitionSourceMaterial.yaml
+    description: Material or taxonomic/anatomical source for the substance.
     element_property: true
-    items:
-      $ref: CodeableConcept.yaml
-    title: The role the specimen serves
-    type: array
+    title: Material or taxonomic/anatomical source
   status:
-    binding_description: Codes providing the status/availability of a specimen.
-    binding_strength: required
-    binding_uri: http://hl7.org/fhir/ValueSet/specimen-status
-    binding_version: 5.0.0
-    description: The availability of the specimen.
+    $ref: CodeableConcept.yaml
+    binding_description: The lifecycle status of an artifact.
+    binding_strength: preferred
+    binding_uri: http://hl7.org/fhir/ValueSet/publication-status
+    binding_version: null
     element_property: true
-    enum_values:
-    - available
-    - unavailable
-    - unsatisfactory
-    - entered-in-error
-    pattern: ^[^\s]+(\s[^\s]+)*$
-    title: available | unavailable | unsatisfactory | entered-in-error
-    type: string
-  subject:
-    $ref: Reference.yaml
-    backref: specimen
+    title: Status of substance within the catalogue e.g. active, retired
+  structure:
+    $ref: SubstanceDefinitionStructure.yaml
+    element_property: true
+    title: Structural information
+  supplier:
+    backref: supplier_substance_definition
+    description: An entity that is the source for the substance. It may be different
+      from the manufacturer. Supplier is synonymous to a distributor.
     element_property: true
     enum_reference_types:
-    - Patient
-    - Group
-    - Device
-    - BiologicallyDerivedProduct
-    - Substance
-    - Location
-    title: Where the specimen came from. This may be from patient(s), from a location
-      (e.g., the source of an environmental sample), or a sampling of a substance,
-      a biologically-derived product, or a device
+    - Organization
+    items:
+      $ref: Reference.yaml
+    title: An entity that is the source for the substance. It may be different from
+      the manufacturer
+    type: array
   text:
     $ref: Narrative.yaml
     description: A human-readable narrative that contains a summary of the resource
@@ -496,14 +486,10 @@ properties:
       to ensure clinical safety.
     element_property: true
     title: Text summary of the resource, for human interpretation
-  type:
-    $ref: CodeableConcept.yaml
-    binding_description: The type of the specimen.
-    binding_strength: example
-    binding_uri: http://terminology.hl7.org/ValueSet/v2-0487
-    binding_version: null
-    description: The kind of material that forms the specimen.
+  version:
     element_property: true
-    title: Kind of material that forms the specimen
-title: Specimen
+    pattern: '[ \r\n\t\S]+'
+    title: A business level version identifier of the substance
+    type: string
+title: SubstanceDefinition
 type: object

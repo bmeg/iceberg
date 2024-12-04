@@ -3,6 +3,58 @@ additionalProperties: false
 description: Additional information supporting the diagnostic report. This backbone
   element contains supporting information that was used in the creation of the report
   not included in the results already included in the report. [See https://hl7.org/fhir/R5/DiagnosticReportSupportingInfo.html]
+links:
+- href: '{id}'
+  rel: reference_Procedure
+  targetHints:
+    backref:
+    - diagnostic_report_supporting_info
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Procedure/*
+  targetSchema:
+    $ref: Procedure.yaml
+  templatePointers:
+    id: /reference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: reference_Observation
+  targetHints:
+    backref:
+    - diagnostic_report_supporting_info
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Observation/*
+  targetSchema:
+    $ref: Observation.yaml
+  templatePointers:
+    id: /reference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: reference_DiagnosticReport
+  targetHints:
+    backref:
+    - diagnostic_report_supporting_info
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - DiagnosticReport/*
+  targetSchema:
+    $ref: DiagnosticReport.yaml
+  templatePointers:
+    id: /reference/reference
+  templateRequired:
+  - id
 properties:
   extension:
     description: May be used to represent additional information that is not part
@@ -30,6 +82,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of

@@ -1,11 +1,38 @@
-$id: EncounterLocation
+$id: SubstanceDefinitionStructureRepresentation
 additionalProperties: false
-description: List of locations where the patient has been. List of locations where  the
-  patient has been during this encounter. [See https://hl7.org/fhir/R5/EncounterLocation.html]
+description: A depiction of the structure of the substance. [See https://hl7.org/fhir/R5/SubstanceDefinitionStructureRepresentation.html]
+links:
+- href: '{id}'
+  rel: document
+  targetHints:
+    backref:
+    - substance_definition_structure_representation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - DocumentReference/*
+  targetSchema:
+    $ref: DocumentReference.yaml
+  templatePointers:
+    id: /document/reference
+  templateRequired:
+  - id
 properties:
-  _status:
+  _representation:
     $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``status``.
+    title: Extension field for ``representation``.
+  document:
+    $ref: Reference.yaml
+    backref: substance_definition_structure_representation
+    description: An attached file with the structural representation e.g. a molecular
+      structure graphic of the substance, a JCAMP or AnIML file.
+    element_property: true
+    enum_reference_types:
+    - DocumentReference
+    title: An attachment with the structural representation e.g. a structure graphic
+      or AnIML file
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -25,17 +52,18 @@ properties:
       type: array
     element_property: false
     title: Fhir Comments
-  form:
+  format:
     $ref: CodeableConcept.yaml
-    binding_description: Physical form of the location.
+    binding_description: A format of a substance representation.
     binding_strength: example
-    binding_uri: http://hl7.org/fhir/ValueSet/location-form
+    binding_uri: http://hl7.org/fhir/ValueSet/substance-representation-format
     binding_version: null
-    description: This will be used to specify the required levels (bed/ward/room/etc.)
-      desired to be recorded to simplify either messaging or query.
+    description: The format of the representation e.g. InChI, SMILES, MOLFILE, CDX,
+      SDF, PDB, mmCIF. The logical content type rather than the physical file format
+      of a document.
     element_property: true
-    title: The physical type of the location (usually the level in the location hierarchy
-      - bed, room, ward, virtual etc.)
+    title: 'The format of the representation e.g. InChI, SMILES, MOLFILE (note: not
+      the physical file format)'
   id:
     description: Unique id for the element within a resource (for internal references).
       This may be any string value that does not contain spaces.
@@ -43,14 +71,10 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
-  location:
-    $ref: Reference.yaml
-    backref: encounter_location
-    description: The location where the encounter takes place.
-    element_property: true
-    enum_reference_types:
-    - Location
-    title: Location the encounter takes place
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of
@@ -68,34 +92,24 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
-  period:
-    $ref: Period.yaml
+  representation:
     element_property: true
-    title: Time period during which the patient was present at the location
+    pattern: '[ \r\n\t\S]+'
+    title: The structural representation as a text string in a standard format
+    type: string
   resourceType:
-    const: EncounterLocation
-    default: EncounterLocation
+    const: SubstanceDefinitionStructureRepresentation
+    default: SubstanceDefinitionStructureRepresentation
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-  status:
-    binding_description: The status of the location.
-    binding_strength: required
-    binding_uri: http://hl7.org/fhir/ValueSet/encounter-location-status
-    binding_version: 5.0.0
-    description: The status of the participants' presence at the specified location
-      during the period specified. If the participant is no longer at the location,
-      then the period will have an end date/time.
+  type:
+    $ref: CodeableConcept.yaml
+    binding_description: A format of a substance representation.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/substance-representation-type
+    binding_version: null
     element_property: true
-    enum_values:
-    - planned
-    - active
-    - reserved
-    - completed
-    pattern: ^[^\s]+(\s[^\s]+)*$
-    title: planned | active | reserved | completed
-    type: string
-required:
-- location
-title: EncounterLocation
+    title: The kind of structural representation (e.g. full, partial)
+title: SubstanceDefinitionStructureRepresentation
 type: object

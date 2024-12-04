@@ -6,7 +6,7 @@ description: Describes the context of use for a conformance or knowledge resourc
   (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting,
   provider of care). [See https://hl7.org/fhir/R5/UsageContext.html]
 links:
-- href: ResearchStudy/{id}
+- href: '{id}'
   rel: valueReference_ResearchStudy
   targetHints:
     backref:
@@ -15,8 +15,44 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - ResearchStudy/*
   targetSchema:
     $ref: ResearchStudy.yaml
+  templatePointers:
+    id: /valueReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: valueReference_Group
+  targetHints:
+    backref:
+    - usage_context
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /valueReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: valueReference_Organization
+  targetHints:
+    backref:
+    - usage_context
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
   templatePointers:
     id: /valueReference/reference
   templateRequired:

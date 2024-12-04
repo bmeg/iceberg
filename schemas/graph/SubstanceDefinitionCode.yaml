@@ -1,30 +1,30 @@
-$id: DocumentReferenceAttester
+$id: SubstanceDefinitionCode
 additionalProperties: false
-description: Attests to accuracy of the document. A participant who has authenticated
-  the accuracy of the document. [See https://hl7.org/fhir/R5/DocumentReferenceAttester.html]
+description: Codes associated with the substance. [See https://hl7.org/fhir/R5/SubstanceDefinitionCode.html]
 links:
 - href: '{id}'
-  rel: party_Patient
+  rel: source
   targetHints:
     backref:
-    - document_reference_attester
+    - source_substance_definition_code
     direction:
     - outbound
     multiplicity:
-    - has_one
+    - has_many
     regex_match:
-    - Patient/*
+    - DocumentReference/*
   targetSchema:
-    $ref: Patient.yaml
+    $ref: DocumentReference.yaml
   templatePointers:
-    id: /party/reference
+    id: /source/-/reference
   templateRequired:
   - id
-- href: '{id}'
-  rel: party_Practitioner
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_Practitioner
   targetHints:
     backref:
-    - document_reference_attester
+    - annotation
     direction:
     - outbound
     multiplicity:
@@ -34,14 +34,15 @@ links:
   targetSchema:
     $ref: Practitioner.yaml
   templatePointers:
-    id: /party/reference
+    id: /note/-/authorReference/reference
   templateRequired:
   - id
-- href: '{id}'
-  rel: party_PractitionerRole
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_PractitionerRole
   targetHints:
     backref:
-    - document_reference_attester
+    - annotation
     direction:
     - outbound
     multiplicity:
@@ -51,14 +52,33 @@ links:
   targetSchema:
     $ref: PractitionerRole.yaml
   templatePointers:
-    id: /party/reference
+    id: /note/-/authorReference/reference
   templateRequired:
   - id
-- href: '{id}'
-  rel: party_Organization
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_Patient
   targetHints:
     backref:
-    - document_reference_attester
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Patient/*
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_Organization
+  targetHints:
+    backref:
+    - annotation
     direction:
     - outbound
     multiplicity:
@@ -68,13 +88,17 @@ links:
   targetSchema:
     $ref: Organization.yaml
   templatePointers:
-    id: /party/reference
+    id: /note/-/authorReference/reference
   templateRequired:
   - id
 properties:
-  _time:
+  _statusDate:
     $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``time``.
+    title: Extension field for ``statusDate``.
+  code:
+    $ref: CodeableConcept.yaml
+    element_property: true
+    title: The specific code
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -105,15 +129,6 @@ properties:
     items:
       $ref: https://json-schema.org/draft/2020-12/links
     type: array
-  mode:
-    $ref: CodeableConcept.yaml
-    binding_description: The way in which a person authenticated a document.
-    binding_strength: preferred
-    binding_uri: http://hl7.org/fhir/ValueSet/composition-attestation-mode
-    binding_version: null
-    description: The type of attestation the authenticator offers.
-    element_property: true
-    title: personal | professional | legal | official
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of
@@ -131,31 +146,42 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
-  party:
-    $ref: Reference.yaml
-    backref: document_reference_attester
-    description: Who attested the document in the specified way.
+  note:
+    description: Any comment can be provided in this field, if necessary.
     element_property: true
-    enum_reference_types:
-    - Patient
-    - RelatedPerson
-    - Practitioner
-    - PractitionerRole
-    - Organization
-    title: Who attested the document
+    items:
+      $ref: Annotation.yaml
+    title: Any comment can be provided in this field
+    type: array
   resourceType:
-    const: DocumentReferenceAttester
-    default: DocumentReferenceAttester
+    const: SubstanceDefinitionCode
+    default: SubstanceDefinitionCode
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-  time:
-    description: When the document was attested by the party.
+  source:
+    backref: source_substance_definition_code
+    element_property: true
+    enum_reference_types:
+    - DocumentReference
+    items:
+      $ref: Reference.yaml
+    title: Supporting literature
+    type: array
+  status:
+    $ref: CodeableConcept.yaml
+    binding_description: The lifecycle status of an artifact.
+    binding_strength: preferred
+    binding_uri: http://hl7.org/fhir/ValueSet/publication-status
+    binding_version: null
+    element_property: true
+    title: Status of the code assignment, for example 'provisional', 'approved'
+  statusDate:
+    description: The date at which the code status was changed as part of the terminology
+      maintenance.
     element_property: true
     format: date-time
-    title: When the document was attested
+    title: The date at which the code status was changed
     type: string
-required:
-- mode
-title: DocumentReferenceAttester
+title: SubstanceDefinitionCode
 type: object

@@ -8,6 +8,423 @@ description: A Diagnostic report - a combination of request information, atomic 
   results, images, textual and coded interpretations, and formatted representation
   of diagnostic reports. The report also includes non-clinical context such as batch
   analysis and stability reporting of products and substances. [See https://hl7.org/fhir/R5/DiagnosticReport.html]
+links:
+- href: '{id}'
+  rel: basedOn_MedicationRequest
+  targetHints:
+    backref:
+    - basedOn_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - MedicationRequest/*
+  targetSchema:
+    $ref: MedicationRequest.yaml
+  templatePointers:
+    id: /basedOn/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: performer_Practitioner
+  targetHints:
+    backref:
+    - performer_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /performer/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: performer_PractitionerRole
+  targetHints:
+    backref:
+    - performer_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /performer/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: performer_Organization
+  targetHints:
+    backref:
+    - performer_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /performer/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: result
+  targetHints:
+    backref:
+    - result_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Observation/*
+  targetSchema:
+    $ref: Observation.yaml
+  templatePointers:
+    id: /result/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resultsInterpreter_Practitioner
+  targetHints:
+    backref:
+    - resultsInterpreter_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /resultsInterpreter/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resultsInterpreter_PractitionerRole
+  targetHints:
+    backref:
+    - resultsInterpreter_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /resultsInterpreter/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resultsInterpreter_Organization
+  targetHints:
+    backref:
+    - resultsInterpreter_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /resultsInterpreter/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: specimen
+  targetHints:
+    backref:
+    - specimen_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - Specimen/*
+  targetSchema:
+    $ref: Specimen.yaml
+  templatePointers:
+    id: /specimen/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: study_ImagingStudy
+  targetHints:
+    backref:
+    - study_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_many
+    regex_match:
+    - ImagingStudy/*
+  targetSchema:
+    $ref: ImagingStudy.yaml
+  templatePointers:
+    id: /study/-/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: subject_Patient
+  targetHints:
+    backref:
+    - subject_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Patient/*
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: subject_Group
+  targetHints:
+    backref:
+    - subject_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: subject_Organization
+  targetHints:
+    backref:
+    - subject_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: subject_Practitioner
+  targetHints:
+    backref:
+    - subject_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: subject_Medication
+  targetHints:
+    backref:
+    - subject_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Medication/*
+  targetSchema:
+    $ref: Medication.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: subject_Substance
+  targetHints:
+    backref:
+    - subject_diagnostic_report
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Substance/*
+  targetSchema:
+    $ref: Substance.yaml
+  templatePointers:
+    id: /subject/reference
+  templateRequired:
+  - id
+- $comment: From DiagnosticReportMedia/media
+  href: '{id}'
+  rel: media_link
+  targetHints:
+    backref:
+    - diagnostic_report_media
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - DocumentReference/*
+  targetSchema:
+    $ref: DocumentReference.yaml
+  templatePointers:
+    id: /media/-/link/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_Practitioner
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_PractitionerRole
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_Patient
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Patient/*
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_Organization
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From DiagnosticReportSupportingInfo/supportingInfo
+  href: '{id}'
+  rel: supportingInfo_reference_Procedure
+  targetHints:
+    backref:
+    - diagnostic_report_supporting_info
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Procedure/*
+  targetSchema:
+    $ref: Procedure.yaml
+  templatePointers:
+    id: /supportingInfo/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From DiagnosticReportSupportingInfo/supportingInfo
+  href: '{id}'
+  rel: supportingInfo_reference_Observation
+  targetHints:
+    backref:
+    - diagnostic_report_supporting_info
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Observation/*
+  targetSchema:
+    $ref: Observation.yaml
+  templatePointers:
+    id: /supportingInfo/-/reference/reference
+  templateRequired:
+  - id
+- $comment: From DiagnosticReportSupportingInfo/supportingInfo
+  href: '{id}'
+  rel: supportingInfo_reference_DiagnosticReport
+  targetHints:
+    backref:
+    - diagnostic_report_supporting_info
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - DiagnosticReport/*
+  targetSchema:
+    $ref: DiagnosticReport.yaml
+  templatePointers:
+    id: /supportingInfo/-/reference/reference
+  templateRequired:
+  - id
 properties:
   _conclusion:
     $ref: FHIRPrimitiveExtension.yaml
@@ -193,6 +610,10 @@ properties:
     pattern: ^[^\s]+(\s[^\s]+)*$
     title: Language of the resource content
     type: string
+  links:
+    items:
+      $ref: https://json-schema.org/draft/2020-12/links
+    type: array
   media:
     description: A list of key images or data associated with this report. The images
       or data are generally created during the diagnostic process, and may be directly

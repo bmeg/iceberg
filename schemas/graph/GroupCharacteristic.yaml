@@ -1,14 +1,13 @@
-$id: BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark
+$id: GroupCharacteristic
 additionalProperties: false
-description: Landmark relative location. The distance in centimeters a certain observation
-  is made from a body landmark. [See https://hl7.org/fhir/R5/BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark.html]
+description: Include / Exclude group members by Trait. Identifies traits whose presence
+  r absence is shared by members of the group. [See https://hl7.org/fhir/R5/GroupCharacteristic.html]
 links:
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Organization
+- href: '{id}'
+  rel: valueReference_Organization
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -18,15 +17,14 @@ links:
   targetSchema:
     $ref: Organization.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Group
+- href: '{id}'
+  rel: valueReference_Group
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -36,15 +34,14 @@ links:
   targetSchema:
     $ref: Group.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Practitioner
+- href: '{id}'
+  rel: valueReference_Practitioner
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -54,15 +51,14 @@ links:
   targetSchema:
     $ref: Practitioner.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_PractitionerRole
+- href: '{id}'
+  rel: valueReference_PractitionerRole
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -72,15 +68,14 @@ links:
   targetSchema:
     $ref: PractitionerRole.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_ResearchStudy
+- href: '{id}'
+  rel: valueReference_ResearchStudy
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -90,15 +85,14 @@ links:
   targetSchema:
     $ref: ResearchStudy.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Patient
+- href: '{id}'
+  rel: valueReference_Patient
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -108,15 +102,14 @@ links:
   targetSchema:
     $ref: Patient.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_ResearchSubject
+- href: '{id}'
+  rel: valueReference_ResearchSubject
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -126,15 +119,14 @@ links:
   targetSchema:
     $ref: ResearchSubject.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Substance
+- href: '{id}'
+  rel: valueReference_Substance
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -144,15 +136,14 @@ links:
   targetSchema:
     $ref: Substance.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_SubstanceDefinition
+- href: '{id}'
+  rel: valueReference_SubstanceDefinition
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -162,15 +153,14 @@ links:
   targetSchema:
     $ref: SubstanceDefinition.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Specimen
+- href: '{id}'
+  rel: valueReference_Specimen
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -180,15 +170,14 @@ links:
   targetSchema:
     $ref: Specimen.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Observation
+- href: '{id}'
+  rel: valueReference_Observation
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -198,15 +187,14 @@ links:
   targetSchema:
     $ref: Observation.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_DiagnosticReport
+- href: '{id}'
+  rel: valueReference_DiagnosticReport
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -216,15 +204,14 @@ links:
   targetSchema:
     $ref: DiagnosticReport.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Condition
+- href: '{id}'
+  rel: valueReference_Condition
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -234,15 +221,14 @@ links:
   targetSchema:
     $ref: Condition.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Medication
+- href: '{id}'
+  rel: valueReference_Medication
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -252,15 +238,14 @@ links:
   targetSchema:
     $ref: Medication.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_MedicationAdministration
+- href: '{id}'
+  rel: valueReference_MedicationAdministration
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -270,15 +255,14 @@ links:
   targetSchema:
     $ref: MedicationAdministration.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_MedicationStatement
+- href: '{id}'
+  rel: valueReference_MedicationStatement
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -288,15 +272,14 @@ links:
   targetSchema:
     $ref: MedicationStatement.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_MedicationRequest
+- href: '{id}'
+  rel: valueReference_MedicationRequest
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -306,15 +289,14 @@ links:
   targetSchema:
     $ref: MedicationRequest.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Procedure
+- href: '{id}'
+  rel: valueReference_Procedure
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -324,15 +306,14 @@ links:
   targetSchema:
     $ref: Procedure.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_DocumentReference
+- href: '{id}'
+  rel: valueReference_DocumentReference
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -342,15 +323,14 @@ links:
   targetSchema:
     $ref: DocumentReference.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_Task
+- href: '{id}'
+  rel: valueReference_Task
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -360,15 +340,14 @@ links:
   targetSchema:
     $ref: Task.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_ImagingStudy
+- href: '{id}'
+  rel: valueReference_ImagingStudy
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -378,15 +357,14 @@ links:
   targetSchema:
     $ref: ImagingStudy.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_FamilyMemberHistory
+- href: '{id}'
+  rel: valueReference_FamilyMemberHistory
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -396,15 +374,14 @@ links:
   targetSchema:
     $ref: FamilyMemberHistory.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
-- $comment: From CodeableReference/device
-  href: '{id}'
-  rel: device_reference_BodyStructure
+- href: '{id}'
+  rel: valueReference_BodyStructure
   targetHints:
     backref:
-    - codeable_reference
+    - group_characteristic
     direction:
     - outbound
     multiplicity:
@@ -414,24 +391,28 @@ links:
   targetSchema:
     $ref: BodyStructure.yaml
   templatePointers:
-    id: /device/-/reference/reference
+    id: /valueReference/reference
   templateRequired:
   - id
 properties:
-  device:
-    backref: device_body_structure_included_structure_body_landmark_orientation_distance_from_landmark
-    binding_description: Codes to identify medical devices.
-    binding_strength: example
-    binding_uri: http://hl7.org/fhir/ValueSet/device-type
-    binding_version: null
-    description: An instrument, tool, analyzer, etc. used in the measurement.
+  _exclude:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``exclude``.
+  _valueBoolean:
+    $ref: FHIRPrimitiveExtension.yaml
+    title: Extension field for ``valueBoolean``.
+  code:
+    $ref: CodeableConcept.yaml
+    description: A code that identifies the kind of trait being asserted.
     element_property: true
-    enum_reference_types:
-    - Device
-    items:
-      $ref: CodeableReference.yaml
-    title: Measurement device
-    type: array
+    title: Kind of characteristic
+  exclude:
+    description: If true, indicates the characteristic is one that is NOT held by
+      members of the group.
+    element_property: true
+    element_required: true
+    title: Group includes or excludes
+    type: boolean
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -479,18 +460,84 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
+  period:
+    $ref: Period.yaml
+    description: The period over which the characteristic is tested; e.g. the patient
+      had an operation during the month of June.
+    element_property: true
+    title: Period over which characteristic is tested
   resourceType:
-    const: BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark
-    default: BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark
+    const: GroupCharacteristic
+    default: GroupCharacteristic
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-  value:
-    description: The measured distance (e.g., in cm) from a body landmark.
+  valueBoolean:
+    description: The value of the trait that holds (or does not hold - see 'exclude')
+      for members of the group.
     element_property: true
-    items:
-      $ref: Quantity.yaml
-    title: Measured distance from body landmark
-    type: array
-title: BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark
+    one_of_many: value
+    one_of_many_required: true
+    title: Value held by characteristic
+    type: boolean
+  valueCodeableConcept:
+    $ref: CodeableConcept.yaml
+    description: The value of the trait that holds (or does not hold - see 'exclude')
+      for members of the group.
+    element_property: true
+    one_of_many: value
+    one_of_many_required: true
+    title: Value held by characteristic
+  valueQuantity:
+    $ref: Quantity.yaml
+    description: The value of the trait that holds (or does not hold - see 'exclude')
+      for members of the group.
+    element_property: true
+    one_of_many: value
+    one_of_many_required: true
+    title: Value held by characteristic
+  valueRange:
+    $ref: Range.yaml
+    description: The value of the trait that holds (or does not hold - see 'exclude')
+      for members of the group.
+    element_property: true
+    one_of_many: value
+    one_of_many_required: true
+    title: Value held by characteristic
+  valueReference:
+    $ref: Reference.yaml
+    backref: group_characteristic
+    description: The value of the trait that holds (or does not hold - see 'exclude')
+      for members of the group.
+    element_property: true
+    enum_reference_types:
+    - Organization
+    - Group
+    - Practitioner
+    - PractitionerRole
+    - ResearchStudy
+    - Patient
+    - ResearchSubject
+    - Substance
+    - SubstanceDefinition
+    - Specimen
+    - Observation
+    - DiagnosticReport
+    - Condition
+    - Medication
+    - MedicationAdministration
+    - MedicationStatement
+    - MedicationRequest
+    - Procedure
+    - DocumentReference
+    - Task
+    - ImagingStudy
+    - FamilyMemberHistory
+    - BodyStructure
+    one_of_many: value
+    one_of_many_required: true
+    title: Value held by characteristic
+required:
+- code
+title: GroupCharacteristic
 type: object

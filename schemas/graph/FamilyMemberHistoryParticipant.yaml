@@ -4,7 +4,41 @@ description: Who or what participated in the activities related to the family me
   history and how they were involved. Indicates who or what participated in the activities
   related to the family member history and how they were involved. [See https://hl7.org/fhir/R5/FamilyMemberHistoryParticipant.html]
 links:
-- href: Patient/{id}
+- href: '{id}'
+  rel: actor_Practitioner
+  targetHints:
+    backref:
+    - family_member_history_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: actor_PractitionerRole
+  targetHints:
+    backref:
+    - family_member_history_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: '{id}'
   rel: actor_Patient
   targetHints:
     backref:
@@ -13,8 +47,27 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
+  templatePointers:
+    id: /actor/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: actor_Organization
+  targetHints:
+    backref:
+    - family_member_history_participant
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
   templatePointers:
     id: /actor/reference
   templateRequired:

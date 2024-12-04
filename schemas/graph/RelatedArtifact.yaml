@@ -3,8 +3,8 @@ additionalProperties: false
 description: Related artifacts for a knowledge resource. Related artifacts such as
   additional documentation, justification, or bibliographic references. [See https://hl7.org/fhir/R5/RelatedArtifact.html]
 links:
-- href: Resource/{id}
-  rel: resourceReference
+- href: '{id}'
+  rel: resourceReference_Organization
   targetHints:
     backref:
     - related_artifact
@@ -12,8 +12,384 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Organization/*
   targetSchema:
-    $ref: Resource.yaml
+    $ref: Organization.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_Group
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Group/*
+  targetSchema:
+    $ref: Group.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_Practitioner
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_PractitionerRole
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_ResearchStudy
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - ResearchStudy/*
+  targetSchema:
+    $ref: ResearchStudy.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_Patient
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Patient/*
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_ResearchSubject
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - ResearchSubject/*
+  targetSchema:
+    $ref: ResearchSubject.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_Substance
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Substance/*
+  targetSchema:
+    $ref: Substance.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_SubstanceDefinition
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - SubstanceDefinition/*
+  targetSchema:
+    $ref: SubstanceDefinition.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_Specimen
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Specimen/*
+  targetSchema:
+    $ref: Specimen.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_Observation
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Observation/*
+  targetSchema:
+    $ref: Observation.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_DiagnosticReport
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - DiagnosticReport/*
+  targetSchema:
+    $ref: DiagnosticReport.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_Condition
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Condition/*
+  targetSchema:
+    $ref: Condition.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_Medication
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Medication/*
+  targetSchema:
+    $ref: Medication.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_MedicationAdministration
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - MedicationAdministration/*
+  targetSchema:
+    $ref: MedicationAdministration.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_MedicationStatement
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - MedicationStatement/*
+  targetSchema:
+    $ref: MedicationStatement.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_MedicationRequest
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - MedicationRequest/*
+  targetSchema:
+    $ref: MedicationRequest.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_Procedure
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Procedure/*
+  targetSchema:
+    $ref: Procedure.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_DocumentReference
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - DocumentReference/*
+  targetSchema:
+    $ref: DocumentReference.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_Task
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Task/*
+  targetSchema:
+    $ref: Task.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_ImagingStudy
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - ImagingStudy/*
+  targetSchema:
+    $ref: ImagingStudy.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_FamilyMemberHistory
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - FamilyMemberHistory/*
+  targetSchema:
+    $ref: FamilyMemberHistory.yaml
+  templatePointers:
+    id: /resourceReference/reference
+  templateRequired:
+  - id
+- href: '{id}'
+  rel: resourceReference_BodyStructure
+  targetHints:
+    backref:
+    - related_artifact
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - BodyStructure/*
+  targetSchema:
+    $ref: BodyStructure.yaml
   templatePointers:
     id: /resourceReference/reference
   templateRequired:
@@ -145,7 +521,29 @@ properties:
       or a resource reference to a canonical resource.
     element_property: true
     enum_reference_types:
-    - Resource
+    - Organization
+    - Group
+    - Practitioner
+    - PractitionerRole
+    - ResearchStudy
+    - Patient
+    - ResearchSubject
+    - Substance
+    - SubstanceDefinition
+    - Specimen
+    - Observation
+    - DiagnosticReport
+    - Condition
+    - Medication
+    - MedicationAdministration
+    - MedicationStatement
+    - MedicationRequest
+    - Procedure
+    - DocumentReference
+    - Task
+    - ImagingStudy
+    - FamilyMemberHistory
+    - BodyStructure
     title: What artifact, if not a conformance resource
   resourceType:
     const: RelatedArtifact

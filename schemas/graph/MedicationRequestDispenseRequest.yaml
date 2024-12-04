@@ -7,8 +7,61 @@ description: Medication supply authorization. Indicates the specific details for
   system support for completing the dispense details in the pharmacy department. [See
   https://hl7.org/fhir/R5/MedicationRequestDispenseRequest.html]
 links:
+- href: '{id}'
+  rel: dispenser
+  targetHints:
+    backref:
+    - medication_request_dispense_request
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
+  templatePointers:
+    id: /dispenser/reference
+  templateRequired:
+  - id
 - $comment: From Annotation/dispenserInstruction
-  href: Patient/{id}
+  href: '{id}'
+  rel: dispenserInstruction_authorReference_Practitioner
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Practitioner/*
+  targetSchema:
+    $ref: Practitioner.yaml
+  templatePointers:
+    id: /dispenserInstruction/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/dispenserInstruction
+  href: '{id}'
+  rel: dispenserInstruction_authorReference_PractitionerRole
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - PractitionerRole/*
+  targetSchema:
+    $ref: PractitionerRole.yaml
+  templatePointers:
+    id: /dispenserInstruction/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/dispenserInstruction
+  href: '{id}'
   rel: dispenserInstruction_authorReference_Patient
   targetHints:
     backref:
@@ -17,8 +70,28 @@ links:
     - outbound
     multiplicity:
     - has_one
+    regex_match:
+    - Patient/*
   targetSchema:
     $ref: Patient.yaml
+  templatePointers:
+    id: /dispenserInstruction/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/dispenserInstruction
+  href: '{id}'
+  rel: dispenserInstruction_authorReference_Organization
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
+    regex_match:
+    - Organization/*
+  targetSchema:
+    $ref: Organization.yaml
   templatePointers:
     id: /dispenserInstruction/-/authorReference/reference
   templateRequired:
