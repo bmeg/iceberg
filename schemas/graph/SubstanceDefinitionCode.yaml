@@ -1,82 +1,104 @@
-$id: TaskRestriction
+$id: SubstanceDefinitionCode
 additionalProperties: false
-description: Constraints on fulfillment tasks. If the Task.focus is a request resource
-  and the task is seeking fulfillment (i.e. is asking for the request to be actioned),
-  this element identifies any limitations on what parts of the referenced request
-  should be actioned. [See https://hl7.org/fhir/R5/TaskRestriction.html]
+description: Codes associated with the substance. [See https://hl7.org/fhir/R5/SubstanceDefinitionCode.html]
 links:
 - href: '{id}'
-  rel: recipient_Patient
+  rel: source
   targetHints:
     backref:
-    - recipient_task_restriction
+    - source_substance_definition_code
     direction:
     - outbound
     multiplicity:
     - has_many
     regex_match:
-    - Patient/*
+    - DocumentReference/*
   targetSchema:
-    $ref: Patient.yaml
+    $ref: DocumentReference.yaml
   templatePointers:
-    id: /recipient/-/reference
+    id: /source/-/reference
   templateRequired:
   - id
-- href: '{id}'
-  rel: recipient_Practitioner
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_Practitioner
   targetHints:
     backref:
-    - recipient_task_restriction
+    - annotation
     direction:
     - outbound
     multiplicity:
-    - has_many
+    - has_one
     regex_match:
     - Practitioner/*
   targetSchema:
     $ref: Practitioner.yaml
   templatePointers:
-    id: /recipient/-/reference
+    id: /note/-/authorReference/reference
   templateRequired:
   - id
-- href: '{id}'
-  rel: recipient_PractitionerRole
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_PractitionerRole
   targetHints:
     backref:
-    - recipient_task_restriction
+    - annotation
     direction:
     - outbound
     multiplicity:
-    - has_many
+    - has_one
     regex_match:
     - PractitionerRole/*
   targetSchema:
     $ref: PractitionerRole.yaml
   templatePointers:
-    id: /recipient/-/reference
+    id: /note/-/authorReference/reference
   templateRequired:
   - id
-- href: '{id}'
-  rel: recipient_Organization
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_Patient
   targetHints:
     backref:
-    - recipient_task_restriction
+    - annotation
     direction:
     - outbound
     multiplicity:
-    - has_many
+    - has_one
+    regex_match:
+    - Patient/*
+  targetSchema:
+    $ref: Patient.yaml
+  templatePointers:
+    id: /note/-/authorReference/reference
+  templateRequired:
+  - id
+- $comment: From Annotation/note
+  href: '{id}'
+  rel: note_authorReference_Organization
+  targetHints:
+    backref:
+    - annotation
+    direction:
+    - outbound
+    multiplicity:
+    - has_one
     regex_match:
     - Organization/*
   targetSchema:
     $ref: Organization.yaml
   templatePointers:
-    id: /recipient/-/reference
+    id: /note/-/authorReference/reference
   templateRequired:
   - id
 properties:
-  _repetitions:
+  _statusDate:
     $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``repetitions``.
+    title: Extension field for ``statusDate``.
+  code:
+    $ref: CodeableConcept.yaml
+    element_property: true
+    title: The specific code
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -124,39 +146,42 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
-  period:
-    $ref: Period.yaml
-    description: The time-period for which fulfillment is sought. This must fall within
-      the overall time period authorized in the referenced request.  E.g. ServiceRequest.occurance[x].
+  note:
+    description: Any comment can be provided in this field, if necessary.
     element_property: true
-    title: When fulfillment is sought
-  recipient:
-    backref: recipient_task_restriction
-    description: For requests that are targeted to more than one potential recipient/target,
-      to identify who is fulfillment is sought for.
-    element_property: true
-    enum_reference_types:
-    - Patient
-    - Practitioner
-    - PractitionerRole
-    - RelatedPerson
-    - Group
-    - Organization
     items:
-      $ref: Reference.yaml
-    title: For whom is fulfillment sought?
+      $ref: Annotation.yaml
+    title: Any comment can be provided in this field
     type: array
-  repetitions:
-    description: Indicates the number of times the requested action should occur.
-    element_property: true
-    exclusiveMinimum: 0
-    title: How many times to repeat
-    type: integer
   resourceType:
-    const: TaskRestriction
-    default: TaskRestriction
+    const: SubstanceDefinitionCode
+    default: SubstanceDefinitionCode
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-title: TaskRestriction
+  source:
+    backref: source_substance_definition_code
+    element_property: true
+    enum_reference_types:
+    - DocumentReference
+    items:
+      $ref: Reference.yaml
+    title: Supporting literature
+    type: array
+  status:
+    $ref: CodeableConcept.yaml
+    binding_description: The lifecycle status of an artifact.
+    binding_strength: preferred
+    binding_uri: http://hl7.org/fhir/ValueSet/publication-status
+    binding_version: null
+    element_property: true
+    title: Status of the code assignment, for example 'provisional', 'approved'
+  statusDate:
+    description: The date at which the code status was changed as part of the terminology
+      maintenance.
+    element_property: true
+    format: date-time
+    title: The date at which the code status was changed
+    type: string
+title: SubstanceDefinitionCode
 type: object

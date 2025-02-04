@@ -1,27 +1,29 @@
-$id: ResearchStudyComparisonGroup
+$id: SubstanceDefinitionMoiety
 additionalProperties: false
-description: 'Defined path through the study for a subject. Describes an expected
-  event or sequence of events for one of the subjects of a study. E.g. for a living
-  subject: exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up.
-  E.g. for a stability study: {store sample from lot A at 25 degrees for 1 month},
-  {store sample from lot A at 40 degrees for 1 month}. [See https://hl7.org/fhir/R5/ResearchStudyComparisonGroup.html]'
+description: Moiety, for structural modifications. [See https://hl7.org/fhir/R5/SubstanceDefinitionMoiety.html]
 links: []
 properties:
-  _description:
+  _amountString:
     $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``description``.
-  _linkId:
+    title: Extension field for ``amountString``.
+  _molecularFormula:
     $ref: FHIRPrimitiveExtension.yaml
-    title: Extension field for ``linkId``.
+    title: Extension field for ``molecularFormula``.
   _name:
     $ref: FHIRPrimitiveExtension.yaml
     title: Extension field for ``name``.
-  description:
-    description: A succinct description of the path through the study that would be
-      followed by a subject adhering to this comparisonGroup.
+  amountQuantity:
+    $ref: Quantity.yaml
     element_property: true
-    pattern: \s*(\S|\s)*
-    title: Short explanation of study path
+    one_of_many: amount
+    one_of_many_required: false
+    title: Quantitative value for this moiety
+  amountString:
+    element_property: true
+    one_of_many: amount
+    one_of_many_required: false
+    pattern: '[ \r\n\t\S]+'
+    title: Quantitative value for this moiety
     type: string
   extension:
     description: May be used to represent additional information that is not part
@@ -49,27 +51,26 @@ properties:
     pattern: '[ \r\n\t\S]+'
     title: Unique id for inter-element referencing
     type: string
-  intendedExposure:
-    backref: intendedExposure_research_study_comparison_group
+  identifier:
+    $ref: Identifier.yaml
     element_property: true
-    enum_reference_types:
-    - EvidenceVariable
-    items:
-      $ref: Reference.yaml
-    title: Interventions or exposures in this comparisonGroup or cohort
-    type: array
-  linkId:
-    element_property: true
-    maxLength: 64
-    minLength: 1
-    pattern: ^[A-Za-z0-9\-.]+$
-    title: Allows the comparisonGroup for the study and the comparisonGroup for the
-      subject to be linked easily
-    type: string
+    title: Identifier by which this moiety substance is known
   links:
     items:
       $ref: https://json-schema.org/draft/2020-12/links
     type: array
+  measurementType:
+    $ref: CodeableConcept.yaml
+    binding_description: The relationship between two substance types.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/substance-amount-type
+    binding_version: null
+    description: The measurement type of the quantitative value. In capturing the
+      actual relative amounts of substances or molecular fragments it may be necessary
+      to indicate whether the amount refers to, for example, a mole ratio or weight
+      ratio.
+    element_property: true
+    title: The measurement type of the quantitative value
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of
@@ -87,35 +88,43 @@ properties:
       $ref: Extension.yaml
     title: Extensions that cannot be ignored even if unrecognized
     type: array
-  name:
-    description: Unique, human-readable label for this comparisonGroup of the study.
+  molecularFormula:
+    description: Molecular formula for this moiety of this substance, typically using
+      the Hill system.
     element_property: true
-    element_required: true
     pattern: '[ \r\n\t\S]+'
-    title: Label for study comparisonGroup
+    title: Molecular formula for this moiety (e.g. with the Hill system)
     type: string
-  observedGroup:
-    $ref: Reference.yaml
-    backref: research_study_comparison_group
+  name:
     element_property: true
-    enum_reference_types:
-    - Group
-    title: Group of participants who were enrolled in study comparisonGroup
+    pattern: '[ \r\n\t\S]+'
+    title: Textual name for this moiety substance
+    type: string
+  opticalActivity:
+    $ref: CodeableConcept.yaml
+    binding_description: The optical rotation type of a substance.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/substance-optical-activity
+    binding_version: null
+    element_property: true
+    title: Optical activity type
   resourceType:
-    const: ResearchStudyComparisonGroup
-    default: ResearchStudyComparisonGroup
+    const: SubstanceDefinitionMoiety
+    default: SubstanceDefinitionMoiety
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-  type:
+  role:
     $ref: CodeableConcept.yaml
-    binding_description: desc.
-    binding_strength: extensible
-    binding_uri: http://hl7.org/fhir/ValueSet/research-study-arm-type
-    binding_version: null
-    description: Categorization of study comparisonGroup, e.g. experimental, active
-      comparator, placebo comparater.
     element_property: true
-    title: Categorization of study comparisonGroup
-title: ResearchStudyComparisonGroup
+    title: Role that the moiety is playing
+  stereochemistry:
+    $ref: CodeableConcept.yaml
+    binding_description: The optical rotation type of a substance.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/substance-stereochemistry
+    binding_version: null
+    element_property: true
+    title: Stereochemistry type
+title: SubstanceDefinitionMoiety
 type: object

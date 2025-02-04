@@ -10,23 +10,6 @@ description: A Diagnostic report - a combination of request information, atomic 
   analysis and stability reporting of products and substances. [See https://hl7.org/fhir/R5/DiagnosticReport.html]
 links:
 - href: '{id}'
-  rel: basedOn_MedicationRequest
-  targetHints:
-    backref:
-    - basedOn_diagnostic_report
-    direction:
-    - outbound
-    multiplicity:
-    - has_many
-    regex_match:
-    - MedicationRequest/*
-  targetSchema:
-    $ref: MedicationRequest.yaml
-  templatePointers:
-    id: /basedOn/-/reference
-  templateRequired:
-  - id
-- href: '{id}'
   rel: performer_Practitioner
   targetHints:
     backref:
@@ -192,23 +175,6 @@ links:
     - Patient/*
   targetSchema:
     $ref: Patient.yaml
-  templatePointers:
-    id: /subject/reference
-  templateRequired:
-  - id
-- href: '{id}'
-  rel: subject_Group
-  targetHints:
-    backref:
-    - subject_diagnostic_report
-    direction:
-    - outbound
-    multiplicity:
-    - has_one
-    regex_match:
-    - Group/*
-  targetSchema:
-    $ref: Group.yaml
   templatePointers:
     id: /subject/reference
   templateRequired:

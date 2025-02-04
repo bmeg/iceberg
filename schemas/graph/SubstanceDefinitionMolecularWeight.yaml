@@ -1,23 +1,17 @@
-$id: BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark
+$id: SubstanceDefinitionMolecularWeight
 additionalProperties: false
-description: Landmark relative location. The distance in centimeters a certain observation
-  is made from a body landmark. [See https://hl7.org/fhir/R5/BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark.html]
+description: The average mass of a molecule of a compound. The average mass of a molecule
+  of a compound compared to 1/12 the mass of carbon 12 and calculated as the sum of
+  the atomic weights of the constituent atoms. [See https://hl7.org/fhir/R5/SubstanceDefinitionMolecularWeight.html]
 links: []
 properties:
-  device:
-    backref: device_body_structure_included_structure_body_landmark_orientation_distance_from_landmark
-    binding_description: Codes to identify medical devices.
-    binding_strength: example
-    binding_uri: http://hl7.org/fhir/ValueSet/device-type
-    binding_version: null
-    description: An instrument, tool, analyzer, etc. used in the measurement.
+  amount:
+    $ref: Quantity.yaml
+    description: Used to capture quantitative values for a variety of elements. If
+      only limits are given, the arithmetic mean would be the average. If only a single
+      definite value for a given element is given, it would be captured in this field.
     element_property: true
-    enum_reference_types:
-    - Device
-    items:
-      $ref: CodeableReference.yaml
-    title: Measurement device
-    type: array
+    title: Used to capture quantitative values for a variety of elements
   extension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element. To make the use of extensions safe and
@@ -48,6 +42,15 @@ properties:
     items:
       $ref: https://json-schema.org/draft/2020-12/links
     type: array
+  method:
+    $ref: CodeableConcept.yaml
+    binding_description: The method by which the substance weight was measured.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/substance-weight-method
+    binding_version: null
+    description: The method by which the molecular weight was determined.
+    element_property: true
+    title: The method by which the weight was determined
   modifierExtension:
     description: May be used to represent additional information that is not part
       of the basic definition of the element and that modifies the understanding of
@@ -66,17 +69,22 @@ properties:
     title: Extensions that cannot be ignored even if unrecognized
     type: array
   resourceType:
-    const: BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark
-    default: BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark
+    const: SubstanceDefinitionMolecularWeight
+    default: SubstanceDefinitionMolecularWeight
     description: One of the resource types defined as part of FHIR
     title: Resource Type
     type: string
-  value:
-    description: The measured distance (e.g., in cm) from a body landmark.
+  type:
+    $ref: CodeableConcept.yaml
+    binding_description: The type of substance weight measurement.
+    binding_strength: example
+    binding_uri: http://hl7.org/fhir/ValueSet/substance-weight-type
+    binding_version: null
+    description: Type of molecular weight such as exact, average (also known as. number
+      average), weight average.
     element_property: true
-    items:
-      $ref: Quantity.yaml
-    title: Measured distance from body landmark
-    type: array
-title: BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark
+    title: Type of molecular weight e.g. exact, average, weight average
+required:
+- amount
+title: SubstanceDefinitionMolecularWeight
 type: object
