@@ -39125,7 +39125,7 @@
             "$ref": "http://graph-fhir.io/schema/0.0.2/Directory"
           },
           "templatePointers": {
-            "id": "/rootDir/-/reference"
+            "id": "/rootDir/reference"
           },
           "templateRequired": ["id"]
         },
