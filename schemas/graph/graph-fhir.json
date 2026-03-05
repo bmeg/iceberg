@@ -2,6 +2,119 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "http://graph-fhir.io/schema/0.0.2",
   "$defs": {
+    "Directory": {
+      "$id": "http://graph-fhir.io/schema/0.0.2/Directory",
+      "additionalProperties": false,
+      "description": "POSIX Directory of a research study's document references from root (/) to the native location of the document references themselves.",
+      "links": [
+        {
+          "href": "{id}",
+          "rel": "child_Directory",
+          "targetHints": {
+            "backref": [],
+            "direction": [
+              "outbound"
+            ],
+            "multiplicity": [
+              "has_many"
+            ],
+            "regex_match": [
+              "Directory/*"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "http://graph-fhir.io/schema/0.0.2/Directory"
+          },
+          "templatePointers": {
+            "id": "/child/-/reference"
+          },
+          "templateRequired": [
+            "id"
+          ]
+        },
+        {
+          "href": "{id}",
+          "rel": "child_DocumentReference",
+          "targetHints": {
+            "backref": [],
+            "direction": [
+              "outbound"
+            ],
+            "multiplicity": [
+              "has_many"
+            ],
+            "regex_match": [
+              "DocumentReference/*"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "http://graph-fhir.io/schema/0.0.2/DocumentReference"
+          },
+          "templatePointers": {
+            "id": "/child/-/reference"
+          },
+          "templateRequired": [
+            "id"
+          ]
+        }
+      ],
+      "properties": {
+        "name": {
+          "binding_strength": "required",
+          "element_property": true,
+          "title": "The name of the directory",
+          "type": "string"
+        },
+        "path": {
+          "type": "string",
+          "description": "The full POSIX path of the directory starting from the bucket or root.",
+          "title": "Full Path",
+          "element_property": true
+        },
+        "child": {
+          "items": {
+            "$ref": "http://graph-fhir.io/schema/0.0.2/Reference"
+          },
+          "backref": "directory",
+          "description": "a child directory of the current directory",
+          "element_property": true,
+          "enum_reference_types": [
+            "Directory",
+            "DocumentReference"
+          ],
+          "title": "A reference to a downstream node in the directory tree",
+          "type": "array"
+        },
+        "id": {
+          "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+          "element_property": true,
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9\\-.]+$",
+          "title": "Logical id of this artifact",
+          "type": "string"
+        },
+        "links": {
+          "items": {
+            "$ref": "https://json-schema.org/draft/2020-12/links"
+          },
+          "type": "array"
+        },
+        "resourceType": {
+          "const": "Directory",
+          "default": "Directory",
+          "description": "One of the resource types defined as part of CALYPR",
+          "title": "Resource Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "child"
+      ],
+      "title": "Directory",
+      "type": "object"
+    },
     "MedicationAdministration": {
       "$id": "http://graph-fhir.io/schema/0.0.2/MedicationAdministration",
       "additionalProperties": false,
@@ -2811,27 +2924,27 @@
       "properties": {
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_isSubPotent": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``isSubPotent``."
+          "title": "Extension field for 'isSubPotent'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_occurenceDateTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``occurenceDateTime``."
+          "title": "Extension field for 'occurenceDateTime'."
         },
         "_recorded": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``recorded``."
+          "title": "Extension field for 'recorded'."
         },
         "_status": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``status``."
+          "title": "Extension field for 'status'."
         },
         "basedOn": {
           "backref": "basedOn_medication_administration",
@@ -5439,31 +5552,31 @@
       "properties": {
         "_date": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``date``."
+          "title": "Extension field for 'date'."
         },
         "_description": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``description``."
+          "title": "Extension field for 'description'."
         },
         "_docStatus": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``docStatus``."
+          "title": "Extension field for 'docStatus'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_status": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``status``."
+          "title": "Extension field for 'status'."
         },
         "_version": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``version``."
+          "title": "Extension field for 'version'."
         },
         "attester": {
           "description": "A participant who has authenticated the accuracy of the document.",
@@ -6281,7 +6394,7 @@
           "items": {
             "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension"
           },
-          "title": "Extension field for ``event``.",
+          "title": "Extension field for 'event'.",
           "type": "array"
         },
         "code": {
@@ -6375,39 +6488,39 @@
       "properties": {
         "_codeMap": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``codeMap``."
+          "title": "Extension field for 'codeMap'."
         },
         "_data": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``data``."
+          "title": "Extension field for 'data'."
         },
         "_dimensions": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``dimensions``."
+          "title": "Extension field for 'dimensions'."
         },
         "_factor": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``factor``."
+          "title": "Extension field for 'factor'."
         },
         "_interval": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``interval``."
+          "title": "Extension field for 'interval'."
         },
         "_intervalUnit": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``intervalUnit``."
+          "title": "Extension field for 'intervalUnit'."
         },
         "_lowerLimit": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``lowerLimit``."
+          "title": "Extension field for 'lowerLimit'."
         },
         "_offsets": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``offsets``."
+          "title": "Extension field for 'offsets'."
         },
         "_upperLimit": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``upperLimit``."
+          "title": "Extension field for 'upperLimit'."
         },
         "codeMap": {
           "description": "Reference to ConceptMap that defines the codes used in the data.",
@@ -6570,15 +6683,15 @@
       "properties": {
         "_description": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``description``."
+          "title": "Extension field for 'description'."
         },
         "_linkId": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``linkId``."
+          "title": "Extension field for 'linkId'."
         },
         "_name": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``name``."
+          "title": "Extension field for 'name'."
         },
         "description": {
           "description": "A succinct description of the path through the study that would be followed by a subject adhering to this comparisonGroup.",
@@ -7595,65 +7708,65 @@
       "properties": {
         "_ageString": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``ageString``."
+          "title": "Extension field for 'ageString'."
         },
         "_bornDate": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``bornDate``."
+          "title": "Extension field for 'bornDate'."
         },
         "_bornString": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``bornString``."
+          "title": "Extension field for 'bornString'."
         },
         "_date": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``date``."
+          "title": "Extension field for 'date'."
         },
         "_deceasedBoolean": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``deceasedBoolean``."
+          "title": "Extension field for 'deceasedBoolean'."
         },
         "_deceasedDate": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``deceasedDate``."
+          "title": "Extension field for 'deceasedDate'."
         },
         "_deceasedString": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``deceasedString``."
+          "title": "Extension field for 'deceasedString'."
         },
         "_estimatedAge": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``estimatedAge``."
+          "title": "Extension field for 'estimatedAge'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_instantiatesCanonical": {
           "items": {
             "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension"
           },
-          "title": "Extension field for ``instantiatesCanonical``.",
+          "title": "Extension field for 'instantiatesCanonical'.",
           "type": "array"
         },
         "_instantiatesUri": {
           "items": {
             "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension"
           },
-          "title": "Extension field for ``instantiatesUri``.",
+          "title": "Extension field for 'instantiatesUri'.",
           "type": "array"
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_name": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``name``."
+          "title": "Extension field for 'name'."
         },
         "_status": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``status``."
+          "title": "Extension field for 'status'."
         },
         "ageAge": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/Age",
@@ -8652,31 +8765,31 @@
       "properties": {
         "_citation": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``citation``."
+          "title": "Extension field for 'citation'."
         },
         "_display": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``display``."
+          "title": "Extension field for 'display'."
         },
         "_label": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``label``."
+          "title": "Extension field for 'label'."
         },
         "_publicationDate": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``publicationDate``."
+          "title": "Extension field for 'publicationDate'."
         },
         "_publicationStatus": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``publicationStatus``."
+          "title": "Extension field for 'publicationStatus'."
         },
         "_resource": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``resource``."
+          "title": "Extension field for 'resource'."
         },
         "_type": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``type``."
+          "title": "Extension field for 'type'."
         },
         "citation": {
           "description": "A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format.",
@@ -10273,51 +10386,51 @@
       "properties": {
         "_effectiveDateTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``effectiveDateTime``."
+          "title": "Extension field for 'effectiveDateTime'."
         },
         "_effectiveInstant": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``effectiveInstant``."
+          "title": "Extension field for 'effectiveInstant'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_instantiatesCanonical": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``instantiatesCanonical``."
+          "title": "Extension field for 'instantiatesCanonical'."
         },
         "_issued": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``issued``."
+          "title": "Extension field for 'issued'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_status": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``status``."
+          "title": "Extension field for 'status'."
         },
         "_valueBoolean": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueBoolean``."
+          "title": "Extension field for 'valueBoolean'."
         },
         "_valueDateTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueDateTime``."
+          "title": "Extension field for 'valueDateTime'."
         },
         "_valueInteger": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueInteger``."
+          "title": "Extension field for 'valueInteger'."
         },
         "_valueString": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueString``."
+          "title": "Extension field for 'valueString'."
         },
         "_valueTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueTime``."
+          "title": "Extension field for 'valueTime'."
         },
         "basedOn": {
           "backref": "basedOn_observation",
@@ -10947,11 +11060,11 @@
       "properties": {
         "_reason": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``reason``."
+          "title": "Extension field for 'reason'."
         },
         "_type": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``type``."
+          "title": "Extension field for 'type'."
         },
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -11195,7 +11308,7 @@
       "properties": {
         "_statusDate": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``statusDate``."
+          "title": "Extension field for 'statusDate'."
         },
         "code": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/CodeableConcept",
@@ -11304,15 +11417,15 @@
       "properties": {
         "_path": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``path``."
+          "title": "Extension field for 'path'."
         },
         "_searchParam": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``searchParam``."
+          "title": "Extension field for 'searchParam'."
         },
         "_valueSet": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueSet``."
+          "title": "Extension field for 'valueSet'."
         },
         "code": {
           "description": "The codes for the code filter. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes. If codes are specified in addition to a value set, the filter returns items matching a code in the value set or one of the specified codes.",
@@ -11632,7 +11745,7 @@
       "properties": {
         "_type": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``type``."
+          "title": "Extension field for 'type'."
         },
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -14117,83 +14230,83 @@
       "properties": {
         "_valueBase64Binary": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueBase64Binary``."
+          "title": "Extension field for 'valueBase64Binary'."
         },
         "_valueBoolean": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueBoolean``."
+          "title": "Extension field for 'valueBoolean'."
         },
         "_valueCanonical": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueCanonical``."
+          "title": "Extension field for 'valueCanonical'."
         },
         "_valueCode": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueCode``."
+          "title": "Extension field for 'valueCode'."
         },
         "_valueDate": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueDate``."
+          "title": "Extension field for 'valueDate'."
         },
         "_valueDateTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueDateTime``."
+          "title": "Extension field for 'valueDateTime'."
         },
         "_valueDecimal": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueDecimal``."
+          "title": "Extension field for 'valueDecimal'."
         },
         "_valueId": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueId``."
+          "title": "Extension field for 'valueId'."
         },
         "_valueInstant": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueInstant``."
+          "title": "Extension field for 'valueInstant'."
         },
         "_valueInteger": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueInteger``."
+          "title": "Extension field for 'valueInteger'."
         },
         "_valueInteger64": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueInteger64``."
+          "title": "Extension field for 'valueInteger64'."
         },
         "_valueMarkdown": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueMarkdown``."
+          "title": "Extension field for 'valueMarkdown'."
         },
         "_valueOid": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueOid``."
+          "title": "Extension field for 'valueOid'."
         },
         "_valuePositiveInt": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valuePositiveInt``."
+          "title": "Extension field for 'valuePositiveInt'."
         },
         "_valueString": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueString``."
+          "title": "Extension field for 'valueString'."
         },
         "_valueTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueTime``."
+          "title": "Extension field for 'valueTime'."
         },
         "_valueUnsignedInt": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueUnsignedInt``."
+          "title": "Extension field for 'valueUnsignedInt'."
         },
         "_valueUri": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueUri``."
+          "title": "Extension field for 'valueUri'."
         },
         "_valueUrl": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueUrl``."
+          "title": "Extension field for 'valueUrl'."
         },
         "_valueUuid": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueUuid``."
+          "title": "Extension field for 'valueUuid'."
         },
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -14913,39 +15026,39 @@
       "properties": {
         "_active": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``active``."
+          "title": "Extension field for 'active'."
         },
         "_birthDate": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``birthDate``."
+          "title": "Extension field for 'birthDate'."
         },
         "_deceasedBoolean": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``deceasedBoolean``."
+          "title": "Extension field for 'deceasedBoolean'."
         },
         "_deceasedDateTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``deceasedDateTime``."
+          "title": "Extension field for 'deceasedDateTime'."
         },
         "_gender": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``gender``."
+          "title": "Extension field for 'gender'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_multipleBirthBoolean": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``multipleBirthBoolean``."
+          "title": "Extension field for 'multipleBirthBoolean'."
         },
         "_multipleBirthInteger": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``multipleBirthInteger``."
+          "title": "Extension field for 'multipleBirthInteger'."
         },
         "active": {
           "description": "Whether this patient record is in active use.  Many systems use this property to mark as non-current patients, such as those that have not been seen for a period of time based on an organization's business rules.  It is often used to filter patient lists to exclude inactive patients  Deceased patients may also be marked as inactive for the same reasons, but may be active for some time after death.",
@@ -15242,31 +15355,31 @@
       "properties": {
         "_active": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``active``."
+          "title": "Extension field for 'active'."
         },
         "_birthDate": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``birthDate``."
+          "title": "Extension field for 'birthDate'."
         },
         "_deceasedBoolean": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``deceasedBoolean``."
+          "title": "Extension field for 'deceasedBoolean'."
         },
         "_deceasedDateTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``deceasedDateTime``."
+          "title": "Extension field for 'deceasedDateTime'."
         },
         "_gender": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``gender``."
+          "title": "Extension field for 'gender'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "active": {
           "element_property": true,
@@ -15479,11 +15592,11 @@
       "properties": {
         "_valueBoolean": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueBoolean``."
+          "title": "Extension field for 'valueBoolean'."
         },
         "_valueDate": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueDate``."
+          "title": "Extension field for 'valueDate'."
         },
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -15707,15 +15820,15 @@
       "properties": {
         "_authorString": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``authorString``."
+          "title": "Extension field for 'authorString'."
         },
         "_text": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``text``."
+          "title": "Extension field for 'text'."
         },
         "_time": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``time``."
+          "title": "Extension field for 'time'."
         },
         "authorReference": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/Reference",
@@ -16486,27 +16599,27 @@
       "properties": {
         "_description": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``description``."
+          "title": "Extension field for 'description'."
         },
         "_expiry": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``expiry``."
+          "title": "Extension field for 'expiry'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_instance": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``instance``."
+          "title": "Extension field for 'instance'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_status": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``status``."
+          "title": "Extension field for 'status'."
         },
         "category": {
           "binding_description": "Category or classification of substance.",
@@ -20962,43 +21075,43 @@
       "properties": {
         "_authoredOn": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``authoredOn``."
+          "title": "Extension field for 'authoredOn'."
         },
         "_doNotPerform": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``doNotPerform``."
+          "title": "Extension field for 'doNotPerform'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_intent": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``intent``."
+          "title": "Extension field for 'intent'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_priority": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``priority``."
+          "title": "Extension field for 'priority'."
         },
         "_renderedDosageInstruction": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``renderedDosageInstruction``."
+          "title": "Extension field for 'renderedDosageInstruction'."
         },
         "_reported": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``reported``."
+          "title": "Extension field for 'reported'."
         },
         "_status": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``status``."
+          "title": "Extension field for 'status'."
         },
         "_statusChanged": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``statusChanged``."
+          "title": "Extension field for 'statusChanged'."
         },
         "authoredOn": {
           "description": "The date (and perhaps time) when the prescription was initially written or authored on.",
@@ -21514,7 +21627,7 @@
       "properties": {
         "_preferred": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``preferred``."
+          "title": "Extension field for 'preferred'."
         },
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -22222,11 +22335,11 @@
       "properties": {
         "_exclude": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``exclude``."
+          "title": "Extension field for 'exclude'."
         },
         "_valueBoolean": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueBoolean``."
+          "title": "Extension field for 'valueBoolean'."
         },
         "code": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/CodeableConcept",
@@ -22521,7 +22634,7 @@
       "properties": {
         "_numberOfRepeatsAllowed": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``numberOfRepeatsAllowed``."
+          "title": "Extension field for 'numberOfRepeatsAllowed'."
         },
         "dispenseInterval": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/Duration",
@@ -22654,11 +22767,11 @@
       "properties": {
         "_end": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``end``."
+          "title": "Extension field for 'end'."
         },
         "_start": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``start``."
+          "title": "Extension field for 'start'."
         },
         "end": {
           "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.",
@@ -22856,7 +22969,7 @@
       "properties": {
         "_description": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``description``."
+          "title": "Extension field for 'description'."
         },
         "description": {
           "element_property": true,
@@ -23627,19 +23740,19 @@
       "properties": {
         "_comparator": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``comparator``."
+          "title": "Extension field for 'comparator'."
         },
         "_path": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``path``."
+          "title": "Extension field for 'path'."
         },
         "_searchParam": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``searchParam``."
+          "title": "Extension field for 'searchParam'."
         },
         "_valueDateTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueDateTime``."
+          "title": "Extension field for 'valueDateTime'."
         },
         "comparator": {
           "binding_description": "Possible comparators for the valueFilter element.",
@@ -23756,11 +23869,11 @@
       "properties": {
         "_direction": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``direction``."
+          "title": "Extension field for 'direction'."
         },
         "_path": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``path``."
+          "title": "Extension field for 'path'."
         },
         "direction": {
           "binding_description": "The possible sort directions, ascending or descending.",
@@ -24626,23 +24739,23 @@
       "properties": {
         "_description": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``description``."
+          "title": "Extension field for 'description'."
         },
         "_number": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``number``."
+          "title": "Extension field for 'number'."
         },
         "_numberOfInstances": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``numberOfInstances``."
+          "title": "Extension field for 'numberOfInstances'."
         },
         "_started": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``started``."
+          "title": "Extension field for 'started'."
         },
         "_uid": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``uid``."
+          "title": "Extension field for 'uid'."
         },
         "bodySite": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/CodeableReference",
@@ -24883,11 +24996,11 @@
       "properties": {
         "_amountString": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``amountString``."
+          "title": "Extension field for 'amountString'."
         },
         "_isDefining": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``isDefining``."
+          "title": "Extension field for 'isDefining'."
         },
         "amountQuantity": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/Quantity",
@@ -27336,27 +27449,27 @@
       "properties": {
         "_dateAsserted": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``dateAsserted``."
+          "title": "Extension field for 'dateAsserted'."
         },
         "_effectiveDateTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``effectiveDateTime``."
+          "title": "Extension field for 'effectiveDateTime'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_renderedDosageInstruction": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``renderedDosageInstruction``."
+          "title": "Extension field for 'renderedDosageInstruction'."
         },
         "_status": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``status``."
+          "title": "Extension field for 'status'."
         },
         "adherence": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/MedicationStatementAdherence",
@@ -28360,27 +28473,27 @@
       "properties": {
         "_conclusion": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``conclusion``."
+          "title": "Extension field for 'conclusion'."
         },
         "_effectiveDateTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``effectiveDateTime``."
+          "title": "Extension field for 'effectiveDateTime'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_issued": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``issued``."
+          "title": "Extension field for 'issued'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_status": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``status``."
+          "title": "Extension field for 'status'."
         },
         "basedOn": {
           "backref": "basedOn_diagnostic_report",
@@ -34567,47 +34680,47 @@
       "properties": {
         "_authoredOn": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``authoredOn``."
+          "title": "Extension field for 'authoredOn'."
         },
         "_description": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``description``."
+          "title": "Extension field for 'description'."
         },
         "_doNotPerform": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``doNotPerform``."
+          "title": "Extension field for 'doNotPerform'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_instantiatesCanonical": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``instantiatesCanonical``."
+          "title": "Extension field for 'instantiatesCanonical'."
         },
         "_instantiatesUri": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``instantiatesUri``."
+          "title": "Extension field for 'instantiatesUri'."
         },
         "_intent": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``intent``."
+          "title": "Extension field for 'intent'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_lastModified": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``lastModified``."
+          "title": "Extension field for 'lastModified'."
         },
         "_priority": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``priority``."
+          "title": "Extension field for 'priority'."
         },
         "_status": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``status``."
+          "title": "Extension field for 'status'."
         },
         "authoredOn": {
           "description": "The date and time this task was created.",
@@ -35219,7 +35332,7 @@
       "properties": {
         "_name": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``name``."
+          "title": "Extension field for 'name'."
         },
         "classifier": {
           "binding_description": "A characterization or type of the entity.",
@@ -35432,7 +35545,7 @@
       "properties": {
         "_gender": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``gender``."
+          "title": "Extension field for 'gender'."
         },
         "address": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/Address",
@@ -35591,25 +35704,25 @@
       "properties": {
         "_limit": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``limit``."
+          "title": "Extension field for 'limit'."
         },
         "_mustSupport": {
           "items": {
             "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension"
           },
-          "title": "Extension field for ``mustSupport``.",
+          "title": "Extension field for 'mustSupport'.",
           "type": "array"
         },
         "_profile": {
           "items": {
             "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension"
           },
-          "title": "Extension field for ``profile``.",
+          "title": "Extension field for 'profile'.",
           "type": "array"
         },
         "_type": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``type``."
+          "title": "Extension field for 'type'."
         },
         "codeFilter": {
           "description": "Code filters specify additional constraints on the data, specifying the value set of interest for a particular element of the data. Each code filter defines an additional constraint on the data, i.e. code filters are AND'ed, not OR'ed.",
@@ -36830,31 +36943,31 @@
       "properties": {
         "_abatementDateTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``abatementDateTime``."
+          "title": "Extension field for 'abatementDateTime'."
         },
         "_abatementString": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``abatementString``."
+          "title": "Extension field for 'abatementString'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_onsetDateTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``onsetDateTime``."
+          "title": "Extension field for 'onsetDateTime'."
         },
         "_onsetString": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``onsetString``."
+          "title": "Extension field for 'onsetString'."
         },
         "_recordedDate": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``recordedDate``."
+          "title": "Extension field for 'recordedDate'."
         },
         "abatementAge": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/Age",
@@ -37196,21 +37309,21 @@
       "properties": {
         "_allDay": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``allDay``."
+          "title": "Extension field for 'allDay'."
         },
         "_availableEndTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``availableEndTime``."
+          "title": "Extension field for 'availableEndTime'."
         },
         "_availableStartTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``availableStartTime``."
+          "title": "Extension field for 'availableStartTime'."
         },
         "_daysOfWeek": {
           "items": {
             "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension"
           },
-          "title": "Extension field for ``daysOfWeek``.",
+          "title": "Extension field for 'daysOfWeek'.",
           "type": "array"
         },
         "allDay": {
@@ -37363,11 +37476,11 @@
       "properties": {
         "_actualNumber": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``actualNumber``."
+          "title": "Extension field for 'actualNumber'."
         },
         "_targetNumber": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``targetNumber``."
+          "title": "Extension field for 'targetNumber'."
         },
         "actualGroup": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/Reference",
@@ -37549,11 +37662,11 @@
       "properties": {
         "_name": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``name``."
+          "title": "Extension field for 'name'."
         },
         "_preferred": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``preferred``."
+          "title": "Extension field for 'preferred'."
         },
         "domain": {
           "binding_description": "The use context of a substance name for example if there is a different name when used as a drug active ingredient as opposed to a food colour additive.",
@@ -39122,7 +39235,7 @@
       "properties": {
         "_collectedDateTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``collectedDateTime``."
+          "title": "Extension field for 'collectedDateTime'."
         },
         "bodySite": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/CodeableReference",
@@ -39454,7 +39567,7 @@
       "properties": {
         "_inactive": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``inactive``."
+          "title": "Extension field for 'inactive'."
         },
         "entity": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/Reference",
@@ -39556,55 +39669,55 @@
       "properties": {
         "_contentType": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``contentType``."
+          "title": "Extension field for 'contentType'."
         },
         "_creation": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``creation``."
+          "title": "Extension field for 'creation'."
         },
         "_data": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``data``."
+          "title": "Extension field for 'data'."
         },
         "_duration": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``duration``."
+          "title": "Extension field for 'duration'."
         },
         "_frames": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``frames``."
+          "title": "Extension field for 'frames'."
         },
         "_hash": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``hash``."
+          "title": "Extension field for 'hash'."
         },
         "_height": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``height``."
+          "title": "Extension field for 'height'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_pages": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``pages``."
+          "title": "Extension field for 'pages'."
         },
         "_size": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``size``."
+          "title": "Extension field for 'size'."
         },
         "_title": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``title``."
+          "title": "Extension field for 'title'."
         },
         "_url": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``url``."
+          "title": "Extension field for 'url'."
         },
         "_width": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``width``."
+          "title": "Extension field for 'width'."
         },
         "contentType": {
           "binding_description": "BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)",
@@ -39759,7 +39872,7 @@
       "properties": {
         "_actual": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``actual``."
+          "title": "Extension field for 'actual'."
         },
         "actual": {
           "description": "An indication of whether or not the date is a known date when the state changed or will change. A value of true indicates a known date. A value of false indicates an estimated date.",
@@ -40494,7 +40607,7 @@
       "properties": {
         "_isActive": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``isActive``."
+          "title": "Extension field for 'isActive'."
         },
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -40609,7 +40722,7 @@
       "properties": {
         "_date": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``date``."
+          "title": "Extension field for 'date'."
         },
         "authority": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/CodeableConcept",
@@ -40702,11 +40815,11 @@
       "properties": {
         "_currency": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``currency``."
+          "title": "Extension field for 'currency'."
         },
         "_value": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``value``."
+          "title": "Extension field for 'value'."
         },
         "currency": {
           "binding_description": "A code indicating the currency, taken from ISO 4217.",
@@ -40779,7 +40892,7 @@
       "properties": {
         "_allowedBoolean": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``allowedBoolean``."
+          "title": "Extension field for 'allowedBoolean'."
         },
         "allowedBoolean": {
           "description": "True if the prescriber allows a different drug to be dispensed from what was prescribed.",
@@ -40985,15 +41098,15 @@
       "properties": {
         "_contributedToDeath": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``contributedToDeath``."
+          "title": "Extension field for 'contributedToDeath'."
         },
         "_performedDateTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``performedDateTime``."
+          "title": "Extension field for 'performedDateTime'."
         },
         "_performedString": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``performedString``."
+          "title": "Extension field for 'performedString'."
         },
         "code": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/CodeableConcept",
@@ -41276,7 +41389,7 @@
       "properties": {
         "_repetitions": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``repetitions``."
+          "title": "Extension field for 'repetitions'."
         },
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -41645,11 +41758,11 @@
       "properties": {
         "_contributedToDeath": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``contributedToDeath``."
+          "title": "Extension field for 'contributedToDeath'."
         },
         "_onsetString": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``onsetString``."
+          "title": "Extension field for 'onsetString'."
         },
         "code": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/CodeableConcept",
@@ -41787,15 +41900,15 @@
       "properties": {
         "_number": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``number``."
+          "title": "Extension field for 'number'."
         },
         "_title": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``title``."
+          "title": "Extension field for 'title'."
         },
         "_uid": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``uid``."
+          "title": "Extension field for 'uid'."
         },
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -41899,11 +42012,11 @@
       "properties": {
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "fhir_comments": {
           "anyOf": [
@@ -42061,15 +42174,15 @@
       "properties": {
         "_active": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``active``."
+          "title": "Extension field for 'active'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "active": {
           "description": " Whether this practitioner role record is in active use. Some systems may use this property to mark non-active practitioners, such as those that are not currently employed.",
@@ -42425,7 +42538,7 @@
       "properties": {
         "_text": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``text``."
+          "title": "Extension field for 'text'."
         },
         "age": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/Range",
@@ -42550,7 +42663,7 @@
       "properties": {
         "_name": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``name``."
+          "title": "Extension field for 'name'."
         },
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -46024,45 +46137,45 @@
       "properties": {
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_instantiatesCanonical": {
           "items": {
             "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension"
           },
-          "title": "Extension field for ``instantiatesCanonical``.",
+          "title": "Extension field for 'instantiatesCanonical'.",
           "type": "array"
         },
         "_instantiatesUri": {
           "items": {
             "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension"
           },
-          "title": "Extension field for ``instantiatesUri``.",
+          "title": "Extension field for 'instantiatesUri'.",
           "type": "array"
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_occurrenceDateTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``occurrenceDateTime``."
+          "title": "Extension field for 'occurrenceDateTime'."
         },
         "_occurrenceString": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``occurrenceString``."
+          "title": "Extension field for 'occurrenceString'."
         },
         "_recorded": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``recorded``."
+          "title": "Extension field for 'recorded'."
         },
         "_reportedBoolean": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``reportedBoolean``."
+          "title": "Extension field for 'reportedBoolean'."
         },
         "_status": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``status``."
+          "title": "Extension field for 'status'."
         },
         "basedOn": {
           "backref": "basedOn_procedure",
@@ -46685,7 +46798,7 @@
       "properties": {
         "_value": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``value``."
+          "title": "Extension field for 'value'."
         },
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -46768,11 +46881,11 @@
       "properties": {
         "_valueCanonical": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueCanonical``."
+          "title": "Extension field for 'valueCanonical'."
         },
         "_valueUri": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueUri``."
+          "title": "Extension field for 'valueUri'."
         },
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -46862,11 +46975,11 @@
       "properties": {
         "_description": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``description``."
+          "title": "Extension field for 'description'."
         },
         "_name": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``name``."
+          "title": "Extension field for 'name'."
         },
         "description": {
           "description": "Free text description of the objective of the study.  This is what the study is trying to achieve rather than how it is going to achieve it (see ResearchStudy.description).",
@@ -47202,11 +47315,11 @@
       "properties": {
         "_endDate": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``endDate``."
+          "title": "Extension field for 'endDate'."
         },
         "_startDate": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``startDate``."
+          "title": "Extension field for 'startDate'."
         },
         "endDate": {
           "description": "The date when the state ended.",
@@ -47411,30 +47524,30 @@
       "properties": {
         "_active": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``active``."
+          "title": "Extension field for 'active'."
         },
         "_alias": {
           "items": {
             "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension"
           },
-          "title": "Extension field for ``alias``.",
+          "title": "Extension field for 'alias'.",
           "type": "array"
         },
         "_description": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``description``."
+          "title": "Extension field for 'description'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_name": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``name``."
+          "title": "Extension field for 'name'."
         },
         "active": {
           "element_property": true,
@@ -47631,23 +47744,23 @@
       "properties": {
         "_code": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``code``."
+          "title": "Extension field for 'code'."
         },
         "_comparator": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``comparator``."
+          "title": "Extension field for 'comparator'."
         },
         "_system": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``system``."
+          "title": "Extension field for 'system'."
         },
         "_unit": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``unit``."
+          "title": "Extension field for 'unit'."
         },
         "_value": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``value``."
+          "title": "Extension field for 'value'."
         },
         "code": {
           "description": "A computer processable form of the unit in some unit representation system.",
@@ -49341,31 +49454,31 @@
       "properties": {
         "_description": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``description``."
+          "title": "Extension field for 'description'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_numberOfInstances": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``numberOfInstances``."
+          "title": "Extension field for 'numberOfInstances'."
         },
         "_numberOfSeries": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``numberOfSeries``."
+          "title": "Extension field for 'numberOfSeries'."
         },
         "_started": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``started``."
+          "title": "Extension field for 'started'."
         },
         "_status": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``status``."
+          "title": "Extension field for 'status'."
         },
         "basedOn": {
           "backref": "basedOn_imaging_study",
@@ -49715,19 +49828,19 @@
       "properties": {
         "_active": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``active``."
+          "title": "Extension field for 'active'."
         },
         "_description": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``description``."
+          "title": "Extension field for 'description'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "active": {
           "description": "Whether this body site is in active use.",
@@ -49908,23 +50021,23 @@
       "properties": {
         "_valueBoolean": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueBoolean``."
+          "title": "Extension field for 'valueBoolean'."
         },
         "_valueDateTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueDateTime``."
+          "title": "Extension field for 'valueDateTime'."
         },
         "_valueInteger": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueInteger``."
+          "title": "Extension field for 'valueInteger'."
         },
         "_valueString": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueString``."
+          "title": "Extension field for 'valueString'."
         },
         "_valueTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueTime``."
+          "title": "Extension field for 'valueTime'."
         },
         "code": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/CodeableConcept",
@@ -50147,42 +50260,42 @@
       "properties": {
         "_city": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``city``."
+          "title": "Extension field for 'city'."
         },
         "_country": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``country``."
+          "title": "Extension field for 'country'."
         },
         "_district": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``district``."
+          "title": "Extension field for 'district'."
         },
         "_line": {
           "items": {
             "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension"
           },
-          "title": "Extension field for ``line``.",
+          "title": "Extension field for 'line'.",
           "type": "array"
         },
         "_postalCode": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``postalCode``."
+          "title": "Extension field for 'postalCode'."
         },
         "_state": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``state``."
+          "title": "Extension field for 'state'."
         },
         "_text": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``text``."
+          "title": "Extension field for 'text'."
         },
         "_type": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``type``."
+          "title": "Extension field for 'type'."
         },
         "_use": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``use``."
+          "title": "Extension field for 'use'."
         },
         "city": {
           "description": "The name of the city, town, suburb, village or other community or delivery center.",
@@ -50359,7 +50472,7 @@
       "properties": {
         "_representation": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``representation``."
+          "title": "Extension field for 'representation'."
         },
         "document": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/Reference",
@@ -50461,23 +50574,23 @@
       "properties": {
         "_description": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``description``."
+          "title": "Extension field for 'description'."
         },
         "_expression": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``expression``."
+          "title": "Extension field for 'expression'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_name": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``name``."
+          "title": "Extension field for 'name'."
         },
         "_reference": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``reference``."
+          "title": "Extension field for 'reference'."
         },
         "description": {
           "description": "A brief, natural language description of the condition that effectively communicates the intended semantics.",
@@ -50697,15 +50810,15 @@
       "properties": {
         "_display": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``display``."
+          "title": "Extension field for 'display'."
         },
         "_reference": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``reference``."
+          "title": "Extension field for 'reference'."
         },
         "_type": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``type``."
+          "title": "Extension field for 'type'."
         },
         "display": {
           "description": "Plain text narrative that identifies the resource in addition to the resource reference.",
@@ -50794,15 +50907,15 @@
       "properties": {
         "_amountString": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``amountString``."
+          "title": "Extension field for 'amountString'."
         },
         "_molecularFormula": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``molecularFormula``."
+          "title": "Extension field for 'molecularFormula'."
         },
         "_name": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``name``."
+          "title": "Extension field for 'name'."
         },
         "amountQuantity": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/Quantity",
@@ -51005,23 +51118,23 @@
       "properties": {
         "_code": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``code``."
+          "title": "Extension field for 'code'."
         },
         "_comparator": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``comparator``."
+          "title": "Extension field for 'comparator'."
         },
         "_system": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``system``."
+          "title": "Extension field for 'system'."
         },
         "_unit": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``unit``."
+          "title": "Extension field for 'unit'."
         },
         "_value": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``value``."
+          "title": "Extension field for 'value'."
         },
         "code": {
           "description": "A computer processable form of the unit in some unit representation system.",
@@ -51124,23 +51237,23 @@
       "properties": {
         "_code": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``code``."
+          "title": "Extension field for 'code'."
         },
         "_comparator": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``comparator``."
+          "title": "Extension field for 'comparator'."
         },
         "_system": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``system``."
+          "title": "Extension field for 'system'."
         },
         "_unit": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``unit``."
+          "title": "Extension field for 'unit'."
         },
         "_value": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``value``."
+          "title": "Extension field for 'value'."
         },
         "code": {
           "description": "A computer processable form of the unit in some unit representation system.",
@@ -52086,7 +52199,7 @@
       "properties": {
         "_time": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``time``."
+          "title": "Extension field for 'time'."
         },
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -52302,11 +52415,11 @@
       "properties": {
         "_div": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``div``."
+          "title": "Extension field for 'div'."
         },
         "_status": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``status``."
+          "title": "Extension field for 'status'."
         },
         "div": {
           "description": "The actual narrative content, a stripped down version of XHTML.",
@@ -52389,7 +52502,7 @@
       "properties": {
         "_description": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``description``."
+          "title": "Extension field for 'description'."
         },
         "description": {
           "description": "Description of the feature of the specimen.",
@@ -52555,6 +52668,31 @@
       "additionalProperties": false,
       "description": "Investigation to increase healthcare-related patient-independent knowledge. A scientific study of nature that sometimes includes processes involved in health and disease. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future. [See https://hl7.org/fhir/R5/ResearchStudy.html]",
       "links": [
+        {
+          "href": "{id}",
+          "rel": "rootDir_Directory",
+          "targetHints": {
+            "backref": [],
+            "direction": [
+              "outbound"
+            ],
+            "multiplicity": [
+              "has_one"
+            ],
+            "regex_match": [
+              "Directory/*"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "http://graph-fhir.io/schema/0.0.2/Directory"
+          },
+          "templatePointers": {
+            "id": "/rootDir/reference"
+          },
+          "templateRequired": [
+            "id"
+          ]
+        },
         {
           "href": "{id}",
           "rel": "partOf",
@@ -54235,43 +54373,43 @@
       "properties": {
         "_date": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``date``."
+          "title": "Extension field for 'date'."
         },
         "_description": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``description``."
+          "title": "Extension field for 'description'."
         },
         "_descriptionSummary": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``descriptionSummary``."
+          "title": "Extension field for 'descriptionSummary'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_name": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``name``."
+          "title": "Extension field for 'name'."
         },
         "_status": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``status``."
+          "title": "Extension field for 'status'."
         },
         "_title": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``title``."
+          "title": "Extension field for 'title'."
         },
         "_url": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``url``."
+          "title": "Extension field for 'url'."
         },
         "_version": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``version``."
+          "title": "Extension field for 'version'."
         },
         "associatedParty": {
           "element_property": true,
@@ -54389,6 +54527,14 @@
           },
           "title": "Drugs, devices, etc. under study",
           "type": "array"
+        },
+        "rootDir": {
+          "$ref": "http://graph-fhir.io/schema/0.0.2/Reference",
+          "backref": "rootdir_research_study",
+          "enum_reference_types": [
+            "Directory"
+          ],
+          "type": "object"
         },
         "id": {
           "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
@@ -54700,15 +54846,15 @@
       "properties": {
         "_path": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``path``."
+          "title": "Extension field for 'path'."
         },
         "_searchParam": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``searchParam``."
+          "title": "Extension field for 'searchParam'."
         },
         "_valueDateTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueDateTime``."
+          "title": "Extension field for 'valueDateTime'."
         },
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -55022,19 +55168,19 @@
       "properties": {
         "_data": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``data``."
+          "title": "Extension field for 'data'."
         },
         "_sigFormat": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``sigFormat``."
+          "title": "Extension field for 'sigFormat'."
         },
         "_targetFormat": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``targetFormat``."
+          "title": "Extension field for 'targetFormat'."
         },
         "_when": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``when``."
+          "title": "Extension field for 'when'."
         },
         "data": {
           "description": "The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.",
@@ -55171,19 +55317,19 @@
       "properties": {
         "_asNeeded": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``asNeeded``."
+          "title": "Extension field for 'asNeeded'."
         },
         "_patientInstruction": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``patientInstruction``."
+          "title": "Extension field for 'patientInstruction'."
         },
         "_sequence": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``sequence``."
+          "title": "Extension field for 'sequence'."
         },
         "_text": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``text``."
+          "title": "Extension field for 'text'."
         },
         "additionalInstruction": {
           "binding_description": "A coded concept identifying additional instructions such as \"take with water\" or \"avoid operating heavy machinery\".",
@@ -55360,7 +55506,7 @@
       "properties": {
         "_preferred": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``preferred``."
+          "title": "Extension field for 'preferred'."
         },
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -55807,23 +55953,23 @@
       "properties": {
         "_combined": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``combined``."
+          "title": "Extension field for 'combined'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_receivedTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``receivedTime``."
+          "title": "Extension field for 'receivedTime'."
         },
         "_status": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``status``."
+          "title": "Extension field for 'status'."
         },
         "accessionIdentifier": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/Identifier",
@@ -56103,7 +56249,7 @@
       "properties": {
         "_text": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``text``."
+          "title": "Extension field for 'text'."
         },
         "dose": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/Quantity",
@@ -59248,36 +59394,36 @@
       "properties": {
         "_family": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``family``."
+          "title": "Extension field for 'family'."
         },
         "_given": {
           "items": {
             "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension"
           },
-          "title": "Extension field for ``given``.",
+          "title": "Extension field for 'given'.",
           "type": "array"
         },
         "_prefix": {
           "items": {
             "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension"
           },
-          "title": "Extension field for ``prefix``.",
+          "title": "Extension field for 'prefix'.",
           "type": "array"
         },
         "_suffix": {
           "items": {
             "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension"
           },
-          "title": "Extension field for ``suffix``.",
+          "title": "Extension field for 'suffix'.",
           "type": "array"
         },
         "_text": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``text``."
+          "title": "Extension field for 'text'."
         },
         "_use": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``use``."
+          "title": "Extension field for 'use'."
         },
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -59405,7 +59551,7 @@
       "properties": {
         "_description": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``description``."
+          "title": "Extension field for 'description'."
         },
         "description": {
           "element_property": true,
@@ -59534,23 +59680,23 @@
       "properties": {
         "_name": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``name``."
+          "title": "Extension field for 'name'."
         },
         "_subscriptionTopic": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``subscriptionTopic``."
+          "title": "Extension field for 'subscriptionTopic'."
         },
         "_timingDate": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``timingDate``."
+          "title": "Extension field for 'timingDate'."
         },
         "_timingDateTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``timingDateTime``."
+          "title": "Extension field for 'timingDateTime'."
         },
         "_type": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``type``."
+          "title": "Extension field for 'type'."
         },
         "code": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/CodeableConcept",
@@ -59706,22 +59852,22 @@
       "properties": {
         "_lastUpdated": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``lastUpdated``."
+          "title": "Extension field for 'lastUpdated'."
         },
         "_profile": {
           "items": {
             "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension"
           },
-          "title": "Extension field for ``profile``.",
+          "title": "Extension field for 'profile'.",
           "type": "array"
         },
         "_source": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``source``."
+          "title": "Extension field for 'source'."
         },
         "_versionId": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``versionId``."
+          "title": "Extension field for 'versionId'."
         },
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -59841,11 +59987,11 @@
       "properties": {
         "_description": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``description``."
+          "title": "Extension field for 'description'."
         },
         "_name": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``name``."
+          "title": "Extension field for 'name'."
         },
         "description": {
           "element_property": true,
@@ -59974,7 +60120,7 @@
       "properties": {
         "_comment": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``comment``."
+          "title": "Extension field for 'comment'."
         },
         "comment": {
           "description": "A comment about the image or data. Typically, this is used to provide an explanation for why the image or data is included, or to draw the viewer's attention to important features.",
@@ -60088,15 +60234,15 @@
       "properties": {
         "_system": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``system``."
+          "title": "Extension field for 'system'."
         },
         "_use": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``use``."
+          "title": "Extension field for 'use'."
         },
         "_value": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``value``."
+          "title": "Extension field for 'value'."
         },
         "assigner": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/Reference",
@@ -61959,35 +62105,35 @@
       "properties": {
         "_active": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``active``."
+          "title": "Extension field for 'active'."
         },
         "_description": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``description``."
+          "title": "Extension field for 'description'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_membership": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``membership``."
+          "title": "Extension field for 'membership'."
         },
         "_name": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``name``."
+          "title": "Extension field for 'name'."
         },
         "_quantity": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``quantity``."
+          "title": "Extension field for 'quantity'."
         },
         "_type": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``type``."
+          "title": "Extension field for 'type'."
         },
         "active": {
           "description": "Indicates whether the record for the group is available for use or is merely being retained for historical purposes.",
@@ -64594,83 +64740,83 @@
       "properties": {
         "_valueBase64Binary": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueBase64Binary``."
+          "title": "Extension field for 'valueBase64Binary'."
         },
         "_valueBoolean": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueBoolean``."
+          "title": "Extension field for 'valueBoolean'."
         },
         "_valueCanonical": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueCanonical``."
+          "title": "Extension field for 'valueCanonical'."
         },
         "_valueCode": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueCode``."
+          "title": "Extension field for 'valueCode'."
         },
         "_valueDate": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueDate``."
+          "title": "Extension field for 'valueDate'."
         },
         "_valueDateTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueDateTime``."
+          "title": "Extension field for 'valueDateTime'."
         },
         "_valueDecimal": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueDecimal``."
+          "title": "Extension field for 'valueDecimal'."
         },
         "_valueId": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueId``."
+          "title": "Extension field for 'valueId'."
         },
         "_valueInstant": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueInstant``."
+          "title": "Extension field for 'valueInstant'."
         },
         "_valueInteger": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueInteger``."
+          "title": "Extension field for 'valueInteger'."
         },
         "_valueInteger64": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueInteger64``."
+          "title": "Extension field for 'valueInteger64'."
         },
         "_valueMarkdown": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueMarkdown``."
+          "title": "Extension field for 'valueMarkdown'."
         },
         "_valueOid": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueOid``."
+          "title": "Extension field for 'valueOid'."
         },
         "_valuePositiveInt": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valuePositiveInt``."
+          "title": "Extension field for 'valuePositiveInt'."
         },
         "_valueString": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueString``."
+          "title": "Extension field for 'valueString'."
         },
         "_valueTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueTime``."
+          "title": "Extension field for 'valueTime'."
         },
         "_valueUnsignedInt": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueUnsignedInt``."
+          "title": "Extension field for 'valueUnsignedInt'."
         },
         "_valueUri": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueUri``."
+          "title": "Extension field for 'valueUri'."
         },
         "_valueUrl": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueUrl``."
+          "title": "Extension field for 'valueUrl'."
         },
         "_valueUuid": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``valueUuid``."
+          "title": "Extension field for 'valueUuid'."
         },
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -65253,15 +65399,15 @@
       "properties": {
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_status": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``status``."
+          "title": "Extension field for 'status'."
         },
         "batch": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/MedicationBatch",
@@ -65454,11 +65600,11 @@
       "properties": {
         "_expirationDate": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``expirationDate``."
+          "title": "Extension field for 'expirationDate'."
         },
         "_lotNumber": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``lotNumber``."
+          "title": "Extension field for 'lotNumber'."
         },
         "expirationDate": {
           "description": "When this specific batch of product will expire.",
@@ -65702,23 +65848,23 @@
       "properties": {
         "_actualComparisonGroup": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``actualComparisonGroup``."
+          "title": "Extension field for 'actualComparisonGroup'."
         },
         "_assignedComparisonGroup": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``assignedComparisonGroup``."
+          "title": "Extension field for 'assignedComparisonGroup'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_status": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``status``."
+          "title": "Extension field for 'status'."
         },
         "actualComparisonGroup": {
           "description": "The name of the arm in the study the subject actually followed as part of this study.",
@@ -65929,7 +66075,7 @@
       "properties": {
         "_text": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``text``."
+          "title": "Extension field for 'text'."
         },
         "coding": {
           "description": "A reference to a code defined by a terminology system.",
@@ -66003,19 +66149,19 @@
       "properties": {
         "_rank": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``rank``."
+          "title": "Extension field for 'rank'."
         },
         "_system": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``system``."
+          "title": "Extension field for 'system'."
         },
         "_use": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``use``."
+          "title": "Extension field for 'use'."
         },
         "_value": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``value``."
+          "title": "Extension field for 'value'."
         },
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -66130,23 +66276,23 @@
       "properties": {
         "_code": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``code``."
+          "title": "Extension field for 'code'."
         },
         "_comparator": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``comparator``."
+          "title": "Extension field for 'comparator'."
         },
         "_system": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``system``."
+          "title": "Extension field for 'system'."
         },
         "_unit": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``unit``."
+          "title": "Extension field for 'unit'."
         },
         "_value": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``value``."
+          "title": "Extension field for 'value'."
         },
         "code": {
           "description": "A computer processable form of the unit in some unit representation system.",
@@ -66556,19 +66702,19 @@
       "properties": {
         "_description": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``description``."
+          "title": "Extension field for 'description'."
         },
         "_implicitRules": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``implicitRules``."
+          "title": "Extension field for 'implicitRules'."
         },
         "_language": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``language``."
+          "title": "Extension field for 'language'."
         },
         "_version": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``version``."
+          "title": "Extension field for 'version'."
         },
         "characterization": {
           "element_property": true,
@@ -67040,23 +67186,23 @@
       "properties": {
         "_code": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``code``."
+          "title": "Extension field for 'code'."
         },
         "_comparator": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``comparator``."
+          "title": "Extension field for 'comparator'."
         },
         "_system": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``system``."
+          "title": "Extension field for 'system'."
         },
         "_unit": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``unit``."
+          "title": "Extension field for 'unit'."
         },
         "_value": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``value``."
+          "title": "Extension field for 'value'."
         },
         "code": {
           "description": "A computer processable form of the unit in some unit representation system.",
@@ -67187,11 +67333,11 @@
       "properties": {
         "_description": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``description``."
+          "title": "Extension field for 'description'."
         },
         "_timeDateTime": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``timeDateTime``."
+          "title": "Extension field for 'timeDateTime'."
         },
         "additive": {
           "backref": "additive_specimen_processing",
@@ -67359,11 +67505,11 @@
       "properties": {
         "_molecularFormula": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``molecularFormula``."
+          "title": "Extension field for 'molecularFormula'."
         },
         "_molecularFormulaByMoiety": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``molecularFormulaByMoiety``."
+          "title": "Extension field for 'molecularFormulaByMoiety'."
         },
         "extension": {
           "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -67567,31 +67713,31 @@
       "properties": {
         "_documentation": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``documentation``."
+          "title": "Extension field for 'documentation'."
         },
         "_max": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``max``."
+          "title": "Extension field for 'max'."
         },
         "_min": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``min``."
+          "title": "Extension field for 'min'."
         },
         "_name": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``name``."
+          "title": "Extension field for 'name'."
         },
         "_profile": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``profile``."
+          "title": "Extension field for 'profile'."
         },
         "_type": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``type``."
+          "title": "Extension field for 'type'."
         },
         "_use": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``use``."
+          "title": "Extension field for 'use'."
         },
         "documentation": {
           "description": "A brief discussion of what the parameter is for and how it is used by the module.",
@@ -67714,23 +67860,23 @@
       "properties": {
         "_code": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``code``."
+          "title": "Extension field for 'code'."
         },
         "_display": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``display``."
+          "title": "Extension field for 'display'."
         },
         "_system": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``system``."
+          "title": "Extension field for 'system'."
         },
         "_userSelected": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``userSelected``."
+          "title": "Extension field for 'userSelected'."
         },
         "_version": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``version``."
+          "title": "Extension field for 'version'."
         },
         "code": {
           "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
@@ -67822,67 +67968,67 @@
       "properties": {
         "_count": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``count``."
+          "title": "Extension field for 'count'."
         },
         "_countMax": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``countMax``."
+          "title": "Extension field for 'countMax'."
         },
         "_dayOfWeek": {
           "items": {
             "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension"
           },
-          "title": "Extension field for ``dayOfWeek``.",
+          "title": "Extension field for 'dayOfWeek'.",
           "type": "array"
         },
         "_duration": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``duration``."
+          "title": "Extension field for 'duration'."
         },
         "_durationMax": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``durationMax``."
+          "title": "Extension field for 'durationMax'."
         },
         "_durationUnit": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``durationUnit``."
+          "title": "Extension field for 'durationUnit'."
         },
         "_frequency": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``frequency``."
+          "title": "Extension field for 'frequency'."
         },
         "_frequencyMax": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``frequencyMax``."
+          "title": "Extension field for 'frequencyMax'."
         },
         "_offset": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``offset``."
+          "title": "Extension field for 'offset'."
         },
         "_period": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``period``."
+          "title": "Extension field for 'period'."
         },
         "_periodMax": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``periodMax``."
+          "title": "Extension field for 'periodMax'."
         },
         "_periodUnit": {
           "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension",
-          "title": "Extension field for ``periodUnit``."
+          "title": "Extension field for 'periodUnit'."
         },
         "_timeOfDay": {
           "items": {
             "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension"
           },
-          "title": "Extension field for ``timeOfDay``.",
+          "title": "Extension field for 'timeOfDay'.",
           "type": "array"
         },
         "_when": {
           "items": {
             "$ref": "http://graph-fhir.io/schema/0.0.2/FHIRPrimitiveExtension"
           },
-          "title": "Extension field for ``when``.",
+          "title": "Extension field for 'when'.",
           "type": "array"
         },
         "boundsDuration": {
